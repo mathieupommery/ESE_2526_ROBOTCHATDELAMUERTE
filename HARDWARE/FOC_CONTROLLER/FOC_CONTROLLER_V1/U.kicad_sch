@@ -1003,6 +1003,12 @@
 		(uuid "a1964d3a-07ff-46cb-8745-982ec970a3fe")
 	)
 	(junction
+		(at 168.91 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d24a4b71-e28b-4551-b2e3-0bcace41007b")
+	)
+	(junction
 		(at 104.14 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1296,7 +1302,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 63.5) (xy 168.91 76.2)
+			(xy 168.91 63.5) (xy 168.91 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1323,6 +1329,16 @@
 			(type default)
 		)
 		(uuid "8fb7974d-75ae-40db-ba9c-55435a7b6aed")
+	)
+	(wire
+		(pts
+			(xy 168.91 68.58) (xy 168.91 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "921de393-d238-411a-a86b-fe2f18c19f68")
 	)
 	(wire
 		(pts
@@ -1403,6 +1419,16 @@
 			(type default)
 		)
 		(uuid "c172262a-d427-44cf-aebb-e3e5d4db05ba")
+	)
+	(wire
+		(pts
+			(xy 168.91 68.58) (xy 170.18 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2e13573-fb41-4d2f-be84-7ced869bcbbc")
 	)
 	(wire
 		(pts
@@ -1660,6 +1686,17 @@
 		)
 		(uuid "7a7d5823-3bfd-4797-9669-e2e54a351a55")
 	)
+	(hierarchical_label "SHUNTAFTER+"
+		(shape input)
+		(at 175.26 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "87bfa4b8-24cd-4d89-b80b-c2c6811cde9a")
+	)
 	(hierarchical_label "OPN"
 		(shape input)
 		(at 140.97 127 0)
@@ -1764,6 +1801,82 @@
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
 					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 172.72 68.58 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0309ab34-a81c-4588-bd68-4e0394b113c6")
+		(property "Reference" "R43"
+			(at 172.72 63.5 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "3k"
+			(at 172.72 66.04 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+			(at 172.72 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 172.72 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9a39ba72-2645-4255-8856-16e0cd96fd5b")
+		)
+		(pin "2"
+			(uuid "71851bb1-0e88-4612-9457-5452408fadb9")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5"
+					(reference "R44")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/f72fcd55-797d-4de7-b16c-a295f170430e"
+					(reference "R43")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
+					(reference "R45")
 					(unit 1)
 				)
 			)
