@@ -2587,7 +2587,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 137.16) (xy 110.49 139.7)
+			(xy 110.49 138.43) (xy 110.49 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3227,7 +3227,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 137.16) (xy 107.95 139.7)
+			(xy 107.95 138.43) (xy 107.95 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3307,7 +3307,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 137.16) (xy 105.41 139.7)
+			(xy 105.41 138.43) (xy 105.41 140.97)
 		)
 		(stroke
 			(width 0)
@@ -3686,7 +3686,7 @@
 		(uuid "83292ce5-c455-4d02-9147-04665ebb75b8")
 	)
 	(label "HALL_CS"
-		(at 105.41 137.16 90)
+		(at 105.41 138.43 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3826,7 +3826,7 @@
 		(uuid "b4cc46c5-2ecb-48b1-ab55-d43b4006a6f7")
 	)
 	(label "HALL_DATA"
-		(at 107.95 137.16 90)
+		(at 107.95 138.43 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3926,7 +3926,7 @@
 		(uuid "d650c8fc-7727-4950-aefd-d6866eafd5f6")
 	)
 	(label "HALL_CLK"
-		(at 110.49 137.16 90)
+		(at 110.49 138.43 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6799,8 +6799,8 @@
 		)
 	)
 	(sheet
-		(at 88.9 139.7)
-		(size 48.26 40.64)
+		(at 88.9 140.97)
+		(size 48.26 39.37)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -6815,7 +6815,7 @@
 		)
 		(uuid "41cc3461-edb0-4878-ba60-800a93126ac5")
 		(property "Sheetname" "HALL"
-			(at 88.9 138.9884 0)
+			(at 88.9 140.2584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6833,7 +6833,7 @@
 			)
 		)
 		(pin "CSQ" input
-			(at 105.41 139.7 90)
+			(at 105.41 140.97 90)
 			(uuid "d3433542-3d7d-45de-b034-ca696e4917eb")
 			(effects
 				(font
@@ -6843,7 +6843,7 @@
 			)
 		)
 		(pin "DATA" input
-			(at 107.95 139.7 90)
+			(at 107.95 140.97 90)
 			(uuid "afc67178-13c7-4934-bb8a-98e7278ba76c")
 			(effects
 				(font
@@ -6883,7 +6883,7 @@
 			)
 		)
 		(pin "SCK" input
-			(at 110.49 139.7 90)
+			(at 110.49 140.97 90)
 			(uuid "33392302-b6b3-43c9-a511-55d1f1bf30fb")
 			(effects
 				(font

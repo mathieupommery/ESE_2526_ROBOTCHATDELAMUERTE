@@ -2233,7 +2233,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "544b78e7-c941-4cf7-ad93-8157d0d04484")
-		(property "Reference" "D"
+		(property "Reference" "D2"
 			(at 109.22 33.02 0)
 			(effects
 				(font
@@ -2304,6 +2304,10 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5"
 					(reference "D4")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/f72fcd55-797d-4de7-b16c-a295f170430e"
+					(reference "D2")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
@@ -2775,6 +2779,80 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 180.34 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8fd66768-10b9-4619-9570-e125aff1c1cf")
+		(property "Reference" "#PWR034"
+			(at 180.34 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 180.34 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "45fac9ff-3655-4cdf-9b21-99f2da85a8b3")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5"
+					(reference "#PWR035")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/f72fcd55-797d-4de7-b16c-a295f170430e"
+					(reference "#PWR034")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Diode:1N4148WT")
 		(at 109.22 59.69 0)
 		(unit 1)
@@ -3030,7 +3108,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e75e4b94-0af1-43fa-9a30-37a35a367ee3")
-		(property "Reference" "Q"
+		(property "Reference" "Q1"
 			(at 157.48 33.02 0)
 			(effects
 				(font
@@ -3046,7 +3124,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DMT6018LDR7"
+		(property "Footprint" "samacsys:DMT6018LDR7"
 			(at 165.1 144.45 0)
 			(effects
 				(font
@@ -3169,6 +3247,10 @@
 					(reference "Q2")
 					(unit 1)
 				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/f72fcd55-797d-4de7-b16c-a295f170430e"
+					(reference "Q1")
+					(unit 1)
+				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
 					(reference "Q3")
 					(unit 1)
@@ -3260,7 +3342,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ef862345-55fc-42d2-9a74-718d35969fa9")
-		(property "Reference" "#PWR"
+		(property "Reference" "#PWR0101"
 			(at 104.14 132.08 0)
 			(effects
 				(font
@@ -3311,6 +3393,10 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5"
 					(reference "#PWR021")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/f72fcd55-797d-4de7-b16c-a295f170430e"
+					(reference "#PWR0101")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/fc458950-2711-4a11-802f-b3226dc264b9"
