@@ -940,16 +940,16 @@
 		)
 	)
 	(junction
+		(at 176.53 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6d5c2588-5900-441d-a3eb-a28c44ece622")
+	)
+	(junction
 		(at 137.16 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7a9cc181-f4da-4a7a-8844-8d4cb251fb64")
-	)
-	(junction
-		(at 176.53 53.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8e041a1b-4c06-4e24-b0f3-f4cfd2ffad22")
 	)
 	(no_connect
 		(at 127 72.39)
@@ -958,10 +958,6 @@
 	(no_connect
 		(at 157.48 80.01)
 		(uuid "71294379-ee45-49d8-9a18-938712f7448b")
-	)
-	(no_connect
-		(at 137.16 57.15)
-		(uuid "b4cc5bfa-1fe2-4f63-9246-2afd7da8434b")
 	)
 	(no_connect
 		(at 127 77.47)
@@ -988,16 +984,6 @@
 			(type default)
 		)
 		(uuid "10e441ad-daa2-412e-9b0c-bb55a9ccb332")
-	)
-	(wire
-		(pts
-			(xy 147.32 53.34) (xy 176.53 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17e55140-12dd-4fa4-8a40-5a50f7c3cfd7")
 	)
 	(wire
 		(pts
@@ -1032,6 +1018,16 @@
 	(wire
 		(pts
 			(xy 176.53 53.34) (xy 181.61 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "930bac72-3bb4-442c-9790-1ef24e645080")
+	)
+	(wire
+		(pts
+			(xy 147.32 53.34) (xy 176.53 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1341,6 +1337,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 176.53 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "340679ad-78f0-43ec-8718-5e3645b5c35f")
+		(property "Reference" "C22"
+			(at 179.07 54.6162 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 179.07 57.1562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 176.53 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 176.53 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 176.53 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "025a098c-0520-4835-b655-45d6029066d2")
+		)
+		(pin "2"
+			(uuid "26c2da3e-bc70-4788-a6ad-2716aa2ffefc")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/41cc3461-edb0-4878-ba60-800a93126ac5"
+					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 129.54 95.25 270)
 		(unit 1)
@@ -1537,6 +1603,72 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/41cc3461-edb0-4878-ba60-800a93126ac5"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 137.16 57.15 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a09d5742-8101-4d6a-b38d-016de9b94227")
+		(property "Reference" "#PWR046"
+			(at 137.16 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 137.16 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.16 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 137.16 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f36af9c7-3cce-4a3b-bebc-7ad057c6ebdb")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/41cc3461-edb0-4878-ba60-800a93126ac5"
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -1811,76 +1943,6 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/41cc3461-edb0-4878-ba60-800a93126ac5"
 					(reference "R39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 176.53 55.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ecb4b389-4d51-407f-8b61-35c4fcf82665")
-		(property "Reference" "C22"
-			(at 179.07 54.6162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 179.07 57.1562 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 176.53 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 176.53 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 176.53 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "30a90f2b-ecf4-43bd-b332-212653a21377")
-		)
-		(pin "2"
-			(uuid "dfac24b3-f6b1-49fb-9173-6ec79df30313")
-		)
-		(instances
-			(project "FOC_CONTROLLER_V1"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/41cc3461-edb0-4878-ba60-800a93126ac5"
-					(reference "C22")
 					(unit 1)
 				)
 			)

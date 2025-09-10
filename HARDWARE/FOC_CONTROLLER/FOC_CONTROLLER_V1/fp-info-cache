@@ -1,4 +1,4 @@
-26574911443259857
+26580183885345964
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -106008,6 +106008,13 @@ Integrated Circuit
 57
 57
 samacsys
+QFN50P300X300X100-17N-D
+QFN-16 (3mmx3mm)
+Integrated Circuit
+0
+17
+17
+samacsys
 QFN50P400X400X60-28N-D
 UFQFPN28
 Integrated Circuit
@@ -106046,6 +106053,20 @@ samacsys
 SIA537EDJT1GE3
 PowerPAK SC-70-6L Dual
 Transistor
+0
+8
+8
+samacsys
+SM04B-GHS-TB
+SM04B-GHS-TB
+Connector
+0
+6
+6
+samacsys
+SM06B-GHS-TB
+SM06B-GHS-TB
+Connector
 0
 8
 8
