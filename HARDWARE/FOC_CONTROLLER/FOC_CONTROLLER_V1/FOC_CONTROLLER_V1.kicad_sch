@@ -3553,16 +3553,6 @@
 	)
 	(wire
 		(pts
-			(xy 326.39 132.08) (xy 326.39 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "214702ed-acbd-4544-a7b6-a7ec4e3643d7")
-	)
-	(wire
-		(pts
 			(xy 302.26 133.35) (xy 304.8 133.35)
 		)
 		(stroke
@@ -3733,6 +3723,16 @@
 	)
 	(wire
 		(pts
+			(xy 334.01 137.16) (xy 334.01 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d5169f0-a20c-4563-a1ac-0663c2ac391f")
+	)
+	(wire
+		(pts
 			(xy 248.92 111.76) (xy 252.73 111.76)
 		)
 		(stroke
@@ -3750,16 +3750,6 @@
 			(type default)
 		)
 		(uuid "40b42520-7e3e-4a63-bb94-48e60a6aeee2")
-	)
-	(wire
-		(pts
-			(xy 331.47 130.81) (xy 331.47 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "505095a7-ade6-432c-a004-584e7c630a85")
 	)
 	(wire
 		(pts
@@ -3880,16 +3870,6 @@
 			(type default)
 		)
 		(uuid "6500f3c2-b774-4094-acc4-e335b6c2cb81")
-	)
-	(wire
-		(pts
-			(xy 328.93 132.08) (xy 328.93 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65806626-f2a6-4de7-8bb8-4b64871fee8f")
 	)
 	(wire
 		(pts
@@ -4293,6 +4273,16 @@
 	)
 	(wire
 		(pts
+			(xy 331.47 133.35) (xy 331.47 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a19f13a3-e764-426c-b9ec-566cd9abe249")
+	)
+	(wire
+		(pts
 			(xy 302.26 105.41) (xy 318.77 105.41)
 		)
 		(stroke
@@ -4360,16 +4350,6 @@
 			(type default)
 		)
 		(uuid "b10fd42a-5049-484c-b194-0b3088cc3d20")
-	)
-	(wire
-		(pts
-			(xy 334.01 130.81) (xy 334.01 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1802d69-8692-485c-b5fb-385a0baeec51")
 	)
 	(wire
 		(pts
@@ -4460,6 +4440,16 @@
 			(type default)
 		)
 		(uuid "be7e4963-9496-4a93-8990-b0e56b8a60ca")
+	)
+	(wire
+		(pts
+			(xy 326.39 137.16) (xy 326.39 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0fa4b32-7795-4604-9051-73649b8c465b")
 	)
 	(wire
 		(pts
@@ -4620,6 +4610,16 @@
 			(type default)
 		)
 		(uuid "db0fd7c6-701d-4eb3-8bfd-9c6cd003251e")
+	)
+	(wire
+		(pts
+			(xy 328.93 133.35) (xy 328.93 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db311d75-2547-4dcf-9d3e-ce31c3f148bd")
 	)
 	(wire
 		(pts
@@ -4882,7 +4882,7 @@
 		(uuid "0b391d13-2e61-4ad9-8ce2-bda1b36e0056")
 	)
 	(label "UART_TX"
-		(at 326.39 132.08 270)
+		(at 328.93 133.35 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5012,7 +5012,7 @@
 		(uuid "410d52fb-6914-451a-a563-fb4b7aab866a")
 	)
 	(label "MGL"
-		(at 331.47 135.89 270)
+		(at 334.01 137.16 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5482,7 +5482,7 @@
 		(uuid "dde2707f-d8fd-4e57-a932-01102037856d")
 	)
 	(label "MGH"
-		(at 334.01 135.89 270)
+		(at 326.39 137.16 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5492,7 +5492,7 @@
 		(uuid "e5b8a62d-d59f-41c8-959c-6dbea01769e4")
 	)
 	(label "UART_RX"
-		(at 328.93 132.08 270)
+		(at 331.47 133.35 270)
 		(effects
 			(font
 				(size 1.27 1.27)
