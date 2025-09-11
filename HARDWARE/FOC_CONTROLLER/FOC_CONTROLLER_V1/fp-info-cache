@@ -1,4 +1,4 @@
-26580183885345964
+26587214453742454
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -105742,6 +105742,13 @@ MOSFET (N-Channel)
 4
 4
 samacsys
+4wire_0603
+
+
+0
+4
+4
+samacsys
 16-PIN-LPCC
 16-PIN-LPCC
 Integrated Circuit
@@ -106064,6 +106071,13 @@ Connector
 6
 6
 samacsys
+SM05B-GHS-TB
+SM05B-GHS-TB
+Connector
+0
+7
+7
+samacsys
 SM06B-GHS-TB
 SM06B-GHS-TB
 Connector
@@ -106231,3 +106245,17 @@ Power Supply
 0
 4
 4
+samacsys
+hole_1.5mm
+
+
+0
+1
+1
+samacsys
+pad_0.7mm
+
+
+0
+1
+1
