@@ -1,4 +1,4 @@
-26587214453742454
+26590729772315946
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -106247,6 +106247,20 @@ Power Supply
 4
 samacsys
 hole_1.5mm
+
+
+0
+1
+1
+samacsys
+m2.5
+
+
+0
+1
+1
+samacsys
+m3test
 
 
 0

@@ -3012,6 +3012,16 @@
 		)
 		(uuid "0515cc45-ddf8-4c0a-9cc7-a88e130d80e6")
 	)
+	(text "m3\n"
+		(exclude_from_sim no)
+		(at 110.236 89.916 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1df2087a-cbab-468e-bbc9-84cd69b85064")
+	)
 	(text "MAIN_CONNECTOR"
 		(exclude_from_sim no)
 		(at 186.436 193.04 0)
@@ -3143,12 +3153,6 @@
 		(uuid "2aeb6680-943f-4007-b35d-0f4246501c08")
 	)
 	(junction
-		(at 129.54 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "39ba81e0-72c7-4e58-b2d6-42db906424df")
-	)
-	(junction
 		(at 252.73 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3245,6 +3249,12 @@
 		(uuid "865ecff9-24fa-45c8-ab3c-4bc563c023ca")
 	)
 	(junction
+		(at 132.08 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "972ac82f-a04e-47b1-9f0f-dcd1354a53a3")
+	)
+	(junction
 		(at 382.27 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3281,6 +3291,12 @@
 		(uuid "c634d567-8322-4585-a8a0-cbd9caf86d87")
 	)
 	(junction
+		(at 123.19 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d3084c61-54e1-4991-bb8e-b44d75a6a012")
+	)
+	(junction
 		(at 234.95 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3315,12 +3331,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f826b6d8-6f90-404f-95b2-008b135b1392")
-	)
-	(junction
-		(at 123.19 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fa2825b6-eab2-4d91-85c2-68e50a8b1eaa")
 	)
 	(junction
 		(at 129.54 208.28)
@@ -3834,6 +3844,16 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 85.09) (xy 146.05 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50113bc1-16c6-49a2-9098-e2c585da5ea7")
+	)
+	(wire
+		(pts
 			(xy 353.06 158.75) (xy 353.06 160.02)
 		)
 		(stroke
@@ -4141,6 +4161,16 @@
 			(type default)
 		)
 		(uuid "74471326-c4ae-48e3-b765-aa6e65c3c6cf")
+	)
+	(wire
+		(pts
+			(xy 123.19 85.09) (xy 132.08 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "750266d1-e134-415b-86c5-0a761445c5b4")
 	)
 	(wire
 		(pts
@@ -4944,16 +4974,6 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 85.09) (xy 129.54 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e005d9d8-34db-43b9-acd0-6573330266c0")
-	)
-	(wire
-		(pts
 			(xy 128.27 242.57) (xy 143.51 242.57)
 		)
 		(stroke
@@ -5011,16 +5031,6 @@
 			(type default)
 		)
 		(uuid "e9a18b1c-54b7-41be-800e-c52797d40ff6")
-	)
-	(wire
-		(pts
-			(xy 129.54 85.09) (xy 142.24 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eafbc245-3fe2-4b69-828a-cd9f8fa3bbb5")
 	)
 	(wire
 		(pts
@@ -6783,7 +6793,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+		(property "Footprint" "samacsys:m3test"
 			(at 121.92 85.09 0)
 			(effects
 				(font
@@ -6885,6 +6895,73 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "R47")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 132.08 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "160f44c6-e476-4051-8880-8b8554d64187")
+		(property "Reference" "TP3"
+			(at 134.62 80.5179 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 134.62 83.0579 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "samacsys:m3test"
+			(at 137.16 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 137.16 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 132.08 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e6fc1375-2cc2-4c1a-9716-b8fbcb556853")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -9063,73 +9140,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 142.24 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "825f31da-e676-4ca2-8c58-77824f917d44")
-		(property "Reference" "TP4"
-			(at 144.78 80.5179 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 144.78 83.0579 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
-			(at 147.32 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 147.32 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 142.24 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "397cae7f-c379-4291-a717-3b43090136d8")
-		)
-		(instances
-			(project "FOC_CONTROLLER_V1"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "TP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 367.03 132.08 90)
 		(unit 1)
@@ -9428,73 +9438,6 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 129.54 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "87de1021-7d18-4cce-bfb6-ece9abb2a18d")
-		(property "Reference" "TP3"
-			(at 132.08 80.5179 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 132.08 83.0579 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
-			(at 134.62 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 134.62 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 129.54 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d39d7c07-8e48-48bd-b190-a507908ee8fc")
-		)
-		(instances
-			(project "FOC_CONTROLLER_V1"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -10847,7 +10790,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+		(property "Footprint" "samacsys:m3test"
 			(at 107.95 85.09 0)
 			(effects
 				(font
@@ -12281,6 +12224,73 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 146.05 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "eb25622a-0d94-487a-a4f2-e860b9419089")
+		(property "Reference" "TP4"
+			(at 148.59 80.5179 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 148.59 83.0579 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "samacsys:m3test"
+			(at 151.13 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 151.13 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 146.05 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "eb7686b4-8970-4252-b4f4-f21a7a52f5cf")
+		)
+		(instances
+			(project "FOC_CONTROLLER_V1"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
