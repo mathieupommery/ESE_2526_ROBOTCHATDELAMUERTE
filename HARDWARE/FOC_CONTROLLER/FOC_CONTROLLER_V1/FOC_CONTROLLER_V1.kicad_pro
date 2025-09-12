@@ -535,7 +535,7 @@
       "plot": "../gerber_foc_v1/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "FOC_CONTROLLER_V1.step",
       "svg": "",
       "vrml": ""
     },
