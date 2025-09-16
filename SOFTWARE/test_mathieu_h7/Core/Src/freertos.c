@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ylidar.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +45,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+extern uint16_t ylidar_read_index;
+extern uint16_t ylidar_write_index;
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId lidarparseHandle;
@@ -131,8 +132,8 @@ void Startmaintask(void const * argument)
   for(;;)
   {
 
-	 HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);
-	 HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_4);
+	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);
+	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_4);
     osDelay(500);
   }
   /* USER CODE END Startmaintask */
@@ -151,7 +152,29 @@ void Startlidarparse(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+
+
+      // Attend HALF ou FULL
+//      osEvent evt = osSignalWait(SIG_LIDAR_HALF | SIG_LIDAR_FULL, osWaitForever);
+//      if (evt.status == osEventSignal) {
+//
+//          if (evt.value.signals & SIG_LIDAR_HALF) {
+//              HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);
+//              ylidar_fsm();
+//              osDelay(10);
+//          }
+//
+//          if (evt.value.signals & SIG_LIDAR_FULL) {
+//              HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_4);
+//              ylidar_fsm();
+//              osDelay(10);
+//          }
+
+	  while(ylidar_read_index!=ylidar_write_index){
+		  ylidar_fsm();
+
+      }
+	  osDelay(20);
   }
   /* USER CODE END Startlidarparse */
 }

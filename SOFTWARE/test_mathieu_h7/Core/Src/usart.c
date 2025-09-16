@@ -21,7 +21,12 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+#include "ylidar.h"
+#include "cmsis_os.h"
 
+extern uint16_t ylidar_read_index;
+extern uint16_t ylidar_write_index;
+extern osThreadId lidarparseHandle;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart8;
@@ -125,6 +130,9 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 
     __HAL_LINKDMA(uartHandle,hdmarx,hdma_uart8_rx);
 
+    /* UART8 interrupt Init */
+    HAL_NVIC_SetPriority(UART8_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(UART8_IRQn);
   /* USER CODE BEGIN UART8_MspInit 1 */
 
   /* USER CODE END UART8_MspInit 1 */
@@ -150,6 +158,9 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
     /* UART8 DMA DeInit */
     HAL_DMA_DeInit(uartHandle->hdmarx);
+
+    /* UART8 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(UART8_IRQn);
   /* USER CODE BEGIN UART8_MspDeInit 1 */
 
   /* USER CODE END UART8_MspDeInit 1 */
@@ -157,5 +168,21 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+    if(huart->Instance==UART8){
+    	ylidar_write_index=512;
+    	osSignalSet(lidarparseHandle, SIG_LIDAR_HALF);
 
+    }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart->Instance==UART8){
+    	ylidar_write_index=1023;
+    	osSignalSet(lidarparseHandle, SIG_LIDAR_HALF);
+
+	    }
+}
 /* USER CODE END 1 */

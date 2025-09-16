@@ -20,13 +20,13 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
-#include "memorymap.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ylidar.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t circular_buffer[512];
+extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,12 +97,13 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_UART8_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_10,GPIO_PIN_SET);
+  HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_3);
 
   HAL_UART_Abort(&huart8);
-  HAL_UART_Receive_DMA(&huart8, (uint8_t *)circular_buffer, 512);
+  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 
   /* USER CODE END 2 */
 
