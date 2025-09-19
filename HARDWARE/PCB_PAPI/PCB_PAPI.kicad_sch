@@ -1,5 +1,303 @@
-(kicad_sch (version 20250114) (generator "eeschema") (generator_version "9.0")
-  (paper "A4")
-  (lib_symbols)
-  (symbol_instances)
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "64301b3d-8a16-47d9-a9c6-0068257932ba")
+	(paper "A2")
+	(lib_symbols)
+	(sheet
+		(at 35.56 35.56)
+		(size 102.87 177.8)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "20fa27ff-0f58-456a-bc0a-8947fd5978cc")
+		(property "Sheetname" "STM32"
+			(at 35.56 34.8484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "stm32.kicad_sch"
+			(at 35.56 213.9446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 139.7 252.73)
+		(size 294.64 123.19)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3b0227fd-8888-44e2-94a5-1880f3393fd0")
+		(property "Sheetname" "CONNECTOR"
+			(at 139.7 252.0184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connector.kicad_sch"
+			(at 139.7 376.5046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 439.42 54.61)
+		(size 106.68 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "847f55ac-306c-4b7a-8ec1-939febc79176")
+		(property "Sheetname" "POWER SUPPLY"
+			(at 440.182 52.578 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PWR.kicad_sch"
+			(at 439.42 99.6446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND_CONTROLLED" input
+			(at 439.42 87.63 180)
+			(uuid "a8584277-c5bc-43bd-8335-d747dbea9b70")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GND_CONTROL_PIN" input
+			(at 439.42 82.55 180)
+			(uuid "ddf27a71-53d1-4073-8033-087bbcb14f0a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 438.15 160.02)
+		(size 110.49 43.18)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a7cacbc0-0feb-46ad-bb90-db8895701fc9")
+		(property "Sheetname" "ACCESOIRES"
+			(at 438.15 159.3084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "accesoires.kicad_sch"
+			(at 438.15 203.7846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "BUZ-" input
+			(at 438.15 199.39 180)
+			(uuid "cc2a58ed-4071-4621-ac0c-88c0bb15e0ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BUZ_PIN_CONTROL" input
+			(at 438.15 195.58 180)
+			(uuid "9b2eff05-69c1-4197-b60a-12088c71e704")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 438.15 109.22)
+		(size 109.22 39.37)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "fb485485-e5ee-423e-9fe4-4f0074d92d01")
+		(property "Sheetname" "ESP32"
+			(at 438.15 108.5084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "esp32.kicad_sch"
+			(at 438.15 149.1746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "D+ESP32" input
+			(at 438.15 118.11 180)
+			(uuid "16dc733b-2388-470a-9cc0-a57fbf96f222")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "D-ESP32" input
+			(at 438.15 121.92 180)
+			(uuid "a773cb02-35b4-4b09-8231-6a3d139670de")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ESP32_RX" input
+			(at 438.15 134.62 180)
+			(uuid "6364e760-ca60-424e-96ec-94ce5e58f115")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ESP32_TX" input
+			(at 438.15 138.43 180)
+			(uuid "5c4a5a02-fb84-4a46-bcaa-88b7b155f013")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
