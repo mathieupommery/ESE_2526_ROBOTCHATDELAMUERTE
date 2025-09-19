@@ -47,6 +47,9 @@
 /* USER CODE BEGIN Variables */
 extern uint16_t ylidar_read_index;
 extern uint16_t ylidar_write_index;
+
+extern uint8_t ylidar_finalbuffer[1024];
+
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId lidarparseHandle;
@@ -59,6 +62,7 @@ osThreadId lidarparseHandle;
 void Startmaintask(void const * argument);
 void Startlidarparse(void const * argument);
 
+extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
@@ -127,6 +131,8 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_Startmaintask */
 void Startmaintask(void const * argument)
 {
+  /* init code for USB_DEVICE */
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN Startmaintask */
   /* Infinite loop */
   for(;;)
@@ -134,7 +140,8 @@ void Startmaintask(void const * argument)
 
 	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);
 	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_4);
-    osDelay(500);
+	CDC_Transmit_FS((uint8_t*) ylidar_finalbuffer, 721*sizeof(uint8_t));
+    osDelay(1000);
   }
   /* USER CODE END Startmaintask */
 }
@@ -174,7 +181,8 @@ void Startlidarparse(void const * argument)
 		  ylidar_fsm();
 
       }
-	  osDelay(20);
+
+	  osDelay(10);
   }
   /* USER CODE END Startlidarparse */
 }

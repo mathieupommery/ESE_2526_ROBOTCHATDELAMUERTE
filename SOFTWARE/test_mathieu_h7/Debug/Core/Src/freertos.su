@@ -1,4 +1,4 @@
-../Core/Src/freertos.c:71:6:vApplicationGetIdleTaskMemory	24	static
-../Core/Src/freertos.c:85:6:MX_FREERTOS_Init	72	static
-../Core/Src/freertos.c:128:6:Startmaintask	16	static
-../Core/Src/freertos.c:149:6:Startlidarparse	16	static
+../Core/Src/freertos.c:75:6:vApplicationGetIdleTaskMemory	24	static
+../Core/Src/freertos.c:89:6:MX_FREERTOS_Init	72	static
+../Core/Src/freertos.c:132:6:Startmaintask	16	static
+../Core/Src/freertos.c:156:6:Startlidarparse	16	static
