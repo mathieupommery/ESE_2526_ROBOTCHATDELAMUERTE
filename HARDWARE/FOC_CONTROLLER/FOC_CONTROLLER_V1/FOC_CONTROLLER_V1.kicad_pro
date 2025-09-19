@@ -535,7 +535,11 @@
       "plot": "../gerber_foc_v1/",
       "pos_files": "",
       "specctra_dsn": "",
+<<<<<<< Updated upstream
       "step": "../3d finale/FOC_CONTROLLER_V1.step",
+=======
+      "step": "FOC_CONTROLLER_V1.step",
+>>>>>>> Stashed changes
       "svg": "",
       "vrml": ""
     },

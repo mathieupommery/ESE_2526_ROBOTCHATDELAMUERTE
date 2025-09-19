@@ -1,0 +1,3 @@
+../Core/Src/freertos.c:117:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:162:6:StartMain	16	static
+../Core/Src/freertos.c:185:6:StartParseLiDAR	48	static

@@ -34,7 +34,7 @@ extern "C" {
 #include "stdio.h"
 #include "stdint.h"
 #include "string.h"
-#include "lidar_process_uart_data.h"
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,8 +51,6 @@ extern "C" {
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
-
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
@@ -74,6 +72,11 @@ void test_uart_transmit(void);
 #define SWO_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+#define UART_RX_BUFFER_SIZE 512
+#define TEMP_BUF_SIZE 64
+#define LASERSCAN_SIZE 360
+
+extern struct StateFlags LP_flag;
 
 /* USER CODE END Private defines */
 

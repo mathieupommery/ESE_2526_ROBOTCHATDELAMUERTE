@@ -1,0 +1,6 @@
+../Core/Src/usart.c:40:6:MX_USART1_UART_Init	2
+../Core/Src/usart.c:71:6:MX_USART2_UART_Init	2
+../Core/Src/usart.c:101:6:HAL_UART_MspInit	6
+../Core/Src/usart.c:197:6:HAL_UART_MspDeInit	3
+../Core/Src/usart.c:245:6:HAL_UART_RxHalfCpltCallback	2
+../Core/Src/usart.c:258:6:HAL_UART_RxCpltCallback	2
