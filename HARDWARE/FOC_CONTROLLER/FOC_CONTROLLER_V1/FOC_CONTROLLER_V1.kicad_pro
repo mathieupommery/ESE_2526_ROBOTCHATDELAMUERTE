@@ -536,7 +536,11 @@
       "pos_files": "",
       "specctra_dsn": "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "step": "../3d finale/FOC_CONTROLLER_V1.step",
+=======
+      "step": "FOC_CONTROLLER_V1.step",
+>>>>>>> Stashed changes
 =======
       "step": "FOC_CONTROLLER_V1.step",
 >>>>>>> Stashed changes
