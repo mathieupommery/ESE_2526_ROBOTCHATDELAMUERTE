@@ -1,0 +1,7 @@
+../Core/Src/mps330.c:23:9:calc_even_parity	0	static
+../Core/Src/mps330.c:32:5:AS5047P_config	0	static
+../Core/Src/mps330.c:46:5:AS5047P_readCommand	16	static
+../Core/Src/mps330.c:58:5:AS5047P_start	16	static
+../Core/Src/mps330.c:71:7:AS5047P_get_degree	24	static
+../Core/Src/mps330.c:123:7:AS5047P_get_rpm	24	static
+../Core/Src/mps330.c:175:7:AS5047P_get_actual_degree	24	static

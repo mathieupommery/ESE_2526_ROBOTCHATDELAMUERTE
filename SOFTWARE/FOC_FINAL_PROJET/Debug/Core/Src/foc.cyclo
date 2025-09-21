@@ -1,0 +1,10 @@
+../Core/Src/foc.c:29:6:foc_pwm_init	5
+../Core/Src/foc.c:48:6:foc_motor_init	4
+../Core/Src/foc.c:57:6:foc_sensor_init	2
+../Core/Src/foc.c:64:6:foc_gear_reducer_init	2
+../Core/Src/foc.c:70:6:foc_set_limit_current	2
+../Core/Src/foc.c:76:6:foc_current_control_update	13
+../Core/Src/foc.c:119:6:foc_speed_control_update	3
+../Core/Src/foc.c:130:6:foc_position_control_update	3
+../Core/Src/foc.c:154:6:foc_calc_electric_angle	4
+../Core/Src/foc.c:197:6:open_loop_voltage_control	4
