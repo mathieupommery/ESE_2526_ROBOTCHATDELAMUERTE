@@ -5587,17 +5587,6 @@
 			)
 		)
 	)
-	(hierarchical_label "NRST"
-		(shape input)
-		(at 271.78 62.23 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0b4d4a43-8294-471b-a9ec-72cf3cf736e4")
-	)
 	(hierarchical_label "Tx7"
 		(shape input)
 		(at 273.05 102.87 180)
@@ -7934,7 +7923,7 @@
 		(fields_autoplaced yes)
 		(uuid "a762e9b3-7941-491d-a83a-af3861f95a7f")
 		(property "Reference" "U1"
-			(at 300.5933 194.31 0)
+			(at 300.6441 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7943,7 +7932,7 @@
 			)
 		)
 		(property "Value" "STM32H743VIHx"
-			(at 300.5933 196.85 0)
+			(at 300.6441 196.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)

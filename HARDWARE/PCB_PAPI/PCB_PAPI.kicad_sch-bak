@@ -200,7 +200,7 @@
 			)
 		)
 		(pin "Rx6{slash}ppm" input
-			(at 138.43 85.09 0)
+			(at 138.43 92.71 0)
 			(uuid "185bcba0-f230-4eae-9715-2338e1c6a2f3")
 			(effects
 				(font
@@ -210,7 +210,7 @@
 			)
 		)
 		(pin "Rx7" input
-			(at 138.43 91.44 0)
+			(at 138.43 86.36 0)
 			(uuid "488dbc53-d799-4509-882c-f86308d505fa")
 			(effects
 				(font
@@ -280,7 +280,7 @@
 			)
 		)
 		(pin "Tx6" input
-			(at 138.43 87.63 0)
+			(at 138.43 95.25 0)
 			(uuid "ea02f447-a167-4708-87df-210fc75174a1")
 			(effects
 				(font
@@ -290,7 +290,7 @@
 			)
 		)
 		(pin "Tx7" input
-			(at 138.43 93.98 0)
+			(at 138.43 88.9 0)
 			(uuid "899c8750-fda0-4dc1-8763-cb62dad21015")
 			(effects
 				(font
@@ -351,9 +351,99 @@
 				(justify left top)
 			)
 		)
+		(pin "GPIO1" input
+			(at 173.99 252.73 90)
+			(uuid "9ef2f3e1-d31f-406d-ba8a-a4201fa3a734")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO2" input
+			(at 189.23 252.73 90)
+			(uuid "d6839b2c-5d85-491d-8fd4-23be2f12e378")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO3" input
+			(at 200.66 252.73 90)
+			(uuid "a1f28e2e-4c58-4ee2-ac7e-5d8d7527416a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX1" input
+			(at 167.64 252.73 90)
+			(uuid "26b16ca7-90aa-4196-8afc-cb372f4eb764")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX2" input
+			(at 182.88 252.73 90)
+			(uuid "6e66334d-a1ed-4e7b-a6ea-584d32a4cf3b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX3" input
+			(at 195.58 252.73 90)
+			(uuid "8698b9ba-8b68-4aba-a2a3-0e7f091f8b54")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX1" input
+			(at 171.45 252.73 90)
+			(uuid "5b4e2aae-27f1-4dc4-92c6-652e16c8e556")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX2" input
+			(at 185.42 252.73 90)
+			(uuid "2a8136f5-f2f1-47b8-b6f0-19b9860c47e0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX3" input
+			(at 198.12 252.73 90)
+			(uuid "f17fba0c-1e42-46c9-becc-db2149847f9d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(pin "ARGB Din" input
-			(at 190.5 252.73 90)
-			(uuid "4ff5599b-a7cf-44d0-a32f-a440331feaa1")
+			(at 209.55 252.73 90)
+			(uuid "32977e8f-aec0-416c-8152-fcf0d43fdcba")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -362,8 +452,8 @@
 			)
 		)
 		(pin "D+ ESP32" input
-			(at 196.85 252.73 90)
-			(uuid "5d91b48c-e695-4cd5-a41d-49f3e55f5374")
+			(at 215.9 252.73 90)
+			(uuid "ce0dca76-0e57-4623-b9d7-8668462c25ba")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -372,8 +462,8 @@
 			)
 		)
 		(pin "D+ STM32" input
-			(at 205.74 252.73 90)
-			(uuid "80ff8ac9-3adf-4873-a01f-15f2d4f4782a")
+			(at 222.25 252.73 90)
+			(uuid "67877071-f07b-415c-8c1e-f95d5871c591")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -382,8 +472,8 @@
 			)
 		)
 		(pin "D- ESP32" input
-			(at 199.39 252.73 90)
-			(uuid "c0519da8-2158-4748-9041-3a52e0c03334")
+			(at 218.44 252.73 90)
+			(uuid "fc86c66a-189b-4303-bc32-e3ea9fe731da")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -392,188 +482,8 @@
 			)
 		)
 		(pin "D- STM32" input
-			(at 208.28 252.73 90)
-			(uuid "7e4e68e5-5af0-47f1-88ed-a0ad94c527b9")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO_Mot1" input
-			(at 214.63 252.73 90)
-			(uuid "81127afc-f648-4c56-8412-f6331e49e1c2")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO_Mot2" input
-			(at 226.06 252.73 90)
-			(uuid "2bfece9a-7fa7-49a5-8625-6a81a3bef67a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "GPIO_Mot3" input
-			(at 237.49 252.73 90)
-			(uuid "2f5a086f-2b88-4519-93cc-455414fd49e3")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "NRST" input
-			(at 163.83 252.73 90)
-			(uuid "4de71951-74f5-4eb5-9b71-e531f0851b86")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "PWM_LiDAR" input
-			(at 251.46 252.73 90)
-			(uuid "2ccad7ca-d620-4c70-8d0e-dc9a63291193")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RX_LiDAR" input
-			(at 248.92 252.73 90)
-			(uuid "3d2f0d17-57b6-480a-b46b-b1fbf2d604ee")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RX_Mot1" input
-			(at 217.17 252.73 90)
-			(uuid "626a8d85-3629-48d8-b573-8e784f72ec1c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RX_Mot2" input
-			(at 228.6 252.73 90)
-			(uuid "8d4119fa-dbc2-4687-b066-0dd820ab287a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "RX_Mot3" input
-			(at 240.03 252.73 90)
-			(uuid "e03dc9a9-3702-462f-84ae-c3787dc875af")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SCL_OLED1" input
-			(at 259.08 252.73 90)
-			(uuid "887b7c05-24d0-481c-8b64-0de33457cf08")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SCL_OLED2" input
-			(at 269.24 252.73 90)
-			(uuid "952af4c4-7b15-43ff-a6cf-a7bc8fc9a478")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SDA_OLED1" input
-			(at 261.62 252.73 90)
-			(uuid "97a219d5-dde5-432f-ad82-46da510760ea")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SDA_OLED2" input
-			(at 271.78 252.73 90)
-			(uuid "f4c22086-b4fc-4c10-895c-2168f65fe588")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SWCLK" input
-			(at 166.37 252.73 90)
-			(uuid "a82ae414-0f4c-4c14-aac1-1a2fc30b7b55")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "SWDIO" input
-			(at 168.91 252.73 90)
-			(uuid "cde771d5-41e3-4cc7-9aef-4b95dc862586")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "TX_Mot1" input
-			(at 219.71 252.73 90)
-			(uuid "30fff067-31ee-4144-bc51-74a5fc183bbf")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "TX_Mot2" input
-			(at 231.14 252.73 90)
-			(uuid "389f2c11-1130-4719-810d-351dc05274ea")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "TX_Mot3" input
-			(at 242.57 252.73 90)
-			(uuid "e08786e9-5eb5-4ec4-adb7-749fe828a1e3")
+			(at 224.79 252.73 90)
+			(uuid "c1b17da7-6a88-4b53-8328-cbeeb2fc62c1")
 			(effects
 				(font
 					(size 1.27 1.27)
