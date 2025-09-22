@@ -5,7 +5,7 @@
 	(uuid "4cb1a568-f321-42db-952c-15c5b2189613")
 	(paper "A3")
 	(lib_symbols
-		(symbol "Connector:Conn_01x03_Pin"
+		(symbol "Connector:Conn_01x08_Pin"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -14,15 +14,15 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 0 5.08 0)
+				(at 0 10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "Conn_01x03_Pin"
-				(at 0 -5.08 0)
+			(property "Value" "Conn_01x08_Pin"
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -47,7 +47,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x03, script generated"
+			(property "Description" "Generic connector, single row, 01x08, script generated"
 				(at 0 0 0)
 				(effects
 					(font
@@ -82,7 +82,29 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x03_Pin_1_1"
+			(symbol "Conn_01x08_Pin_1_1"
+				(rectangle
+					(start 0.8636 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
 				(rectangle
 					(start 0.8636 2.667)
 					(end 0 2.413)
@@ -114,6 +136,63 @@
 					)
 					(fill
 						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 7.62) (xy 0.8636 7.62)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.08) (xy 0.8636 5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(polyline
@@ -152,8 +231,44 @@
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy 1.27 -5.08) (xy 0.8636 -5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -7.62) (xy 0.8636 -7.62)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -10.16) (xy 0.8636 -10.16)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(pin passive line
-					(at 5.08 2.54 180)
+					(at 5.08 7.62 180)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -171,7 +286,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 0 180)
+					(at 5.08 5.08 180)
 					(length 3.81)
 					(name "Pin_2"
 						(effects
@@ -189,7 +304,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 -2.54 180)
+					(at 5.08 2.54 180)
 					(length 3.81)
 					(name "Pin_3"
 						(effects
@@ -199,6 +314,96 @@
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -7.62 180)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -10.16 180)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -319,630 +524,6 @@
 					(at 0 -2.54 90)
 					(length 0.762)
 					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "SamacSys_Parts:SM03B-GHS-TB_LF__SN_"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 21.59 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "SM03B-GHS-TB_LF__SN_"
-				(at 21.59 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "SM03BGHSTBLFSN"
-				(at 21.59 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
-				(at 21.59 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "JST GH Series, 1.25mm Pitch 3 Way Right Angle PCB Header, Solder Termination, 1A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "4.35"
-				(at 21.59 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-				(at 21.59 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "SM03B-GHS-TB(LF)(SN)"
-				(at 21.59 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "N/A"
-				(at 21.59 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM03B-GHS-TBLFSN?qs=QpmGXVUTftFznLWQEubYxw%3D%3D"
-				(at 21.59 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "SM03B-GHS-TB(LF)(SN)"
-				(at 21.59 -894.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm03b-ghs-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
-				(at 21.59 -994.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "SM03B-GHS-TB_LF__SN__1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 20.32 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "MP_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "MP_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -2.54 180)
-					(length 5.08)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -5.08 180)
-					(length 5.08)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "SamacSys_Parts:SM05B-GHS-TB_LF__SN_"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 16.51 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "SM05B-GHS-TB_LF__SN_"
-				(at 16.51 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "SM05B-GHS-TB"
-				(at 16.51 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/e4ef010dc292ea31091454f6c0afb63a.pdf"
-				(at 16.51 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "JST GH Series, 1.25mm Pitch 5 Way Right Angle PCB Header, Solder Termination, 1A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" ""
-				(at 16.51 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-				(at 16.51 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "SM05B-GHS-TB(LF)(SN)"
-				(at 16.51 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "N/A"
-				(at 16.51 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM05B-GHS-TBLFSN?qs=QpmGXVUTftEjojOT4U3d6Q%3D%3D"
-				(at 16.51 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "SM05B-GHS-TB(LF)(SN)"
-				(at 16.51 -894.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm05b-ghs-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
-				(at 16.51 -994.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "SM05B-GHS-TB_LF__SN__1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 15.24 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 0 180)
-					(length 5.08)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 -2.54 180)
-					(length 5.08)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "SamacSys_Parts:XT30AW-M"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 16.51 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "XT30AW-M"
-				(at 16.51 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "XT30AWM"
-				(at 16.51 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.china-amass.com/biao/272.html?fbclid=IwZXh0bgNhZW0CMTEAAR1NvX_4aFpbUb2nO8NynRjoma90JrwdPu4OP5agqrddJY_N3HJJ-jDn6Lk_aem_mR-XhVJeUbZ7SJKgTTHkqQ"
-				(at 16.51 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "Connector: DC supply; socket; XT30; male; PIN: 2; on PCBs; THT; 20A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "10.7"
-				(at 16.51 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Amass"
-				(at 16.51 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "XT30AW-M"
-				(at 16.51 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" ""
-				(at 16.51 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" ""
-				(at 16.51 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" ""
-				(at 16.51 -894.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" ""
-				(at 16.51 -994.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "XT30AW-M_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 15.24 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1973,6 +1554,131 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:+3.3V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+5V"
 			(power)
 			(pin_numbers
@@ -2524,6 +2230,548 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "samacsys:SM10B-SRSS-TB_LF__SN_"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 19.05 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "SM10B-SRSS-TB_LF__SN_"
+				(at 19.05 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "SM10B-SRSS-TB"
+				(at 19.05 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.jst-mfg.com/product/pdf/eng/eSR.pdf"
+				(at 19.05 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "JST (JAPAN SOLDERLESS TERMINALS) - SM10B-SRSS-TB(LF)(SN) - HEADER, R/A, 10WAY"
+				(at 22.86 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" ""
+				(at 19.05 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
+				(at 19.05 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "SM10B-SRSS-TB(LF)(SN)"
+				(at 19.05 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "306-SM10BSRSSTBLFSN"
+				(at 19.05 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM10B-SRSS-TBLFSN?qs=QpmGXVUTftHkZAI%2F8hE40w%3D%3D"
+				(at 19.05 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" "SM10B-SRSS-TB(LF)(SN)"
+				(at 19.05 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm10b-srss-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
+				(at 19.05 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "SM10B-SRSS-TB_LF__SN__1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 17.78 -33.02)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 0)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 0)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -12.7 0)
+					(length 5.08)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -15.24 0)
+					(length 5.08)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -17.78 0)
+					(length 5.08)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -20.32 0)
+					(length 5.08)
+					(name "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -22.86 0)
+					(length 5.08)
+					(name "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 11.43 -38.1 90)
+					(length 5.08)
+					(name "MP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "samacsys:XT30PW-M"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 16.51 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "XT30PW-M"
+				(at 16.51 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "XT30PWM"
+				(at 16.51 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.tme.eu/sl/Document/ce4077e36b79046da520ca73227e15de/XT30PW%20SPEC.pdf"
+				(at 16.51 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "30A Low Temperature Rise Fire Retardant Plug"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "5"
+				(at 16.51 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Amass"
+				(at 16.51 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "XT30PW-M"
+				(at 16.51 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" ""
+				(at 16.51 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" ""
+				(at 16.51 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 16.51 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 16.51 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "XT30PW-M_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 15.24 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 -2.54 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(rectangle
 		(start 309.88 24.13)
@@ -2550,8 +2798,8 @@
 		(uuid 0e30415c-1854-4813-bcc0-39283ccb50ea)
 	)
 	(rectangle
-		(start 129.54 228.6)
-		(end 195.58 269.24)
+		(start 207.01 156.21)
+		(end 273.05 199.39)
 		(stroke
 			(width 0)
 			(type default)
@@ -2563,7 +2811,7 @@
 	)
 	(rectangle
 		(start 26.67 109.22)
-		(end 92.71 152.4)
+		(end 92.71 176.53)
 		(stroke
 			(width 0)
 			(type default)
@@ -2634,20 +2882,8 @@
 		(uuid 9c629c22-f337-4421-a6a5-db60680e21cc)
 	)
 	(rectangle
-		(start 26.67 158.75)
-		(end 92.71 199.39)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid a5dd644b-094f-4a36-8c71-a4f1144615a2)
-	)
-	(rectangle
-		(start 171.45 21.59)
-		(end 224.79 60.96)
+		(start 180.34 34.29)
+		(end 233.68 73.66)
 		(stroke
 			(width 0)
 			(type default)
@@ -2658,20 +2894,8 @@
 		(uuid c4122e7c-f18a-4096-a807-0db4c56bf16d)
 	)
 	(rectangle
-		(start 320.04 195.58)
-		(end 373.38 234.95)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid c7b7c9be-8f72-4088-a2a3-ff2f111e9a32)
-	)
-	(rectangle
-		(start 222.25 237.49)
-		(end 269.24 257.81)
+		(start 181.61 213.36)
+		(end 228.6 233.68)
 		(stroke
 			(width 0)
 			(type default)
@@ -2683,7 +2907,7 @@
 	)
 	(text "Batteries"
 		(exclude_from_sim no)
-		(at 227.33 239.776 0)
+		(at 186.69 215.646 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2703,7 +2927,7 @@
 	)
 	(text "LiDAR"
 		(exclude_from_sim no)
-		(at 132.842 230.632 0)
+		(at 210.312 158.242 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2711,9 +2935,9 @@
 		)
 		(uuid "47cf0068-8cbe-497e-9c74-e1a0f94d43ac")
 	)
-	(text "OLED 1"
+	(text "ACCESSORIES"
 		(exclude_from_sim no)
-		(at 31.242 112.014 0)
+		(at 34.29 112.014 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2721,19 +2945,19 @@
 		)
 		(uuid "605d2a47-d40f-44fb-985d-7b015174d24e")
 	)
-	(text "ARGB LED Conn"
+	(text "checker\n"
 		(exclude_from_sim no)
-		(at 328.168 197.358 0)
+		(at 189.992 227.838 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "73dd709a-eed3-4531-b6f8-ed6de59653c2")
+		(uuid "6bd040e4-f750-4e45-b1aa-9c974a725cfe")
 	)
 	(text "USB data jumper"
 		(exclude_from_sim no)
-		(at 138.684 50.292 0)
+		(at 127.254 31.242 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2793,23 +3017,13 @@
 	)
 	(text "STM32 Prog"
 		(exclude_from_sim no)
-		(at 179.578 23.368 0)
+		(at 188.468 36.068 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "a0af73bb-888b-4f75-b8dd-51f1f1ebf9d5")
-	)
-	(text "OLED2"
-		(exclude_from_sim no)
-		(at 30.226 160.782 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "aea03186-8044-4266-b4ea-680a5a51ab26")
 	)
 	(text "USB"
 		(exclude_from_sim no)
@@ -2854,12 +3068,6 @@
 		(uuid "1ebb36f3-62f8-48e4-b38d-9984e2385ab4")
 	)
 	(junction
-		(at 340.36 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "326e85de-e361-4234-8b51-e331025e1cc7")
-	)
-	(junction
 		(at 77.47 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2870,6 +3078,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5eab228f-3007-4eee-bd26-c1db8a018349")
+	)
+	(junction
+		(at 222.25 224.79)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8285bd05-aafc-4455-b922-772ca6375341")
 	)
 	(junction
 		(at 85.09 34.29)
@@ -2884,12 +3098,6 @@
 		(uuid "ab5c6583-ab89-4334-951e-c04fd7eb37f4")
 	)
 	(junction
-		(at 341.63 160.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b3bd7c5c-173b-4f49-8b1b-ef1b36eda89e")
-	)
-	(junction
 		(at 74.93 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2902,12 +3110,6 @@
 		(uuid "c497676d-dd86-4f03-9e83-01a22436476a")
 	)
 	(junction
-		(at 335.28 213.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d2564f89-b77d-4195-aa02-a6bcb5a034de")
-	)
-	(junction
 		(at 74.93 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2918,12 +3120,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e917eb6e-5fcc-487b-8a4a-c78f560250fc")
-	)
-	(junction
-		(at 339.09 52.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f176846f-68cb-435f-8380-d3bf25c143df")
 	)
 	(junction
 		(at 99.06 48.26)
@@ -2941,23 +3137,13 @@
 	)
 	(wire
 		(pts
-			(xy 127 58.42) (xy 127 69.85)
+			(xy 222.25 224.79) (xy 222.25 226.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0f22ce40-1116-4064-88f0-0bfa09d4930d")
-	)
-	(wire
-		(pts
-			(xy 340.36 101.6) (xy 340.36 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "15116e27-af2d-4a60-8763-24a859632290")
+		(uuid "139a83a5-64e5-47db-bda6-ffa9c579ad46")
 	)
 	(wire
 		(pts
@@ -2968,6 +3154,16 @@
 			(type default)
 		)
 		(uuid "1b03770a-eed1-4a53-afc3-964ce8274a7f")
+	)
+	(wire
+		(pts
+			(xy 222.25 222.25) (xy 222.25 224.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cfbc2a2-e5ac-4260-ba45-3c43fab53cb7")
 	)
 	(wire
 		(pts
@@ -2988,16 +3184,6 @@
 			(type default)
 		)
 		(uuid "27557cb2-3c8e-4b50-a48b-cc5433779dfd")
-	)
-	(wire
-		(pts
-			(xy 340.36 109.22) (xy 340.36 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28842fcc-60ff-4bb7-95e9-19d0efcd87db")
 	)
 	(wire
 		(pts
@@ -3051,16 +3237,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 44.45) (xy 127 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "49c0ae31-37f6-4e82-99dd-6971452a034b")
-	)
-	(wire
-		(pts
 			(xy 77.47 34.29) (xy 81.28 34.29)
 		)
 		(stroke
@@ -3068,16 +3244,6 @@
 			(type default)
 		)
 		(uuid "514aee26-3d03-4a1e-9f58-a900d3b15462")
-	)
-	(wire
-		(pts
-			(xy 341.63 157.48) (xy 341.63 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63545742-a916-49ab-bf1b-c9c3d6b781a8")
 	)
 	(wire
 		(pts
@@ -3098,16 +3264,6 @@
 			(type default)
 		)
 		(uuid "6b0d128b-25ba-4a1b-aab3-1d5abd1f8ecb")
-	)
-	(wire
-		(pts
-			(xy 341.63 152.4) (xy 341.63 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6cefa28a-1321-426a-b864-dab9d670c5a7")
 	)
 	(wire
 		(pts
@@ -3141,16 +3297,6 @@
 	)
 	(wire
 		(pts
-			(xy 339.09 52.07) (xy 339.09 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cf9576d-bf4d-4bc3-9390-db2c516cd61c")
-	)
-	(wire
-		(pts
 			(xy 91.44 55.88) (xy 91.44 57.15)
 		)
 		(stroke
@@ -3168,16 +3314,6 @@
 			(type default)
 		)
 		(uuid "892eff9b-a512-44f3-9527-3f3c4bcdcd9b")
-	)
-	(wire
-		(pts
-			(xy 340.36 106.68) (xy 340.36 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d8df5ec-2770-4428-821c-84a339afdd7d")
 	)
 	(wire
 		(pts
@@ -3211,26 +3347,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 55.88) (xy 127 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bf9acdbb-28d7-48f7-8e4a-11063038322b")
-	)
-	(wire
-		(pts
-			(xy 341.63 160.02) (xy 341.63 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1ad24ee-775f-4b84-b3ca-3b37e436e959")
-	)
-	(wire
-		(pts
 			(xy 78.74 80.01) (xy 81.28 80.01)
 		)
 		(stroke
@@ -3241,13 +3357,13 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 60.96) (xy 114.3 60.96)
+			(xy 107.95 55.88) (xy 106.68 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cbed197a-7d3a-403b-98a9-b9f26a63fde5")
+		(uuid "cbf2e618-bcab-4ffd-b15e-2cccd68bfc56")
 	)
 	(wire
 		(pts
@@ -3261,36 +3377,6 @@
 	)
 	(wire
 		(pts
-			(xy 335.28 210.82) (xy 335.28 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d855f8cf-9119-472e-9799-7fb92d6caed7")
-	)
-	(wire
-		(pts
-			(xy 339.09 49.53) (xy 339.09 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df8f66d8-ce8a-47a4-b677-9997c67b6fb2")
-	)
-	(wire
-		(pts
-			(xy 339.09 44.45) (xy 339.09 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0956bc6-101a-4ac1-8f48-781640fb4f19")
-	)
-	(wire
-		(pts
 			(xy 74.93 34.29) (xy 77.47 34.29)
 		)
 		(stroke
@@ -3301,13 +3387,13 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 44.45) (xy 114.3 58.42)
+			(xy 107.95 60.96) (xy 106.68 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e83c0d54-4f7e-492d-9452-fa98241cb4d4")
+		(uuid "e6089263-5f53-4502-b0ab-bb4975aabc29")
 	)
 	(wire
 		(pts
@@ -3321,16 +3407,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 63.5) (xy 114.3 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f714ab53-3420-4c9e-954f-2cdbcd3abb17")
-	)
-	(wire
-		(pts
 			(xy 91.44 54.61) (xy 91.44 55.88)
 		)
 		(stroke
@@ -3338,6 +3414,16 @@
 			(type default)
 		)
 		(uuid "fb672a7b-389d-408e-a1c0-9c8862c89ef4")
+	)
+	(label "DATA-OUT"
+		(at 107.95 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "02270b8d-3c61-46c0-b72d-a410cfdfda40")
 	)
 	(label "D+"
 		(at 92.71 92.71 180)
@@ -3348,6 +3434,16 @@
 			(justify right bottom)
 		)
 		(uuid "6ac108d6-bcea-41c0-af42-ba2b4763e23b")
+	)
+	(label "DATA+OUT"
+		(at 107.95 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b8203c12-2e90-4900-b8c3-c1465d150f90")
 	)
 	(label "D-"
 		(at 92.71 87.63 180)
@@ -3383,7 +3479,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 340.36 102.87 180)
+		(at 337.82 102.87 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3393,7 +3489,7 @@
 		)
 		(uuid "20cd146c-e0cd-422b-90e8-08d6b159eede")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 331.3876 102.87 0)
+			(at 328.8476 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3403,31 +3499,9 @@
 			)
 		)
 	)
-	(global_label "VUSB"
+	(global_label "4.5V"
 		(shape input)
-		(at 209.55 34.29 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "365d9121-bb89-4aa6-9f3b-b6f71b13b971")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.4338 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBAT+"
-		(shape input)
-		(at 237.49 245.11 180)
+		(at 222.25 124.46 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3435,9 +3509,31 @@
 			)
 			(justify right)
 		)
-		(uuid "6d4fd49f-3eca-4bba-83af-49d83739c46c")
+		(uuid "2b7abade-8d27-4ec0-9157-b59aa3c11c0a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 228.5176 245.11 0)
+			(at 215.1524 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "4.5V"
+		(shape input)
+		(at 153.67 170.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4e41a78e-9e61-4a42-9b5e-68b71b6fcd08")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 146.5724 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3449,7 +3545,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 339.09 45.72 180)
+		(at 336.55 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3459,7 +3555,29 @@
 		)
 		(uuid "706d8975-18c7-4d5d-8863-16a57712eed0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 330.1176 45.72 0)
+			(at 327.5776 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "4.5V"
+		(shape input)
+		(at 153.67 124.46 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7e4dc0cf-e774-4940-8442-f797b162935a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 146.5724 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3493,7 +3611,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 341.63 153.67 180)
+		(at 347.98 140.97 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3503,7 +3621,7 @@
 		)
 		(uuid "bd9d7c13-f7cc-44f7-b465-5cac98cbeb7f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 332.6576 153.67 0)
+			(at 339.0076 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3513,20 +3631,9 @@
 			)
 		)
 	)
-	(hierarchical_label "SDA_OLED2"
-		(shape input)
-		(at 46.99 177.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "0cd1ff5e-dd0e-44fa-9f82-e54488194d9a")
-	)
 	(hierarchical_label "SWCLK"
 		(shape input)
-		(at 189.23 39.37 180)
+		(at 198.12 52.07 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3537,7 +3644,7 @@
 	)
 	(hierarchical_label "GPIO_Mot1"
 		(shape input)
-		(at 339.09 41.91 180)
+		(at 336.55 41.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3548,7 +3655,7 @@
 	)
 	(hierarchical_label "GPIO_Mot2"
 		(shape input)
-		(at 340.36 99.06 180)
+		(at 337.82 99.06 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3559,7 +3666,7 @@
 	)
 	(hierarchical_label "SCL_OLED1"
 		(shape input)
-		(at 44.45 125.73 180)
+		(at 41.91 125.73 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3570,7 +3677,7 @@
 	)
 	(hierarchical_label "PWM_LiDAR"
 		(shape input)
-		(at 156.21 243.84 180)
+		(at 231.14 171.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3579,20 +3686,9 @@
 		)
 		(uuid "40c78b0a-7c4a-4281-a033-bc70ebe6ed8a")
 	)
-	(hierarchical_label "SCL_OLED2"
-		(shape input)
-		(at 46.99 175.26 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "41178873-4bbf-493d-9433-c66620cbe4fa")
-	)
 	(hierarchical_label "SCL_TOF1"
 		(shape input)
-		(at 156.21 127 180)
+		(at 153.67 127 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3603,7 +3699,7 @@
 	)
 	(hierarchical_label "SDA_TOF2"
 		(shape input)
-		(at 224.79 129.54 180)
+		(at 222.25 129.54 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3614,7 +3710,7 @@
 	)
 	(hierarchical_label "D+ STM32"
 		(shape input)
-		(at 114.3 44.45 0)
+		(at 133.35 64.77 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3625,7 +3721,7 @@
 	)
 	(hierarchical_label "SCL_TOF2"
 		(shape input)
-		(at 224.79 127 180)
+		(at 222.25 127 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3636,7 +3732,7 @@
 	)
 	(hierarchical_label "D+ ESP32"
 		(shape input)
-		(at 114.3 69.85 0)
+		(at 138.43 44.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3647,7 +3743,7 @@
 	)
 	(hierarchical_label "SWDIO"
 		(shape input)
-		(at 189.23 36.83 180)
+		(at 198.12 49.53 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3658,12 +3754,12 @@
 	)
 	(hierarchical_label "ARGB Din"
 		(shape input)
-		(at 360.68 213.36 0)
+		(at 40.64 134.62 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "7baf11c4-7532-487b-8ead-f33d8cb85d4c")
 	)
@@ -3680,7 +3776,7 @@
 	)
 	(hierarchical_label "RX_Mot1"
 		(shape input)
-		(at 339.09 36.83 180)
+		(at 336.55 36.83 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3691,7 +3787,7 @@
 	)
 	(hierarchical_label "SDA_TOF1"
 		(shape input)
-		(at 156.21 129.54 180)
+		(at 153.67 129.54 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3702,7 +3798,7 @@
 	)
 	(hierarchical_label "NRST"
 		(shape input)
-		(at 189.23 34.29 180)
+		(at 198.12 46.99 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3711,9 +3807,31 @@
 		)
 		(uuid "88f78886-7443-4241-a861-ae931c7d9e3d")
 	)
+	(hierarchical_label "GND_CONTROLLED-"
+		(shape input)
+		(at 31.75 156.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8c906da2-74c5-46e9-8580-bf4648f688e6")
+	)
+	(hierarchical_label "HP+"
+		(shape input)
+		(at 33.02 151.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "90281237-f0b3-4ea4-a915-fa113a9d5379")
+	)
 	(hierarchical_label "RX_LiDAR"
 		(shape input)
-		(at 156.21 248.92 180)
+		(at 231.14 176.53 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3724,7 +3842,7 @@
 	)
 	(hierarchical_label "D- ESP32"
 		(shape input)
-		(at 127 69.85 0)
+		(at 113.03 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3732,6 +3850,17 @@
 			(justify left)
 		)
 		(uuid "9e2d78f0-f6dd-44b5-97ba-6df86cc44422")
+	)
+	(hierarchical_label "BAT+"
+		(shape input)
+		(at 201.93 222.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a493ff71-cba9-4afd-b2bb-dc02bc91efc8")
 	)
 	(hierarchical_label "GPIO_Mot3"
 		(shape input)
@@ -3746,7 +3875,7 @@
 	)
 	(hierarchical_label "RX_Mot2"
 		(shape input)
-		(at 340.36 93.98 180)
+		(at 339.09 93.98 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3757,7 +3886,7 @@
 	)
 	(hierarchical_label "TX_Mot2"
 		(shape input)
-		(at 340.36 96.52 180)
+		(at 339.09 96.52 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3768,7 +3897,7 @@
 	)
 	(hierarchical_label "D- STM32"
 		(shape input)
-		(at 127 44.45 0)
+		(at 114.3 68.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3790,7 +3919,7 @@
 	)
 	(hierarchical_label "SDA_OLED1"
 		(shape input)
-		(at 44.45 128.27 180)
+		(at 41.91 128.27 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3799,9 +3928,20 @@
 		)
 		(uuid "ea57bc48-45f8-4844-99db-05265ae8ae9a")
 	)
+	(hierarchical_label "HP-"
+		(shape input)
+		(at 33.02 147.32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ecbca3b0-686a-4f7e-981a-7a6b58e118bc")
+	)
 	(hierarchical_label "SDA_TOF3"
 		(shape input)
-		(at 156.21 175.26 180)
+		(at 153.67 175.26 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3812,7 +3952,7 @@
 	)
 	(hierarchical_label "SCL_TOF3"
 		(shape input)
-		(at 156.21 172.72 180)
+		(at 153.67 172.72 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3823,7 +3963,7 @@
 	)
 	(hierarchical_label "TX_Mot1"
 		(shape input)
-		(at 339.09 39.37 180)
+		(at 336.55 39.37 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3900,7 +4040,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 156.21 256.54 0)
+		(at 233.68 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3909,7 +4049,7 @@
 		(fields_autoplaced yes)
 		(uuid "09d35f40-572d-40bc-a2ca-3510b69778eb")
 		(property "Reference" "#PWR079"
-			(at 156.21 262.89 0)
+			(at 233.68 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3918,7 +4058,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 156.21 261.62 0)
+			(at 233.68 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3926,7 +4066,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 256.54 0)
+			(at 233.68 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3935,7 +4075,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 256.54 0)
+			(at 233.68 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3944,7 +4084,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 256.54 0)
+			(at 233.68 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4031,17 +4171,33 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 335.28 213.36 0)
+		(lib_id "Connector:Conn_01x08_Pin")
+		(at 127 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "17bdc963-9e2d-4318-acaf-610915334cbc")
-		(property "Reference" "#PWR068"
-			(at 335.28 219.71 0)
+		(uuid "1873fb99-225d-4758-8a38-11162de4c7d4")
+		(property "Reference" "USBJUMP1"
+			(at 127.635 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08_Pin"
+			(at 127.635 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_2x04_P1.00mm_Vertical_SMD"
+			(at 127 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4049,16 +4205,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 335.28 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 335.28 213.36 0)
+		(property "Datasheet" "~"
+			(at 127 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4066,8 +4214,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 335.28 213.36 0)
+		(property "Description" "Generic connector, single row, 01x08, script generated"
+			(at 127 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4075,155 +4223,34 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 335.28 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "2"
+			(uuid "4f2986fa-31d0-401d-a6a5-16fe30addd2c")
+		)
+		(pin "5"
+			(uuid "9cd2d753-9cc1-4523-83b2-29bf705705c3")
 		)
 		(pin "1"
-			(uuid "59205022-ea5a-4b60-ba31-1af08b4bb777")
+			(uuid "25991a91-13a8-4e1b-954f-d42126562852")
+		)
+		(pin "3"
+			(uuid "6f64db78-dbfb-4e22-9ff4-492286610d8b")
+		)
+		(pin "4"
+			(uuid "8f5b95b8-5df6-49b2-9ea5-202a3f989367")
+		)
+		(pin "6"
+			(uuid "53114c85-5911-4a80-843f-c089444d1fdf")
+		)
+		(pin "8"
+			(uuid "3ec61629-ddee-427b-8aff-85a88c8a3db3")
+		)
+		(pin "7"
+			(uuid "62794dac-9435-43a9-a378-31527e9a80eb")
 		)
 		(instances
-			(project "PCB_PAPI"
+			(project ""
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR068")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 360.68 215.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "25152e16-2b6b-442b-88c0-d35d44b7a967")
-		(property "Reference" "#PWR069"
-			(at 360.68 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 360.68 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 360.68 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 360.68 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 360.68 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cf621948-1333-4e2f-9b9a-7748a5f5a8a3")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR069")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 156.21 170.18 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "33928d3d-51b9-4ecd-b33b-7aaaa97346fa")
-		(property "Reference" "#PWR086"
-			(at 160.02 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 152.4 170.1799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.21 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 156.21 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 156.21 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e331da53-6282-46ee-a05a-9f7ab9a1d52d")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR086")
+					(reference "USBJUMP1")
 					(unit 1)
 				)
 			)
@@ -4238,7 +4265,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "34675c76-606e-4a53-94b5-086da7e98450")
-		(property "Reference" "CAN5"
+		(property "Reference" "TOF3"
 			(at 171.45 175.2599 90)
 			(effects
 				(font
@@ -4328,7 +4355,7 @@
 		(instances
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN5")
+					(reference "TOF3")
 					(unit 1)
 				)
 			)
@@ -4336,7 +4363,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 156.21 132.08 270)
+		(at 153.67 132.08 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4345,7 +4372,7 @@
 		(fields_autoplaced yes)
 		(uuid "34e9238a-04d8-474d-8141-a178f5c2d35e")
 		(property "Reference" "#PWR084"
-			(at 149.86 132.08 0)
+			(at 147.32 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4354,7 +4381,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 152.4 132.0799 90)
+			(at 149.86 132.0799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4363,7 +4390,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 132.08 0)
+			(at 153.67 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4372,7 +4399,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 132.08 0)
+			(at 153.67 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4381,7 +4408,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 132.08 0)
+			(at 153.67 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4396,6 +4423,72 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR084")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 222.25 226.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3b97b0eb-85e4-4055-9a0a-c1654358f5fc")
+		(property "Reference" "#PWR075"
+			(at 222.25 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 222.25 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 222.25 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9af21725-7c43-405e-b306-9f4e07772e2f")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR075")
 					(unit 1)
 				)
 			)
@@ -4600,251 +4693,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x03_Pin")
-		(at 132.08 55.88 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4258bf63-c56a-4151-af65-e0ce2301abe7")
-		(property "Reference" "J7"
-			(at 133.35 54.6099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x03_Pin"
-			(at 133.35 57.1499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 132.08 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 132.08 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 132.08 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "21cb2152-839f-4293-be0f-184017a1f130")
-		)
-		(pin "2"
-			(uuid "2b565c8b-9ec1-4888-a360-ae392f47e9a8")
-		)
-		(pin "3"
-			(uuid "87f8d232-b027-444f-80ae-6af3ca602d3f")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "J7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 46.99 172.72 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "44a9a750-2ee2-4786-aa03-0d26d2a41922")
-		(property "Reference" "#PWR077"
-			(at 50.8 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 43.18 172.7199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 46.99 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 46.99 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 46.99 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8114afde-a65a-4547-aae6-530175618c02")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR077")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "fc_h7:jst_4_pin")
-		(at 53.34 123.19 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4d88a32f-73bd-4aec-b908-a7f6a0e5ccec")
-		(property "Reference" "CAN1"
-			(at 59.69 128.2699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SM04B-GHE-TB"
-			(at 64.262 137.16 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 53.34 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 53.34 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 53.34 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "JST"
-			(at 53.34 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "SM04B-GHE-TB"
-			(at 53.34 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" " 306-SM04BGHETBLFSN"
-			(at 53.34 123.19 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "ffbb7892-260a-470a-b255-e9b9c3e25c4e")
-		)
-		(pin "1"
-			(uuid "b4493048-0478-4e83-9c61-4e964130b655")
-		)
-		(pin "4"
-			(uuid "a7bfb9c9-a5cf-418a-90d1-a2cc5bd4fc2d")
-		)
-		(pin "MP"
-			(uuid "d00f259d-2127-4289-8066-223ce851c72d")
-		)
-		(pin "3"
-			(uuid "2a346e25-cfe6-4715-9c5c-c07dffdd5342")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "fc_h7:jst_4_pin")
 		(at 165.1 124.46 0)
 		(unit 1)
@@ -4853,7 +4701,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "507c5f64-f023-4777-8c31-0422eb030bc2")
-		(property "Reference" "CAN3"
+		(property "Reference" "TOF1"
 			(at 171.45 129.5399 90)
 			(effects
 				(font
@@ -4943,7 +4791,7 @@
 		(instances
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN3")
+					(reference "TOF1")
 					(unit 1)
 				)
 			)
@@ -4951,7 +4799,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 156.21 177.8 270)
+		(at 153.67 177.8 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4960,7 +4808,7 @@
 		(fields_autoplaced yes)
 		(uuid "51eda2ed-83ca-4ae2-9f68-729b71f51e8b")
 		(property "Reference" "#PWR087"
-			(at 149.86 177.8 0)
+			(at 147.32 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4969,7 +4817,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 152.4 177.7999 90)
+			(at 149.86 177.7999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4978,7 +4826,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 177.8 0)
+			(at 153.67 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4987,7 +4835,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 177.8 0)
+			(at 153.67 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4996,7 +4844,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 177.8 0)
+			(at 153.67 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5085,6 +4933,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 59.69 161.29 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5adf74f5-c47c-45b4-8237-a1908fe9f6d9")
+		(property "Reference" "#PWR038"
+			(at 59.69 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 59.69 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 59.69 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 59.69 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 59.69 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e92da088-adfb-48ea-94d4-34d66e96f55e")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 340.36 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5144,222 +5058,6 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR066")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SamacSys_Parts:SM03B-GHS-TB_LF__SN_")
-		(at 335.28 210.82 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "64508d49-7db6-4d4a-b3a8-da6d84893922")
-		(property "Reference" "J3"
-			(at 347.98 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SM03B-GHS-TB_LF__SN_"
-			(at 347.98 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SM03BGHSTBLFSN"
-			(at 356.87 305.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
-			(at 356.87 405.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "JST GH Series, 1.25mm Pitch 3 Way Right Angle PCB Header, Solder Termination, 1A"
-			(at 335.28 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "4.35"
-			(at 356.87 605.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-			(at 356.87 705.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "SM03B-GHS-TB(LF)(SN)"
-			(at 356.87 805.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "N/A"
-			(at 356.87 905.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM03B-GHS-TBLFSN?qs=QpmGXVUTftFznLWQEubYxw%3D%3D"
-			(at 356.87 1005.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "SM03B-GHS-TB(LF)(SN)"
-			(at 356.87 1105.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm03b-ghs-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
-			(at 356.87 1205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "1a2d077c-a17a-45f9-ad52-721e5306c698")
-		)
-		(pin "3"
-			(uuid "9799bf42-148b-489f-9302-5f96a67b6b68")
-		)
-		(pin "2"
-			(uuid "11f9155a-ac82-4454-8d9f-500a05ccd271")
-		)
-		(pin "1"
-			(uuid "4528822c-c1bb-4c15-b42d-391d25958471")
-		)
-		(pin "4"
-			(uuid "5584bbe9-1780-47e8-b520-f645bcd0971a")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 156.21 124.46 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6808dd4b-79f3-4eb1-86dd-34f30db68ead")
-		(property "Reference" "#PWR083"
-			(at 160.02 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 152.4 124.4599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.21 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 156.21 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 156.21 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8508f37a-8cdf-45b9-b9f4-d0cb9e0fece3")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR083")
 					(unit 1)
 				)
 			)
@@ -5503,15 +5201,15 @@
 	)
 	(symbol
 		(lib_id "fc_h7:jst_4_pin")
-		(at 165.1 243.84 0)
+		(at 242.57 171.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "71fcdc3a-3eee-4cbc-916d-354bed3066ea")
-		(property "Reference" "CAN4"
-			(at 171.45 248.9199 90)
+		(property "Reference" "LIDAR1"
+			(at 248.92 176.5299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5520,7 +5218,7 @@
 			)
 		)
 		(property "Value" "SM04B-GHE-TB"
-			(at 176.022 257.81 90)
+			(at 253.492 185.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5529,7 +5227,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 165.1 243.84 0)
+			(at 242.57 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5538,7 +5236,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 243.84 0)
+			(at 242.57 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5547,7 +5245,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 165.1 243.84 0)
+			(at 242.57 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5556,7 +5254,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "JST"
-			(at 165.1 243.84 90)
+			(at 242.57 171.45 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5565,7 +5263,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "SM04B-GHE-TB"
-			(at 165.1 243.84 90)
+			(at 242.57 171.45 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5574,7 +5272,7 @@
 			)
 		)
 		(property "Mouser Part Number" " 306-SM04BGHETBLFSN"
-			(at 165.1 243.84 90)
+			(at 242.57 171.45 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5600,7 +5298,7 @@
 		(instances
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN4")
+					(reference "LIDAR1")
 					(unit 1)
 				)
 			)
@@ -5674,7 +5372,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 156.21 251.46 90)
+		(at 231.14 179.07 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5682,7 +5380,7 @@
 		(dnp no)
 		(uuid "750601be-abf5-4688-b192-f58fd37a6058")
 		(property "Reference" "#PWR078"
-			(at 160.02 251.46 0)
+			(at 234.95 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5691,7 +5389,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 152.4 251.4599 90)
+			(at 227.33 179.0699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5700,7 +5398,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 251.46 0)
+			(at 231.14 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5709,7 +5407,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 251.46 0)
+			(at 231.14 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5718,7 +5416,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 156.21 251.46 0)
+			(at 231.14 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5739,53 +5437,17 @@
 		)
 	)
 	(symbol
-		(lib_id "SamacSys_Parts:SM05B-GHS-TB_LF__SN_")
-		(at 189.23 34.29 0)
+		(lib_id "power:+3.3V")
+		(at 41.91 123.19 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "756e2343-7e39-4924-92fb-0102863d3e76")
-		(property "Reference" "J9"
-			(at 199.39 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SM05B-GHS-TB_LF__SN_"
-			(at 199.39 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SM05B-GHS-TB"
-			(at 205.74 129.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/e4ef010dc292ea31091454f6c0afb63a.pdf"
-			(at 205.74 229.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "JST GH Series, 1.25mm Pitch 5 Way Right Angle PCB Header, Solder Termination, 1A"
-			(at 189.23 34.29 0)
+		(uuid "7cb8ee94-dfa6-4ec2-b077-c42dd98dccd6")
+		(property "Reference" "#PWR064"
+			(at 45.72 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5793,121 +5455,8 @@
 				(hide yes)
 			)
 		)
-		(property "Height" ""
-			(at 205.74 429.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-			(at 205.74 529.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "SM05B-GHS-TB(LF)(SN)"
-			(at 205.74 629.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "N/A"
-			(at 205.74 729.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM05B-GHS-TBLFSN?qs=QpmGXVUTftEjojOT4U3d6Q%3D%3D"
-			(at 205.74 829.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "SM05B-GHS-TB(LF)(SN)"
-			(at 205.74 929.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm05b-ghs-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
-			(at 205.74 1029.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "af46c5f0-e822-46dc-84c9-00662a168649")
-		)
-		(pin "2"
-			(uuid "851a92f7-03f0-4792-9c5d-dce31fccf6ae")
-		)
-		(pin "4"
-			(uuid "bb849b67-a706-4a3f-8452-e5a29870964b")
-		)
-		(pin "3"
-			(uuid "a290f973-b513-44ba-a1b1-4a1617be2faf")
-		)
-		(pin "5"
-			(uuid "32c23ccb-f04b-4f27-b040-d625d567d720")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "J9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 360.68 210.82 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7f254e20-f910-4cc3-9f54-c28bb9fa574f")
-		(property "Reference" "#PWR075"
-			(at 356.87 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 364.49 210.8199 90)
+		(property "Value" "+3.3V"
+			(at 38.1 123.1899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5916,7 +5465,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 360.68 210.82 0)
+			(at 41.91 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5925,7 +5474,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 360.68 210.82 0)
+			(at 41.91 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5933,8 +5482,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 360.68 210.82 0)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 41.91 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5943,12 +5492,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f60f12d9-e1f8-4496-b0bc-784a254e13df")
+			(uuid "00c4fbc5-cee0-463f-804a-bd0a042c9e15")
 		)
 		(instances
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR075")
+					(reference "#PWR064")
 					(unit 1)
 				)
 			)
@@ -6022,73 +5571,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 46.99 185.42 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "831ac46c-c53f-4958-8dab-57c946f0956d")
-		(property "Reference" "#PWR064"
-			(at 46.99 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 46.99 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 46.99 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 46.99 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 46.99 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6575bcbf-7e90-4e62-bd1e-15f14b1faa6e")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR064")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 340.36 109.22 270)
+		(at 335.28 109.22 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6097,7 +5580,7 @@
 		(fields_autoplaced yes)
 		(uuid "853e3aa8-ff5f-423d-8194-b60afe5a0bb4")
 		(property "Reference" "#PWR072"
-			(at 334.01 109.22 0)
+			(at 328.93 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6106,7 +5589,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 336.55 109.2199 90)
+			(at 331.47 109.2199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6115,7 +5598,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 340.36 109.22 0)
+			(at 335.28 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6124,7 +5607,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 340.36 109.22 0)
+			(at 335.28 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6133,7 +5616,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 340.36 109.22 0)
+			(at 335.28 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6154,26 +5637,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 224.79 124.46 90)
+		(lib_id "samacsys:SM10B-SRSS-TB_LF__SN_")
+		(at 48.26 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8a9e026d-eca8-476c-b415-640b58c476b7")
-		(property "Reference" "#PWR089"
-			(at 228.6 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 220.98 124.4599 90)
+		(uuid "8903b3a8-2643-4a6b-afb8-64bfa4ba3b1e")
+		(property "Reference" "ACCESSORIES1"
+			(at 67.31 137.1599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6181,8 +5655,37 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 224.79 124.46 0)
+		(property "Value" "SM10B-SRSS-TB_LF__SN_"
+			(at 67.31 139.6999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "samacsys:SM10B-SRSS-TB"
+			(at 67.31 218.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.jst-mfg.com/product/pdf/eng/eSR.pdf"
+			(at 67.31 318.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "JST (JAPAN SOLDERLESS TERMINALS) - SM10B-SRSS-TB(LF)(SN) - HEADER, R/A, 10WAY"
+			(at 48.26 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6190,31 +5693,113 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 224.79 124.46 0)
+		(property "Height" ""
+			(at 67.31 518.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 224.79 124.46 0)
+		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
+			(at 67.31 618.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
+		)
+		(property "Manufacturer_Part_Number" "SM10B-SRSS-TB(LF)(SN)"
+			(at 67.31 718.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "306-SM10BSRSSTBLFSN"
+			(at 67.31 818.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM10B-SRSS-TBLFSN?qs=QpmGXVUTftHkZAI%2F8hE40w%3D%3D"
+			(at 67.31 918.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" "SM10B-SRSS-TB(LF)(SN)"
+			(at 67.31 1018.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm10b-srss-tb-lf-sn/jst-manufacturing?utm_currency=USD&region=europe"
+			(at 67.31 1118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "7bfb55f1-cd42-4d45-a048-1925095aa949")
+		)
+		(pin "2"
+			(uuid "dc364456-2a36-4c1f-91c2-55cef8c890b7")
+		)
+		(pin "3"
+			(uuid "d6641b90-67a9-41a7-aab4-5cf40efebaa0")
+		)
+		(pin "4"
+			(uuid "6ab24cda-fcb5-4f68-8a9c-23b4ddf47066")
+		)
+		(pin "9"
+			(uuid "66555d49-4653-4cff-9384-ecddf5511f7c")
+		)
+		(pin "6"
+			(uuid "e7679de6-d144-4214-b9e9-7d12e93fef2b")
 		)
 		(pin "1"
-			(uuid "42dc73c6-69cf-47cc-9f49-41fa9372f86d")
+			(uuid "777345ed-a188-4cf1-ad17-9c509103f8cb")
+		)
+		(pin "8"
+			(uuid "674ca6f0-46ef-411b-8536-39f6589697f9")
+		)
+		(pin "10"
+			(uuid "175ed347-e92b-4dd2-9b19-ced5725cef1e")
+		)
+		(pin "7"
+			(uuid "7d003a07-f193-468a-b4c5-4acdf2383c4c")
+		)
+		(pin "MP"
+			(uuid "14c58756-e0fd-46ff-b17b-9d61416234ab")
 		)
 		(instances
-			(project "PCB_PAPI"
+			(project ""
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR089")
+					(reference "ACCESSORIES1")
 					(unit 1)
 				)
 			)
@@ -6316,7 +5901,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 339.09 52.07 270)
+		(at 336.55 52.07 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6325,7 +5910,7 @@
 		(fields_autoplaced yes)
 		(uuid "9755895f-859d-4d55-9348-2c7c1bab3ab1")
 		(property "Reference" "#PWR071"
-			(at 332.74 52.07 0)
+			(at 330.2 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6334,7 +5919,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 335.28 52.0699 90)
+			(at 332.74 52.0699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6343,7 +5928,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 339.09 52.07 0)
+			(at 336.55 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6352,7 +5937,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 339.09 52.07 0)
+			(at 336.55 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6361,7 +5946,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 339.09 52.07 0)
+			(at 336.55 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6383,7 +5968,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 167.64 0)
+		(at 351.79 167.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6392,7 +5977,7 @@
 		(fields_autoplaced yes)
 		(uuid "99ef0b11-d228-4928-af71-71745370f38c")
 		(property "Reference" "#PWR067"
-			(at 341.63 173.99 0)
+			(at 351.79 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6401,7 +5986,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 341.63 172.72 0)
+			(at 351.79 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6409,7 +5994,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 167.64 0)
+			(at 351.79 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6418,7 +6003,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 167.64 0)
+			(at 351.79 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6427,7 +6012,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 167.64 0)
+			(at 351.79 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6442,72 +6027,6 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR067")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 44.45 135.89 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a35ba779-a6e2-4573-affd-0535b0f81040")
-		(property "Reference" "#PWR038"
-			(at 44.45 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 44.45 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 44.45 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 44.45 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 44.45 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "025163a1-99fa-4b5e-8d16-f7b8b60a528d")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -6581,35 +6100,34 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 156.21 246.38 270)
+		(lib_id "fc_h7:jst_4_pin")
+		(at 210.82 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b4096cc4-5c11-4e59-bef1-05da5fe9ced5")
-		(property "Reference" "#PWR080"
-			(at 149.86 246.38 0)
+		(uuid "b1c3dc35-d359-4885-88a2-d9b78feccd33")
+		(property "Reference" "SWD1"
+			(at 217.17 53.3399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
-		(property "Value" "GND"
-			(at 152.4 246.3799 90)
+		(property "Value" "SM04B-GHE-TB"
+			(at 221.742 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 156.21 246.38 0)
+		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
+			(at 210.82 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6618,7 +6136,113 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 246.38 0)
+			(at 210.82 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 210.82 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "JST"
+			(at 210.82 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SM04B-GHE-TB"
+			(at 210.82 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" " 306-SM04BGHETBLFSN"
+			(at 210.82 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "770b4deb-f47a-4a21-85a1-02c37659f506")
+		)
+		(pin "1"
+			(uuid "a1b48e4c-1305-4797-ba26-c9287bc316a5")
+		)
+		(pin "4"
+			(uuid "ccd94a51-76fe-44a6-b761-e389990b4793")
+		)
+		(pin "MP"
+			(uuid "485a86b8-58ea-424e-b8ee-04e20b340917")
+		)
+		(pin "3"
+			(uuid "62628fd3-504d-4c3e-9e5f-03f28ab7dcd6")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "SWD1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 231.14 173.99 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b4096cc4-5c11-4e59-bef1-05da5fe9ced5")
+		(property "Reference" "#PWR080"
+			(at 224.79 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 227.33 173.9899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6627,7 +6251,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 246.38 0)
+			(at 231.14 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6953,17 +6577,53 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 46.99 180.34 270)
+		(lib_id "samacsys:XT30PW-M")
+		(at 201.93 222.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c1b95425-1c6f-4c71-a84c-2fdb22d48728")
-		(property "Reference" "#PWR081"
-			(at 40.64 180.34 0)
+		(uuid "c6fec646-3b30-4e88-94f2-6279e21b9375")
+		(property "Reference" "J3"
+			(at 212.09 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "XT30PW-M"
+			(at 212.09 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "samacsys:XT30PWM"
+			(at 218.44 317.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.tme.eu/sl/Document/ce4077e36b79046da520ca73227e15de/XT30PW%20SPEC.pdf"
+			(at 218.44 417.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "30A Low Temperature Rise Fire Retardant Plug"
+			(at 201.93 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6971,154 +6631,92 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 43.18 180.3399 90)
+		(property "Height" "5"
+			(at 218.44 617.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 46.99 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 46.99 180.34 0)
+		(property "Manufacturer_Name" "Amass"
+			(at 218.44 717.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 46.99 180.34 0)
+		(property "Manufacturer_Part_Number" "XT30PW-M"
+			(at 218.44 817.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "ad644ec3-6ae3-47f8-a476-1210e02a2913")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR081")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "fc_h7:jst_4_pin")
-		(at 55.88 172.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c57d7f1b-36eb-41ae-94c1-6a4ba318c53e")
-		(property "Reference" "CAN2"
-			(at 62.23 177.7999 90)
+		(property "Mouser Part Number" ""
+			(at 218.44 917.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-			)
-		)
-		(property "Value" "SM04B-GHE-TB"
-			(at 66.802 186.69 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 55.88 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 55.88 172.72 0)
+		(property "Mouser Price/Stock" ""
+			(at 218.44 1017.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 55.88 172.72 0)
+		(property "Arrow Part Number" ""
+			(at 218.44 1117.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "JST"
-			(at 55.88 172.72 90)
+		(property "Arrow Price/Stock" ""
+			(at 218.44 1217.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
-		)
-		(property "Manufacturer_Part_Number" "SM04B-GHE-TB"
-			(at 55.88 172.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" " 306-SM04BGHETBLFSN"
-			(at 55.88 172.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "bfd4f551-c0b7-4496-b38a-badf9d7e927f")
-		)
-		(pin "1"
-			(uuid "0b11a782-3a2d-417c-a3a1-800c62ac7db2")
-		)
-		(pin "4"
-			(uuid "7affe8a7-4e3d-4655-a476-470a64db0b08")
-		)
-		(pin "MP"
-			(uuid "d5e7ad54-0c62-4712-8b8e-371112cf019c")
 		)
 		(pin "3"
-			(uuid "21414fcf-60c5-4cb6-ba52-c9c5a968d8a1")
+			(uuid "cf13390d-6907-4988-926f-0cf92c5281e9")
+		)
+		(pin "2"
+			(uuid "64dc98fc-f60d-477b-bc57-59437d26a138")
+		)
+		(pin "4"
+			(uuid "307b860e-84f6-423d-9958-f69adcb069ff")
+		)
+		(pin "1"
+			(uuid "25f7925a-0ade-448a-a988-78404ed77ea5")
 		)
 		(instances
-			(project "PCB_PAPI"
+			(project ""
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN2")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -7243,7 +6841,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 237.49 247.65 0)
+		(at 201.93 224.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7252,7 +6850,7 @@
 		(fields_autoplaced yes)
 		(uuid "d02abe5f-782a-425c-b357-49e7654af7ba")
 		(property "Reference" "#PWR070"
-			(at 237.49 254 0)
+			(at 201.93 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7261,7 +6859,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 237.49 252.73 0)
+			(at 201.93 229.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7269,7 +6867,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 237.49 247.65 0)
+			(at 201.93 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7278,7 +6876,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 237.49 247.65 0)
+			(at 201.93 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7287,7 +6885,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 237.49 247.65 0)
+			(at 201.93 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7309,7 +6907,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 224.79 132.08 270)
+		(at 222.25 132.08 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7318,7 +6916,7 @@
 		(fields_autoplaced yes)
 		(uuid "d50052e8-fcbe-4f11-b333-b77b8203acf8")
 		(property "Reference" "#PWR090"
-			(at 218.44 132.08 0)
+			(at 215.9 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7327,7 +6925,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 220.98 132.0799 90)
+			(at 218.44 132.0799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7336,7 +6934,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 132.08 0)
+			(at 222.25 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7345,7 +6943,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 132.08 0)
+			(at 222.25 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7354,7 +6952,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 224.79 132.08 0)
+			(at 222.25 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7369,6 +6967,73 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR090")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 38.1 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d5d56014-aca3-45e9-a9dd-2741504b823c")
+		(property "Reference" "#PWR068"
+			(at 41.91 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 34.29 142.2399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 38.1 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9450ef49-4f80-45d3-98f0-1046084799af")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR068")
 					(unit 1)
 				)
 			)
@@ -7478,7 +7143,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "da588720-ed44-48f6-b38f-8db188882505")
-		(property "Reference" "CAN6"
+		(property "Reference" "TOF2"
 			(at 240.03 129.5399 90)
 			(effects
 				(font
@@ -7568,7 +7233,7 @@
 		(instances
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "CAN6")
+					(reference "TOF2")
 					(unit 1)
 				)
 			)
@@ -7642,7 +7307,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 44.45 130.81 270)
+		(at 41.91 130.81 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7651,7 +7316,7 @@
 		(fields_autoplaced yes)
 		(uuid "e4d858f2-a3f1-41ba-a01d-4e94ef24f464")
 		(property "Reference" "#PWR082"
-			(at 38.1 130.81 0)
+			(at 35.56 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7660,7 +7325,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 40.64 130.8099 90)
+			(at 38.1 130.8099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7669,7 +7334,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 44.45 130.81 0)
+			(at 41.91 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7678,7 +7343,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 130.81 0)
+			(at 41.91 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7687,7 +7352,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 44.45 130.81 0)
+			(at 41.91 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7708,75 +7373,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 44.45 123.19 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e7220079-06f4-4cac-b5e3-bd32509adc9e")
-		(property "Reference" "#PWR076"
-			(at 48.26 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 40.64 123.1899 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 44.45 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6753b825-8f63-46f5-aa63-bba803d2c0eb")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR076")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "fc_h7:jst_8_pin")
-		(at 350.52 151.13 0)
+		(at 360.68 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7784,7 +7382,7 @@
 		(dnp no)
 		(uuid "f2c2ff3a-6537-45c0-b10e-194c8b1112e1")
 		(property "Reference" "ESC3"
-			(at 356.87 156.2099 0)
+			(at 367.03 156.2099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7793,7 +7391,7 @@
 			)
 		)
 		(property "Value" "SM08B-SRSS-TBLFSN"
-			(at 363.728 166.878 90)
+			(at 373.888 166.878 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7802,7 +7400,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_SHL_SM08B-SHLS-TF_1x08-1MP_P1.00mm_Horizontal"
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7811,7 +7409,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7820,7 +7418,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7829,7 +7427,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "JST"
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7838,7 +7436,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "SM08B-SRSS-TBLFSN"
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7847,7 +7445,7 @@
 			)
 		)
 		(property "Mouser Part Number" " 306-SM08BSRSSTBLFSN"
-			(at 350.52 151.13 0)
+			(at 360.68 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7960,16 +7558,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 209.55 36.83 0)
+		(at 198.12 55.88 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "f96ed53b-2618-4929-83c1-9762e3df37a3")
-		(property "Reference" "#PWR074"
-			(at 209.55 43.18 0)
+		(uuid "f93b3aef-5c45-4004-b801-cc8732596e28")
+		(property "Reference" "#PWR069"
+			(at 191.77 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7978,15 +7576,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 209.55 41.91 0)
+			(at 194.31 55.8799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 209.55 36.83 0)
+			(at 198.12 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7995,7 +7594,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 209.55 36.83 0)
+			(at 198.12 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8004,7 +7603,73 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 209.55 36.83 0)
+			(at 198.12 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5f65aa55-af46-4590-9ea6-6a6a96d2d1fe")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR069")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 201.93 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f96ed53b-2618-4929-83c1-9762e3df37a3")
+		(property "Reference" "#PWR074"
+			(at 201.93 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 201.93 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 201.93 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 201.93 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 201.93 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8019,221 +7684,6 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR074")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x03_Pin")
-		(at 119.38 60.96 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fa2de83b-1fb5-4cdf-ad34-7bfaf340bd3b")
-		(property "Reference" "J8"
-			(at 120.65 59.6899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x03_Pin"
-			(at 120.65 62.2299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 119.38 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 119.38 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 119.38 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "23729885-36d7-4512-832c-4e7d157d55fe")
-		)
-		(pin "1"
-			(uuid "6ad3ed04-f059-45a1-9aa3-c7e4b98b48b1")
-		)
-		(pin "3"
-			(uuid "655a8f4a-d9fa-4b0a-9036-581fe92ab89d")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SamacSys_Parts:XT30AW-M")
-		(at 237.49 245.11 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fe94edae-d7bf-4b32-a87f-fdc498b75432")
-		(property "Reference" "J4"
-			(at 254 245.1099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "XT30AW-M"
-			(at 254 247.6499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "XT30AWM"
-			(at 254 340.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.china-amass.com/biao/272.html?fbclid=IwZXh0bgNhZW0CMTEAAR1NvX_4aFpbUb2nO8NynRjoma90JrwdPu4OP5agqrddJY_N3HJJ-jDn6Lk_aem_mR-XhVJeUbZ7SJKgTTHkqQ"
-			(at 254 440.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "Connector: DC supply; socket; XT30; male; PIN: 2; on PCBs; THT; 20A"
-			(at 237.49 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "10.7"
-			(at 254 640.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Amass"
-			(at 254 740.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "XT30AW-M"
-			(at 254 840.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 254 940.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 254 1040.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" ""
-			(at 254 1140.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" ""
-			(at 254 1240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ad84606a-7070-4d86-896b-3f46fe6f0a01")
-		)
-		(pin "2"
-			(uuid "9cd114c3-686f-46b5-af5a-bacc962b693f")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "J4")
 					(unit 1)
 				)
 			)

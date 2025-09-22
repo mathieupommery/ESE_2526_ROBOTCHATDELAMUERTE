@@ -27,7 +27,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "foc.h"
+#include "mps330.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

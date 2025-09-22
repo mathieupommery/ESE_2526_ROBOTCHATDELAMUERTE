@@ -7,49 +7,39 @@
 
 #include "FOC_math.h"
 #include "math.h"
+#include "fast_cossin.h"
 
-float sin_lut[LUT_SIZE];
-float cos_lut[LUT_SIZE];
 
-void init_trig_lut(void) {
-    for (int i = 0; i < LUT_SIZE; ++i) {
-        float angle = i * LUT_STEP;
-        sin_lut[i] = sinf(angle);
-        cos_lut[i] = cosf(angle);
+void norm_angle_rad(float *theta) {
+    int k = (int)(*theta * INV_TWO_PI_F);
+    *theta -= (float)k * TWO_PI_F;
+    if (*theta < 0.0f) {
+        *theta += TWO_PI_F;
     }
 }
 
-void norm_angle_rad(float *theta) {
-    while (*theta < 0) *theta += TWO_PI;
-    while (*theta >= TWO_PI) *theta -= TWO_PI;
-}
-
 float fast_sin(float theta) {
-	norm_angle_rad(&theta);
-    float index_f = theta / LUT_STEP;
-    int index = (int)index_f;
-    float frac = index_f - index;
+    norm_angle_rad(&theta);                 // <- changement ici (par pointeur)
+    float index_f = theta * LUT_INV_STEP;   // [0, LUT_SIZE)
+    int   index   = (int)index_f;           // floor
+    float frac    = index_f - (float)index; // [0,1)
 
-    int next_index = (index + 1) % LUT_SIZE;
+    // LUT_SIZE = 1024 -> masque rapide (équiv. à % LUT_SIZE)
+    int next_index = (index + 1) & (LUT_SIZE - 1);
 
     return sin_lut[index] * (1.0f - frac) + sin_lut[next_index] * frac;
 }
 
 float fast_cos(float theta) {
-	norm_angle_rad(&theta);
-    float index_f = theta / LUT_STEP;
-    int index = (int)index_f;
-    float frac = index_f - index;
-
-    int next_index = (index + 1) % LUT_SIZE;
-
-    return cos_lut[index] * (1.0f - frac) + cos_lut[next_index] * frac;
+    return fast_sin(theta + HALF_PI_F);
 }
 
 void pre_calc_sin_cos(float theta, float *sin_theta, float *cos_theta) {
-    *sin_theta = fast_sin(theta);
+    float s = fast_sin(theta);
+    *sin_theta = s;
     *cos_theta = fast_cos(theta);
 }
+
 
 // Fast combined Clarke + Park Transform
 void clarke_park_transform(float ia, float ib, float sin_theta, float cos_theta, float *id, float *iq) {

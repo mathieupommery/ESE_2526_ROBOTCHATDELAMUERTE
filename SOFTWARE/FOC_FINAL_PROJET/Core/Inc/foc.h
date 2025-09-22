@@ -9,6 +9,12 @@
 #define INC_FOC_H_
 
 
+#include <stdint.h>
+#include "FOC_math.h"
+#include "pid_utils.h"
+
+
+
 /* Horloge du timer (après x2 APB si applicable) */
 #ifndef FOC_TIM_CLK_HZ
 #define FOC_TIM_CLK_HZ         128000000UL   /* ex. 170 MHz */
@@ -83,9 +89,7 @@
 //64 μs to 126 μs by 2 μs steps
 //Note: This bit-field can not be modified as long as LOCK level 1, 2 or 3 has been programmed
 
-#include <stdint.h>
-#include "FOC_math.h"
-#include "pid_utils.h"
+
 
 #define ERROR_LUT_SIZE (1024)
 
@@ -155,8 +159,7 @@ typedef struct {
 	dir_mode_t sensor_dir;
 }foc_t;
 
-void foc_pwm_init(foc_t *hfoc, volatile uint32_t *pwm_a, volatile uint32_t *pwm_b, volatile uint32_t *pwm_c,
-		uint32_t pwm_res);
+void foc_pwm_init(foc_t *hfoc, volatile uint32_t *pwm_a, volatile uint32_t *pwm_b, volatile uint32_t *pwm_c,uint32_t pwm_res);
 void foc_motor_init(foc_t *hfoc, uint8_t pole_pairs, float kv);
 void foc_sensor_init(foc_t *hfoc, float m_rad_offset, dir_mode_t sensor_dir);
 void foc_gear_reducer_init(foc_t *hfoc, float ratio);

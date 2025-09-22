@@ -38,7 +38,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
  ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/dma.h \
  ../Core/Inc/usart.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
- ../Core/Inc/gpio.h
+ ../Core/Inc/gpio.h ../Core/Inc/foc.h ../Core/Inc/FOC_math.h \
+ ../Core/Inc/pid_utils.h ../Core/Inc/mps330.h ../Core/Inc/MPS330_Config.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
 ../Core/Inc/stm32g0xx_hal_conf.h:
@@ -84,3 +85,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/spi.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/gpio.h:
+../Core/Inc/foc.h:
+../Core/Inc/FOC_math.h:
+../Core/Inc/pid_utils.h:
+../Core/Inc/mps330.h:
+../Core/Inc/MPS330_Config.h:

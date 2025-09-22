@@ -11,9 +11,6 @@
 
 #include <stdint.h>
 
-#define LUT_SIZE (1024*4)
-#define LUT_STEP (TWO_PI / (float)LUT_SIZE)
-
 #define TWO_BY_SQRT3 1.15470053838f
 #define ONE_BY_SQRT3 0.57735026919f
 #define SQRT3_BY_TWO 0.86602540378f
@@ -28,10 +25,7 @@
 
 #define DEG_TO_RAD(deg) ((deg) * 0.017453292519943f)  // π/180
 
-extern float sin_lut[LUT_SIZE];
-extern float cos_lut[LUT_SIZE];
 
-void init_trig_lut(void);
 void norm_angle_rad(float *theta);
 float fast_sin(float theta);
 float fast_cos(float theta);
