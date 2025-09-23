@@ -1,4 +1,4 @@
-26603043916623448
+26611836841184427
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -105875,6 +105875,13 @@ Integrated Circuit
 4
 4
 samacsys
+ADXL343BCCZRL
+14-Terminal Land Grid Array [LGA] (CC-14-1)
+Integrated Circuit
+0
+14
+14
+samacsys
 BC81725QBZ
 DFN1110D-3 (SOT8015)_2022
 MOSFET (P-Channel)
@@ -106099,6 +106106,13 @@ Transistor
 8
 8
 samacsys
+SM02BGHSTBLFSN
+SM02B-GHS-TB(LF)(SN)
+Connector
+0
+4
+4
+samacsys
 SM04B-GHS-TB
 SM04B-GHS-TB
 Connector
@@ -106133,6 +106147,13 @@ Connector
 0
 12
 12
+samacsys
+SM12BSRSSTBLFSN
+SM12B-SRSS-TB(LF)(SN)-2
+Connector
+0
+14
+14
 samacsys
 SOD2513X117N
 SOD-323
@@ -106246,6 +106267,13 @@ Integrated Circuit
 8
 8
 samacsys
+SQS401ENT1_BE3
+SQS401EN-T1_BE3-3
+MOSFET (N-Channel)
+0
+11
+11
+samacsys
 STPS1L20MF
 STPS1L20MF
 Schottky Diode
@@ -106280,6 +106308,13 @@ Inductor
 0
 2
 2
+samacsys
+XT30PWM
+XT30PW-M
+Connector
+0
+4
+4
 samacsys
 XT60PWM
 XT60PW-M-3
