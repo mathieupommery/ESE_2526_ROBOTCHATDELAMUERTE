@@ -4294,6 +4294,28 @@
 			)
 		)
 	)
+	(global_label "4.5V"
+		(shape input)
+		(at 73.66 151.13 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2d585ded-9c91-4791-af7c-a2aa52b801f9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 80.7576 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "VBAT+"
 		(shape input)
 		(at 339.09 54.61 180)
@@ -6861,72 +6883,6 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR088")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 73.66 151.13 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "84c43848-edb9-4607-9825-dadfa94a1582")
-		(property "Reference" "#PWR068"
-			(at 69.85 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 77.47 151.1301 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 73.66 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 73.66 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 73.66 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3a20b587-c0b0-4161-b31f-f7205221424e")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
-					(reference "#PWR068")
 					(unit 1)
 				)
 			)
