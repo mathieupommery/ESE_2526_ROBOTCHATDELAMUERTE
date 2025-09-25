@@ -4440,10 +4440,6 @@
 		(uuid "11067a9e-62bc-46d7-8630-31b20b8b5ea7")
 	)
 	(no_connect
-		(at 273.05 138.43)
-		(uuid "15634e7b-be02-4cc4-af48-a523778cb5ca")
-	)
-	(no_connect
 		(at 318.77 110.49)
 		(uuid "1effb6eb-7232-4505-9bf8-48b5c0d57341")
 	)
@@ -4480,10 +4476,6 @@
 		(uuid "4761b4c0-768a-43db-9163-d61f85c9cf0c")
 	)
 	(no_connect
-		(at 273.05 130.81)
-		(uuid "49be456a-8ad9-463f-bd09-bf8e46b4004b")
-	)
-	(no_connect
 		(at 318.77 105.41)
 		(uuid "52dfa3dc-babe-4b88-ab81-82824ae6786d")
 	)
@@ -4498,10 +4490,6 @@
 	(no_connect
 		(at 273.05 113.03)
 		(uuid "7800dae5-dbbc-4c51-bb33-c8165ec51665")
-	)
-	(no_connect
-		(at 273.05 133.35)
-		(uuid "8f7868ef-13d3-463c-a3f7-8c5928637c20")
 	)
 	(no_connect
 		(at 273.05 118.11)
@@ -5519,6 +5507,17 @@
 			)
 		)
 	)
+	(hierarchical_label "PD5"
+		(shape input)
+		(at 273.05 138.43 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "04ab29e6-8f6e-47e4-9c50-60bd44bf3291")
+	)
 	(hierarchical_label "ACCEL_MISO_SPI4"
 		(shape input)
 		(at 273.05 95.25 180)
@@ -5650,6 +5649,17 @@
 			(justify left)
 		)
 		(uuid "583824e7-94fa-4dab-a68b-c5b703ea1b50")
+	)
+	(hierarchical_label "PD3"
+		(shape input)
+		(at 273.05 133.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "583ba3c1-dd21-4cd7-bd71-56f614b10f10")
 	)
 	(hierarchical_label "Rx7_SUP"
 		(shape input)
@@ -5793,6 +5803,17 @@
 			(justify left)
 		)
 		(uuid "9b667c26-f1f7-4f8a-b9e8-c6546268ae27")
+	)
+	(hierarchical_label "PD2"
+		(shape input)
+		(at 273.05 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9c6098c5-3c60-44d5-934c-81e4091a9def")
 	)
 	(hierarchical_label "ACCEL_MOSI_SPI4"
 		(shape input)
@@ -6042,7 +6063,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 232.41 44.45 0)
 			(effects
 				(font
@@ -6435,7 +6456,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "samacsys:R_0201_custom"
 			(at 234.95 77.47 0)
 			(effects
 				(font
@@ -7445,7 +7466,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 45.72 157.48 0)
 			(effects
 				(font
@@ -8839,7 +8860,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 245.11 77.47 0)
 			(effects
 				(font
@@ -9042,7 +9063,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "samacsys:R_0201_custom"
 			(at 38.1 157.48 0)
 			(effects
 				(font
@@ -9271,7 +9292,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 266.7 62.23 0)
 			(effects
 				(font

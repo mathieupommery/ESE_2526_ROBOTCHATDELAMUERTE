@@ -131,6 +131,16 @@
 	)
 	(wire
 		(pts
+			(xy 435.61 190.5) (xy 438.15 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2623f63c-96bc-4350-8f12-bc4684630735")
+	)
+	(wire
+		(pts
 			(xy 203.2 248.92) (xy 203.2 252.73)
 		)
 		(stroke
@@ -621,6 +631,16 @@
 	)
 	(wire
 		(pts
+			(xy 435.61 198.12) (xy 438.15 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99a6ca43-cf72-4fce-aca1-af75e007be31")
+	)
+	(wire
+		(pts
 			(xy 477.52 204.47) (xy 477.52 201.93)
 		)
 		(stroke
@@ -978,6 +998,16 @@
 			(type default)
 		)
 		(uuid "eb7f0c4f-fb18-435b-b7c9-9ad967e699c4")
+	)
+	(wire
+		(pts
+			(xy 435.61 194.31) (xy 438.15 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec0b19c7-f7dc-405e-8c06-be565d4f5077")
 	)
 	(wire
 		(pts
@@ -1529,6 +1559,16 @@
 		)
 		(uuid "6db7dab3-6c0f-4dac-9226-24311443f5ea")
 	)
+	(label "RED"
+		(at 435.61 198.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6faef40e-8f49-4bdc-b02e-40238f995f0c")
+	)
 	(label "D-ESP32"
 		(at 167.64 248.92 90)
 		(effects
@@ -1709,6 +1749,16 @@
 		)
 		(uuid "a3896b4f-8a7f-49d5-9f59-c4ea4bcd3296")
 	)
+	(label "BLUE"
+		(at 73.66 213.36 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a3a6d559-95ad-4c70-8144-5f41b07b035f")
+	)
 	(label "ACCEL_MISO"
 		(at 142.24 49.53 0)
 		(effects
@@ -1829,6 +1879,16 @@
 		)
 		(uuid "c059fe47-dd8e-4732-b052-fe4398cd5a47")
 	)
+	(label "GREEN"
+		(at 435.61 194.31 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c2ea8865-0bd6-4c02-865e-e0338637d98e")
+	)
 	(label "BTN_A"
 		(at 436.88 63.5 180)
 		(effects
@@ -1919,6 +1979,16 @@
 		)
 		(uuid "d94a142a-fe08-4ca1-9440-f9531ba010c4")
 	)
+	(label "RED"
+		(at 68.58 213.36 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d9d4d69e-299d-404d-bd1b-699bcd7ebb51")
+	)
 	(label "ACCEL_MISO"
 		(at 435.61 175.26 180)
 		(effects
@@ -1948,6 +2018,16 @@
 			(justify left bottom)
 		)
 		(uuid "df6c5c53-160c-42e6-840c-31e4e2f06800")
+	)
+	(label "BLUE"
+		(at 435.61 190.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e08c21b4-fe1e-4cc5-a588-11ff25328be2")
 	)
 	(label "ESP32_RX"
 		(at 91.44 31.75 90)
@@ -2028,6 +2108,16 @@
 			(justify left bottom)
 		)
 		(uuid "f2cfbb9a-43fb-4063-a35d-4786463c7ce9")
+	)
+	(label "GREEN"
+		(at 64.77 213.36 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f53c37b1-6163-45b2-9659-170558b5294b")
 	)
 	(label "SCL_TOF3"
 		(at 438.15 303.53 0)
@@ -2571,6 +2661,36 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "PD2" input
+			(at 64.77 213.36 270)
+			(uuid "14c30ef3-a128-46ea-ac18-e936bd09b281")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PD3" input
+			(at 68.58 213.36 270)
+			(uuid "774bfdd1-0dc2-4a7f-b3a8-e7618ff4857c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PD5" input
+			(at 73.66 213.36 270)
+			(uuid "c176db9e-e3bc-4d59-9c35-b34c30336b22")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -3251,6 +3371,36 @@
 		(pin "XYZ_SCLK" input
 			(at 438.15 182.88 180)
 			(uuid "1c9d5061-e208-4556-9f8c-2e623ff7e650")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BLUE" input
+			(at 438.15 190.5 180)
+			(uuid "30cf3bdf-b4ab-46a5-b627-2eb061bda118")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GREEN" input
+			(at 438.15 194.31 180)
+			(uuid "51797875-645b-4d8f-b8a0-2eda3d352ad2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "RED" input
+			(at 438.15 198.12 180)
+			(uuid "404cc445-51c9-4438-ab3c-053cf092f266")
 			(effects
 				(font
 					(size 1.27 1.27)

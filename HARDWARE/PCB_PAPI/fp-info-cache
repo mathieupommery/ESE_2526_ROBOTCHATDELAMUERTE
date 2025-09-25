@@ -1,4 +1,4 @@
-26611855785699054
+26617131972062118
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -105924,6 +105924,13 @@ Crystal or Oscillator
 3
 3
 samacsys
+C_0201_custom
+
+
+0
+4
+2
+samacsys
 DIONM5127X250N
 824501601
 TVS Diode (Bi-directional)
@@ -106090,6 +106097,13 @@ RCLAMP3521ZATFT-3
 TVS Diode (Bi-directional)
 0
 2
+2
+samacsys
+R_0201_custom
+
+
+0
+4
 2
 samacsys
 SF141582M5UUD2
@@ -106319,6 +106333,13 @@ samacsys
 XT60PWM
 XT60PW-M-3
 Power Supply
+0
+4
+4
+samacsys
+XZMDKCBDDG45S9
+XZMDKCBDDG45S-9-1
+LED
 0
 4
 4

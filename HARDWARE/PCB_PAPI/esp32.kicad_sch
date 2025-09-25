@@ -3371,7 +3371,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 248.92 133.35 0)
 			(effects
 				(font
@@ -3977,7 +3977,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 100.33 32.385 0)
 			(effects
 				(font
@@ -4242,7 +4242,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 170.815 95.25 0)
 			(effects
 				(font
@@ -5482,7 +5482,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "samacsys:R_0201_custom"
 			(at 217.17 83.82 0)
 			(effects
 				(font
@@ -5687,7 +5687,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 108.585 32.385 0)
 			(effects
 				(font
@@ -5757,7 +5757,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 85.725 100.965 0)
 			(effects
 				(font
@@ -6024,7 +6024,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 204.47 34.29 0)
 			(effects
 				(font
@@ -6692,7 +6692,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "samacsys:C_0201_custom"
 			(at 260.35 34.29 0)
 			(effects
 				(font
