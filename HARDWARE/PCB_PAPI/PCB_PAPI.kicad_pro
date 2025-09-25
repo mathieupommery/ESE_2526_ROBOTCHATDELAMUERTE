@@ -41,7 +41,7 @@
           "height": 0.4,
           "width": 0.46
         },
-        "silk_line_width": 0.1,
+        "silk_line_width": 0.3,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
@@ -542,7 +542,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerber_pcbpapi/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

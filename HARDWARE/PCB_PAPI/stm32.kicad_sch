@@ -5446,16 +5446,6 @@
 		(uuid "aa9700f6-349d-4e0f-98be-10345c8ae732")
 	)
 	(label "HSE_IN"
-		(at 86.36 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "abe2cb46-b2ab-45b1-baf1-45401b2d27a0")
-	)
-	(label "HSE_IN"
 		(at 270.51 74.93 180)
 		(effects
 			(font

@@ -2669,6 +2669,16 @@
 		)
 		(uuid "327d76ef-d0fa-49b9-ae4e-5d0e535e967f")
 	)
+	(text "A verifier ref\n"
+		(exclude_from_sim no)
+		(at 142.494 44.704 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "61e0f004-2765-40cb-8962-2b6c856c21a3")
+	)
 	(text "RED WURTH 150040RS73240"
 		(exclude_from_sim no)
 		(at 364.998 22.098 0)
@@ -2999,6 +3009,12 @@
 		(uuid "b2e297b1-6eb2-4b97-b9ed-203d89d6c4f5")
 	)
 	(junction
+		(at 128.27 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b37b08ca-8c55-4e74-ab67-d7faf2f31a1b")
+	)
+	(junction
 		(at 72.39 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3133,6 +3149,16 @@
 			(type default)
 		)
 		(uuid "0947713d-cc9c-4879-beee-6a1f983ff38d")
+	)
+	(wire
+		(pts
+			(xy 128.27 76.2) (xy 121.92 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ae36cc8-023f-44ce-9136-488981368174")
 	)
 	(wire
 		(pts
@@ -4126,7 +4152,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 76.2) (xy 121.92 76.2)
+			(xy 139.7 76.2) (xy 128.27 76.2)
 		)
 		(stroke
 			(width 0)
@@ -9132,6 +9158,72 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/847f55ac-306c-4b7a-8ec1-939febc79176"
 					(reference "R33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 128.27 76.2 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f183f25b-2be6-4446-ba02-9ea7067e07f9")
+		(property "Reference" "#FLG05"
+			(at 128.27 78.105 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 128.27 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 128.27 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 128.27 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce876497-d20c-402e-bc28-acaebfe55a3e")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/847f55ac-306c-4b7a-8ec1-939febc79176"
+					(reference "#FLG05")
 					(unit 1)
 				)
 			)

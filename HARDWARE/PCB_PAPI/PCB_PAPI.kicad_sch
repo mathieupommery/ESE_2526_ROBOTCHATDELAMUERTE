@@ -181,16 +181,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 31.75) (xy 91.44 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29aa6dfa-f40f-49a8-bcf1-3f84a869d7bb")
-	)
-	(wire
-		(pts
 			(xy 438.15 290.83) (xy 434.34 290.83)
 		)
 		(stroke
@@ -328,6 +318,16 @@
 			(type default)
 		)
 		(uuid "50960d16-15b5-49ac-b41e-26f748d1eaba")
+	)
+	(wire
+		(pts
+			(xy 95.25 33.02) (xy 95.25 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56bacb4d-7ca3-48e7-8249-c88354903ec8")
 	)
 	(wire
 		(pts
@@ -641,6 +641,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 33.02) (xy 91.44 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a22c088-a32a-4ca9-a85d-1d5de8e814fb")
+	)
+	(wire
+		(pts
 			(xy 477.52 204.47) (xy 477.52 201.93)
 		)
 		(stroke
@@ -768,16 +778,6 @@
 			(type default)
 		)
 		(uuid "b5ffeb9a-842b-4c60-a58a-7d113e47dfcb")
-	)
-	(wire
-		(pts
-			(xy 95.25 31.75) (xy 95.25 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc44704f-620d-4659-b23f-42007e8f58a2")
 	)
 	(wire
 		(pts
@@ -1240,7 +1240,7 @@
 		(uuid "2c64d89c-aaa9-42c2-a44d-9bf1573dd444")
 	)
 	(label "ESP32_TX"
-		(at 95.25 31.75 90)
+		(at 91.44 33.02 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2030,7 +2030,7 @@
 		(uuid "e08c21b4-fe1e-4cc5-a588-11ff25328be2")
 	)
 	(label "ESP32_RX"
-		(at 91.44 31.75 90)
+		(at 95.25 33.02 90)
 		(effects
 			(font
 				(size 1.27 1.27)
