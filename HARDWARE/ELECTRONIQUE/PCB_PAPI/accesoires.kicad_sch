@@ -1373,6 +1373,214 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "samacsys:IN-P32TRRRGB"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "LED"
+				(at 31.75 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "IN-P32TRRRGB"
+				(at 31.75 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "INP32TRRRGB"
+				(at 31.75 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.inolux-corp.com/datasheet/SMDLED/Mono%20Color%20Reverse%20Mount/IN-P32TRRRGB_V1.2.pdf"
+				(at 31.75 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Reverse Mount SMD LED 3528 PLCC Type, 3.5 X 2, 624nm Red, 525nm Green, 470nm Blue LED Indication, 4-SMD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1.17"
+				(at 31.75 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Inolux"
+				(at 31.75 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "IN-P32TRRRGB"
+				(at 31.75 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "743-IN-P32TRRRGB"
+				(at 31.75 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Inolux/IN-P32TRRRGB?qs=stqOd1AaK7%252BDecAY%252B9SBpg%3D%3D"
+				(at 31.75 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" "IN-P32TRRRGB"
+				(at 31.75 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" "null?region=nac"
+				(at 31.75 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "IN-P32TRRRGB_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 30.48 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "K_RED"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "K_GREEN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 35.56 0 180)
+					(length 5.08)
+					(name "COM_A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 35.56 -2.54 180)
+					(length 5.08)
+					(name "K_BLUE"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "samacsys:MAX98357AETE+"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1815,214 +2023,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "samacsys:XZMDKCBDDG45S-9"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "LED"
-				(at 46.99 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "XZMDKCBDDG45S-9"
-				(at 46.99 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "XZMDKCBDDG45S9"
-				(at 46.99 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.sunledusa.com/products/spec/XZMDKCBDDG45S-9.pdf"
-				(at 46.99 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "LED RGB CLEAR 4SMD GW"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "2.1"
-				(at 46.99 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "SunLED"
-				(at 46.99 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "XZMDKCBDDG45S-9"
-				(at 46.99 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" ""
-				(at 46.99 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" ""
-				(at 46.99 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "XZMDKCBDDG45S-9"
-				(at 46.99 -894.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "null?region=nac"
-				(at 46.99 -994.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "XZMDKCBDDG45S-9_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 45.72 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "COMMON_ANODE"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "CATHODE_BLUE"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 50.8 0 180)
-					(length 5.08)
-					(name "CATHODE_RED"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 50.8 -2.54 180)
-					(length 5.08)
-					(name "CATHODE_GREEN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "winbond:W25Q128JVPIQ_TR"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2420,6 +2420,16 @@
 		)
 		(uuid "c1b3acb3-25b8-4eca-bd74-01d94ec0f6b0")
 	)
+	(text "ATTENTION EMPRINTE"
+		(exclude_from_sim no)
+		(at 66.294 194.564 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c9670cd8-bcfc-496f-8ddb-32a0e3c427eb")
+	)
 	(text "12dB\n"
 		(exclude_from_sim no)
 		(at 98.298 65.024 0)
@@ -2620,7 +2630,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 194.31) (xy 125.73 194.31)
+			(xy 45.72 212.09) (xy 48.26 212.09)
 		)
 		(stroke
 			(width 0)
@@ -2650,7 +2660,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 218.44) (xy 121.92 218.44)
+			(xy 71.12 228.6) (xy 53.34 228.6)
 		)
 		(stroke
 			(width 0)
@@ -2680,7 +2690,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 210.82) (xy 53.34 218.44)
+			(xy 109.22 228.6) (xy 106.68 228.6)
 		)
 		(stroke
 			(width 0)
@@ -2820,7 +2830,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 220.98) (xy 106.68 220.98)
+			(xy 71.12 231.14) (xy 68.58 231.14)
 		)
 		(stroke
 			(width 0)
@@ -2920,7 +2930,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 196.85) (xy 44.45 196.85)
+			(xy 116.84 214.63) (xy 114.3 214.63)
 		)
 		(stroke
 			(width 0)
@@ -3030,7 +3040,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 194.31) (xy 120.65 194.31)
+			(xy 71.12 212.09) (xy 53.34 212.09)
 		)
 		(stroke
 			(width 0)
@@ -3070,7 +3080,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 196.85) (xy 110.49 196.85)
+			(xy 60.96 214.63) (xy 63.5 214.63)
 		)
 		(stroke
 			(width 0)
@@ -3090,7 +3100,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 196.85) (xy 52.07 196.85)
+			(xy 109.22 214.63) (xy 106.68 214.63)
 		)
 		(stroke
 			(width 0)
@@ -3170,7 +3180,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 196.85) (xy 105.41 196.85)
+			(xy 71.12 214.63) (xy 68.58 214.63)
 		)
 		(stroke
 			(width 0)
@@ -3180,7 +3190,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 218.44) (xy 127 218.44)
+			(xy 45.72 228.6) (xy 48.26 228.6)
 		)
 		(stroke
 			(width 0)
@@ -3200,7 +3210,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 220.98) (xy 111.76 220.98)
+			(xy 62.23 231.14) (xy 63.5 231.14)
 		)
 		(stroke
 			(width 0)
@@ -3210,7 +3220,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 220.98) (xy 53.34 220.98)
+			(xy 109.22 231.14) (xy 106.68 231.14)
 		)
 		(stroke
 			(width 0)
@@ -3230,7 +3240,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 220.98) (xy 45.72 220.98)
+			(xy 115.57 231.14) (xy 114.3 231.14)
 		)
 		(stroke
 			(width 0)
@@ -3277,16 +3287,6 @@
 			(type default)
 		)
 		(uuid "e54f3757-a1e4-4660-8558-d40d8b0c4eaa")
-	)
-	(wire
-		(pts
-			(xy 52.07 186.69) (xy 52.07 194.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e59113f6-86e7-459d-8035-e2f64cca512e")
 	)
 	(wire
 		(pts
@@ -3349,12 +3349,12 @@
 		(uuid "fe9c5a63-573f-437d-99fd-3ee70b72d44e")
 	)
 	(label "RED1"
-		(at 129.54 218.44 0)
+		(at 45.72 228.6 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "13a2af70-03f4-4df7-8eb2-f9307c076e7a")
 	)
@@ -3369,12 +3369,12 @@
 		(uuid "8930a428-6aa2-4b7b-9ce0-0c44259dd2fa")
 	)
 	(label "GREEN1"
-		(at 113.03 220.98 0)
+		(at 62.23 231.14 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "91d182f6-e008-4183-9e80-ff9358b4b3f5")
 	)
@@ -3399,42 +3399,42 @@
 		(uuid "bd60c26a-ac5e-4c70-82a5-3467f05091db")
 	)
 	(label "BLEU1"
-		(at 44.45 220.98 180)
+		(at 115.57 231.14 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "c454bcc2-6660-4a69-a125-d72e89ea9aa4")
 	)
 	(label "GREEN1"
-		(at 113.03 196.85 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d05ac176-6117-4e76-be3d-73a08e18f4bc")
-	)
-	(label "RED1"
-		(at 128.27 194.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d1f8830a-bf1b-45eb-801b-003b8a7c647a")
-	)
-	(label "BLEU1"
-		(at 41.91 196.85 180)
+		(at 60.96 214.63 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
+		)
+		(uuid "d05ac176-6117-4e76-be3d-73a08e18f4bc")
+	)
+	(label "RED1"
+		(at 45.72 212.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d1f8830a-bf1b-45eb-801b-003b8a7c647a")
+	)
+	(label "BLEU1"
+		(at 116.84 214.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
 		)
 		(uuid "dd1218ca-8b2b-4eff-9f9d-230cb7374e65")
 	)
@@ -3847,6 +3847,152 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
 					(reference "R32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "samacsys:IN-P32TRRRGB")
+		(at 71.12 212.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "058991f9-8c70-4851-bc15-b3a43cd11020")
+		(property "Reference" "LED4"
+			(at 88.9 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "IN-P32TRRRGB"
+			(at 88.9 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 307.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.inolux-corp.com/datasheet/SMDLED/Mono%20Color%20Reverse%20Mount/IN-P32TRRRGB_V1.2.pdf"
+			(at 102.87 407.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Reverse Mount SMD LED 3528 PLCC Type, 3.5 X 2, 624nm Red, 525nm Green, 470nm Blue LED Indication, 4-SMD"
+			(at 71.12 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.17"
+			(at 102.87 607.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Inolux"
+			(at 102.87 707.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "IN-P32TRRRGB"
+			(at 102.87 807.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "743-IN-P32TRRRGB"
+			(at 102.87 907.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Inolux/IN-P32TRRRGB?qs=stqOd1AaK7%252BDecAY%252B9SBpg%3D%3D"
+			(at 102.87 1007.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" "IN-P32TRRRGB"
+			(at 102.87 1107.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" "null?region=nac"
+			(at 102.87 1207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "5edfd8f2-9d5e-4723-bfdd-e5f4ca966f07")
+		)
+		(pin "4"
+			(uuid "083ec067-9d04-4e7b-af1d-66d1579e146a")
+		)
+		(pin "1"
+			(uuid "768b5047-d289-4442-a352-bdfa3d620fc5")
+		)
+		(pin "2"
+			(uuid "845de68b-d97f-4dd7-a1c0-4e2c09a89f0b")
+		)
+		(instances
+			(project ""
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
+					(reference "LED4")
 					(unit 1)
 				)
 			)
@@ -5305,154 +5451,9 @@
 		)
 	)
 	(symbol
-		(lib_id "samacsys:XZMDKCBDDG45S-9")
-		(at 52.07 194.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5e1732d9-5626-4387-bfec-46802a7f7d1d")
-		(property "Reference" "LED2"
-			(at 77.47 186.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "XZMDKCBDDG45S-9"
-			(at 77.47 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "samacsys:XZMDKCBDDG45S9"
-			(at 99.06 289.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.sunledusa.com/products/spec/XZMDKCBDDG45S-9.pdf"
-			(at 99.06 389.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "LED RGB CLEAR 4SMD GW"
-			(at 52.07 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "2.1"
-			(at 99.06 589.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "SunLED"
-			(at 99.06 689.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "XZMDKCBDDG45S-9"
-			(at 99.06 789.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 99.06 889.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 99.06 989.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "XZMDKCBDDG45S-9"
-			(at 99.06 1089.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "null?region=nac"
-			(at 99.06 1189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "234970bf-9309-45c9-b2fc-b32de524624f")
-		)
-		(pin "1"
-			(uuid "590af38b-f1e0-4681-9fd8-a41e9db09d65")
-		)
-		(pin "4"
-			(uuid "865eb5ec-25da-4c29-90d5-a8b3cc46734c")
-		)
-		(pin "3"
-			(uuid "a44a928b-615a-4214-8dc6-d90699ab2e18")
-		)
-		(instances
-			(project ""
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
-					(reference "LED2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
-		(at 48.26 220.98 270)
+		(at 111.76 231.14 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5460,7 +5461,7 @@
 		(dnp no)
 		(uuid "5e41a93b-ecbe-476e-adab-91abfd0b4542")
 		(property "Reference" "R36"
-			(at 48.26 225.044 90)
+			(at 111.76 235.204 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5468,7 +5469,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 48.26 223.012 90)
+			(at 111.76 233.172 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5476,7 +5477,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 48.26 220.98 0)
+			(at 111.76 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5485,7 +5486,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 48.26 220.98 0)
+			(at 111.76 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5494,7 +5495,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 48.26 220.98 0)
+			(at 111.76 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5503,7 +5504,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 48.26 220.98 90)
+			(at 111.76 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5512,7 +5513,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 48.26 220.98 90)
+			(at 111.76 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5521,7 +5522,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 48.26 220.98 90)
+			(at 111.76 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5835,7 +5836,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 46.99 196.85 270)
+		(at 111.76 214.63 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5843,7 +5845,7 @@
 		(dnp no)
 		(uuid "7634fc0e-055b-4b6b-a3f3-01b4d321aad8")
 		(property "Reference" "R35"
-			(at 46.99 200.914 90)
+			(at 111.76 218.694 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5851,7 +5853,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 46.99 198.882 90)
+			(at 111.76 216.662 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5859,7 +5861,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 46.99 196.85 0)
+			(at 111.76 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5868,7 +5870,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 46.99 196.85 0)
+			(at 111.76 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5877,7 +5879,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 46.99 196.85 0)
+			(at 111.76 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5886,7 +5888,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 46.99 196.85 90)
+			(at 111.76 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5895,7 +5897,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 46.99 196.85 90)
+			(at 111.76 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5904,7 +5906,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 46.99 196.85 90)
+			(at 111.76 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6503,154 +6505,9 @@
 		)
 	)
 	(symbol
-		(lib_id "samacsys:XZMDKCBDDG45S-9")
-		(at 53.34 218.44 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a398863d-7d63-43f3-8c87-ae48cedaa216")
-		(property "Reference" "LED3"
-			(at 78.74 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "XZMDKCBDDG45S-9"
-			(at 78.74 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "samacsys:XZMDKCBDDG45S9"
-			(at 100.33 313.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.sunledusa.com/products/spec/XZMDKCBDDG45S-9.pdf"
-			(at 100.33 413.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "LED RGB CLEAR 4SMD GW"
-			(at 53.34 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "2.1"
-			(at 100.33 613.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "SunLED"
-			(at 100.33 713.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "XZMDKCBDDG45S-9"
-			(at 100.33 813.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 100.33 913.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 100.33 1013.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "XZMDKCBDDG45S-9"
-			(at 100.33 1113.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "null?region=nac"
-			(at 100.33 1213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "24670f5b-84da-47ba-9fcc-4c0e64b7361a")
-		)
-		(pin "1"
-			(uuid "2011e617-5c37-4ef1-ae9e-ca8b3dbeb568")
-		)
-		(pin "4"
-			(uuid "6d969cf4-9ccc-4508-b760-bb29579b292b")
-		)
-		(pin "3"
-			(uuid "effaee11-2dfe-4111-af14-ce08cea66ab7")
-		)
-		(instances
-			(project "PCB_PAPI"
-				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
-					(reference "LED3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
-		(at 109.22 220.98 270)
+		(at 66.04 231.14 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6658,7 +6515,7 @@
 		(dnp no)
 		(uuid "a6cf4059-56c6-419c-9cf4-7053504f261e")
 		(property "Reference" "R37"
-			(at 109.22 225.044 90)
+			(at 66.04 235.204 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6666,7 +6523,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 109.22 223.012 90)
+			(at 66.04 233.172 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6674,7 +6531,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 109.22 220.98 0)
+			(at 66.04 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6683,7 +6540,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 109.22 220.98 0)
+			(at 66.04 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6692,7 +6549,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 109.22 220.98 0)
+			(at 66.04 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6701,7 +6558,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 109.22 220.98 90)
+			(at 66.04 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6710,7 +6567,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 109.22 220.98 90)
+			(at 66.04 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6719,7 +6576,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 109.22 220.98 90)
+			(at 66.04 231.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6737,6 +6594,152 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
 					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "samacsys:IN-P32TRRRGB")
+		(at 71.12 228.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ad02212e-5821-4c5c-b370-3b5c6ae994f3")
+		(property "Reference" "LED5"
+			(at 88.9 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "IN-P32TRRRGB"
+			(at 88.9 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 323.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.inolux-corp.com/datasheet/SMDLED/Mono%20Color%20Reverse%20Mount/IN-P32TRRRGB_V1.2.pdf"
+			(at 102.87 423.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Reverse Mount SMD LED 3528 PLCC Type, 3.5 X 2, 624nm Red, 525nm Green, 470nm Blue LED Indication, 4-SMD"
+			(at 71.12 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.17"
+			(at 102.87 623.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Inolux"
+			(at 102.87 723.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "IN-P32TRRRGB"
+			(at 102.87 823.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "743-IN-P32TRRRGB"
+			(at 102.87 923.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Inolux/IN-P32TRRRGB?qs=stqOd1AaK7%252BDecAY%252B9SBpg%3D%3D"
+			(at 102.87 1023.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" "IN-P32TRRRGB"
+			(at 102.87 1123.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" "null?region=nac"
+			(at 102.87 1223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "0a7f752b-6ad4-4d5a-b18d-d7530fc41245")
+		)
+		(pin "4"
+			(uuid "2214440a-4c13-46fe-b150-044a6052bd64")
+		)
+		(pin "1"
+			(uuid "f93b562f-70d0-4b26-af96-8117caba8849")
+		)
+		(pin "2"
+			(uuid "6f3a8f9e-75e4-447c-bc50-b7bf9ee6dc99")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/a7cacbc0-0feb-46ad-bb90-db8895701fc9"
+					(reference "LED5")
 					(unit 1)
 				)
 			)
@@ -7036,7 +7039,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 53.34 210.82 0)
+		(at 109.22 228.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7045,7 +7048,7 @@
 		(fields_autoplaced yes)
 		(uuid "c6106763-3381-4754-8555-831f92c9da00")
 		(property "Reference" "#PWR0106"
-			(at 53.34 214.63 0)
+			(at 109.22 232.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7054,7 +7057,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 55.88 209.5499 0)
+			(at 111.76 227.3299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7063,7 +7066,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 210.82 0)
+			(at 109.22 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7072,7 +7075,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 210.82 0)
+			(at 109.22 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7081,7 +7084,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 53.34 210.82 0)
+			(at 109.22 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7409,7 +7412,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 107.95 196.85 270)
+		(at 66.04 214.63 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7417,7 +7421,7 @@
 		(dnp no)
 		(uuid "d62b9fc0-fcf6-4940-a634-ff9889b300f1")
 		(property "Reference" "R24"
-			(at 107.95 200.914 90)
+			(at 66.04 218.694 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7425,7 +7429,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 107.95 198.882 90)
+			(at 66.04 216.662 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7433,7 +7437,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 107.95 196.85 0)
+			(at 66.04 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7442,7 +7446,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 107.95 196.85 0)
+			(at 66.04 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7451,7 +7455,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 107.95 196.85 0)
+			(at 66.04 214.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7460,7 +7464,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 107.95 196.85 90)
+			(at 66.04 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7469,7 +7473,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 107.95 196.85 90)
+			(at 66.04 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7478,7 +7482,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 107.95 196.85 90)
+			(at 66.04 214.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7876,7 +7880,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 52.07 186.69 0)
+		(at 106.68 212.09 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7885,7 +7889,7 @@
 		(fields_autoplaced yes)
 		(uuid "e386f1de-5768-430b-96e5-f53c39ea51e8")
 		(property "Reference" "#PWR068"
-			(at 52.07 190.5 0)
+			(at 102.87 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7894,7 +7898,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 54.61 185.4199 0)
+			(at 110.49 212.0899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7903,7 +7907,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 186.69 0)
+			(at 106.68 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7912,7 +7916,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 186.69 0)
+			(at 106.68 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7921,7 +7925,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 52.07 186.69 0)
+			(at 106.68 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8102,7 +8106,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 123.19 194.31 270)
+		(at 50.8 212.09 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8110,7 +8115,7 @@
 		(dnp no)
 		(uuid "e77d3eb7-3b3f-4bf5-ba91-7f712615370e")
 		(property "Reference" "R23"
-			(at 123.19 198.374 90)
+			(at 50.8 216.154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8118,7 +8123,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 123.19 196.342 90)
+			(at 50.8 214.122 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8126,7 +8131,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 123.19 194.31 0)
+			(at 50.8 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8135,7 +8140,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 123.19 194.31 0)
+			(at 50.8 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8144,7 +8149,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 123.19 194.31 0)
+			(at 50.8 212.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8153,7 +8158,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 123.19 194.31 90)
+			(at 50.8 212.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8162,7 +8167,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 123.19 194.31 90)
+			(at 50.8 212.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8171,7 +8176,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 123.19 194.31 90)
+			(at 50.8 212.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8357,7 +8362,8 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 124.46 218.44 270)
+		(at 50.8 228.6 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8365,7 +8371,7 @@
 		(dnp no)
 		(uuid "fb8601c0-d52e-4ed1-9380-6c1d95ad7274")
 		(property "Reference" "R38"
-			(at 124.46 222.504 90)
+			(at 50.8 232.664 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8373,7 +8379,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 124.46 220.472 90)
+			(at 50.8 230.632 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8381,7 +8387,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 124.46 218.44 0)
+			(at 50.8 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8390,7 +8396,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 218.44 0)
+			(at 50.8 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8399,7 +8405,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 124.46 218.44 0)
+			(at 50.8 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8408,7 +8414,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "ERJ-1GNF1000C"
-			(at 124.46 218.44 90)
+			(at 50.8 228.6 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8417,7 +8423,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Panasonic"
-			(at 124.46 218.44 90)
+			(at 50.8 228.6 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8426,7 +8432,7 @@
 			)
 		)
 		(property "Mouser Part Number" "667-ERJ-1GNF1000C"
-			(at 124.46 218.44 90)
+			(at 50.8 228.6 90)
 			(effects
 				(font
 					(size 1.27 1.27)
