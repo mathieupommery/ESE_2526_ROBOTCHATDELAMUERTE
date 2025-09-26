@@ -2669,16 +2669,6 @@
 		)
 		(uuid "327d76ef-d0fa-49b9-ae4e-5d0e535e967f")
 	)
-	(text "A verifier ref\n"
-		(exclude_from_sim no)
-		(at 142.494 44.704 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "61e0f004-2765-40cb-8962-2b6c856c21a3")
-	)
 	(text "RED WURTH 150040RS73240"
 		(exclude_from_sim no)
 		(at 364.998 22.098 0)
