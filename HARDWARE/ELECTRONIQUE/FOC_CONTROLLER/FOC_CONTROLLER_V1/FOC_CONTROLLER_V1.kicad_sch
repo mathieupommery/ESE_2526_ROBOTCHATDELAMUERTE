@@ -3082,6 +3082,36 @@
 		)
 		(uuid "8810d901-73bb-4104-86f0-9aa438993227")
 	)
+	(text "En considerant Rshuntafet=R et Rpullup=R46"
+		(exclude_from_sim no)
+		(at 366.014 181.356 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "91a1b229-94ba-4482-ab4b-e91c3004e613")
+	)
+	(text "3Imaxphase=1/Rshunt*((0.255*(3R46+R)/R46)-RVref/R46)\n"
+		(exclude_from_sim no)
+		(at 365.252 185.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "94f9c124-6de9-4cb1-af3a-f40405bb01e2")
+	)
+	(text "Avec R46=18k et R=2.2k et enfin Rshunt=50mohm on a 3Imaxphase=7.86A et donc ImaxPhase=2.62A"
+		(exclude_from_sim no)
+		(at 355.346 188.468 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "babeef5b-a4ec-47f3-b69c-e52b86e28ef6")
+	)
 	(text "1% 4311K 0201"
 		(exclude_from_sim no)
 		(at 371.856 155.956 0)

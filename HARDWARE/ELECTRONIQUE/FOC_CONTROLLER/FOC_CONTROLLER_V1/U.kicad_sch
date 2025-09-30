@@ -2282,7 +2282,7 @@
 				)
 			)
 		)
-		(property "Value" "3k"
+		(property "Value" "2.2k"
 			(at 176.53 67.31 90)
 			(effects
 				(font
@@ -2647,7 +2647,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "53fc2e98-a439-4c31-97e5-540d549411b3")
 		(property "Reference" "R4"
@@ -2723,7 +2723,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "544b78e7-c941-4cf7-ad93-8157d0d04484")
 		(property "Reference" "D2"
@@ -3468,7 +3468,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c786692e-ae56-4b78-924f-b31b16c36c5f")
 		(property "Reference" "D3"
@@ -3638,7 +3638,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d6b6170e-0168-4e2f-91dd-a4c8cc6e5096")
 		(property "Reference" "R7"

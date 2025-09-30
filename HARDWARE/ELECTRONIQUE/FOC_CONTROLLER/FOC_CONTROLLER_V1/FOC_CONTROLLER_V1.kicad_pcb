@@ -352,7 +352,7 @@
 		(path "/f72fcd55-797d-4de7-b16c-a295f170430e/544b78e7-c941-4cf7-ad93-8157d0d04484")
 		(sheetname "/U/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -1394,7 +1394,7 @@
 		(path "/fc458950-2711-4a11-802f-b3226dc264b9/53fc2e98-a439-4c31-97e5-540d549411b3")
 		(sheetname "/W/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -0.88 0.35)
 			(end -0.88 -0.35)
@@ -3887,7 +3887,7 @@
 		(path "/f72fcd55-797d-4de7-b16c-a295f170430e/c786692e-ae56-4b78-924f-b31b16c36c5f")
 		(sheetname "/U/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -4120,7 +4120,7 @@
 		(path "/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5/544b78e7-c941-4cf7-ad93-8157d0d04484")
 		(sheetname "/V/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -5743,7 +5743,7 @@
 		(path "/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5/d6b6170e-0168-4e2f-91dd-a4c8cc6e5096")
 		(sheetname "/V/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -0.88 0.35)
 			(end -0.88 -0.35)
@@ -6537,7 +6537,7 @@
 		(path "/fc458950-2711-4a11-802f-b3226dc264b9/544b78e7-c941-4cf7-ad93-8157d0d04484")
 		(sheetname "/W/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -14135,7 +14135,7 @@
 		(path "/fc458950-2711-4a11-802f-b3226dc264b9/d6b6170e-0168-4e2f-91dd-a4c8cc6e5096")
 		(sheetname "/W/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -0.88 0.35)
 			(end -0.88 -0.35)
@@ -14903,7 +14903,7 @@
 		(path "/f72fcd55-797d-4de7-b16c-a295f170430e/d6b6170e-0168-4e2f-91dd-a4c8cc6e5096")
 		(sheetname "/U/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start 0.88 -0.35)
 			(end 0.88 0.35)
@@ -15271,7 +15271,7 @@
 		(path "/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5/53fc2e98-a439-4c31-97e5-540d549411b3")
 		(sheetname "/V/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -0.88 0.35)
 			(end -0.88 -0.35)
@@ -27035,7 +27035,7 @@
 		(path "/fc458950-2711-4a11-802f-b3226dc264b9/c786692e-ae56-4b78-924f-b31b16c36c5f")
 		(sheetname "/W/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -29552,7 +29552,7 @@
 		(path "/c3cbd430-6fb2-4bfe-86b9-0dcdbd0b95f5/c786692e-ae56-4b78-924f-b31b16c36c5f")
 		(sheetname "/V/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_circle
 			(center -0.935 0)
 			(end -0.885 0)
@@ -31003,7 +31003,7 @@
 		(path "/f72fcd55-797d-4de7-b16c-a295f170430e/53fc2e98-a439-4c31-97e5-540d549411b3")
 		(sheetname "/U/")
 		(sheetfile "U.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start 0.88 -0.35)
 			(end 0.88 0.35)
@@ -41809,7 +41809,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "3k"
+		(property "Value" "2.2k"
 			(at 0 -1.05 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -42295,7 +42295,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "3k"
+		(property "Value" "2.2k"
 			(at 0 -1.05 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -44046,7 +44046,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "3k"
+		(property "Value" "2.2k"
 			(at 0 -1.05 0)
 			(layer "B.Fab")
 			(hide yes)
