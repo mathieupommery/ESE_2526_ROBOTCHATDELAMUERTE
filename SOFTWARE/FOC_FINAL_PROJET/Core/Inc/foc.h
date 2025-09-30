@@ -17,7 +17,7 @@
 
 /* Horloge du timer (après x2 APB si applicable) */
 #ifndef FOC_TIM_CLK_HZ
-#define FOC_TIM_CLK_HZ         128000000UL   /* ex. 170 MHz */
+#define FOC_TIM_CLK_HZ         64000000UL   /* ex. 170 MHz */
 #endif
 
 /* Division "clock division" CKD (n’affecte PAS la fréquence PWM, sert aux filtres & deadtime) */
@@ -30,47 +30,21 @@
 #define FOC_PSC                0UL
 #endif
 
-/* Mode compteur:
-   0=edge-aligned ; 1/2/3=center-aligned (double la période effective) */
-#ifndef FOC_CMS
-#define FOC_CMS                1UL           /* center-aligned mode 1 par défaut */
-#endif
 
 /* Fréquence PWM demandée (fondamentale) */
 #ifndef FOC_PWM_FREQ_HZ
 #define FOC_PWM_FREQ_HZ        20000UL       /* 20 kHz */
 #endif
 
-/* ======= DÉRIVÉS ======= */
-
-/* Horloge des “ticks” du compteur */
-#define FOC_CNT_TICK_HZ        ( (FOC_TIM_CLK_HZ) / ((FOC_PSC) + 1UL) )
-
-/* Facteur période selon le mode (centré = 2) */
-#define FOC_CMS_FACTOR         ( (FOC_CMS)==0UL ? 1UL : 2UL )
-
-/* Nombre de ticks par période (ARR+1), arrondi au plus proche */
-#define PWM_PERIOD_TICKS     (FOC_CNT_TICK_HZ + ((FOC_PWM_FREQ_HZ*FOC_CMS_FACTOR)/2ULL))/(FOC_PWM_FREQ_HZ * FOC_CMS_FACTOR)
-
-#ifndef FOC_UPDATE_EVENT_DIV
-#define FOC_UPDATE_EVENT_DIV       1UL       /* 20 kHz */
-#endif
 
 
-
-
-
-/* Sanity checks */
-#if (PWM_PERIOD_TICKS < 2)
-# error "FOC_PWM_FREQ_HZ trop élevée pour FOC_TIM_CLK_HZ/PSC/CMS"
-#endif
 
 #define HTMIN 1UL
 
 //decalage pour le debut d'interruption de lecture adc et effet hall
 
 
-#define DEAD_TIME_COUNTS        20000UL
+#define DEAD_TIME_COUNTS        200UL
 
 
 

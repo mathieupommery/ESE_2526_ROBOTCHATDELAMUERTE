@@ -103,6 +103,8 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,6 +112,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_GPIO_TogglePin(GPIOF,GPIO_PIN_0);
+	  HAL_Delay(100);
 
     /* USER CODE BEGIN 3 */
   }
