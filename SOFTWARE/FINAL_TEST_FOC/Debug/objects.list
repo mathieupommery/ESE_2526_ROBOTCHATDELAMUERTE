@@ -1,5 +1,6 @@
 "./Core/Src/FOC_math.o"
 "./Core/Src/adc.o"
+"./Core/Src/dma.o"
 "./Core/Src/foc.o"
 "./Core/Src/gpio.o"
 "./Core/Src/main.o"
