@@ -1,5 +1,0 @@
-../Core/Src/pid_utils.c:10:7:pi_control	32	static
-../Core/Src/pid_utils.c:43:7:pd_control	16	static
-../Core/Src/pid_utils.c:69:7:pid_control	32	static
-../Core/Src/pid_utils.c:103:6:pid_reset_integrator	0	static
-../Core/Src/pid_utils.c:107:6:pid_init	0	static
