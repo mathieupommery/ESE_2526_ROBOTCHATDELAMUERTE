@@ -23,9 +23,9 @@
 /* USER CODE BEGIN 0 */
 #include "adc.h"
 #include "spi.h"
+#include "MA330.h"
 extern uint16_t adc_data[5];
-uint8_t angleraw[2];
-uint8_t dummy[]={0x00,0x00};
+extern MA330_t ma330data;
 
 /* USER CODE END 0 */
 
@@ -249,13 +249,8 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
             // Ton code ici : impulsion GPIO par ex.
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
-            HAL_GPIO_WritePin(HALL_CS_GPIO_Port, HALL_CS_Pin, GPIO_PIN_RESET);
-            HAL_SPI_TransmitReceive_DMA(&hspi2, dummy, angleraw, 2);
 
-        	//HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_2);
-        	//HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_3);
-
-            //HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
+            MA330_start(&ma330data);
         }
 }
 /* USER CODE END 1 */

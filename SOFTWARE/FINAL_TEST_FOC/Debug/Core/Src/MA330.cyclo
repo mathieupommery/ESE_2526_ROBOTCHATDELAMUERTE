@@ -2,3 +2,6 @@
 ../Core/Src/MA330.c:17:13:cs_high	1
 ../Core/Src/MA330.c:27:5:MA330_Init	11
 ../Core/Src/MA330.c:96:5:MA330_start	2
+../Core/Src/MA330.c:110:7:MA330_get_degree	5
+../Core/Src/MA330.c:147:7:MA330_get_rpm	3
+../Core/Src/MA330.c:181:7:MA330_get_actual_degree	3

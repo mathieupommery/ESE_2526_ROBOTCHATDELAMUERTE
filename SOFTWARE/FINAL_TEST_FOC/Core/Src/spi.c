@@ -21,9 +21,9 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
-extern uint8_t angleraw[2];
-
+#include "MA330.h"
 uint16_t finalangle=0;
+extern MA330_t ma330data;
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
@@ -183,10 +183,12 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 
 /* USER CODE BEGIN 1 */
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
-	uint16_t raw = ((uint16_t)angleraw[0] << 8) | angleraw[1];
-	finalangle=raw;
 
-	 HAL_GPIO_WritePin(HALL_CS_GPIO_Port, HALL_CS_Pin, GPIO_PIN_SET);
+	if (hspi->Instance == SPI2) {
+    MA330_get_degree(&ma330data);
+    //foc_calc_electric_angle(&hfoc, DEG_TO_RAD(angle_deg));
+	}
+
 	 HAL_GPIO_WritePin(GPIOA,GPIO_PIN_2,0);
 	 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,0);
 

@@ -38,7 +38,14 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define BLDC_PWM_FREQ AUDIO_SAMPLE_RATE
+// #define BLDC_PWM_FREQ 10000
+#define R_SHUNT	0.01f
+#define V_OFFSET_A	1.645f
+#define V_OFFSET_B	1.657f
+#define POLE_PAIR	(7)
+#define SPEED_CONTROL_CYCLE	10
+#define FOC_TS (1.0f / (float)BLDC_PWM_FREQ)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,6 +58,13 @@
 /* USER CODE BEGIN PV */
 uint16_t adc_data[5];
 MA330_t ma330data;
+foc_t hfoc;
+
+float angle_deg = 0.0f;
+float sp_input = 0.0f;
+int start_cal = 0;
+_Bool com_init_flag = 0;
+_Bool calibration_flag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,6 +88,142 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin){
 
 
 }
+
+
+///******************************************************************************/
+//
+//float get_power_voltage(void) {
+//	static float pv_filtered = 0.0f;
+//  const float filter_alpha = 0.2f;
+//
+//	// convert to volt
+//	float pv = (float)ADC3->JDR1 * ADC_2_POWER_VOLT;
+//
+//  // Low-pass filter for noise reduction
+//	pv_filtered = (1.0f - filter_alpha) * pv_filtered + filter_alpha * pv;
+//
+//	return pv_filtered;
+//}
+//
+///******************************************************************************/
+//
+//uint32_t get_dt_us(void) {
+//#if 0
+//  static uint32_t last_us = 0;
+//
+//  uint32_t now_us = TIM10->CNT;
+//  uint32_t elapsed_us = now_us - last_us;
+//  last_us = now_us;
+//#else
+//  uint32_t elapsed_us = TIM10->CNT;
+//  TIM10->CNT = 0;
+//#endif
+//  return elapsed_us;
+//}
+
+
+///******************************************************************************/
+//
+//#define CAL_ITERATION 100
+//
+//#define VD_CAL 0.6f
+//#define VQ_CAL 0.0f
+//
+//void cal_encoder_misalignment(void) {
+//  open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, 0.0f);
+//  HAL_Delay(500);
+//  float rad_offset = 0.0f;
+//  for (int i = 0; i < CAL_ITERATION; i++) {
+//    rad_offset += DEG_TO_RAD(hencd.angle_filtered);
+//    HAL_Delay(1);
+//  }
+//  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
+//  rad_offset = rad_offset / (float)CAL_ITERATION;
+//  hfoc.m_angle_offset = rad_offset;
+//  m_config.encd_offset = rad_offset;
+//}
+//
+//float error_temp[ERROR_LUT_SIZE] = {0};
+//
+//void encoder_get_error(void) {
+//  memset(error_temp, 0, sizeof(error_temp));
+//
+//  cal_encoder_misalignment();
+//
+//  for (int i = 0; i < ERROR_LUT_SIZE; i++) {
+//    float mech_deg = (float)i * (360.0f / (float)ERROR_LUT_SIZE);
+//    float elec_rad = DEG_TO_RAD(mech_deg * POLE_PAIR);
+//    open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, elec_rad);
+//    HAL_Delay(5);
+//
+//    float mech_rad = hfoc.m_angle_rad;
+//    float raw_delta = elec_rad - hfoc.e_angle_rad;
+//    float delta = elec_rad - hfoc.e_angle_rad_comp;
+//
+//    raw_delta -= TWO_PI * floorf((raw_delta + PI) / TWO_PI);
+//    delta -= TWO_PI * floorf((delta + PI) / TWO_PI);
+//
+//    float lut_pos = (mech_rad / TWO_PI) * ERROR_LUT_SIZE;
+//    int index = (int)(lut_pos);
+//
+//    while (index < 0) {
+//      index += ERROR_LUT_SIZE;
+//    }
+//    index %= ERROR_LUT_SIZE;
+//
+//    error_temp[index] = raw_delta;
+//
+//    // debug
+//    float buffer_val[2];
+//    // buffer_val[0] = raw_delta;
+//    // buffer_val[1] = delta;
+//    buffer_val[0] = delta;
+//    send_data_float(buffer_val, 1);
+//  }
+//
+//  for (int i = 0; i < ERROR_LUT_SIZE; i++) {
+//    if (error_temp[i] == 0) {
+//      int last_i = i - 1;
+//      int next_i = i + 1;
+//      if (last_i < 0) last_i += ERROR_LUT_SIZE;
+//      if (next_i > ERROR_LUT_SIZE) next_i -= ERROR_LUT_SIZE;
+//      error_temp[i] = (error_temp[last_i] + error_temp[next_i]) / 2.0f;
+//    }
+//  }
+//
+//  memcpy(m_config.encd_error_comp, error_temp, sizeof(error_temp));
+//
+//  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
+//}
+//
+///******************************************************************************/
+//
+//void svpwm_test(void) {
+//  open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, 0.0f);
+//  HAL_Delay(500);
+//
+//  for (int i = 0; i < ERROR_LUT_SIZE; i++) {
+//    float mech_deg = (float)i * (360.0f / (float)ERROR_LUT_SIZE);
+//    float elec_rad = DEG_TO_RAD(mech_deg * POLE_PAIR);
+//    open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, elec_rad);
+//    HAL_Delay(10);
+//    // float pwm[3];
+//    // pwm[0] = TIM1->CCR1;
+//    // pwm[1] = TIM1->CCR2;
+//    // pwm[2] = TIM1->CCR3;
+//    // send_data_float(pwm, 3);
+//    float rad[2];
+//    rad[0] = hfoc.e_angle_rad_comp;
+//    rad[1] = elec_rad;
+//    norm_angle_rad(&rad[0]);
+//    norm_angle_rad(&rad[1]);
+//    send_data_float(rad, 2);
+//  }
+//
+//  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
+//}
+//
+///******************************************************************************/
 /* USER CODE END 0 */
 
 /**
@@ -114,21 +264,21 @@ int main(void)
 
   MA330_Init(&ma330data, &hspi2, HALL_CS_GPIO_Port, HALL_CS_Pin,NORMAL_FW);
 
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
-//
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
-//
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
-//
-//	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
-//
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
+
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
+
+	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
+
 
 	//HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_4);
 //
-//	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
+	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
 
 
 	//__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);

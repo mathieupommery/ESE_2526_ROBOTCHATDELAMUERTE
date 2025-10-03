@@ -1,4 +1,7 @@
 ../Core/Src/MA330.c:13:13:cs_low	16	static
 ../Core/Src/MA330.c:17:13:cs_high	16	static
-../Core/Src/MA330.c:27:5:MA330_Init	48	static
+../Core/Src/MA330.c:27:5:MA330_Init	40	static
 ../Core/Src/MA330.c:96:5:MA330_start	32	static
+../Core/Src/MA330.c:110:7:MA330_get_degree	40	static
+../Core/Src/MA330.c:147:7:MA330_get_rpm	48	static
+../Core/Src/MA330.c:181:7:MA330_get_actual_degree	40	static
