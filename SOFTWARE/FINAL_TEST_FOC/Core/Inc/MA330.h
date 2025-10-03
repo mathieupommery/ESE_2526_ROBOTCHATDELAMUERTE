@@ -1,0 +1,49 @@
+#ifndef MA330_H_
+#define MA330_H_
+
+#include "main.h"
+
+typedef struct {
+    SPI_HandleTypeDef *MA330_spi;
+    GPIO_TypeDef *MA330_cs_port;
+    uint16_t MA330_cs_pin;
+    uint8_t spi_rx_buffer[2];
+    
+    float angle_filtered;
+    float prev_angle_filtered;
+    float prev_raw_angle;
+    uint8_t spike_counter;
+    
+    float prev_angle;
+    float filtered_rpm;
+    float prev_rpm;
+    float angle_accumulator;
+    uint32_t time_accumulator;
+    
+	float output_prev_angle;
+	float output_angle_ovf;
+    float output_angle_filtered;
+}MA330_t;
+   
+
+#define DEFAULT_FW 119  //time const 1024us
+#define NORMAL_FW 102  //time const 512us
+#define LOW_FW 85  //time const 256us
+
+
+
+
+
+int MA330_Init(MA330_t *encd, SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,uint8_t FW);
+
+int MA330_start(MA330_t *encd);
+
+
+//
+//float AS5047P_get_degree(MA330_t *encd);
+//float AS5047P_get_rpm(MA330_t *encd, uint32_t dt_us);
+//float AS5047P_get_actual_degree(MA330_t *encd);
+
+
+
+#endif

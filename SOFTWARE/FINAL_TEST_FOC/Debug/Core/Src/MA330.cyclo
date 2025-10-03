@@ -1,0 +1,4 @@
+../Core/Src/MA330.c:13:13:cs_low	1
+../Core/Src/MA330.c:17:13:cs_high	1
+../Core/Src/MA330.c:27:5:MA330_Init	11
+../Core/Src/MA330.c:96:5:MA330_start	2

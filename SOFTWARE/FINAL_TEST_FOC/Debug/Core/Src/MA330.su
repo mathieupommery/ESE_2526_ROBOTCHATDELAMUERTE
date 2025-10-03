@@ -1,0 +1,4 @@
+../Core/Src/MA330.c:13:13:cs_low	16	static
+../Core/Src/MA330.c:17:13:cs_high	16	static
+../Core/Src/MA330.c:27:5:MA330_Init	48	static
+../Core/Src/MA330.c:96:5:MA330_start	32	static

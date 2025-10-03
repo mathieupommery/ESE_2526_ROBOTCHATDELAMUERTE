@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "MA330.h"
 
 
 /* USER CODE END Includes */
@@ -50,7 +50,7 @@
 
 /* USER CODE BEGIN PV */
 uint16_t adc_data[5];
-
+MA330_t ma330data;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -111,23 +111,24 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_GPIO_WritePin(HALL_CS_GPIO_Port, HALL_CS_Pin, GPIO_PIN_SET);
 
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+  MA330_Init(&ma330data, &hspi2, HALL_CS_GPIO_Port, HALL_CS_Pin,NORMAL_FW);
 
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
-
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
-
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
-
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
+//
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
+//
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
+//
+//	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
+//
 
 	//HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_4);
-
-	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
+//
+//	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
 
 
 	//__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
