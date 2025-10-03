@@ -66,6 +66,9 @@ float sp_input = 0.0f;
 int start_cal = 0;
 _Bool com_init_flag = 0;
 _Bool calibration_flag = 0;
+
+uint32_t tps1=0;
+uint32_t tps_tot=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -260,6 +263,7 @@ int main(void)
   MX_ADC1_Init();
   MX_SPI2_Init();
   MX_TIM1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -277,11 +281,11 @@ int main(void)
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
 
 
-	//HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_4);
+	//__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
 	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
 
+	HAL_TIM_Base_Start(&htim2);
 
-	//__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
 
 
 

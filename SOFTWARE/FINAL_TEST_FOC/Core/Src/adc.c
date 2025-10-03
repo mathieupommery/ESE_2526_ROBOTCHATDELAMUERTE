@@ -21,7 +21,9 @@
 #include "adc.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "tim.h"
+extern uint32_t tps1;
+extern uint32_t tps_tot;
 /* USER CODE END 0 */
 
 ADC_HandleTypeDef hadc1;
@@ -53,10 +55,10 @@ void MX_ADC1_Init(void)
   hadc1.Init.LowPowerAutoPowerOff = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 5;
-  hadc1.Init.DiscontinuousConvMode = ENABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_CC4;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_FALLING;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_7CYCLES_5;
   hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_1CYCLE_5;
@@ -217,7 +219,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
 
 	//HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_2);
 	//HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_3);
-
+	tps_tot=(uint32_t ) (TIM2->CNT-tps1);
 
 
 
