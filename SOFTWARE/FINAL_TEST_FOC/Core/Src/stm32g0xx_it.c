@@ -22,6 +22,7 @@
 #include "stm32g0xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "MA330.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,7 +42,9 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+extern uint32_t tps1;
+extern uint32_t tps_tot;
+extern MA330_t ma330data;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -208,6 +211,23 @@ void ADC1_IRQHandler(void)
 void TIM1_CC_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_CC_IRQn 0 */
+    // Teste ET la source ET le flag (pattern HAL)
+    if (__HAL_TIM_GET_IT_SOURCE(&htim1, TIM_IT_CC4) &&
+        __HAL_TIM_GET_FLAG(&htim1, TIM_FLAG_CC4))
+    {
+        __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_CC4);   // efface CC4IF
+
+        // Direction: 0 = montée, 1 = descente
+        if ((TIM1->CR1 & TIM_CR1_DIR) == 0) {
+            // Montée
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+        } else {
+            // Descente
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+        }
+
+        // (tes mesures temps avec TIM2 ici si tu veux)
+    }
 
   /* USER CODE END TIM1_CC_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);

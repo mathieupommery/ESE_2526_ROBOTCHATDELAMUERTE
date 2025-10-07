@@ -185,8 +185,8 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
 
 	if (hspi->Instance == SPI2) {
-		//MA330_get_degree(&ma330data);
-        HAL_GPIO_WritePin(GPIOA,GPIO_PIN_2,0);
+		MA330_get_degree(&ma330data);
+        //HAL_GPIO_WritePin(GPIOA,GPIO_PIN_2,0);
         //HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,0);
 		//foc_calc_electric_angle(&hfoc, DEG_TO_RAD(angle_deg));
 	}

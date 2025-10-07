@@ -47,6 +47,9 @@
 #define POLE_PAIR	(7)
 #define SPEED_CONTROL_CYCLE	10
 #define FOC_TS (1.0f / (float)BLDC_PWM_FREQ)
+#define CAL_ITERATION 100
+#define VD_CAL 0.6f
+#define VQ_CAL 0.0f
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -95,7 +98,7 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin){
 
 
 ///******************************************************************************/
-//
+
 //float get_power_voltage(void) {
 //	static float pv_filtered = 0.0f;
 //  const float filter_alpha = 0.2f;
@@ -108,100 +111,31 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin){
 //
 //	return pv_filtered;
 //}
-//
-///******************************************************************************/
-//
-//uint32_t get_dt_us(void) {
-//#if 0
-//  static uint32_t last_us = 0;
-//
-//  uint32_t now_us = TIM10->CNT;
-//  uint32_t elapsed_us = now_us - last_us;
-//  last_us = now_us;
-//#else
-//  uint32_t elapsed_us = TIM10->CNT;
-//  TIM10->CNT = 0;
-//#endif
-//  return elapsed_us;
-//}
+
+
+uint32_t get_dt_us(void) {
+
+  uint32_t elapsed_us = TIM2->CNT;
+  TIM2->CNT = 0;
+  return elapsed_us;
+}
 
 
 ///******************************************************************************/
-//
-//#define CAL_ITERATION 100
-//
-//#define VD_CAL 0.6f
-//#define VQ_CAL 0.0f
-//
-//void cal_encoder_misalignment(void) {
-//  open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, 0.0f);
-//  HAL_Delay(500);
-//  float rad_offset = 0.0f;
-//  for (int i = 0; i < CAL_ITERATION; i++) {
-//    rad_offset += DEG_TO_RAD(hencd.angle_filtered);
-//    HAL_Delay(1);
-//  }
-//  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
-//  rad_offset = rad_offset / (float)CAL_ITERATION;
-//  hfoc.m_angle_offset = rad_offset;
-//  m_config.encd_offset = rad_offset;
-//}
-//
-//float error_temp[ERROR_LUT_SIZE] = {0};
-//
-//void encoder_get_error(void) {
-//  memset(error_temp, 0, sizeof(error_temp));
-//
-//  cal_encoder_misalignment();
-//
-//  for (int i = 0; i < ERROR_LUT_SIZE; i++) {
-//    float mech_deg = (float)i * (360.0f / (float)ERROR_LUT_SIZE);
-//    float elec_rad = DEG_TO_RAD(mech_deg * POLE_PAIR);
-//    open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, elec_rad);
-//    HAL_Delay(5);
-//
-//    float mech_rad = hfoc.m_angle_rad;
-//    float raw_delta = elec_rad - hfoc.e_angle_rad;
-//    float delta = elec_rad - hfoc.e_angle_rad_comp;
-//
-//    raw_delta -= TWO_PI * floorf((raw_delta + PI) / TWO_PI);
-//    delta -= TWO_PI * floorf((delta + PI) / TWO_PI);
-//
-//    float lut_pos = (mech_rad / TWO_PI) * ERROR_LUT_SIZE;
-//    int index = (int)(lut_pos);
-//
-//    while (index < 0) {
-//      index += ERROR_LUT_SIZE;
-//    }
-//    index %= ERROR_LUT_SIZE;
-//
-//    error_temp[index] = raw_delta;
-//
-//    // debug
-//    float buffer_val[2];
-//    // buffer_val[0] = raw_delta;
-//    // buffer_val[1] = delta;
-//    buffer_val[0] = delta;
-//    send_data_float(buffer_val, 1);
-//  }
-//
-//  for (int i = 0; i < ERROR_LUT_SIZE; i++) {
-//    if (error_temp[i] == 0) {
-//      int last_i = i - 1;
-//      int next_i = i + 1;
-//      if (last_i < 0) last_i += ERROR_LUT_SIZE;
-//      if (next_i > ERROR_LUT_SIZE) next_i -= ERROR_LUT_SIZE;
-//      error_temp[i] = (error_temp[last_i] + error_temp[next_i]) / 2.0f;
-//    }
-//  }
-//
-//  memcpy(m_config.encd_error_comp, error_temp, sizeof(error_temp));
-//
-//  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
-//}
-//
-///******************************************************************************/
-//
+
+void encoder_get_error(void) {
+	  open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, 0.0f);
+	  HAL_Delay(500);
+	  float rad_offset = 0.0f;
+	  for (int i = 0; i < CAL_ITERATION; i++) {
+	    rad_offset += DEG_TO_RAD(ma330data.angle_filtered);
+	    HAL_Delay(1);
+	  }
+	  open_loop_voltage_control(&hfoc, 0.0f, 0.0f, 0.0f);
+	  rad_offset = rad_offset / (float)CAL_ITERATION;
+	  hfoc.m_angle_offset = rad_offset;
+  }
+
 //void svpwm_test(void) {
 //  open_loop_voltage_control(&hfoc, VD_CAL, VQ_CAL, 0.0f);
 //  HAL_Delay(500);
@@ -254,7 +188,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -269,6 +203,11 @@ int main(void)
 
   MA330_Init(&ma330data, &hspi2, HALL_CS_GPIO_Port, HALL_CS_Pin,NORMAL_FW);
 
+  __HAL_TIM_DISABLE_IT(&htim1, TIM_IT_UPDATE | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_TRIGGER | TIM_IT_COM | TIM_IT_BREAK);
+  __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_UPDATE | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_TRIGGER | TIM_IT_COM | TIM_IT_BREAK);
+  __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
+
+
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
 
@@ -279,10 +218,8 @@ int main(void)
 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
 
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
-
-
-	//__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
 	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
+
 
 	HAL_TIM_Base_Start(&htim2);
 
@@ -299,9 +236,41 @@ int main(void)
 	while (1)
 	{
 
-		//HAL_GPIO_TogglePin(GPIOF,GPIO_PIN_0);
+		    if (is_foc_ready()) {
+		      foc_reset_flag();
 
-		HAL_Delay(100);
+		      switch (hfoc.control_mode) {
+		      case TORQUE_CONTROL_MODE:
+		        hfoc.id_ref = 0.0f;
+		        hfoc.iq_ref = sp_input;
+		        break;
+		      case SPEED_CONTROL_MODE: {
+		        foc_speed_control_update(&hfoc, sp_input);
+		        break;
+		      }
+		      case POSITION_CONTROL_MODE:
+		        hfoc.actual_angle = MA330_get_actual_degree(&ma330data);
+		        foc_position_control_update(&hfoc, sp_input);
+		        break;
+		      case CALIBRATION_MODE:
+		        break;
+		      case TEST_MODE:
+		        open_loop_voltage_control(&hfoc, 0.0f, 0.1f, 0.0f);
+		        break;
+		      default:
+		        break;
+		      }
+		    }
+
+		    if (hfoc.control_mode == CALIBRATION_MODE) {
+		      if (start_cal == 1) {
+		        encoder_get_error();
+		        // svpwm_test();
+		        start_cal = 0;
+		      }
+		    }
+
+		HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -334,7 +303,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
   RCC_OscInitStruct.PLL.PLLN = 16;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV8;
-  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV8;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
