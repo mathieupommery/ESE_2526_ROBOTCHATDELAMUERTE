@@ -1,4 +1,1 @@
-../Core/Src/spi.c:34:6:MX_SPI2_Init	2
-../Core/Src/spi.c:68:6:HAL_SPI_MspInit	4
-../Core/Src/spi.c:152:6:HAL_SPI_MspDeInit	2
-../Core/Src/spi.c:185:6:HAL_SPI_TxRxCpltCallback	2
+../Core/Src/spi.c:29:6:MX_SPI2_Init	1

@@ -4,10 +4,12 @@
 #include "main.h"
 
 typedef struct {
-    SPI_HandleTypeDef *MA330_spi;
     GPIO_TypeDef *MA330_cs_port;
     uint16_t MA330_cs_pin;
     uint8_t spi_rx_buffer[2];
+    uint8_t spi_tx_buffer[2];
+    uint8_t g_spi_done;
+    uint8_t g_spi_error;
     
     float angle_filtered;
     float prev_angle_filtered;
@@ -46,7 +48,7 @@ typedef struct {
 
 
 
-int MA330_Init(MA330_t *encd, SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,uint8_t FW);
+int MA330_Init(MA330_t *encd, GPIO_TypeDef *cs_port, uint16_t cs_pin,uint8_t FW);
 
 int MA330_start(MA330_t *encd);
 

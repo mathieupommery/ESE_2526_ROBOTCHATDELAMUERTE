@@ -59,10 +59,6 @@ extern MA330_t ma330data;
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
-extern ADC_HandleTypeDef hadc1;
-extern DMA_HandleTypeDef hdma_spi2_rx;
-extern DMA_HandleTypeDef hdma_spi2_tx;
-extern SPI_HandleTypeDef hspi2;
 extern TIM_HandleTypeDef htim1;
 /* USER CODE BEGIN EV */
 
@@ -182,72 +178,27 @@ void DMA1_Channel1_IRQHandler(void)
 void DMA1_Channel2_3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
+	Put_inside_DMA1_Channel2_3_IRQ(&ma330data);
+
 
   /* USER CODE END DMA1_Channel2_3_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_spi2_rx);
-  HAL_DMA_IRQHandler(&hdma_spi2_tx);
   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
 
   /* USER CODE END DMA1_Channel2_3_IRQn 1 */
 }
 
 /**
-  * @brief This function handles ADC1 interrupt.
+  * @brief This function handles TIM1 break, update, trigger and commutation interrupts.
   */
-void ADC1_IRQHandler(void)
+void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
 {
-  /* USER CODE BEGIN ADC1_IRQn 0 */
+  /* USER CODE BEGIN TIM1_BRK_UP_TRG_COM_IRQn 0 */
 
-  /* USER CODE END ADC1_IRQn 0 */
-  HAL_ADC_IRQHandler(&hadc1);
-  /* USER CODE BEGIN ADC1_IRQn 1 */
-
-  /* USER CODE END ADC1_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM1 capture compare interrupt.
-  */
-void TIM1_CC_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_CC_IRQn 0 */
-    // Teste ET la source ET le flag (pattern HAL)
-    if (__HAL_TIM_GET_IT_SOURCE(&htim1, TIM_IT_CC4) &&
-        __HAL_TIM_GET_FLAG(&htim1, TIM_FLAG_CC4))
-    {
-        __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_CC4);   // efface CC4IF
-
-        // Direction: 0 = montée, 1 = descente
-        if ((TIM1->CR1 & TIM_CR1_DIR) == 0) {
-            // Montée
-            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
-        } else {
-            // Descente
-            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
-        }
-
-        // (tes mesures temps avec TIM2 ici si tu veux)
-    }
-
-  /* USER CODE END TIM1_CC_IRQn 0 */
+  /* USER CODE END TIM1_BRK_UP_TRG_COM_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_CC_IRQn 1 */
+  /* USER CODE BEGIN TIM1_BRK_UP_TRG_COM_IRQn 1 */
 
-  /* USER CODE END TIM1_CC_IRQn 1 */
-}
-
-/**
-  * @brief This function handles SPI2 global interrupt.
-  */
-void SPI2_IRQHandler(void)
-{
-  /* USER CODE BEGIN SPI2_IRQn 0 */
-
-  /* USER CODE END SPI2_IRQn 0 */
-  HAL_SPI_IRQHandler(&hspi2);
-  /* USER CODE BEGIN SPI2_IRQn 1 */
-
-  /* USER CODE END SPI2_IRQn 1 */
+  /* USER CODE END TIM1_BRK_UP_TRG_COM_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

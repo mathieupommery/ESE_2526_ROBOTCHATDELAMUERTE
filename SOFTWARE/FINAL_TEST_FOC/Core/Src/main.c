@@ -188,7 +188,6 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -201,11 +200,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  MA330_Init(&ma330data, &hspi2, HALL_CS_GPIO_Port, HALL_CS_Pin,NORMAL_FW);
+  MA330_Init(&ma330data, HALL_CS_GPIO_Port, HALL_CS_Pin,NORMAL_FW);
 
   __HAL_TIM_DISABLE_IT(&htim1, TIM_IT_UPDATE | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_TRIGGER | TIM_IT_COM | TIM_IT_BREAK);
   __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_UPDATE | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_TRIGGER | TIM_IT_COM | TIM_IT_BREAK);
-  __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
+  __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_UPDATE);
 
 
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
@@ -218,7 +217,7 @@ int main(void)
 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
 
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
-	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 
 
 	HAL_TIM_Base_Start(&htim2);
@@ -236,41 +235,41 @@ int main(void)
 	while (1)
 	{
 
-		    if (is_foc_ready()) {
-		      foc_reset_flag();
+//		    if (is_foc_ready()) {
+//		      foc_reset_flag();
+//
+//		      switch (hfoc.control_mode) {
+//		      case TORQUE_CONTROL_MODE:
+//		        hfoc.id_ref = 0.0f;
+//		        hfoc.iq_ref = sp_input;
+//		        break;
+//		      case SPEED_CONTROL_MODE: {
+//		        foc_speed_control_update(&hfoc, sp_input);
+//		        break;
+//		      }
+//		      case POSITION_CONTROL_MODE:
+//		        hfoc.actual_angle = MA330_get_actual_degree(&ma330data);
+//		        foc_position_control_update(&hfoc, sp_input);
+//		        break;
+//		      case CALIBRATION_MODE:
+//		        break;
+//		      case TEST_MODE:
+//		        open_loop_voltage_control(&hfoc, 0.0f, 0.1f, 0.0f);
+//		        break;
+//		      default:
+//		        break;
+//		      }
+//		    }
+//
+//		    if (hfoc.control_mode == CALIBRATION_MODE) {
+//		      if (start_cal == 1) {
+//		        encoder_get_error();
+//		        // svpwm_test();
+//		        start_cal = 0;
+//		      }
+//		    }
 
-		      switch (hfoc.control_mode) {
-		      case TORQUE_CONTROL_MODE:
-		        hfoc.id_ref = 0.0f;
-		        hfoc.iq_ref = sp_input;
-		        break;
-		      case SPEED_CONTROL_MODE: {
-		        foc_speed_control_update(&hfoc, sp_input);
-		        break;
-		      }
-		      case POSITION_CONTROL_MODE:
-		        hfoc.actual_angle = MA330_get_actual_degree(&ma330data);
-		        foc_position_control_update(&hfoc, sp_input);
-		        break;
-		      case CALIBRATION_MODE:
-		        break;
-		      case TEST_MODE:
-		        open_loop_voltage_control(&hfoc, 0.0f, 0.1f, 0.0f);
-		        break;
-		      default:
-		        break;
-		      }
-		    }
-
-		    if (hfoc.control_mode == CALIBRATION_MODE) {
-		      if (start_cal == 1) {
-		        encoder_get_error();
-		        // svpwm_test();
-		        start_cal = 0;
-		      }
-		    }
-
-		HAL_Delay(1);
+		HAL_Delay(5);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

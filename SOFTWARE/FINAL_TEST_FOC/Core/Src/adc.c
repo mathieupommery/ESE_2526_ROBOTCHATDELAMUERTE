@@ -69,7 +69,7 @@ void MX_ADC1_Init(void)
   hadc1.Init.NbrOfConversion = 5;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T1_TRGO2;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_FALLING;
   hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_7CYCLES_5;
@@ -180,9 +180,6 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
 
     __HAL_LINKDMA(adcHandle,DMA_Handle,hdma_adc1);
 
-    /* ADC1 interrupt Init */
-    HAL_NVIC_SetPriority(ADC1_IRQn, 1, 0);
-    HAL_NVIC_EnableIRQ(ADC1_IRQn);
   /* USER CODE BEGIN ADC1_MspInit 1 */
 
   /* USER CODE END ADC1_MspInit 1 */
@@ -212,9 +209,6 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
     /* ADC1 DMA DeInit */
     HAL_DMA_DeInit(adcHandle->DMA_Handle);
-
-    /* ADC1 interrupt Deinit */
-    HAL_NVIC_DisableIRQ(ADC1_IRQn);
   /* USER CODE BEGIN ADC1_MspDeInit 1 */
 
   /* USER CODE END ADC1_MspDeInit 1 */
@@ -225,21 +219,17 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
-	tps1=TIM2->CNT;
 
 	if (hadc->Instance == ADC1) {
     static uint8_t event_loop_count = 0;//CH6,CH7,CH9,CH5,VREFINT
 
     float VDDA=3.0 * VREFINT_CAL / adc_data[4];
 
-	hfoc.ia=(float) (RESISTOR * ((adc_data[0] * VDDA)-(VDDA/2))) / 4095.0;
-	hfoc.ia=(float) (RESISTOR * ((adc_data[1] * VDDA)-(VDDA/2))) / 4095.0;
-	hfoc.ic=(float) (RESISTOR * ((adc_data[2] * VDDA)-(VDDA/2))) / 4095.0;
-	hfoc.v_bus=(float) (VBUSDIVIDER * (adc_data[3] * VDDA)) / 4095.0;
+	hfoc.ia=(float) (RESISTOR * (((adc_data[0] * VDDA)/ 4095.0)-(VDDA/2))) ;
+	hfoc.ia=(float) (RESISTOR * (((adc_data[1] * VDDA)/ 4095.0)-(VDDA/2)));
+	hfoc.ic=(float) (RESISTOR * (((adc_data[2] * VDDA)/ 4095.0)-(VDDA/2)));
+	hfoc.v_bus=(float) (VBUSDIVIDER * adc_data[3] * VDDA) / 4095.0;
 
-	tps_tot=TIM2->CNT-tps1;
-
-    MA330_start(&ma330data);
 
     switch(hfoc.control_mode) {
       case TORQUE_CONTROL_MODE:
@@ -266,10 +256,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
       break;
     }
 	}
-
-
-
-	//HAL_GPIO_WritePin(GPIOA,GPIO_PIN_2,0);
 
 }
 /* USER CODE END 1 */

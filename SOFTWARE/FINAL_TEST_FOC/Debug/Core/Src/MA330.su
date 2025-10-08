@@ -1,5 +1,9 @@
-../Core/Src/MA330.c:27:5:MA330_Init	40	static
-../Core/Src/MA330.c:96:5:MA330_start	24	static
-../Core/Src/MA330.c:110:7:MA330_get_degree	24	static
-../Core/Src/MA330.c:147:7:MA330_get_rpm	24	static
-../Core/Src/MA330.c:181:7:MA330_get_actual_degree	24	static
+../Core/Src/MA330.c:30:6:SPI2_FOC_DMA_LL_Init	24	static,ignoring_inline_asm
+../Core/Src/MA330.c:72:6:SPI2_FOC_DMA_KickTxRx2B	32	static
+../Core/Src/MA330.c:110:6:Put_inside_DMA1_Channel2_3_IRQ	8	static
+../Core/Src/MA330.c:140:6:SPI2_FOC_DMA_TxRx2B_Blocking	32	static
+../Core/Src/MA330.c:176:5:MA330_Init	16	static
+../Core/Src/MA330.c:231:5:MA330_start	32	static
+../Core/Src/MA330.c:241:7:MA330_get_degree	8	static
+../Core/Src/MA330.c:279:7:MA330_get_rpm	24	static
+../Core/Src/MA330.c:313:7:MA330_get_actual_degree	24	static
