@@ -15,8 +15,6 @@
 "./Core/Src/tim.o"
 "./Core/Startup/startup_stm32g031c8tx.o"
 "./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o"
-"./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.o"
-"./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.o"
 "./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o"
 "./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o"
 "./Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o"

@@ -21,10 +21,6 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_cortex.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_adc.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc_ex.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_exti.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash_ex.h \
@@ -32,6 +28,8 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_adc.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h \
@@ -40,8 +38,8 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h
 ../Core/Inc/MA330.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
@@ -66,10 +64,6 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_cortex.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_adc.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc_ex.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_adc_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_exti.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash_ex.h:
@@ -77,6 +71,8 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_adc.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h:
@@ -85,5 +81,5 @@ Core/Src/MA330.o: ../Core/Src/MA330.c ../Core/Inc/MA330.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
-../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h:

@@ -8,12 +8,17 @@
 #include <math.h>
 #include "MA330.h"
 #include "stm32g0xx_ll_dma.h"
+#include "stm32g0xx_ll_dmamux.h"
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_rcc.h"
 #include "stm32g0xx_ll_system.h"
 #include <stdbool.h>
 #include <string.h>
+
+
+extern uint32_t tps1;
+extern uint32_t tps_tot;
 
 
 static void cs_low(MA330_t *encd) {
@@ -30,37 +35,49 @@ static void cs_high(MA330_t *encd) {
 void SPI2_FOC_DMA_LL_Init(MA330_t *encd)
 {
     /* DMAMUX: CH2=SPI2_RX, CH3=SPI2_TX */
+
     LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_SPI2_TX);
+    LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_2, LL_DMAMUX_REQ_SPI2_RX);
 
     /* RX: P->M, 8-bit, no inc, length=2 (préchargée) */
     LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
+    LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_2, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)&SPI2->DR);
-    LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)&encd->spi_rx_buffer);
+    LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)encd->spi_rx_buffer);
+    LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PERIPH_NOINCREMENT);
+    LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MEMORY_INCREMENT);
+    LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PDATAALIGN_BYTE);
+    LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MDATAALIGN_BYTE);
+    LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PRIORITY_MEDIUM);
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 2);
     LL_DMA_ClearFlag_GI2(DMA1);
-    LL_DMA_ClearFlag_TC2(DMA1);
-    LL_DMA_ClearFlag_TE2(DMA1);
 
     /* TX: M->P, 8-bit, no inc, length=2 (préchargée) */
     LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_3);
     LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_3, LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
     LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_3, (uint32_t)&SPI2->DR);
-    LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_3, (uint32_t)&encd->spi_tx_buffer);
+    LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_3, (uint32_t)encd->spi_tx_buffer);
+    LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PERIPH_NOINCREMENT);
+    LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MEMORY_INCREMENT);
+    LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PDATAALIGN_BYTE);
+    LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MDATAALIGN_BYTE);
+    LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_3, LL_DMA_PRIORITY_MEDIUM);
+    LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MODE_NORMAL);
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 2);
     LL_DMA_ClearFlag_GI3(DMA1);
-    LL_DMA_ClearFlag_TC3(DMA1);
-    LL_DMA_ClearFlag_TE3(DMA1);
 
     /* IT fin de RX (la seule fiable pour “fin vraie” d’un full-duplex) */
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_2);
     LL_DMA_EnableIT_TE(DMA1, LL_DMA_CHANNEL_2);
+    LL_DMA_EnableIT_TE(DMA1, LL_DMA_CHANNEL_3);
 
-    NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0);    // mets une prio adaptée à ton FOC
+    NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0);
     NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
 
     encd->spi_tx_buffer[0]=0x00;
     encd->spi_tx_buffer[1]=0x00;
 
+    LL_SPI_Enable(SPI2);
 
     encd->g_spi_done = 0;
     cs_high(encd);
@@ -71,74 +88,48 @@ void SPI2_FOC_DMA_LL_Init(MA330_t *encd)
 /* ====== KICK non bloquant : lance un TxRx 2 octets (8-bit x2) ====== */
 bool SPI2_FOC_DMA_KickTxRx2B(MA330_t *encd,uint8_t Byte1,uint8_t Byte2)
 {
-    /* Évite conflit si SPI encore occupé */
+    if (!LL_SPI_IsEnabled(SPI2)) {
+        LL_SPI_Enable(SPI2);
+    }
     if (LL_SPI_IsActiveFlag_BSY(SPI2)) {
         return false;
     }
+    encd->spi_tx_buffer[0] = Byte1;
+    encd->spi_tx_buffer[1] = Byte2;
 
-    encd->spi_tx_buffer[0]=Byte1;
-    encd->spi_tx_buffer[0]=Byte2;
+    encd->g_spi_done = 0;
 
     cs_low(encd);
 
-    /* Reset flags + longueurs = 2 octets */
     LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
     LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_3);
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 2);
     LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 2);
     LL_DMA_ClearFlag_GI2(DMA1);
-    LL_DMA_ClearFlag_TC2(DMA1);
-    LL_DMA_ClearFlag_TE2(DMA1);
     LL_DMA_ClearFlag_GI3(DMA1);
-    LL_DMA_ClearFlag_TC3(DMA1);
-    LL_DMA_ClearFlag_TE3(DMA1);
 
     encd->g_spi_done = 0;
 
-    /* Active RX avant TX pour ne rien perdre */
-    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
-    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_3);
-
-    /* Active les requêtes DMA côté SPI (ne reconfigure pas le SPI lui-même) */
+    // Activer d’abord RX (prêt à capter), puis TX
     LL_SPI_EnableDMAReq_RX(SPI2);
     LL_SPI_EnableDMAReq_TX(SPI2);
+
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2); // RX
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_3); // TX
 
     return true;
 }
 
 /* ====== Handler d’IRQ DMA (RX fin) ====== */
-void Put_inside_DMA1_Channel2_3_IRQ(MA330_t *encd)
-{
-    if (LL_DMA_IsActiveFlag_TC2(DMA1)) {
-        LL_DMA_ClearFlag_TC2(DMA1);
-
-        /* Fin “vraie” : coupe les requêtes et laisse DMA pré-armé mais désactivé */
-        LL_SPI_DisableDMAReq_TX(SPI2);
-        LL_SPI_DisableDMAReq_RX(SPI2);
-        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_3);
-        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
-
-        encd->g_spi_done = 1;  // signal dispo (optionnel)
-        encd->g_spi_error=1;
-        /* Si NSS manuel: remonte-le ici. */
-        cs_high(encd);
-    }
 
 
 
 
-    /* Option: erreurs */
-    if (LL_DMA_IsActiveFlag_TE2(DMA1)) {
-        LL_DMA_ClearFlag_TE2(DMA1);
-        encd->g_spi_error=0;
-        // gérer l’erreur si besoin
-    }
-
-}
 
 /* ====== Utilitaire bloquant court (polling) si tu en veux un) ====== */
 bool SPI2_FOC_DMA_TxRx2B_Blocking(MA330_t * encd, uint8_t Byte1, uint8_t Byte2, uint32_t timeout_loops)
 {
+
     if (!SPI2_FOC_DMA_KickTxRx2B(encd, Byte1, Byte2)) return false;
 
     HAL_Delay(5);
@@ -146,7 +137,7 @@ bool SPI2_FOC_DMA_TxRx2B_Blocking(MA330_t * encd, uint8_t Byte1, uint8_t Byte2, 
 
     //gerer les erreurs
     while (timeout_loops>10) {
-        if (LL_DMA_IsActiveFlag_TC2(DMA1)){
+        if (encd->g_spi_done == 1){
         	break;
         }
         HAL_Delay(1);
@@ -329,6 +320,46 @@ float MA330_get_actual_degree(MA330_t *encd) {
 }
 
 
+
+void Put_inside_DMA1_Channel2_3_IRQ(MA330_t *encd)
+{
+
+    if (LL_DMA_IsActiveFlag_TC2(DMA1)) {
+        LL_DMA_ClearFlag_TC2(DMA1);
+
+        // Stop requêtes / canaux
+        LL_SPI_DisableDMAReq_RX(SPI2);
+        LL_SPI_DisableDMAReq_TX(SPI2);
+
+        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
+        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_3);
+
+        cs_high(encd);
+
+        MA330_get_degree(encd);
+
+        tps_tot=(uint32_t ) TIM2->CNT-tps1;
+
+        encd->g_spi_done = 1;
+        encd->g_spi_error=1;
+
+    }
+
+    if (LL_DMA_IsActiveFlag_TE2(DMA1)) {
+        LL_DMA_ClearFlag_TE2(DMA1);
+        // erreur
+    }
+
+    if (LL_DMA_IsActiveFlag_TE3(DMA1)) {
+        LL_DMA_ClearFlag_TE3(DMA1);
+        // erreur
+    }
+
+    LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_1);
+    LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, 5);
+    LL_DMA_ClearFlag_GI1(DMA1);
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
+}
 
 //int MA330_Init(MA330_t *encd, SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,uint8_t FW){
 //    if (encd == NULL || hspi == NULL || cs_port == NULL || cs_pin == 0) {
