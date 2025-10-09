@@ -217,6 +217,7 @@ int main(void)
 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
 
 	//HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adc_data, 5);
+	ADC_PostLL_Init(&hfoc);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 
 

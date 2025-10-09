@@ -24,19 +24,22 @@
 #include "tim.h"
 #include "foc.h"
 #include "MA330.h"
+#include "main.h"
+#include "stm32g0xx_ll_adc.h"
+#include "stm32g0xx_ll_dma.h"
+#include "stm32g0xx_ll_tim.h"
+
+
 extern uint32_t tps1;
 extern uint32_t tps_tot;
 uint32_t tpsadc=0;
 uint8_t diradc=0;
-int flag1=0;
-extern uint16_t adc_data[5];
 extern foc_t hfoc;
 extern MA330_t ma330data;
 
-#define VREFINT_CAL_ADDR  ((uint32_t*)0x1FFF75AA)
 #define VREFINT_CAL       (*VREFINT_CAL_ADDR)
-#define RESISTOR 0.01f
-#define VBUSDIVIDER 7
+#define RESISTOR 100
+#define VBUSDIVIDER 6.0f
 
 /* USER CODE END 0 */
 
@@ -104,7 +107,6 @@ void MX_ADC1_Init(void)
   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MDATAALIGN_HALFWORD);
 
   /* USER CODE BEGIN ADC1_Init 1 */
-
   /* USER CODE END ADC1_Init 1 */
 
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
@@ -305,47 +307,116 @@ void MX_ADC1_Init(void)
 /* USER CODE BEGIN 1 */
 
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
+void ADC_PostLL_Init(foc_t * encd)
+{
+    /* --- DMA1 CH1: adresse periph/mem + longueur --- */
+    LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_1);
+    LL_DMA_SetPeriphAddress (DMA1, LL_DMA_CHANNEL_1, (uint32_t)&ADC1->DR);
+    LL_DMA_SetMemoryAddress (DMA1, LL_DMA_CHANNEL_1, (uint32_t)encd->adc_raw);
+    LL_DMA_SetDataLength    (DMA1, LL_DMA_CHANNEL_1, 5);
 
-	if (hadc->Instance == ADC1) {
-    static uint8_t event_loop_count = 0;//CH6,CH7,CH9,CH5,VREFINT
+    /* IT DMA: TC + TE */
+    LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_1);
+    LL_DMA_EnableIT_TE(DMA1, LL_DMA_CHANNEL_1);
 
-    float VDDA=3.0 * VREFINT_CAL / adc_data[4];
-
-	hfoc.ia=(float) (RESISTOR * (((adc_data[0] * VDDA)/ 4095.0)-(VDDA/2))) ;
-	hfoc.ia=(float) (RESISTOR * (((adc_data[1] * VDDA)/ 4095.0)-(VDDA/2)));
-	hfoc.ic=(float) (RESISTOR * (((adc_data[2] * VDDA)/ 4095.0)-(VDDA/2)));
-	hfoc.v_bus=(float) (VBUSDIVIDER * adc_data[3] * VDDA) / 4095.0;
+    /* --- VREFINT: activer le chemin interne (déjà fait dans ton init) --- */
+    /* Tu l’as déjà: LL_ADC_SetCommonPathInternalCh(..., LL_ADC_PATH_INTERNAL_VREFINT); */
 
 
-    switch(hfoc.control_mode) {
-      case TORQUE_CONTROL_MODE:
-    	  //foc_current_control_update(&hfoc);
-      case SPEED_CONTROL_MODE:
-    	  //foc_speed_control_update(&hfoc, sp_input);
-      case POSITION_CONTROL_MODE: {
-//        foc_current_control_update(&hfoc);
-//
-//        if (event_loop_count > SPEED_CONTROL_CYCLE) {
-//          event_loop_count = 0;
-//          dt_us = get_dt_us();
-//          hfoc.actual_rpm = AS5047P_get_rpm(&hencd, dt_us);
-//          foc_set_flag();
-//        }
-//        event_loop_count++;
-//        break;
-      }
-      case AUDIO_MODE: {
-        //audio_loop(&hfoc);
-        break;
-      }
-      default:
-      break;
+    /* --- Calibration (ADC désactivé) --- */
+    if (LL_ADC_IsEnabled(ADC1) == 0)
+    {
+        LL_ADC_StartCalibration(ADC1);
+        while (LL_ADC_IsCalibrationOnGoing(ADC1)) { }
     }
 
-    tpsadc=TIM1->CNT;
-    diradc = (uint8_t)((TIM1->CR1 & TIM_CR1_DIR) ? 1u : 0u);
-	}
+    /* --- Enable + ADRDY --- */
+    LL_ADC_Enable(ADC1);
+    while (LL_ADC_IsActiveFlag_ADRDY(ADC1) == 0) { }
+    LL_ADC_ClearFlag_ADRDY(ADC1);
 
+    //TIM1_Config_TRGO2_OC4REF(1550);      // TRGO2 = OC4REF (exemple)
+
+    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
+    /* Armer le régulier (external trigger déjà configuré) */
+    LL_ADC_REG_StartConversion(ADC1);
 }
+
+
+
+void INSIDE_DMA1_Channel1(void)
+{
+    /* Erreur DMA ? */
+    if (LL_DMA_IsActiveFlag_TE1(DMA1))
+    {
+        LL_DMA_ClearFlag_TE1(DMA1);
+        //error
+    }
+
+    /* Transfert complet ? */
+    if (LL_DMA_IsActiveFlag_TC1(DMA1))
+    {
+        static uint8_t event_loop_count = 0;//CH6,CH7,CH9,CH5,VREFINT
+
+        float VDDA=3.0 * VREFINT_CAL / hfoc.adc_raw[4];
+
+    	hfoc.ia=(float) (RESISTOR * (((hfoc.adc_raw[0] * VDDA)/ 4096.0)-(VDDA/2)));
+    	hfoc.ib=(float) (RESISTOR * (((hfoc.adc_raw[1] * VDDA)/ 4096.0)-(VDDA/2)));
+    	hfoc.ic=(float) (RESISTOR * (((hfoc.adc_raw[2] * VDDA)/ 4096.0)-(VDDA/2)));
+    	hfoc.v_bus=(float) (VBUSDIVIDER * hfoc.adc_raw[3] * VDDA) / 4096.0;
+
+        switch(hfoc.control_mode) {
+          case TORQUE_CONTROL_MODE:
+        	  //foc_current_control_update(&hfoc);
+          case SPEED_CONTROL_MODE:
+        	  //foc_speed_control_update(&hfoc, sp_input);
+          case POSITION_CONTROL_MODE: {
+    //        foc_current_control_update(&hfoc);
+    //
+    //        if (event_loop_count > SPEED_CONTROL_CYCLE) {
+    //          event_loop_count = 0;
+    //          dt_us = get_dt_us();
+    //          hfoc.actual_rpm = AS5047P_get_rpm(&hencd, dt_us);
+    //          foc_set_flag();
+    //        }
+    //        event_loop_count++;
+    //        break;
+          }
+          case AUDIO_MODE: {
+            //audio_loop(&hfoc);
+            break;
+          }
+          default:
+          break;
+        }
+
+        tpsadc=TIM1->CNT;
+        diradc = (uint8_t)((TIM1->CR1 & TIM_CR1_DIR) ? 1u : 0u);
+
+
+        LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_1);
+        LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)hfoc.adc_raw);
+        LL_DMA_SetDataLength   (DMA1, LL_DMA_CHANNEL_1, 5);
+        LL_DMA_EnableChannel   (DMA1, LL_DMA_CHANNEL_1);
+        LL_DMA_ClearFlag_TC1(DMA1);
+        LL_ADC_REG_StartConversion(ADC1);
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* USER CODE END 1 */

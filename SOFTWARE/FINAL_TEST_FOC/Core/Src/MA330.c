@@ -355,10 +355,6 @@ void Put_inside_DMA1_Channel2_3_IRQ(MA330_t *encd)
         // erreur
     }
 
-    LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_1);
-    LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, 5);
-    LL_DMA_ClearFlag_GI1(DMA1);
-    LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
 }
 
 //int MA330_Init(MA330_t *encd, SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,uint8_t FW){

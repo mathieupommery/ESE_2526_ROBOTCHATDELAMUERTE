@@ -27,6 +27,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "foc.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -39,7 +40,8 @@ extern "C" {
 void MX_ADC1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void ADC_PostLL_Init(foc_t * encd);
+void INSIDE_DMA1_Channel1(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

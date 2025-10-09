@@ -39,8 +39,10 @@ Core/Src/adc.o: ../Core/Src/adc.c ../Core/Inc/adc.h ../Core/Inc/main.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h \
- ../Core/Inc/tim.h ../Core/Inc/foc.h ../Core/Inc/FOC_math.h \
- ../Core/Inc/pid_utils.h ../Core/Inc/MA330.h
+ ../Core/Inc/foc.h ../Core/Inc/FOC_math.h ../Core/Inc/pid_utils.h \
+ ../Core/Inc/tim.h ../Core/Inc/foc.h ../Core/Inc/MA330.h \
+ ../Core/Inc/main.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h
 ../Core/Inc/adc.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
@@ -83,8 +85,11 @@ Core/Src/adc.o: ../Core/Src/adc.c ../Core/Inc/adc.h ../Core/Inc/main.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h:
-../Core/Inc/tim.h:
 ../Core/Inc/foc.h:
 ../Core/Inc/FOC_math.h:
 ../Core/Inc/pid_utils.h:
+../Core/Inc/tim.h:
+../Core/Inc/foc.h:
 ../Core/Inc/MA330.h:
+../Core/Inc/main.h:
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:

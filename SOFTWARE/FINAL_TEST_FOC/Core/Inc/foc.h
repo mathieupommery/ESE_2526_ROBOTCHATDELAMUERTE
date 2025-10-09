@@ -101,6 +101,7 @@ typedef struct {
 	float e_angle_rad; // electrical angle
 	float e_angle_rad_comp; // electrical angle
 	float m_angle_offset;
+	uint16_t adc_raw[5];
 
 	float vd, vq;
 	float id, iq;
