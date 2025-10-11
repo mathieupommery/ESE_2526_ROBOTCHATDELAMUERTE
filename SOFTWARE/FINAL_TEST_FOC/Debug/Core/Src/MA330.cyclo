@@ -1,0 +1,9 @@
+../Core/Src/MA330.c:35:6:SPI2_FOC_DMA_LL_Init	1
+../Core/Src/MA330.c:89:6:SPI2_FOC_DMA_KickTxRx2B	3
+../Core/Src/MA330.c:130:6:SPI2_FOC_DMA_TxRx2B_Blocking	6
+../Core/Src/MA330.c:167:5:MA330_Init	10
+../Core/Src/MA330.c:222:5:MA330_start	3
+../Core/Src/MA330.c:232:7:MA330_get_degree	1
+../Core/Src/MA330.c:270:7:MA330_get_rpm	3
+../Core/Src/MA330.c:304:7:MA330_get_actual_degree	3
+../Core/Src/MA330.c:324:6:Put_inside_DMA1_Channel2_3_IRQ	4

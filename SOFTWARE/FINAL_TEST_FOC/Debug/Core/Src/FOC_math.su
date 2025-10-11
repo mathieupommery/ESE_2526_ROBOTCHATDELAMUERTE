@@ -1,0 +1,8 @@
+../Core/Src/FOC_math.c:13:6:norm_angle_rad	16	static
+../Core/Src/FOC_math.c:21:7:fast_sin	24	static
+../Core/Src/FOC_math.c:33:7:fast_cos	24	static
+../Core/Src/FOC_math.c:37:6:pre_calc_sin_cos	32	static
+../Core/Src/FOC_math.c:45:6:clarke_park_transform	24	static
+../Core/Src/FOC_math.c:56:6:inverse_park_transform	24	static
+../Core/Src/FOC_math.c:62:6:inverse_clarke_transform	16	static
+../Core/Src/FOC_math.c:78:6:svpwm	40	static
