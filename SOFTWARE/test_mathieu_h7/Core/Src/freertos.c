@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ylidar.h"
+#include "adxl343.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -138,10 +139,8 @@ void Startmaintask(void const * argument)
   for(;;)
   {
 
-	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);
-	 //HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_4);
-	//CDC_Transmit_FS((uint8_t*) ylidar_finalbuffer, 721*sizeof(uint8_t));
-    osDelay(1000);
+	 HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
+    osDelay(100);
   }
   /* USER CODE END Startmaintask */
 }
@@ -159,12 +158,13 @@ void Startlidarparse(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  while (ylidar_read_index!=ylidar_write_index){
-		  ylidar_fsm();
-      }
-	  trackObject();
+//	  while (ylidar_read_index!=ylidar_write_index){
+//		  ylidar_fsm();
+//      }
+//	  trackObject();
+	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 
-	  osDelay(1);
+	  osDelay(500);
   }
   /* USER CODE END Startlidarparse */
 }

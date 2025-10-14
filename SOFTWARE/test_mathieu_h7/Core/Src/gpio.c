@@ -33,7 +33,6 @@
 /* USER CODE END 1 */
 
 /** Configure pins
-     PE2   ------> SPI4_SCK
      PB9   ------> I2C1_SDA
      PB7   ------> S_TIM4_CH2
      PB4 (NJTRST)   ------> SPI1_MISO
@@ -44,11 +43,9 @@
      PB8   ------> I2C1_SCL
      PH0-OSC_IN (PH0)   ------> RCC_OSC_IN
      PH1-OSC_OUT (PH1)   ------> RCC_OSC_OUT
-     PE5   ------> SPI4_MISO
      PD4   ------> SAI3_FS_A
      PD0   ------> SAI3_SCK_A
      PA8   ------> I2C3_SCL
-     PE6   ------> SPI4_MOSI
      PD1   ------> SAI3_SD_A
      PC9   ------> I2C3_SDA
      PC7   ------> USART6_RX
@@ -79,15 +76,10 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LED0_Pin|LED1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ACCEL_CS_GPIO_Port, ACCEL_CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PE2 PE5 PE6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_5|GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF5_SPI4;
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOD, LED0_Pin|LED1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PB9 PB8 */
   GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_8;
@@ -143,6 +135,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIO_MOT3_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : INT2_Pin INT1_Pin */
+  GPIO_InitStruct.Pin = INT2_Pin|INT1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PC9 */
   GPIO_InitStruct.Pin = GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -158,6 +156,13 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF7_USART6;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ACCEL_CS_Pin */
+  GPIO_InitStruct.Pin = ACCEL_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(ACCEL_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED0_Pin LED1_Pin */
   GPIO_InitStruct.Pin = LED0_Pin|LED1_Pin;

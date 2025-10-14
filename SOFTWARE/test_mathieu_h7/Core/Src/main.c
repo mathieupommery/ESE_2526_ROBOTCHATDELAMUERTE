@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
@@ -47,7 +48,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
+//extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,11 +98,12 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_UART8_Init();
+  MX_SPI4_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Abort(&huart8);
-  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
-  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
+//  HAL_UART_Abort(&huart8);
+//  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
+//  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
 
   /* USER CODE END 2 */
 

@@ -2671,8 +2671,8 @@
 		(uuid 1ef8175e-6895-4723-bd81-48190e37d974)
 	)
 	(rectangle
-		(start 339.09 31.75)
-		(end 554.99 177.8)
+		(start 299.72 31.75)
+		(end 554.99 332.74)
 		(stroke
 			(width 0)
 			(type default)
@@ -2695,8 +2695,8 @@
 		(uuid 3b59533f-64a9-41d2-97ed-e9fa7f608751)
 	)
 	(rectangle
-		(start 281.94 240.03)
-		(end 368.3 322.58)
+		(start 31.75 299.72)
+		(end 118.11 382.27)
 		(stroke
 			(width 0)
 			(type default)
@@ -2731,8 +2731,8 @@
 		(uuid cf8f3267-0fbd-467e-9963-8b55289dd5a6)
 	)
 	(rectangle
-		(start 377.19 238.76)
-		(end 448.31 290.83)
+		(start 127 298.45)
+		(end 198.12 350.52)
 		(stroke
 			(width 0)
 			(type default)
@@ -2743,8 +2743,8 @@
 		(uuid e9862680-c5a5-498c-a22d-d4789671fc0e)
 	)
 	(rectangle
-		(start 455.93 238.76)
-		(end 527.05 290.83)
+		(start 205.74 298.45)
+		(end 276.86 350.52)
 		(stroke
 			(width 0)
 			(type default)
@@ -2776,7 +2776,7 @@
 	)
 	(text "CONDO_VBAT"
 		(exclude_from_sim no)
-		(at 288.29 241.808 0)
+		(at 38.1 301.498 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2786,7 +2786,7 @@
 	)
 	(text "MAIN_CONNECTOR"
 		(exclude_from_sim no)
-		(at 385.826 241.3 0)
+		(at 135.636 300.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2806,7 +2806,7 @@
 	)
 	(text "SWD\n"
 		(exclude_from_sim no)
-		(at 458.978 241.3 0)
+		(at 208.788 300.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2826,7 +2826,7 @@
 	)
 	(text "En considerant Rshuntafet=R et Rpullup=R46"
 		(exclude_from_sim no)
-		(at 462.534 200.66 0)
+		(at 212.344 260.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2836,7 +2836,7 @@
 	)
 	(text "3Imaxphase=1/Rshunt*((0.255*(3R46+R)/R46)-RVref/R46)\n"
 		(exclude_from_sim no)
-		(at 461.772 204.724 0)
+		(at 211.582 264.414 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2846,7 +2846,7 @@
 	)
 	(text "Avec R46=18k et R=2.2k et enfin Rshunt=50mohm on a 3Imaxphase=7.86A et donc ImaxPhase=2.62A"
 		(exclude_from_sim no)
-		(at 451.866 207.772 0)
+		(at 201.676 267.462 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2871,7 +2871,7 @@
 		(uuid "0d3e350a-5cba-4f42-9038-bdbcc04615bc")
 	)
 	(junction
-		(at 419.1 265.43)
+		(at 168.91 325.12)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "102e2218-90b1-485d-a2a7-85743fa6ee51")
@@ -2889,25 +2889,25 @@
 		(uuid "11f5fd19-5bd2-4f28-8abb-33d7bb7858ad")
 	)
 	(junction
-		(at 328.93 256.54)
+		(at 78.74 316.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "19b01d16-875f-41a8-b75d-9f1e2d8380c1")
 	)
 	(junction
-		(at 344.17 251.46)
+		(at 93.98 311.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1aaebacc-cb92-425a-b9fd-a9f45c2f8b0f")
 	)
 	(junction
-		(at 299.72 251.46)
+		(at 49.53 311.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1eef44c9-850f-4e28-9cc8-d48e5d8dd325")
 	)
 	(junction
-		(at 321.31 290.83)
+		(at 71.12 350.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "25f48fd4-95b5-422b-9111-b136fd5d6a78")
@@ -2931,13 +2931,13 @@
 		(uuid "4b9aa7c8-32ba-4829-bbd3-07b73a02e226")
 	)
 	(junction
-		(at 299.72 256.54)
+		(at 49.53 316.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5109a03a-2b67-47f3-adc2-f6082447bc8e")
 	)
 	(junction
-		(at 313.69 251.46)
+		(at 63.5 311.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "57729799-17db-4986-824f-f426d520b7dd")
@@ -2961,7 +2961,7 @@
 		(uuid "6fdf0bd9-cc43-49ed-913f-e7c12336b5cd")
 	)
 	(junction
-		(at 328.93 251.46)
+		(at 78.74 311.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "74544c15-e115-471c-9706-df3a8b4c5728")
@@ -2979,7 +2979,7 @@
 		(uuid "88afb824-6f3d-46dc-9a7f-b254fda6fa85")
 	)
 	(junction
-		(at 327.66 285.75)
+		(at 77.47 345.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8c4c57e2-d824-4097-a228-9296b9ae9c21")
@@ -3009,13 +3009,13 @@
 		(uuid "ac0623fe-9b64-4b12-9e8a-b08d5435a135")
 	)
 	(junction
-		(at 312.42 290.83)
+		(at 62.23 350.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ae79a862-3e19-492f-ba88-c395672f4b94")
 	)
 	(junction
-		(at 327.66 290.83)
+		(at 77.47 350.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "af226f69-0988-47c3-82cf-42d49e4bff84")
@@ -3033,7 +3033,7 @@
 		(uuid "cdcae355-f5f9-49f7-b83e-dc8c64672302")
 	)
 	(junction
-		(at 322.58 256.54)
+		(at 72.39 316.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cef43d38-4ed2-484a-a98c-dc4c2309e3ae")
@@ -3045,19 +3045,19 @@
 		(uuid "d0971ee2-7395-431a-96c1-e78998557989")
 	)
 	(junction
-		(at 313.69 256.54)
+		(at 63.5 316.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d0addcd3-d91c-49cc-910b-fc65af9d923e")
 	)
 	(junction
-		(at 344.17 256.54)
+		(at 93.98 316.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d347a5d9-1ec1-4940-bfe3-d66e6c1deb25")
 	)
 	(junction
-		(at 312.42 285.75)
+		(at 62.23 345.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "def71446-3468-48df-9e40-a349347139fa")
@@ -3075,7 +3075,7 @@
 		(uuid "e5797d3f-8f94-4904-8c22-c30b33dae85f")
 	)
 	(junction
-		(at 398.78 262.89)
+		(at 148.59 322.58)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f61648bd-f531-49db-9b5d-f903743d5c35")
@@ -3126,7 +3126,7 @@
 	)
 	(wire
 		(pts
-			(xy 419.1 265.43) (xy 419.1 266.7)
+			(xy 168.91 325.12) (xy 168.91 326.39)
 		)
 		(stroke
 			(width 0)
@@ -3196,7 +3196,7 @@
 	)
 	(wire
 		(pts
-			(xy 398.78 262.89) (xy 398.78 264.16)
+			(xy 148.59 322.58) (xy 148.59 323.85)
 		)
 		(stroke
 			(width 0)
@@ -3236,7 +3236,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 256.54) (xy 322.58 260.35)
+			(xy 72.39 316.23) (xy 72.39 320.04)
 		)
 		(stroke
 			(width 0)
@@ -3276,7 +3276,7 @@
 	)
 	(wire
 		(pts
-			(xy 398.78 261.62) (xy 398.78 262.89)
+			(xy 148.59 321.31) (xy 148.59 322.58)
 		)
 		(stroke
 			(width 0)
@@ -3296,7 +3296,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 251.46) (xy 299.72 251.46)
+			(xy 36.83 311.15) (xy 49.53 311.15)
 		)
 		(stroke
 			(width 0)
@@ -3316,7 +3316,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 256.54) (xy 328.93 256.54)
+			(xy 72.39 316.23) (xy 78.74 316.23)
 		)
 		(stroke
 			(width 0)
@@ -3356,7 +3356,7 @@
 	)
 	(wire
 		(pts
-			(xy 298.45 290.83) (xy 312.42 290.83)
+			(xy 48.26 350.52) (xy 62.23 350.52)
 		)
 		(stroke
 			(width 0)
@@ -3366,7 +3366,7 @@
 	)
 	(wire
 		(pts
-			(xy 396.24 266.7) (xy 398.78 266.7)
+			(xy 146.05 326.39) (xy 148.59 326.39)
 		)
 		(stroke
 			(width 0)
@@ -3476,7 +3476,7 @@
 	)
 	(wire
 		(pts
-			(xy 313.69 251.46) (xy 328.93 251.46)
+			(xy 63.5 311.15) (xy 78.74 311.15)
 		)
 		(stroke
 			(width 0)
@@ -3496,7 +3496,7 @@
 	)
 	(wire
 		(pts
-			(xy 344.17 256.54) (xy 358.14 256.54)
+			(xy 93.98 316.23) (xy 107.95 316.23)
 		)
 		(stroke
 			(width 0)
@@ -3526,7 +3526,7 @@
 	)
 	(wire
 		(pts
-			(xy 477.52 262.89) (xy 480.06 262.89)
+			(xy 227.33 322.58) (xy 229.87 322.58)
 		)
 		(stroke
 			(width 0)
@@ -3556,7 +3556,7 @@
 	)
 	(wire
 		(pts
-			(xy 328.93 251.46) (xy 344.17 251.46)
+			(xy 78.74 311.15) (xy 93.98 311.15)
 		)
 		(stroke
 			(width 0)
@@ -3576,7 +3576,7 @@
 	)
 	(wire
 		(pts
-			(xy 502.92 267.97) (xy 500.38 267.97)
+			(xy 252.73 327.66) (xy 250.19 327.66)
 		)
 		(stroke
 			(width 0)
@@ -3626,7 +3626,7 @@
 	)
 	(wire
 		(pts
-			(xy 313.69 256.54) (xy 322.58 256.54)
+			(xy 63.5 316.23) (xy 72.39 316.23)
 		)
 		(stroke
 			(width 0)
@@ -3666,7 +3666,7 @@
 	)
 	(wire
 		(pts
-			(xy 321.31 290.83) (xy 327.66 290.83)
+			(xy 71.12 350.52) (xy 77.47 350.52)
 		)
 		(stroke
 			(width 0)
@@ -3736,7 +3736,7 @@
 	)
 	(wire
 		(pts
-			(xy 421.64 265.43) (xy 419.1 265.43)
+			(xy 171.45 325.12) (xy 168.91 325.12)
 		)
 		(stroke
 			(width 0)
@@ -3746,7 +3746,7 @@
 	)
 	(wire
 		(pts
-			(xy 328.93 256.54) (xy 344.17 256.54)
+			(xy 78.74 316.23) (xy 93.98 316.23)
 		)
 		(stroke
 			(width 0)
@@ -3926,7 +3926,7 @@
 	)
 	(wire
 		(pts
-			(xy 396.24 262.89) (xy 398.78 262.89)
+			(xy 146.05 322.58) (xy 148.59 322.58)
 		)
 		(stroke
 			(width 0)
@@ -4016,7 +4016,7 @@
 	)
 	(wire
 		(pts
-			(xy 421.64 261.62) (xy 419.1 261.62)
+			(xy 171.45 321.31) (xy 168.91 321.31)
 		)
 		(stroke
 			(width 0)
@@ -4066,7 +4066,7 @@
 	)
 	(wire
 		(pts
-			(xy 298.45 285.75) (xy 312.42 285.75)
+			(xy 48.26 345.44) (xy 62.23 345.44)
 		)
 		(stroke
 			(width 0)
@@ -4076,7 +4076,7 @@
 	)
 	(wire
 		(pts
-			(xy 419.1 265.43) (xy 419.1 264.16)
+			(xy 168.91 325.12) (xy 168.91 323.85)
 		)
 		(stroke
 			(width 0)
@@ -4086,7 +4086,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 256.54) (xy 313.69 256.54)
+			(xy 49.53 316.23) (xy 63.5 316.23)
 		)
 		(stroke
 			(width 0)
@@ -4126,7 +4126,7 @@
 	)
 	(wire
 		(pts
-			(xy 312.42 285.75) (xy 327.66 285.75)
+			(xy 62.23 345.44) (xy 77.47 345.44)
 		)
 		(stroke
 			(width 0)
@@ -4196,7 +4196,7 @@
 	)
 	(wire
 		(pts
-			(xy 477.52 265.43) (xy 480.06 265.43)
+			(xy 227.33 325.12) (xy 229.87 325.12)
 		)
 		(stroke
 			(width 0)
@@ -4246,7 +4246,7 @@
 	)
 	(wire
 		(pts
-			(xy 327.66 285.75) (xy 342.9 285.75)
+			(xy 77.47 345.44) (xy 92.71 345.44)
 		)
 		(stroke
 			(width 0)
@@ -4266,7 +4266,7 @@
 	)
 	(wire
 		(pts
-			(xy 327.66 290.83) (xy 342.9 290.83)
+			(xy 77.47 350.52) (xy 92.71 350.52)
 		)
 		(stroke
 			(width 0)
@@ -4276,7 +4276,7 @@
 	)
 	(wire
 		(pts
-			(xy 477.52 267.97) (xy 480.06 267.97)
+			(xy 227.33 327.66) (xy 229.87 327.66)
 		)
 		(stroke
 			(width 0)
@@ -4296,7 +4296,7 @@
 	)
 	(wire
 		(pts
-			(xy 312.42 290.83) (xy 321.31 290.83)
+			(xy 62.23 350.52) (xy 71.12 350.52)
 		)
 		(stroke
 			(width 0)
@@ -4406,7 +4406,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 256.54) (xy 299.72 256.54)
+			(xy 36.83 316.23) (xy 49.53 316.23)
 		)
 		(stroke
 			(width 0)
@@ -4536,7 +4536,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 251.46) (xy 313.69 251.46)
+			(xy 49.53 311.15) (xy 63.5 311.15)
 		)
 		(stroke
 			(width 0)
@@ -4556,7 +4556,7 @@
 	)
 	(wire
 		(pts
-			(xy 321.31 290.83) (xy 321.31 294.64)
+			(xy 71.12 350.52) (xy 71.12 354.33)
 		)
 		(stroke
 			(width 0)
@@ -4576,7 +4576,7 @@
 	)
 	(wire
 		(pts
-			(xy 344.17 251.46) (xy 358.14 251.46)
+			(xy 93.98 311.15) (xy 107.95 311.15)
 		)
 		(stroke
 			(width 0)
@@ -4665,7 +4665,7 @@
 		(uuid "036c16e4-135f-49f2-a30a-1a0dd2f952bf")
 	)
 	(label "NRST"
-		(at 477.52 262.89 180)
+		(at 227.33 322.58 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4825,7 +4825,7 @@
 		(uuid "3286dbc1-ce98-4208-be37-ca938c0a0d28")
 	)
 	(label "BTN"
-		(at 502.92 267.97 0)
+		(at 252.73 327.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5005,7 +5005,7 @@
 		(uuid "5beb82c1-47be-4c49-b8b2-10cf79c5c93c")
 	)
 	(label "UART_RX"
-		(at 396.24 266.7 180)
+		(at 146.05 326.39 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5095,7 +5095,7 @@
 		(uuid "a19c4673-2e3b-4f46-8c29-8777dd429fdf")
 	)
 	(label "UART_TX"
-		(at 421.64 261.62 0)
+		(at 171.45 321.31 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5125,7 +5125,7 @@
 		(uuid "aaef9375-0a5f-44ec-9f95-f56e3f9a556d")
 	)
 	(label "SWDIO"
-		(at 477.52 267.97 180)
+		(at 227.33 327.66 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5315,7 +5315,7 @@
 		(uuid "e4c1a187-b0db-4db1-bce6-b13a142039e7")
 	)
 	(label "SWCLK"
-		(at 477.52 265.43 180)
+		(at 227.33 325.12 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5428,7 +5428,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 322.58 285.75 90)
+		(at 72.39 345.44 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5438,7 +5438,7 @@
 		)
 		(uuid "21c2b88c-eec7-4112-b7dd-29191697cd21")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 322.58 276.7776 90)
+			(at 72.39 336.4676 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5472,7 +5472,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 323.85 251.46 90)
+		(at 73.66 311.15 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5482,7 +5482,7 @@
 		)
 		(uuid "30c461d6-3bcf-41a2-89bf-15b55850401e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 323.85 242.4876 90)
+			(at 73.66 302.1776 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5494,7 +5494,7 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 396.24 262.89 180)
+		(at 146.05 322.58 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5504,7 +5504,7 @@
 		)
 		(uuid "d6d640db-d27c-459e-83cf-bd4b254ed7a0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 387.2676 262.89 0)
+			(at 137.0776 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6151,7 +6151,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 421.64 265.43 90)
+		(at 171.45 325.12 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6159,7 +6159,7 @@
 		(dnp no)
 		(uuid "16316f83-28a8-49e1-828f-3d89a920f861")
 		(property "Reference" "#PWR038"
-			(at 427.99 265.43 0)
+			(at 177.8 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6168,7 +6168,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 425.704 265.43 0)
+			(at 175.514 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6176,7 +6176,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 421.64 265.43 0)
+			(at 171.45 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6185,7 +6185,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 421.64 265.43 0)
+			(at 171.45 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6194,7 +6194,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 421.64 265.43 0)
+			(at 171.45 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6376,7 +6376,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 312.42 288.29 0)
+		(at 62.23 347.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6384,7 +6384,7 @@
 		(dnp no)
 		(uuid "1dc3b878-1f7a-4dbd-97d7-d16f5580e705")
 		(property "Reference" "C34"
-			(at 314.96 287.0262 0)
+			(at 64.77 346.7162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6393,7 +6393,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 314.96 289.5662 0)
+			(at 64.77 349.2562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6402,7 +6402,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 312.42 288.29 0)
+			(at 62.23 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6411,7 +6411,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 312.42 288.29 0)
+			(at 62.23 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6420,7 +6420,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 323.85 293.878 0)
+			(at 73.66 353.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6429,7 +6429,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 312.42 288.29 0)
+			(at 62.23 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6438,7 +6438,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 312.42 288.29 0)
+			(at 62.23 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7130,7 +7130,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 328.93 254 0)
+		(at 78.74 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7138,7 +7138,7 @@
 		(dnp no)
 		(uuid "4ccce973-e30a-4737-8300-09723bc5731a")
 		(property "Reference" "C26"
-			(at 331.47 252.7362 0)
+			(at 81.28 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7147,7 +7147,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 331.47 255.2762 0)
+			(at 81.28 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7156,7 +7156,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 328.93 254 0)
+			(at 78.74 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7165,7 +7165,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 328.93 254 0)
+			(at 78.74 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7174,7 +7174,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 340.36 259.588 0)
+			(at 90.17 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7183,7 +7183,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 328.93 254 0)
+			(at 78.74 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7192,7 +7192,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 328.93 254 0)
+			(at 78.74 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7225,7 +7225,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 313.69 254 0)
+		(at 63.5 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7233,7 +7233,7 @@
 		(dnp no)
 		(uuid "538bf531-4825-4809-b69c-2c44e92ded73")
 		(property "Reference" "C25"
-			(at 316.23 252.7362 0)
+			(at 66.04 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7242,7 +7242,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 316.23 255.2762 0)
+			(at 66.04 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7251,7 +7251,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 313.69 254 0)
+			(at 63.5 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7260,7 +7260,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 313.69 254 0)
+			(at 63.5 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7269,7 +7269,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 325.12 259.588 0)
+			(at 74.93 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7278,7 +7278,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 313.69 254 0)
+			(at 63.5 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7287,7 +7287,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 321.31 270.51 0)
+			(at 71.12 330.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7319,7 +7319,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 500.38 265.43 90)
+		(at 250.19 325.12 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7327,7 +7327,7 @@
 		(dnp no)
 		(uuid "56aec93a-2d2a-4cc6-bd11-c43dff39852f")
 		(property "Reference" "#PWR048"
-			(at 506.73 265.43 0)
+			(at 256.54 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7336,7 +7336,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 502.666 264.668 90)
+			(at 252.476 324.358 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7345,7 +7345,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 500.38 265.43 0)
+			(at 250.19 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7354,7 +7354,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 500.38 265.43 0)
+			(at 250.19 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7363,7 +7363,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 500.38 265.43 0)
+			(at 250.19 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7924,7 +7924,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 344.17 254 0)
+		(at 93.98 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7932,7 +7932,7 @@
 		(dnp no)
 		(uuid "7d9ada6a-1ad8-477f-8ea3-ad1123f62e56")
 		(property "Reference" "C27"
-			(at 346.71 252.7362 0)
+			(at 96.52 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7941,7 +7941,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 346.71 255.2762 0)
+			(at 96.52 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7950,7 +7950,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 344.17 254 0)
+			(at 93.98 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7959,7 +7959,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 344.17 254 0)
+			(at 93.98 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7968,7 +7968,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 355.6 259.588 0)
+			(at 105.41 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7977,7 +7977,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 344.17 254 0)
+			(at 93.98 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7986,7 +7986,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 344.17 254 0)
+			(at 93.98 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8093,7 +8093,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 408.94 271.78 0)
+		(at 158.75 331.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8101,7 +8101,7 @@
 		(dnp no)
 		(uuid "86560c70-14ab-4a81-b5e8-d13d42bb90d5")
 		(property "Reference" "#PWR052"
-			(at 408.94 278.13 0)
+			(at 158.75 337.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8110,7 +8110,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 408.94 275.844 0)
+			(at 158.75 335.534 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8118,7 +8118,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 408.94 271.78 0)
+			(at 158.75 331.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8127,7 +8127,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 408.94 271.78 0)
+			(at 158.75 331.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8136,7 +8136,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 408.94 271.78 0)
+			(at 158.75 331.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8260,7 +8260,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 327.66 288.29 0)
+		(at 77.47 347.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8268,7 +8268,7 @@
 		(dnp no)
 		(uuid "875ac608-8f86-4ab3-9025-b7742711dc8f")
 		(property "Reference" "C35"
-			(at 330.2 287.0262 0)
+			(at 80.01 346.7162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8277,7 +8277,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 330.2 289.5662 0)
+			(at 80.01 349.2562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8286,7 +8286,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 327.66 288.29 0)
+			(at 77.47 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8295,7 +8295,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 327.66 288.29 0)
+			(at 77.47 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8304,7 +8304,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 339.09 293.878 0)
+			(at 88.9 353.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8313,7 +8313,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 327.66 288.29 0)
+			(at 77.47 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8322,7 +8322,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 327.66 288.29 0)
+			(at 77.47 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8612,7 +8612,7 @@
 	)
 	(symbol
 		(lib_id "samacsys:SM06B-GHS-TB_LF__SN_")
-		(at 398.78 261.62 0)
+		(at 148.59 321.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8621,7 +8621,7 @@
 		(fields_autoplaced yes)
 		(uuid "90ce9193-583c-420b-974c-98c5508567a3")
 		(property "Reference" "J2"
-			(at 408.94 254 0)
+			(at 158.75 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8629,7 +8629,7 @@
 			)
 		)
 		(property "Value" "SM06B-GHS-TB_LF__SN_"
-			(at 408.94 256.54 0)
+			(at 158.75 316.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8637,7 +8637,7 @@
 			)
 		)
 		(property "Footprint" "samacsys:SM06B-GHS-TB"
-			(at 415.29 356.54 0)
+			(at 165.1 416.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8647,7 +8647,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/e4ef010dc292ea31091454f6c0afb63a.pdf"
-			(at 415.29 456.54 0)
+			(at 165.1 516.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8657,7 +8657,7 @@
 			)
 		)
 		(property "Description" "GH 1.25mm header side entry 6 way JST GH Series, 1.25mm Pitch 6 Way Right Angle PCB Header, Solder Termination, 1A"
-			(at 398.78 261.62 0)
+			(at 148.59 321.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8666,7 +8666,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 415.29 656.54 0)
+			(at 165.1 716.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8676,7 +8676,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-			(at 415.29 756.54 0)
+			(at 165.1 816.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8686,7 +8686,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "SM06B-GHS-TB(LF)(SN)"
-			(at 415.29 856.54 0)
+			(at 165.1 916.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8696,7 +8696,7 @@
 			)
 		)
 		(property "Mouser Part Number" "N/A"
-			(at 415.29 956.54 0)
+			(at 165.1 1016.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8706,7 +8706,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM06B-GHS-TBLFSN?qs=QpmGXVUTftFzTQe43vH9Ig%3D%3D"
-			(at 415.29 1056.54 0)
+			(at 165.1 1116.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8716,7 +8716,7 @@
 			)
 		)
 		(property "Arrow Part Number" "SM06B-GHS-TB(LF)(SN)"
-			(at 415.29 1156.54 0)
+			(at 165.1 1216.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8726,7 +8726,7 @@
 			)
 		)
 		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm06b-ghs-tb-lf-sn/jst-manufacturing"
-			(at 415.29 1256.54 0)
+			(at 165.1 1316.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8856,7 +8856,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 298.45 288.29 0)
+		(at 48.26 347.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8864,7 +8864,7 @@
 		(dnp no)
 		(uuid "93ac9683-224c-44c8-a8cf-56e472188661")
 		(property "Reference" "C33"
-			(at 300.99 287.0262 0)
+			(at 50.8 346.7162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8873,7 +8873,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 300.99 289.5662 0)
+			(at 50.8 349.2562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8882,7 +8882,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 298.45 288.29 0)
+			(at 48.26 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8891,7 +8891,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 298.45 288.29 0)
+			(at 48.26 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8900,7 +8900,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 309.88 293.878 0)
+			(at 59.69 353.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8909,7 +8909,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 298.45 288.29 0)
+			(at 48.26 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8918,7 +8918,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 298.45 288.29 0)
+			(at 48.26 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9100,7 +9100,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 500.38 262.89 270)
+		(at 250.19 322.58 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9109,7 +9109,7 @@
 		(fields_autoplaced yes)
 		(uuid "9f5b1153-b89d-463b-8de3-50b0054cce76")
 		(property "Reference" "#PWR049"
-			(at 496.57 262.89 0)
+			(at 246.38 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9118,7 +9118,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 504.19 262.8899 90)
+			(at 254 322.5799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9127,7 +9127,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 500.38 262.89 0)
+			(at 250.19 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9136,7 +9136,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 500.38 262.89 0)
+			(at 250.19 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9145,7 +9145,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 500.38 262.89 0)
+			(at 250.19 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9249,7 +9249,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 342.9 288.29 0)
+		(at 92.71 347.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9257,7 +9257,7 @@
 		(dnp no)
 		(uuid "a5de8f4a-bc22-4cae-a856-59b7047eb30e")
 		(property "Reference" "C36"
-			(at 345.44 287.0262 0)
+			(at 95.25 346.7162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9266,7 +9266,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 345.44 289.5662 0)
+			(at 95.25 349.2562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9275,7 +9275,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 342.9 288.29 0)
+			(at 92.71 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9284,7 +9284,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 342.9 288.29 0)
+			(at 92.71 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9293,7 +9293,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 354.33 293.878 0)
+			(at 104.14 353.568 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9302,7 +9302,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 342.9 288.29 0)
+			(at 92.71 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9311,7 +9311,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 342.9 288.29 0)
+			(at 92.71 347.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9661,7 +9661,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 490.22 273.05 0)
+		(at 240.03 332.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9669,7 +9669,7 @@
 		(dnp no)
 		(uuid "b37f362c-5d06-4949-b268-d546b9460d02")
 		(property "Reference" "#PWR053"
-			(at 490.22 279.4 0)
+			(at 240.03 339.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9678,7 +9678,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 495.3 272.542 0)
+			(at 245.11 332.232 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9687,7 +9687,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 490.22 273.05 0)
+			(at 240.03 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9696,7 +9696,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 490.22 273.05 0)
+			(at 240.03 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9705,7 +9705,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 490.22 273.05 0)
+			(at 240.03 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9735,7 +9735,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 321.31 294.64 0)
+		(at 71.12 354.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9743,7 +9743,7 @@
 		(dnp no)
 		(uuid "b60a6b39-b3f9-47f1-bdea-c4820282d776")
 		(property "Reference" "#PWR051"
-			(at 321.31 300.99 0)
+			(at 71.12 360.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9752,7 +9752,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 321.31 298.704 0)
+			(at 71.12 358.394 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9760,7 +9760,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 321.31 294.64 0)
+			(at 71.12 354.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9769,7 +9769,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 321.31 294.64 0)
+			(at 71.12 354.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9778,7 +9778,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 321.31 294.64 0)
+			(at 71.12 354.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10412,7 +10412,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 358.14 254 0)
+		(at 107.95 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10420,7 +10420,7 @@
 		(dnp no)
 		(uuid "d20c6618-c7df-4630-9f3d-a52565011d5a")
 		(property "Reference" "C31"
-			(at 360.68 252.7362 0)
+			(at 110.49 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10429,7 +10429,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 360.68 255.2762 0)
+			(at 110.49 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10438,7 +10438,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 358.14 254 0)
+			(at 107.95 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10447,7 +10447,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 358.14 254 0)
+			(at 107.95 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10456,7 +10456,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 369.57 259.588 0)
+			(at 119.38 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10465,7 +10465,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 358.14 254 0)
+			(at 107.95 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10474,7 +10474,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 358.14 254 0)
+			(at 107.95 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10674,7 +10674,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 322.58 260.35 0)
+		(at 72.39 320.04 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10682,7 +10682,7 @@
 		(dnp no)
 		(uuid "df7e66de-6b87-4842-bb92-5a3a4f603707")
 		(property "Reference" "#PWR031"
-			(at 322.58 266.7 0)
+			(at 72.39 326.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10691,7 +10691,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 322.58 264.414 0)
+			(at 72.39 324.104 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10699,7 +10699,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 322.58 260.35 0)
+			(at 72.39 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10708,7 +10708,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 322.58 260.35 0)
+			(at 72.39 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10717,7 +10717,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 322.58 260.35 0)
+			(at 72.39 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10914,7 +10914,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 299.72 254 0)
+		(at 49.53 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10922,7 +10922,7 @@
 		(dnp no)
 		(uuid "edea82f4-08db-432c-b313-7c241006e2a3")
 		(property "Reference" "C24"
-			(at 302.26 252.7362 0)
+			(at 52.07 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10931,7 +10931,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 302.26 255.2762 0)
+			(at 52.07 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10940,7 +10940,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 299.72 254 0)
+			(at 49.53 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10949,7 +10949,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 254 0)
+			(at 49.53 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10958,7 +10958,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 311.15 259.588 0)
+			(at 60.96 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10967,7 +10967,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 299.72 254 0)
+			(at 49.53 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10976,7 +10976,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 299.72 254 0)
+			(at 49.53 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11009,7 +11009,7 @@
 	)
 	(symbol
 		(lib_id "samacsys:SM06B-GHS-TB_LF__SN_")
-		(at 480.06 262.89 0)
+		(at 229.87 322.58 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11018,7 +11018,7 @@
 		(fields_autoplaced yes)
 		(uuid "f3925e4b-d2b6-41d4-a54f-c5a93c2147a7")
 		(property "Reference" "J1"
-			(at 490.22 255.27 0)
+			(at 240.03 314.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11026,7 +11026,7 @@
 			)
 		)
 		(property "Value" "SM06B-GHS-TB_LF__SN_"
-			(at 490.22 257.81 0)
+			(at 240.03 317.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11034,7 +11034,7 @@
 			)
 		)
 		(property "Footprint" "samacsys:SM06B-GHS-TB"
-			(at 496.57 357.81 0)
+			(at 246.38 417.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11044,7 +11044,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/e4ef010dc292ea31091454f6c0afb63a.pdf"
-			(at 496.57 457.81 0)
+			(at 246.38 517.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11054,7 +11054,7 @@
 			)
 		)
 		(property "Description" "GH 1.25mm header side entry 6 way JST GH Series, 1.25mm Pitch 6 Way Right Angle PCB Header, Solder Termination, 1A"
-			(at 480.06 262.89 0)
+			(at 229.87 322.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11063,7 +11063,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 496.57 657.81 0)
+			(at 246.38 717.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11073,7 +11073,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "JST (JAPAN SOLDERLESS TERMINALS)"
-			(at 496.57 757.81 0)
+			(at 246.38 817.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11083,7 +11083,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "SM06B-GHS-TB(LF)(SN)"
-			(at 496.57 857.81 0)
+			(at 246.38 917.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11093,7 +11093,7 @@
 			)
 		)
 		(property "Mouser Part Number" "N/A"
-			(at 496.57 957.81 0)
+			(at 246.38 1017.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11103,7 +11103,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/JST-Commercial/SM06B-GHS-TBLFSN?qs=QpmGXVUTftFzTQe43vH9Ig%3D%3D"
-			(at 496.57 1057.81 0)
+			(at 246.38 1117.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11113,7 +11113,7 @@
 			)
 		)
 		(property "Arrow Part Number" "SM06B-GHS-TB(LF)(SN)"
-			(at 496.57 1157.81 0)
+			(at 246.38 1217.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11123,7 +11123,7 @@
 			)
 		)
 		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/sm06b-ghs-tb-lf-sn/jst-manufacturing"
-			(at 496.57 1257.81 0)
+			(at 246.38 1317.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11553,7 +11553,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 287.02 254 0)
+		(at 36.83 313.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11561,7 +11561,7 @@
 		(dnp no)
 		(uuid "fc662ab6-5d01-41bf-ba33-f2527d7933c9")
 		(property "Reference" "C23"
-			(at 289.56 252.7362 0)
+			(at 39.37 312.4262 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11570,7 +11570,7 @@
 			)
 		)
 		(property "Value" "22u"
-			(at 289.56 255.2762 0)
+			(at 39.37 314.9662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11579,7 +11579,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 287.02 254 0)
+			(at 36.83 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11588,7 +11588,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 287.02 254 0)
+			(at 36.83 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11597,7 +11597,7 @@
 			)
 		)
 		(property "Description" "GRM21BR61A476ME15"
-			(at 298.45 259.588 0)
+			(at 48.26 319.278 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11606,7 +11606,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 287.02 254 0)
+			(at 36.83 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11615,7 +11615,7 @@
 			)
 		)
 		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 287.02 254 0)
+			(at 36.83 313.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)

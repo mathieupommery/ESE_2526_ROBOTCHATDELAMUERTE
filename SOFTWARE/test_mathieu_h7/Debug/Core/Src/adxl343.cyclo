@@ -1,0 +1,6 @@
+../Core/Inc/adxl343.h:101:33:ADXL343_WriteReg	1
+../Core/Inc/adxl343.h:107:33:ADXL343_ReadReg	1
+../Core/Src/adxl343.c:13:23:adxl343_cmd	3
+../Core/Src/adxl343.c:21:19:ADXL343_Transfer	9
+../Core/Src/adxl343.c:56:19:ADXL343_Init	12
+../Core/Src/adxl343.c:121:19:ADXL343_ReadXYZ	3

@@ -237,12 +237,6 @@
 		(uuid "e31bcd0c-c1fc-41c3-9585-de63e611b3fc")
 	)
 	(junction
-		(at 90.17 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "359d8895-24c1-44b5-b098-5d443e3e53e5")
-	)
-	(junction
 		(at 74.93 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -263,16 +257,6 @@
 			(type default)
 		)
 		(uuid "1c6b0778-729e-42ec-b9ad-a6977bc9530a")
-	)
-	(wire
-		(pts
-			(xy 90.17 48.26) (xy 104.14 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "91e54053-542c-44df-9176-7eaded90099b")
 	)
 	(wire
 		(pts
@@ -566,73 +550,6 @@
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "TP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 104.14 48.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "eb25622a-0d94-487a-a4f2-e860b9419089")
-		(property "Reference" "TP4"
-			(at 106.68 43.6879 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 106.68 46.2279 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "samacsys:m3test"
-			(at 109.22 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 109.22 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 104.14 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eb7686b4-8970-4252-b4f4-f21a7a52f5cf")
-		)
-		(instances
-			(project "FOC_CONTROLLER_V1"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "TP4")
 					(unit 1)
 				)
 			)
