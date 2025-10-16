@@ -22,6 +22,7 @@
 #include "dma.h"
 #include "fatfs.h"
 #include "i2c.h"
+#include "sai.h"
 #include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
@@ -31,7 +32,8 @@
 /* USER CODE BEGIN Includes */
 #include "ylidar.h"
 #include "adxl343.h"
-#include "ssd1306.h"
+#include "ssd1306.h"*
+#include "wav_sai.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +57,12 @@
 //extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
 adxl343_t adxldata;
 int flag=0;
+
+
+FATFS FatFs;   // FATFS handle
+FRESULT fres;  // Common result code
+FIL fil;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -145,6 +153,7 @@ int main(void)
   MX_SPI1_Init();
   MX_FATFS_Init();
   MX_I2C2_Init();
+  MX_SAI3_Init();
   /* USER CODE BEGIN 2 */
 
 //  HAL_UART_Abort(&huart8);
@@ -153,7 +162,30 @@ int main(void)
 
   ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
-  ssd1306_Init();
+  //ssd1306_Init();
+
+  fres = f_mount(&FatFs, "", 1);
+  		  if (fres == FR_OK) {
+  			  fres = f_mkdir("DEMO");
+  			  fres = f_open(&fil, "/DEMO/write.txt",FA_WRITE | FA_OPEN_ALWAYS);
+  			  if (fres == FR_OK) {
+  				  //snprintf((char*) readBuf,30, "I hate Java!");
+  				  UINT bytesWrote;
+  				  fres = f_write(&fil,(uint8_t *)"test123test", 11, &bytesWrote);
+  				  f_close(&fil);
+
+  			  }
+  			  f_mount(NULL, "", 0);
+  		  }
+
+  		WAV_Init();
+
+  		bool result=false;
+
+  		fres = f_open(&fil,"0:/test.wav",FA_READ);
+
+  		result=WAV_Play("0:/test.wav");
+
 
 
   /* USER CODE END 2 */

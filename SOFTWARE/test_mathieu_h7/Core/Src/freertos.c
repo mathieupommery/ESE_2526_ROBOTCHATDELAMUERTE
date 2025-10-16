@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "ylidar.h"
 #include "adxl343.h"
+#include "wav_sai.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -139,9 +140,9 @@ void Startmaintask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  WAV_Task();
 
-	 HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END Startmaintask */
 }
