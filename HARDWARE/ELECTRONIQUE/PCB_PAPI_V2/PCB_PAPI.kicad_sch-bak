@@ -1,0 +1,713 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "64301b3d-8a16-47d9-a9c6-0068257932ba")
+	(paper "A2")
+	(lib_symbols)
+	(sheet
+		(at 35.56 35.56)
+		(size 102.87 177.8)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "20fa27ff-0f58-456a-bc0a-8947fd5978cc")
+		(property "Sheetname" "STM32"
+			(at 35.56 34.8484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "stm32.kicad_sch"
+			(at 35.56 213.9446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "ADC_CURR" input
+			(at 138.43 162.56 0)
+			(uuid "7572e536-554b-4428-8e6c-58d57847ed2b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "ADC_EXT2_VB2" input
+			(at 138.43 165.1 0)
+			(uuid "7d077cea-29e9-4157-983e-f4695489130b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "ADC_EXT3_CURR2" input
+			(at 138.43 167.64 0)
+			(uuid "21f63d00-a86f-47fd-9134-38bf92519ff3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BOOT0" input
+			(at 138.43 209.55 0)
+			(uuid "0a84f215-c60d-483c-ba92-6a9a934cbe7d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BUZZER_TIM" input
+			(at 138.43 153.67 0)
+			(uuid "4f772605-1104-43a1-b450-e5337a24cdde")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D+" input
+			(at 138.43 200.66 0)
+			(uuid "be223268-30c2-4e6f-8165-4f0eb44bf52f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D-" input
+			(at 138.43 198.12 0)
+			(uuid "d760b05d-0351-49a9-ae79-6442db57e092")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GYROEXTI" input
+			(at 138.43 146.05 0)
+			(uuid "b27694cd-958f-484e-80d2-10a1ac7528c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C1_SCL" input
+			(at 138.43 181.61 0)
+			(uuid "0839c972-935c-499b-8db2-28c346502e68")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C1_SDA" input
+			(at 138.43 179.07 0)
+			(uuid "e438053f-321a-4554-b1f1-c2eb9cda9661")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C2_SCL" input
+			(at 138.43 176.53 0)
+			(uuid "599c3c60-5ad6-4258-bb36-1365bb5369b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "IMU_CLK_EXTI" input
+			(at 138.43 149.86 0)
+			(uuid "0eef8e31-8e2b-42a8-b908-cec4a4a2c615")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "LED_TIM" input
+			(at 138.43 194.31 0)
+			(uuid "b5088650-740d-4ac2-8fe0-ef4650faea39")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx1" input
+			(at 138.43 63.5 0)
+			(uuid "bcccc71d-d9c9-44af-95d7-12b451586dee")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx3" input
+			(at 138.43 71.12 0)
+			(uuid "69a00227-91e0-495d-a50a-27d8b700caa8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx4" input
+			(at 138.43 78.74 0)
+			(uuid "e656939f-8474-46e1-b742-c71f6a3791cf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx6{slash}ppm" input
+			(at 138.43 92.71 0)
+			(uuid "185bcba0-f230-4eae-9715-2338e1c6a2f3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx7" input
+			(at 138.43 86.36 0)
+			(uuid "488dbc53-d799-4509-882c-f86308d505fa")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Rx8" input
+			(at 138.43 99.06 0)
+			(uuid "8cb2a23e-7ce8-4dc2-aeee-7e03f7a58514")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SWCLK" input
+			(at 138.43 207.01 0)
+			(uuid "0c66c229-abe1-49e1-8fd4-1e361056e0f8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SWDIO" input
+			(at 138.43 204.47 0)
+			(uuid "d79cb805-b5c7-4aa8-bec4-46b0d7627daf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx1" input
+			(at 138.43 66.04 0)
+			(uuid "893d52be-7b65-49c7-9239-f7aaa668d3eb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx3" input
+			(at 138.43 73.66 0)
+			(uuid "72363233-5f2f-46b0-a75e-5a3582083b23")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx4" input
+			(at 138.43 81.28 0)
+			(uuid "29be8e6b-a96c-4f54-960e-b26153e04c8f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx6" input
+			(at 138.43 95.25 0)
+			(uuid "ea02f447-a167-4708-87df-210fc75174a1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx7" input
+			(at 138.43 88.9 0)
+			(uuid "899c8750-fda0-4dc1-8763-cb62dad21015")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Tx8" input
+			(at 138.43 101.6 0)
+			(uuid "86260c02-9976-4a6a-a7a6-db12b3e8b0b5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 139.7 252.73)
+		(size 294.64 123.19)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3b0227fd-8888-44e2-94a5-1880f3393fd0")
+		(property "Sheetname" "CONNECTOR"
+			(at 139.7 252.0184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connector.kicad_sch"
+			(at 139.7 376.5046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GPIO1" input
+			(at 173.99 252.73 90)
+			(uuid "9ef2f3e1-d31f-406d-ba8a-a4201fa3a734")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO2" input
+			(at 189.23 252.73 90)
+			(uuid "d6839b2c-5d85-491d-8fd4-23be2f12e378")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GPIO3" input
+			(at 200.66 252.73 90)
+			(uuid "a1f28e2e-4c58-4ee2-ac7e-5d8d7527416a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX1" input
+			(at 167.64 252.73 90)
+			(uuid "26b16ca7-90aa-4196-8afc-cb372f4eb764")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX2" input
+			(at 182.88 252.73 90)
+			(uuid "6e66334d-a1ed-4e7b-a6ea-584d32a4cf3b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "RX3" input
+			(at 195.58 252.73 90)
+			(uuid "8698b9ba-8b68-4aba-a2a3-0e7f091f8b54")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX1" input
+			(at 171.45 252.73 90)
+			(uuid "5b4e2aae-27f1-4dc4-92c6-652e16c8e556")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX2" input
+			(at 185.42 252.73 90)
+			(uuid "2a8136f5-f2f1-47b8-b6f0-19b9860c47e0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TX3" input
+			(at 198.12 252.73 90)
+			(uuid "f17fba0c-1e42-46c9-becc-db2149847f9d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "ARGB Din" input
+			(at 209.55 252.73 90)
+			(uuid "32977e8f-aec0-416c-8152-fcf0d43fdcba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D+ ESP32" input
+			(at 215.9 252.73 90)
+			(uuid "ce0dca76-0e57-4623-b9d7-8668462c25ba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D+ STM32" input
+			(at 222.25 252.73 90)
+			(uuid "67877071-f07b-415c-8c1e-f95d5871c591")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D- ESP32" input
+			(at 218.44 252.73 90)
+			(uuid "fc86c66a-189b-4303-bc32-e3ea9fe731da")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D- STM32" input
+			(at 224.79 252.73 90)
+			(uuid "c1b17da7-6a88-4b53-8328-cbeeb2fc62c1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 439.42 54.61)
+		(size 106.68 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "847f55ac-306c-4b7a-8ec1-939febc79176")
+		(property "Sheetname" "POWER SUPPLY"
+			(at 440.182 52.578 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PWR.kicad_sch"
+			(at 439.42 99.6446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND_CONTROLLED" input
+			(at 439.42 87.63 180)
+			(uuid "a8584277-c5bc-43bd-8335-d747dbea9b70")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GND_CONTROL_PIN" input
+			(at 439.42 82.55 180)
+			(uuid "ddf27a71-53d1-4073-8033-087bbcb14f0a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 438.15 160.02)
+		(size 110.49 43.18)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a7cacbc0-0feb-46ad-bb90-db8895701fc9")
+		(property "Sheetname" "ACCESOIRES"
+			(at 438.15 159.3084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "accesoires.kicad_sch"
+			(at 438.15 203.7846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "BUZ-" input
+			(at 438.15 199.39 180)
+			(uuid "cc2a58ed-4071-4621-ac0c-88c0bb15e0ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BUZ_PIN_CONTROL" input
+			(at 438.15 195.58 180)
+			(uuid "9b2eff05-69c1-4197-b60a-12088c71e704")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 438.15 109.22)
+		(size 109.22 39.37)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "fb485485-e5ee-423e-9fe4-4f0074d92d01")
+		(property "Sheetname" "ESP32"
+			(at 438.15 108.5084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "esp32.kicad_sch"
+			(at 438.15 149.1746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "D+ESP32" input
+			(at 438.15 118.11 180)
+			(uuid "16dc733b-2388-470a-9cc0-a57fbf96f222")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "D-ESP32" input
+			(at 438.15 121.92 180)
+			(uuid "a773cb02-35b4-4b09-8231-6a3d139670de")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ESP32_RX" input
+			(at 438.15 134.62 180)
+			(uuid "6364e760-ca60-424e-96ec-94ce5e58f115")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ESP32_TX" input
+			(at 438.15 138.43 180)
+			(uuid "5c4a5a02-fb84-4a46-bcaa-88b7b155f013")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
