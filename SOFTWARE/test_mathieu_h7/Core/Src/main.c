@@ -20,6 +20,8 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "fatfs.h"
+#include "i2c.h"
 #include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
@@ -28,6 +30,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ylidar.h"
+#include "adxl343.h"
+#include "ssd1306.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,6 +53,8 @@
 
 /* USER CODE BEGIN PV */
 //extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
+adxl343_t adxldata;
+int flag=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,6 +67,43 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+
+	if(GPIO_Pin == GPIO_PIN_0){
+
+		if(flag == 0 ){
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,1);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,0);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+
+		}
+		if(flag == 1){
+
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,0);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,1);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+
+		}
+
+		flag=1-flag;
+
+		ADXL343_INT_HANDLER(&adxldata, 100);
+
+
+
+
+
+	}
+
+
+}
+
+
+
+
+
+
 
 /* USER CODE END 0 */
 
@@ -99,11 +142,19 @@ int main(void)
   MX_DMA_Init();
   MX_UART8_Init();
   MX_SPI4_Init();
+  MX_SPI1_Init();
+  MX_FATFS_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
 //  HAL_UART_Abort(&huart8);
 //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
+
+  ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
+
+  ssd1306_Init();
+
 
   /* USER CODE END 2 */
 

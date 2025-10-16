@@ -50,6 +50,7 @@ extern uint16_t ylidar_read_index;
 extern uint16_t ylidar_write_index;
 
 extern uint8_t ylidar_finalbuffer[1024];
+extern adxl343_t adxldata;
 
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
@@ -163,8 +164,9 @@ void Startlidarparse(void const * argument)
 //      }
 //	  trackObject();
 	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
+	  ADXL343_ReadXYZ(&adxldata, 100);
 
-	  osDelay(500);
+	  osDelay(50);
   }
   /* USER CODE END Startlidarparse */
 }

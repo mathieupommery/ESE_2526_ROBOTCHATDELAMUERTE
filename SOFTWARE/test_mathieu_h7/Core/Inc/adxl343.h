@@ -47,7 +47,7 @@
 // Device ID expected value (same as ADXL345/343)
 #define ADXL343_DEVID_VALUE 0xE5u
 
-
+#define ADXL343_BW_RATE_VALUE 0x0Au
 // DATA_FORMAT bits
 #define ADXL343_DATA_FMT_RANGE_2G 0x00u
 #define ADXL343_DATA_FMT_RANGE_4G 0x01u
@@ -62,6 +62,16 @@
 // Full-res scale factor (approx.) in g/LSB
 #define ADXL343_FULLRES_LSB_PER_G (1.0f/256.0f) // ≈0.00390625 g/LSB
 
+#define ADXL343_TRESHOLD_VALUE  0x30u  //equivalent a 3g sachant que c'est valeur * 62.5 mG
+
+#define ADXL343_REG_TAP_AXES_VALUE 0x06u // ou alors 0x0E si on veut la fonctin de suppress double tap
+
+#define ADXL343_REG_INTMAP_VALUE 0xBFu // uniquement singletap sur int1 pin et tout le reste sur int 2
+
+#define ADXL343_REG_INTEN_VALUE 0x40u //juste ontap active tout le reste desactive ou alors 0x60u pour onetap et double tap
+
+#define ADXL343_REG_DUR_VALUE 0x80u  //50 ms
+
 typedef struct {
 SPI_HandleTypeDef *hspi;
 GPIO_TypeDef *cs_port;
@@ -74,6 +84,11 @@ float g[3];
 float lsb_per_g;
 uint8_t _tx[8];
 uint8_t _rx[8];
+uint8_t tap_event;
+uint8_t x_tap;
+uint8_t y_tap;
+uint8_t z_tap;
+
 } adxl343_t;
 
 
@@ -95,6 +110,8 @@ uint8_t bw_rate, uint8_t range, uint32_t timeout_ms);
 
 // Read the 6-byte XYZ registers and update dev->raw[] and dev->g[].
 HAL_StatusTypeDef ADXL343_ReadXYZ(adxl343_t *dev, uint32_t timeout_ms);
+
+HAL_StatusTypeDef ADXL343_INT_HANDLER(adxl343_t *dev, uint32_t timeout_ms);
 
 
 // Write one register.

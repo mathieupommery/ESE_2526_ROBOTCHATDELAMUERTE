@@ -1,6 +1,7 @@
-../Core/Inc/adxl343.h:101:33:ADXL343_WriteReg	40	static
-../Core/Inc/adxl343.h:107:33:ADXL343_ReadReg	40	static
+../Core/Inc/adxl343.h:118:33:ADXL343_WriteReg	40	static
+../Core/Inc/adxl343.h:124:33:ADXL343_ReadReg	40	static
 ../Core/Src/adxl343.c:13:23:adxl343_cmd	24	static
 ../Core/Src/adxl343.c:21:19:ADXL343_Transfer	24	static
 ../Core/Src/adxl343.c:56:19:ADXL343_Init	32	static
-../Core/Src/adxl343.c:121:19:ADXL343_ReadXYZ	40	static
+../Core/Src/adxl343.c:138:19:ADXL343_ReadXYZ	40	static
+../Core/Src/adxl343.c:166:19:ADXL343_INT_HANDLER	24	static

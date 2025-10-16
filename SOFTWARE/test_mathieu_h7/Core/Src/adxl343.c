@@ -101,6 +101,23 @@ default: dev->lsb_per_g = 32.0f; break; // 16g
 }
 
 
+st = ADXL343_WriteReg(dev, ADXL343_REG_THRESH_TAP, ADXL343_TRESHOLD_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+st = ADXL343_WriteReg(dev, ADXL343_REG_DUR, ADXL343_REG_DUR_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+st = ADXL343_WriteReg(dev, ADXL343_REG_TAP_AXES, ADXL343_REG_TAP_AXES_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+st = ADXL343_WriteReg(dev, ADXL343_REG_INT_MAP, ADXL343_REG_INTMAP_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+st = ADXL343_WriteReg(dev, ADXL343_REG_INT_ENABLE, ADXL343_REG_INTEN_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+
+
 // Enter measurement mode
 st = ADXL343_WriteReg(dev, ADXL343_REG_POWER_CTL, ADXL343_POWER_MEASURE, timeout_ms);
 if (st != HAL_OK) return st;
@@ -143,4 +160,30 @@ dev->g[1] = (float)dev->raw[1] / dev->lsb_per_g;
 dev->g[2] = (float)dev->raw[2] / dev->lsb_per_g;
 }
 return HAL_OK;
+}
+
+
+HAL_StatusTypeDef ADXL343_INT_HANDLER(adxl343_t *dev, uint32_t timeout_ms){
+
+	dev->tap_event=1;
+
+	uint8_t registerstate=0x00;
+	HAL_StatusTypeDef st = ADXL343_ReadReg(dev, ADXL343_REG_ACT_TAP_STATUS, &registerstate, timeout_ms);
+	if (st != HAL_OK) return st;
+
+	if(registerstate & 0x01){
+		dev->z_tap=1;
+	}
+	if(registerstate & 0x02){
+		dev->y_tap=1;
+	}
+	if(registerstate & 0x04){
+		dev->x_tap=1;
+	}
+
+	uint8_t intsourcestate=0x00;
+	st = ADXL343_ReadReg(dev, ADXL343_REG_INT_SOURCE, &intsourcestate, timeout_ms);
+	if (st != HAL_OK) return st;
+
+	return st;
 }

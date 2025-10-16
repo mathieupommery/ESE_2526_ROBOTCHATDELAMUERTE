@@ -58,12 +58,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define GPIO_MOT3_Pin GPIO_PIN_10
-#define GPIO_MOT3_GPIO_Port GPIOA
+#define SD_CS_Pin GPIO_PIN_15
+#define SD_CS_GPIO_Port GPIOA
+#define BLUE_Pin GPIO_PIN_5
+#define BLUE_GPIO_Port GPIOD
+#define GREEN_Pin GPIO_PIN_2
+#define GREEN_GPIO_Port GPIOD
+#define RED_Pin GPIO_PIN_3
+#define RED_GPIO_Port GPIOD
 #define INT2_Pin GPIO_PIN_2
 #define INT2_GPIO_Port GPIOC
+#define INT2_EXTI_IRQn EXTI2_IRQn
 #define INT1_Pin GPIO_PIN_0
 #define INT1_GPIO_Port GPIOC
+#define INT1_EXTI_IRQn EXTI0_IRQn
 #define ACCEL_CS_Pin GPIO_PIN_1
 #define ACCEL_CS_GPIO_Port GPIOC
 #define LED0_Pin GPIO_PIN_11
@@ -72,7 +80,9 @@ void Error_Handler(void);
 #define LED1_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
-
+#define SPI1_CS_Pin GPIO_PIN_4
+#define SPI1_CS_GPIO_Port GPIOC
+#define SD_SPI_HANDLE hspi1
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
