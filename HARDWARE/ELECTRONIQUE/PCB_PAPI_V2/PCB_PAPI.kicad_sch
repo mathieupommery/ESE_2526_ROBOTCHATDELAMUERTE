@@ -61,16 +61,6 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 217.17) (xy 102.87 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "187203c3-cb56-4fb2-92c7-161476bb126c")
-	)
-	(wire
-		(pts
 			(xy 78.74 31.75) (xy 78.74 35.56)
 		)
 		(stroke
@@ -271,16 +261,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 217.17) (xy 93.98 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5bbde2cb-743a-4007-9417-5c7f252186d0")
-	)
-	(wire
-		(pts
 			(xy 223.52 248.92) (xy 223.52 252.73)
 		)
 		(stroke
@@ -308,6 +288,16 @@
 			(type default)
 		)
 		(uuid "5da5c208-3cbd-463d-8461-240d9e61928f")
+	)
+	(wire
+		(pts
+			(xy 434.34 222.25) (xy 436.88 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65a4d7dc-1f20-4aa9-8718-234b5899e65c")
 	)
 	(wire
 		(pts
@@ -428,16 +418,6 @@
 			(type default)
 		)
 		(uuid "850e6f04-6781-4fcf-b54e-37e67b651425")
-	)
-	(wire
-		(pts
-			(xy 90.17 217.17) (xy 90.17 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "870d7e07-255d-4017-bfea-58bb6896227b")
 	)
 	(wire
 		(pts
@@ -688,16 +668,6 @@
 			(type default)
 		)
 		(uuid "c94159ae-3472-4779-94db-06ee6512a4c2")
-	)
-	(wire
-		(pts
-			(xy 99.06 217.17) (xy 99.06 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ce3363f9-a82b-4f00-9760-727311dfead7")
 	)
 	(wire
 		(pts
@@ -1028,16 +998,6 @@
 			(justify left bottom)
 		)
 		(uuid "2cd2621e-45c6-4e3e-8f44-e8a4b38589ce")
-	)
-	(label "AMPLI_SD_MODE"
-		(at 102.87 217.17 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "2f3aa694-b40e-40c5-8dee-709a82346e28")
 	)
 	(label "RX_SUP"
 		(at 142.24 205.74 0)
@@ -1399,6 +1359,16 @@
 		)
 		(uuid "9c2133ee-4ba9-4455-8ec5-16913492e018")
 	)
+	(label "RGB_TOM_JERRY"
+		(at 434.34 222.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9d691f22-985c-45be-9038-2b5e3d6efad1")
+	)
 	(label "GPIO_MOT2"
 		(at 199.39 248.92 90)
 		(effects
@@ -1438,16 +1408,6 @@
 			(justify left bottom)
 		)
 		(uuid "a6bd252c-4d55-4f47-ac0d-283d435ad953")
-	)
-	(label "SAI_SD"
-		(at 99.06 217.17 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a7fadfb5-23c5-4aa5-a2c3-b6d642fe2083")
 	)
 	(label "SDA_TOF2"
 		(at 142.24 127 0)
@@ -1528,26 +1488,6 @@
 			(justify left bottom)
 		)
 		(uuid "d2ec93c2-fb4d-490c-a060-ae2ecf77a0b7")
-	)
-	(label "SAI_CLK"
-		(at 93.98 217.17 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d34e2666-9d5f-4329-b5fa-d50853bec3de")
-	)
-	(label "SAI_FS"
-		(at 90.17 217.17 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d5507ef7-c18a-43fa-8455-4ed7c3364011")
 	)
 	(label "LED_TIM"
 		(at 350.52 247.65 90)
@@ -1708,6 +1648,16 @@
 			(justify left bottom)
 		)
 		(uuid "f7830803-5d28-4e53-9656-2104d9bc86cb")
+	)
+	(label "RGB_TOM_JERRY"
+		(at 97.79 222.25 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f882cc70-08f6-4974-bd2a-9dfcc6726c06")
 	)
 	(label "D-ESP32"
 		(at 434.34 121.92 180)
@@ -2043,46 +1993,6 @@
 				(justify right)
 			)
 		)
-		(pin "SAI3_FS" input
-			(at 90.17 213.36 270)
-			(uuid "de9d8f1e-0a82-47c0-9026-7d2648ca4e8f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "SAI3_SCK" input
-			(at 93.98 213.36 270)
-			(uuid "24fcab68-a9b1-47e1-b787-2e031b8b4a4d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "SAI3_SD" input
-			(at 99.06 213.36 270)
-			(uuid "f2a303b5-0381-4edd-9fff-c3b1d4fe60e4")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "SD_MODE_AMPLI" input
-			(at 102.87 213.36 270)
-			(uuid "b2665d71-cab7-43e5-b35f-b7955af4b47c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "SWCLK" input
 			(at 57.15 35.56 90)
 			(uuid "701ef9e4-57c0-4a97-be25-fbe78d5c200b")
@@ -2171,6 +2081,46 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "MOUSE_CLK_SPI1" input
+			(at 71.12 213.36 270)
+			(uuid "22cd91a7-d597-40df-8607-e9d724bde59d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_CS_SPI1" input
+			(at 74.93 213.36 270)
+			(uuid "89b09bd2-6a99-4f69-b1d3-3a3baed43265")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_MISO_SPI1" input
+			(at 78.74 213.36 270)
+			(uuid "079e5e3c-68ea-4183-9df8-ec7e1d263b4f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_MOSI_SPI1" input
+			(at 83.82 213.36 270)
+			(uuid "aaceb6cb-2a1c-4278-aa11-00daa52fcc23")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -2533,6 +2483,56 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "MOUSE_CLK" input
+			(at 139.7 279.4 180)
+			(uuid "a26a3ec5-ec3c-4fb1-bff0-d3183d165f0d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_CS" input
+			(at 139.7 283.21 180)
+			(uuid "92be5a13-b0f8-49fa-a1cc-5fdf066af8e7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_INT" input
+			(at 139.7 287.02 180)
+			(uuid "644e0f71-7972-49ec-a154-834a002e1970")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_MISO" input
+			(at 139.7 275.59 180)
+			(uuid "3f3b3bd1-da51-4ad3-b661-db93a3bb5044")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_MOSI" input
+			(at 139.7 271.78 180)
+			(uuid "1d188da8-29a5-4e9b-b4f4-3431d3cebc81")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

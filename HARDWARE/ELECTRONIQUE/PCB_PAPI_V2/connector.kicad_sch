@@ -2210,6 +2210,322 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "samacsys2:DF52-8S-0.8H_21_"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 19.05 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "DF52-8S-0.8H_21_"
+				(at 19.05 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "DF528S08H21"
+				(at 19.05 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/DKDS-30/591731.pdf"
+				(at 19.05 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Hirose DF52 52 Series 0.8mm Pitch 8 Way Right Angle Female FPC Connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1"
+				(at 19.05 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Hirose"
+				(at 19.05 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "DF52-8S-0.8H(21)"
+				(at 19.05 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "798-DF52-8S-0.8H21"
+				(at 19.05 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Hirose-Connector/DF52-8S-0.8H21?qs=%2FKR40Cd6GUptbp6v9%252BhJJA%3D%3D"
+				(at 19.05 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 19.05 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 19.05 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "DF52-8S-0.8H_21__1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 17.78 -20.32)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 0 180)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -2.54 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -5.08 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -7.62 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -10.16 180)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -12.7 180)
+					(length 5.08)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -15.24 180)
+					(length 5.08)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -17.78 180)
+					(length 5.08)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "samacsys:82400274"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -3128,6 +3444,18 @@
 		(uuid 8c282b56-be4e-468b-bbbf-30438542d56f)
 	)
 	(rectangle
+		(start 34.29 193.04)
+		(end 118.11 279.4)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 95870c21-1d34-4b7a-b542-db47ddcd08c2)
+	)
+	(rectangle
 		(start 309.88 137.16)
 		(end 388.62 185.42)
 		(stroke
@@ -3386,6 +3714,12 @@
 		(uuid "ab5c6583-ab89-4334-951e-c04fd7eb37f4")
 	)
 	(junction
+		(at 54.61 220.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b91a2585-918a-4b7b-8d13-33154297c21c")
+	)
+	(junction
 		(at 74.93 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3560,6 +3894,16 @@
 			(type default)
 		)
 		(uuid "359ce6e6-8d49-45c4-b72c-afcd7470b7fc")
+	)
+	(wire
+		(pts
+			(xy 77.47 223.52) (xy 88.9 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3989c081-9112-45dc-8527-f3aef0da848e")
 	)
 	(wire
 		(pts
@@ -3823,6 +4167,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 223.52) (xy 99.06 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b55d582-0a8f-4203-913e-5f1473f997d4")
+	)
+	(wire
+		(pts
 			(xy 345.44 58.42) (xy 342.9 58.42)
 		)
 		(stroke
@@ -3830,6 +4184,16 @@
 			(type default)
 		)
 		(uuid "8d913318-db9d-4fc4-aba1-7f997dc565be")
+	)
+	(wire
+		(pts
+			(xy 54.61 218.44) (xy 54.61 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e8d9a3f-3b82-4919-bdac-224c818a2d7a")
 	)
 	(wire
 		(pts
@@ -3880,6 +4244,16 @@
 			(type default)
 		)
 		(uuid "b9472271-c023-45b2-8592-093674922ab3")
+	)
+	(wire
+		(pts
+			(xy 54.61 220.98) (xy 54.61 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd4303c7-43b0-4a30-b8f3-442bd45227c8")
 	)
 	(wire
 		(pts
@@ -4360,6 +4734,17 @@
 		)
 		(uuid "283b519a-932a-41bd-a106-4f3017c8809c")
 	)
+	(hierarchical_label "MOUSE_INT"
+		(shape input)
+		(at 77.47 236.22 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "300d6b9a-636a-476b-915e-179fa408f0d6")
+	)
 	(hierarchical_label "PWM_LiDAR"
 		(shape input)
 		(at 233.68 171.45 180)
@@ -4536,6 +4921,17 @@
 		)
 		(uuid "9e2d78f0-f6dd-44b5-97ba-6df86cc44422")
 	)
+	(hierarchical_label "MOUSE_CLK"
+		(shape input)
+		(at 99.06 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b0c238b1-15de-481b-ab71-911031829274")
+	)
 	(hierarchical_label "GPIO_Mot3"
 		(shape input)
 		(at 359.41 157.48 180)
@@ -4579,6 +4975,17 @@
 			(justify left)
 		)
 		(uuid "b89a5c33-7e9e-4c4a-b891-9350c0a475ca")
+	)
+	(hierarchical_label "MOUSE_MISO"
+		(shape input)
+		(at 77.47 228.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bba2564a-60ad-452d-9bd7-47326577fce8")
 	)
 	(hierarchical_label "SDA_OLED1"
 		(shape input)
@@ -4624,6 +5031,28 @@
 		)
 		(uuid "d6257d4a-c1ea-401a-a8d7-fa860a0b9eac")
 	)
+	(hierarchical_label "MOUSE_MOSI"
+		(shape input)
+		(at 77.47 233.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e3856ed7-77d0-456b-99a3-91c622cf4718")
+	)
+	(hierarchical_label "MOUSE_CS"
+		(shape input)
+		(at 77.47 220.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "edf716c8-505f-46af-b9c1-e3ac2602bc53")
+	)
 	(hierarchical_label "SDA_TOF3"
 		(shape input)
 		(at 156.21 175.26 180)
@@ -4656,6 +5085,170 @@
 			(justify right)
 		)
 		(uuid "feb2eec3-8e15-48cc-b938-bc375fe79d13")
+	)
+	(symbol
+		(lib_id "samacsys2:DF52-8S-0.8H_21_")
+		(at 54.61 218.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "03052502-0ce9-44b3-a335-0aa711097538")
+		(property "Reference" "J6"
+			(at 66.04 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DF52-8S-0.8H_21_"
+			(at 66.04 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "samacsys2:DF528S08H21"
+			(at 73.66 313.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/DKDS-30/591731.pdf"
+			(at 73.66 413.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Hirose DF52 52 Series 0.8mm Pitch 8 Way Right Angle Female FPC Connector"
+			(at 54.61 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1"
+			(at 73.66 613.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Hirose"
+			(at 73.66 713.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "DF52-8S-0.8H(21)"
+			(at 73.66 813.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "798-DF52-8S-0.8H21"
+			(at 73.66 913.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Hirose-Connector/DF52-8S-0.8H21?qs=%2FKR40Cd6GUptbp6v9%252BhJJA%3D%3D"
+			(at 73.66 1013.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 73.66 1113.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 73.66 1213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "dcc501a8-1fd9-442e-bf39-f9319d12c642")
+		)
+		(pin "3"
+			(uuid "c5f11128-5eb1-4fff-80cb-c7bc5c14d187")
+		)
+		(pin "10"
+			(uuid "9f35dc49-13f7-4fca-8aa7-9d8684864fd5")
+		)
+		(pin "8"
+			(uuid "e328fc00-59ad-48af-a415-9a92b8c84fe5")
+		)
+		(pin "2"
+			(uuid "07511a3f-846f-4113-89d2-5b4037c1f53c")
+		)
+		(pin "9"
+			(uuid "5b05d40c-9099-407e-b535-7f7f4017d738")
+		)
+		(pin "1"
+			(uuid "e2cbcae4-fab0-4fce-a781-59f57fc14f15")
+		)
+		(pin "7"
+			(uuid "4fd7ba68-7781-4914-95fe-34cac5e309ef")
+		)
+		(pin "6"
+			(uuid "b7635ed6-5336-4ffd-9e73-3bb0b3eaaefa")
+		)
+		(pin "4"
+			(uuid "9a9cb8e3-ea94-462d-80b8-652b659c1ca6")
+		)
+		(instances
+			(project ""
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -6205,6 +6798,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 54.61 223.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "62ac1cdd-3222-45d6-a1b7-8107f0d43a9e")
+		(property "Reference" "#PWR048"
+			(at 54.61 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 54.61 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 54.61 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 54.61 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e7f97d57-eee1-4278-b1a2-df778b0f8251")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Vraielogousbcwurth:USB_C_Receptacle_USB2.0_14P")
 		(at 76.2 57.15 0)
 		(unit 1)
@@ -6712,6 +7371,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 77.47 226.06 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "870ed6ee-ce44-4e1a-919f-b01d7846710a")
+		(property "Reference" "#PWR051"
+			(at 83.82 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 81.28 226.0599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 77.47 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "99150f9d-ff14-4371-a5c2-a24169376458")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR051")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 104.14 60.96 90)
 		(unit 1)
@@ -6800,6 +7526,73 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 77.47 218.44 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8f4f8cba-f183-4ae5-8b09-55d9d77b44ee")
+		(property "Reference" "#PWR052"
+			(at 73.66 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 81.28 218.4399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 77.47 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1ff7ab64-2b65-473d-8255-a0ed2a5fbb3f")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -7373,6 +8166,101 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "#PWR083")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 91.44 223.52 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b66e2718-1ba4-455f-8b32-6597f1e70974")
+		(property "Reference" "R42"
+			(at 91.44 218.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22R"
+			(at 91.44 220.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+			(at 91.44 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 91.44 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "ERJ-1GNF22R0C"
+			(at 91.44 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Panasonic"
+			(at 91.44 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "667-ERJ-1GNF22R0C"
+			(at 91.44 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0c9a846b-858e-4364-a3d8-7ccfb10ece98")
+		)
+		(pin "2"
+			(uuid "dc2c1e5d-55be-452a-af3b-60ac26a3c84a")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "R42")
 					(unit 1)
 				)
 			)
@@ -8107,6 +8995,73 @@
 			(project "PCB_PAPI"
 				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
 					(reference "TOF2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 77.47 231.14 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dc22e28d-f3b5-4066-804f-1972d8e5e174")
+		(property "Reference" "#PWR050"
+			(at 83.82 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 81.28 231.1399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 77.47 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "478a4e8e-2248-4f67-b5e7-d5b2239d959c")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)

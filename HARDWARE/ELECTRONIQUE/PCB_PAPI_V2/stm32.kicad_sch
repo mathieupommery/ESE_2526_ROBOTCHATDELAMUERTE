@@ -4343,12 +4343,20 @@
 		(uuid "3d13c6bc-f13d-49c2-97c3-8d65082608af")
 	)
 	(no_connect
+		(at 273.05 125.73)
+		(uuid "425c0ccf-fa2c-439c-a31e-00648dc39b9a")
+	)
+	(no_connect
 		(at 273.05 140.97)
 		(uuid "43a46696-839c-4681-86ec-d61574d0a937")
 	)
 	(no_connect
 		(at 318.77 161.29)
 		(uuid "4761b4c0-768a-43db-9163-d61f85c9cf0c")
+	)
+	(no_connect
+		(at 273.05 128.27)
+		(uuid "4fa8d470-398c-4d2d-894d-ebf31c34f10a")
 	)
 	(no_connect
 		(at 318.77 105.41)
@@ -4377,6 +4385,10 @@
 	(no_connect
 		(at 318.77 179.07)
 		(uuid "a6e7c42c-5437-4542-bb78-233825e51781")
+	)
+	(no_connect
+		(at 318.77 72.39)
+		(uuid "a7f7b846-8441-4810-921e-3005f51c07a4")
 	)
 	(no_connect
 		(at 273.05 161.29)
@@ -4425,6 +4437,10 @@
 	(no_connect
 		(at 273.05 115.57)
 		(uuid "eaf9e3cb-7b1d-4fad-b3db-7c95d75061b1")
+	)
+	(no_connect
+		(at 273.05 135.89)
+		(uuid "ec66768f-a39a-4140-87d9-96c6d4cbda32")
 	)
 	(no_connect
 		(at 318.77 181.61)
@@ -5311,7 +5327,7 @@
 		)
 		(uuid "06ab9708-81c6-4528-b5f4-1eef7fe2b8c6")
 	)
-	(hierarchical_label "FLASH_MISO_SPI1"
+	(hierarchical_label "MOUSE_MISO_SPI1"
 		(shape input)
 		(at 318.77 115.57 0)
 		(effects
@@ -5354,17 +5370,6 @@
 			(justify right)
 		)
 		(uuid "2182531d-436c-4d2b-8424-37f95107b83e")
-	)
-	(hierarchical_label "SAI3_SD"
-		(shape input)
-		(at 273.05 128.27 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "26cee58e-d553-4b4b-8510-5fad4f9a0236")
 	)
 	(hierarchical_label "Rx4_MOTOR2"
 		(shape input)
@@ -5443,7 +5448,7 @@
 		)
 		(uuid "5a5c34ed-9153-4959-809d-c19114958d97")
 	)
-	(hierarchical_label "FLASH_CS_SPI1"
+	(hierarchical_label "MOUSE_CS_SPI1"
 		(shape input)
 		(at 318.77 100.33 0)
 		(effects
@@ -5487,7 +5492,7 @@
 		)
 		(uuid "6c17cde8-3cd0-4f19-8919-8c94097aa382")
 	)
-	(hierarchical_label "FLASH_CLK_SPI1"
+	(hierarchical_label "MOUSE_CLK_SPI1"
 		(shape input)
 		(at 318.77 113.03 0)
 		(effects
@@ -5619,17 +5624,6 @@
 		)
 		(uuid "b74e4548-8843-47d6-b1a7-aabb62237a51")
 	)
-	(hierarchical_label "SAI3_SCK"
-		(shape input)
-		(at 273.05 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "b77f5b6b-d92e-4008-8275-9fac19aa3c3a")
-	)
 	(hierarchical_label "I2C4_SDA_TOF1"
 		(shape input)
 		(at 273.05 158.75 180)
@@ -5674,17 +5668,6 @@
 		)
 		(uuid "bbc9a90e-e701-4230-ac3e-bf7fccabfe45")
 	)
-	(hierarchical_label "SAI3_FS"
-		(shape input)
-		(at 273.05 135.89 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "bf71440e-e51d-450c-8c9b-456ab91ecba7")
-	)
 	(hierarchical_label "ACCEL_INT2"
 		(shape input)
 		(at 318.77 153.67 0)
@@ -5718,7 +5701,7 @@
 		)
 		(uuid "cc95dd7b-a9ee-4abe-b305-9e909be57e50")
 	)
-	(hierarchical_label "FLASH_MOSI_SPI1"
+	(hierarchical_label "MOUSE_MOSI_SPI1"
 		(shape input)
 		(at 318.77 118.11 0)
 		(effects
@@ -5761,17 +5744,6 @@
 			(justify right)
 		)
 		(uuid "dcad9c7c-cb4a-4921-b008-9ff277e5f11f")
-	)
-	(hierarchical_label "SD_MODE_AMPLI"
-		(shape input)
-		(at 318.77 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "efece4ea-8d3d-42fb-b7db-dd81b4575b39")
 	)
 	(hierarchical_label "D-"
 		(shape input)
