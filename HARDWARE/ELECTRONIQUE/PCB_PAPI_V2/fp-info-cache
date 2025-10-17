@@ -1,4 +1,4 @@
-26884373927438284
+26889655922147384
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -62670,6 +62670,13 @@ heatsink
 0
 0
 0
+INMP441
+MIC_INMP441ACEZ-R7
+
+
+0
+9
+9
 Inductor_SMD
 L_6.3x6.3_H3
 Choke, SMD, 6.3x6.3mm 3mm height
@@ -107022,3 +107029,17 @@ pin_header_smt_14pin
 0
 14
 14
+samacsys2
+NE555DR
+D (R-PDSO-G8)
+Integrated Circuit
+0
+8
+8
+samacsys2
+TPS82130SILT
+SIL0008D_1
+Integrated Circuit
+0
+9
+9
