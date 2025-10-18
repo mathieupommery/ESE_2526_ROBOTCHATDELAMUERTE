@@ -4335,6 +4335,10 @@
 		(uuid "34737029-dba2-4d01-ad5e-0d5a02d38805")
 	)
 	(no_connect
+		(at 318.77 120.65)
+		(uuid "3825e205-e178-4d07-a80a-8fb4713753ea")
+	)
+	(no_connect
 		(at 273.05 105.41)
 		(uuid "3d13c6bc-f13d-49c2-97c3-8d65082608af")
 	)
@@ -4359,8 +4363,8 @@
 		(uuid "52dfa3dc-babe-4b88-ab81-82824ae6786d")
 	)
 	(no_connect
-		(at 318.77 85.09)
-		(uuid "5e365846-ce10-464c-8ae4-d6f28d35dc73")
+		(at 273.05 120.65)
+		(uuid "5f5189d7-e01c-4ace-a339-156ce82e13b9")
 	)
 	(no_connect
 		(at 318.77 158.75)
@@ -5407,17 +5411,6 @@
 		)
 		(uuid "514137fe-e51b-47fa-a4b6-cb1ab19d5af4")
 	)
-	(hierarchical_label "GPIO_COMMAND_GND"
-		(shape input)
-		(at 273.05 120.65 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "57023be7-6841-49f1-8160-b2163fd88b42")
-	)
 	(hierarchical_label "D+"
 		(shape input)
 		(at 318.77 92.71 0)
@@ -5737,6 +5730,17 @@
 		)
 		(uuid "dcad9c7c-cb4a-4921-b008-9ff277e5f11f")
 	)
+	(hierarchical_label "TOM_JERRY_RGB"
+		(shape input)
+		(at 318.77 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e1d1a09a-731a-4a3b-aec9-34549e4e79ef")
+	)
 	(hierarchical_label "D-"
 		(shape input)
 		(at 318.77 90.17 0)
@@ -5769,17 +5773,6 @@
 			(justify left)
 		)
 		(uuid "fcb990de-ea6b-4bc3-b06c-976e79f3082e")
-	)
-	(hierarchical_label "TOM_JERRY_RGB"
-		(shape input)
-		(at 318.77 120.65 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "fd2f9db1-1900-4135-9f2f-52420fcb6327")
 	)
 	(symbol
 		(lib_id "Device:C_Small")

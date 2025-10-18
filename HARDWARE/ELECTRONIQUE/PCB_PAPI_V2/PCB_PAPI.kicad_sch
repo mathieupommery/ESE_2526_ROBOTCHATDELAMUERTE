@@ -291,16 +291,6 @@
 	)
 	(wire
 		(pts
-			(xy 346.71 247.65) (xy 346.71 252.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d4e2fd2-42ec-4a13-9e73-7fd7b48e8da7")
-	)
-	(wire
-		(pts
 			(xy 142.24 45.72) (xy 138.43 45.72)
 		)
 		(stroke
@@ -458,16 +448,6 @@
 			(type default)
 		)
 		(uuid "850e6f04-6781-4fcf-b54e-37e67b651425")
-	)
-	(wire
-		(pts
-			(xy 436.88 78.74) (xy 439.42 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "87857253-9180-4788-b6a2-181200d21c92")
 	)
 	(wire
 		(pts
@@ -721,16 +701,6 @@
 	)
 	(wire
 		(pts
-			(xy 435.61 83.82) (xy 439.42 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c94159ae-3472-4779-94db-06ee6512a4c2")
-	)
-	(wire
-		(pts
 			(xy 438.15 298.45) (xy 434.34 298.45)
 		)
 		(stroke
@@ -818,16 +788,6 @@
 			(type default)
 		)
 		(uuid "de82a8f5-c122-4ad3-a7d3-267977ad0b2b")
-	)
-	(wire
-		(pts
-			(xy 142.24 200.66) (xy 138.43 200.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e08c930c-5c19-4f75-b252-51ee0f8011f9")
 	)
 	(wire
 		(pts
@@ -1189,16 +1149,6 @@
 		)
 		(uuid "392ab511-ad3c-42db-b06d-5636af5695f3")
 	)
-	(label "GND_CONTROLLED"
-		(at 435.61 83.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "45928083-9ed5-439f-932f-b27683bc5f2d")
-	)
 	(label "ACCEL_MOSI"
 		(at 142.24 53.34 0)
 		(effects
@@ -1259,16 +1209,6 @@
 		)
 		(uuid "53eb663a-4a1a-4b91-ab31-8f4f7281e907")
 	)
-	(label "GND_CONTROl_GPIO"
-		(at 436.88 78.74 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "553e884c-f845-4ae1-b625-ae9bba2ae73c")
-	)
 	(label "D+STM32"
 		(at 74.93 31.75 90)
 		(effects
@@ -1308,16 +1248,6 @@
 			(justify left bottom)
 		)
 		(uuid "5b54ff18-3737-4a33-a829-1afcab7cfdaa")
-	)
-	(label "GND_CONTROLLED"
-		(at 346.71 247.65 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "60288ff0-d421-4933-b7be-cf259157b2f9")
 	)
 	(label "ACCEL_CS"
 		(at 142.24 41.91 0)
@@ -1478,16 +1408,6 @@
 			(justify right bottom)
 		)
 		(uuid "94d94ec8-226a-4dfd-9f26-ec0c19206d2f")
-	)
-	(label "GND_CONTROl_GPIO"
-		(at 142.24 200.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "950c793a-4d8f-4237-ba9c-8803df598f70")
 	)
 	(label "SCL_TOF2"
 		(at 438.15 295.91 0)
@@ -2003,16 +1923,6 @@
 				(justify right)
 			)
 		)
-		(pin "GPIO_COMMAND_GND" input
-			(at 138.43 200.66 0)
-			(uuid "31474eb9-38bf-4f00-84aa-d78abc045203")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "GPIO_MOTOR1" input
 			(at 138.43 92.71 0)
 			(uuid "343a208d-bcf9-4276-acdc-7d5424f97d54")
@@ -2445,16 +2355,6 @@
 				(justify right)
 			)
 		)
-		(pin "GND_CONTROLLED-" input
-			(at 346.71 252.73 90)
-			(uuid "33f96ea7-31d3-4615-a2de-ff3bd96672e8")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "GPIO_Mot1" input
 			(at 179.07 252.73 90)
 			(uuid "6ed72ccc-2edc-49fc-bde1-9ea21da56712")
@@ -2804,26 +2704,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
-			)
-		)
-		(pin "GND_CONTROLLED" input
-			(at 439.42 83.82 180)
-			(uuid "a8584277-c5bc-43bd-8335-d747dbea9b70")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "GND_CONTROL_PIN" input
-			(at 439.42 78.74 180)
-			(uuid "ddf27a71-53d1-4073-8033-087bbcb14f0a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 		(instances

@@ -3694,16 +3694,6 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 53.34) (xy 201.93 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "023ffb7d-3053-4469-883b-a0dabffbec13")
-	)
-	(wire
-		(pts
 			(xy 43.18 137.16) (xy 43.18 138.43)
 		)
 		(stroke
@@ -3984,16 +3974,6 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 50.8) (xy 201.93 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a28189af-06e0-4b8c-9568-aad909f97d17")
-	)
-	(wire
-		(pts
 			(xy 77.47 233.68) (xy 91.44 233.68)
 		)
 		(stroke
@@ -4071,16 +4051,6 @@
 			(type default)
 		)
 		(uuid "cbf2e618-bcab-4ffd-b15e-2cccd68bfc56")
-	)
-	(wire
-		(pts
-			(xy 200.66 48.26) (xy 201.93 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cfb8ccf3-a1bf-4638-b1dd-09a99c843de1")
 	)
 	(wire
 		(pts
@@ -4507,7 +4477,7 @@
 	)
 	(hierarchical_label "SWCLK"
 		(shape input)
-		(at 200.66 50.8 180)
+		(at 201.93 53.34 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4650,7 +4620,7 @@
 	)
 	(hierarchical_label "SWDIO"
 		(shape input)
-		(at 200.66 48.26 180)
+		(at 201.93 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4705,7 +4675,7 @@
 	)
 	(hierarchical_label "NRST"
 		(shape input)
-		(at 200.66 53.34 180)
+		(at 201.93 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4713,17 +4683,6 @@
 			(justify right)
 		)
 		(uuid "88f78886-7443-4241-a861-ae931c7d9e3d")
-	)
-	(hierarchical_label "GND_CONTROLLED-"
-		(shape input)
-		(at 72.39 135.89 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "8c906da2-74c5-46e9-8580-bf4648f688e6")
 	)
 	(hierarchical_label "RX_LiDAR"
 		(shape input)
@@ -6649,6 +6608,73 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 72.39 135.89 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6179de91-1d1f-4268-99f5-9ee29672fedb")
+		(property "Reference" "#PWR062"
+			(at 78.74 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 76.2 135.8901 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 72.39 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 72.39 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 72.39 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "610d9698-1854-4f4a-90e8-bba9d9c0caf6")
+		)
+		(instances
+			(project "PCB_PAPI"
+				(path "/64301b3d-8a16-47d9-a9c6-0068257932ba/3b0227fd-8888-44e2-94a5-1880f3393fd0"
+					(reference "#PWR062")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 54.61 223.52 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7905,7 +7931,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
+		(property "Footprint" "samacsys:JST_GH_BM04B"
 			(at 210.82 48.26 0)
 			(effects
 				(font
@@ -9623,16 +9649,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 201.93 55.88 270)
+		(at 201.93 48.26 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "f93b3aef-5c45-4004-b801-cc8732596e28")
 		(property "Reference" "#PWR069"
-			(at 195.58 55.88 0)
+			(at 195.58 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9641,7 +9667,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 198.12 55.8799 90)
+			(at 198.882 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9650,7 +9676,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 201.93 55.88 0)
+			(at 201.93 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9659,7 +9685,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.93 55.88 0)
+			(at 201.93 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9668,7 +9694,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 201.93 55.88 0)
+			(at 201.93 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
