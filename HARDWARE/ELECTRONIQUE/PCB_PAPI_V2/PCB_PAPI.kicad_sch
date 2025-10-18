@@ -31,6 +31,16 @@
 	)
 	(wire
 		(pts
+			(xy 83.82 217.17) (xy 83.82 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08d416e6-b827-4fcd-aecc-46fba6416a8b")
+	)
+	(wire
+		(pts
 			(xy 142.24 115.57) (xy 138.43 115.57)
 		)
 		(stroke
@@ -211,6 +221,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 287.02) (xy 139.7 287.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46154d24-f1bb-404c-879a-079b6453871e")
+	)
+	(wire
+		(pts
 			(xy 140.97 95.25) (xy 138.43 95.25)
 		)
 		(stroke
@@ -301,6 +321,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 217.17) (xy 66.04 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69bc2e62-a8d7-4e0a-a5e0-d0ddc9ab4412")
+	)
+	(wire
+		(pts
 			(xy 434.34 209.55) (xy 436.88 209.55)
 		)
 		(stroke
@@ -368,6 +398,16 @@
 			(type default)
 		)
 		(uuid "7bd76878-d76c-4638-b7dd-f43b33e4601a")
+	)
+	(wire
+		(pts
+			(xy 138.43 271.78) (xy 139.7 271.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7be3697f-d9a2-4677-ba05-92ac90610f6e")
 	)
 	(wire
 		(pts
@@ -448,6 +488,16 @@
 			(type default)
 		)
 		(uuid "8bedf283-6181-4f7f-8b86-918f482603b3")
+	)
+	(wire
+		(pts
+			(xy 71.12 217.17) (xy 71.12 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d294dfa-5fb1-492f-a570-4f8cd65cf299")
 	)
 	(wire
 		(pts
@@ -591,6 +641,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 275.59) (xy 139.7 275.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac614296-fced-4ecd-9d36-e88335ebece1")
+	)
+	(wire
+		(pts
 			(xy 142.24 210.82) (xy 138.43 210.82)
 		)
 		(stroke
@@ -681,6 +741,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 283.21) (xy 139.7 283.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1a179f0-d408-49e6-8fd6-db272cbf27f0")
+	)
+	(wire
+		(pts
 			(xy 186.69 248.92) (xy 186.69 252.73)
 		)
 		(stroke
@@ -708,6 +778,16 @@
 			(type default)
 		)
 		(uuid "d9773752-6acd-4ec2-9aba-89bf1eb278de")
+	)
+	(wire
+		(pts
+			(xy 93.98 217.17) (xy 93.98 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da16c904-7197-4248-8e40-bfd3d976d75f")
 	)
 	(wire
 		(pts
@@ -751,6 +831,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 279.4) (xy 139.7 279.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e61fdc60-b889-4b71-992d-7b72f34e34b1")
+	)
+	(wire
+		(pts
 			(xy 142.24 102.87) (xy 138.43 102.87)
 		)
 		(stroke
@@ -791,6 +881,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 217.17) (xy 74.93 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0a5ebea-6b01-4d93-9df9-75218d898eba")
+	)
+	(wire
+		(pts
 			(xy 142.24 140.97) (xy 138.43 140.97)
 		)
 		(stroke
@@ -798,6 +898,16 @@
 			(type default)
 		)
 		(uuid "f38874d9-926c-45a5-9078-443c1538fee5")
+	)
+	(wire
+		(pts
+			(xy 78.74 217.17) (xy 78.74 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f74764e1-be7e-426f-9fbf-e5d76328b628")
 	)
 	(wire
 		(pts
@@ -848,6 +958,26 @@
 			(justify left bottom)
 		)
 		(uuid "04475dbe-68a5-46eb-90f4-73e8988d9226")
+	)
+	(label "MOUSE_MISO"
+		(at 138.43 275.59 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "04ce776c-2f4c-4e45-aec2-51a2d5da7da2")
+	)
+	(label "MOUSE_MOSI"
+		(at 138.43 271.78 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0a93ce32-2c7b-41ea-b525-fd9bc144bdcd")
 	)
 	(label "ACCEL_INT2"
 		(at 142.24 60.96 0)
@@ -1209,6 +1339,16 @@
 		)
 		(uuid "630bc95b-f65d-4e8e-afba-8f0c39490a08")
 	)
+	(label "MOUSE_CS"
+		(at 74.93 217.17 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "631f0744-7966-4695-823a-9cb8e30c5fec")
+	)
 	(label "RX_LIDAR"
 		(at 142.24 187.96 0)
 		(effects
@@ -1238,6 +1378,16 @@
 			(justify left bottom)
 		)
 		(uuid "65f95681-18ea-408d-9afa-dfd50b13e000")
+	)
+	(label "MOUSE_CLK"
+		(at 138.43 279.4 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7075961b-7381-432e-8acf-b652b4c1da19")
 	)
 	(label "D-ESP32"
 		(at 167.64 248.92 90)
@@ -1269,6 +1419,16 @@
 		)
 		(uuid "7dde6c5b-bd9a-4b69-9e91-e43ecdd73dd2")
 	)
+	(label "MOUSE_CLK"
+		(at 71.12 217.17 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "86177472-287a-4f2c-aa67-a7431eef02b8")
+	)
 	(label "RX_MOT3"
 		(at 223.52 248.92 90)
 		(effects
@@ -1278,6 +1438,16 @@
 			(justify left bottom)
 		)
 		(uuid "8b400d83-ce19-4aa3-8f20-a4a7b854f857")
+	)
+	(label "MOUSE_INT"
+		(at 138.43 287.02 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8baecfd1-3fc6-4aee-92e1-88a0a44faf9f")
 	)
 	(label "ACCEL_INT1"
 		(at 142.24 57.15 0)
@@ -1459,6 +1629,16 @@
 		)
 		(uuid "b5e37887-2db0-44e1-9f6f-bc99f7c59543")
 	)
+	(label "MOUSE_CS"
+		(at 138.43 283.21 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b78c1330-55dc-4fda-a21d-5ae745047613")
+	)
 	(label "TX_MOT1"
 		(at 140.97 97.79 0)
 		(effects
@@ -1468,6 +1648,16 @@
 			(justify left bottom)
 		)
 		(uuid "bd4549c2-5cb8-4fba-91fd-5bcdf614c598")
+	)
+	(label "MOUSE_MOSI"
+		(at 83.82 217.17 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bd9b0194-0862-4c27-8a37-42928d00d8f1")
 	)
 	(label "SDA_TOF1"
 		(at 142.24 105.41 0)
@@ -1529,6 +1719,16 @@
 		)
 		(uuid "d9ffa75d-ecd6-47d5-b219-7e06bae64425")
 	)
+	(label "MOUSE_MISO"
+		(at 78.74 217.17 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "dd603912-ba68-46ea-b7bf-0658f361adb1")
+	)
 	(label "RX_MOT2"
 		(at 142.24 118.11 0)
 		(effects
@@ -1578,6 +1778,16 @@
 			(justify left bottom)
 		)
 		(uuid "e4e613b7-71ae-4eda-a49c-63d127ed86ff")
+	)
+	(label "MOUSE_INT"
+		(at 66.04 217.17 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "eacf89b4-860b-45ee-b38b-bcce933f0896")
 	)
 	(label "SCL_TOF2"
 		(at 142.24 124.46 0)
@@ -1650,7 +1860,7 @@
 		(uuid "f7830803-5d28-4e53-9656-2104d9bc86cb")
 	)
 	(label "RGB_TOM_JERRY"
-		(at 97.79 222.25 180)
+		(at 93.98 217.17 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2116,6 +2326,26 @@
 		(pin "MOUSE_MOSI_SPI1" input
 			(at 83.82 213.36 270)
 			(uuid "aaceb6cb-2a1c-4278-aa11-00daa52fcc23")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TOM_JERRY_RGB" input
+			(at 93.98 213.36 270)
+			(uuid "989ba081-581a-47bb-badd-ee57fa8b829d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOUSE_INT" input
+			(at 66.04 213.36 270)
+			(uuid "ed6018fa-5cbb-48d8-8da9-f04474677ef1")
 			(effects
 				(font
 					(size 1.27 1.27)
