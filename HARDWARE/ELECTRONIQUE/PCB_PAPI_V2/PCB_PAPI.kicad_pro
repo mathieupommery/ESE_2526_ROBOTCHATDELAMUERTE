@@ -543,7 +543,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "gerber_pcbpapi/",
+      "plot": "gerber_pcbpapiv2/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../3D PCB/PCB_PAPI.step",
