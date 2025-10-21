@@ -3,11 +3,7 @@
 ## Introduction
 This project aims to design and build a **mobile robotic system** capable of playing a “cat and mouse” pursuit game.  
 It combines **real-time embedded control**, **sensor fusion**, and **mechanical design** to create an autonomous robot capable of chasing or evading another robot in a dynamic environment.
-
-<!-- Optional: mention goals or fun context -->
-The objective is both educational and experimental — exploring motion control, perception, and autonomous decision-making in a compact robotics platform.
-
----
+In addition tothat we built ESP32-S3 based audio system capable of **listening by a mic** and answering using **AI based model using wifi connection and online server.**
 
 ## Hardware :
 
@@ -15,6 +11,10 @@ The hardware design is divided into two main parts:
 
 ### 1.Electronics
 The electronic subsystem provides sensing, control, and communication between the robot’s components.
+#### Motherboard
+
+##### V1
+
 
 **Main features:**
 - **Microcontroller:** STM32-based control board running FreeRTOS  
@@ -23,10 +23,6 @@ The electronic subsystem provides sensing, control, and communication between th
 - **Power Management:** Battery regulation and protection circuits  
 - **Communication:** SPI / UART / CAN / Wireless link  
 
-<!-- You can also add a block diagram or wiring diagram image here -->
-![Electronics Overview](docs/images/electronics_overview.png)
-
----
 
 ### 2.Mechanics
 The mechanical subsystem handles motion, traction, and physical interaction.
