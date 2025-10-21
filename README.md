@@ -49,6 +49,15 @@ Finally this board is designed as a two board stack with the FOC controller v2.
 
 <img width="494" height="451" alt="Front_foc_v1" src="https://github.com/user-attachments/assets/6b5619b5-29c1-4f13-8be5-400feb9f476e" />
 <img width="453" height="441" alt="Back_foc_v1" src="https://github.com/user-attachments/assets/4ee0a33e-1e12-4118-83e6-69ec01d4831d" />
+<img width="462" height="462" alt="image" src="https://github.com/user-attachments/assets/712b4d2a-a287-44da-9899-7801305328f0" />
+
+
+The FOC controller is build arround a Iflight GBM2804H-100T motor, that we will use in direct drive to drive our robot using a 3 Wheel Omniwheel base.
+
+**Main features:**
+- **Microcontroller:**  STSPIN32G0A2 built in soc with integrated STM32G031 and gate driver and opamp
+- **Sensors:** MA330 absolut spi angle sensor 1uS measure time and 3us latency 
+- **Features:** Uart communication to mainboard.
 
 
 ##### V2
@@ -65,10 +74,7 @@ The mechanical subsystem handles motion, traction, and physical interaction.
 - **Mounts:** Sensor and board supports designed for modular assembly  
 - **Simulation / CAD:** Designed in Fusion 360 / SolidWorks  
 
-<!-- Add a render or photo -->
-![Mechanical Design](docs/images/mechanical_design.png)
 
----
 
 ## Software (Overview)
 While hardware is the main focus, the robot also runs control and perception algorithms:
@@ -78,7 +84,4 @@ While hardware is the main focus, the robot also runs control and perception alg
 - **Behavior layer:** Cat-and-mouse logic (chase / evade modes)  
 - **Debug tools:** UART logs, LED indicators, optional telemetry GUI  
 
----
-
-## 📁 Repository Structure
 
