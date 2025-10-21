@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "9.0.5"
     },
-    "CreationDate": "2025-10-19T17:26:29+02:00"
+    "CreationDate": "2025-10-20T13:37:52+02:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -111,11 +111,6 @@
       "Path": "PCB_PAPI-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
-    },
-    {
-      "Path": "PCB_PAPI-User_Eco1.gbr",
-      "FileFunction": "Other,User",
-      "FilePolarity": "Positive"
     },
     {
       "Path": "PCB_PAPI-Edge_Cuts.gbr",

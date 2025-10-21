@@ -1,4 +1,4 @@
-26894938468969535
+26896699387910301
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -107050,6 +107050,13 @@ Connector
 0
 10
 10
+samacsys2
+ICS43434
+ICS-43434-4
+Integrated Circuit
+0
+6
+6
 samacsys2
 NE555DR
 D (R-PDSO-G8)
