@@ -25,6 +25,10 @@ The electronic subsystem provides sensing, control, and communication between th
 - **Power Management:** Battery regulation and protection circuits  
 - **Communication:** SPI / UART / CAN / Wireless link  
 ##### V2
+<img width="413" height="439" alt="MB_v2_Front" src="https://github.com/user-attachments/assets/f4dd61f5-7272-493a-889a-9575a6816da9" />
+
+<img width="407" height="431" alt="mb_v2_back" src="https://github.com/user-attachments/assets/1b39e27e-b79e-4786-a5c8-040d7c2a8e96" />
+
 
 **Main features:**
 - **Microcontroller:** STM32-based control board running FreeRTOS  
