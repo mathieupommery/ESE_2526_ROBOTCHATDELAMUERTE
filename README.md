@@ -72,9 +72,11 @@ The mechanical subsystem handles motion, traction, and physical interaction.
 - **Chassis:** Lightweight 3D-printed or CNC-machined frame  
 - **Drive System:** Differential or mecanum wheels for agile motion  
 - **Mounts:** Sensor and board supports designed for modular assembly  
-- **Simulation / CAD:** Designed in Fusion 360 / SolidWorks  
+- **Simulation / CAD:** Designed in Fusion 360 / SolidWorks
 
-
+<img width="439" height="324" alt="Trimetric view of Robot CAD" src="https://github.com/user-attachments/assets/44d66799-54e0-4019-a6f7-66a9d0e04330" />
+<img width="462" height="372" alt="Trimetric view of PCB mainboard and robot" src="https://github.com/user-attachments/assets/d41bf95f-e37f-490f-8739-cbfe4e594bb7" />
+<img width="473" height="383" alt="Top view of PCB mainboard and robot" src="https://github.com/user-attachments/assets/64269de6-15ea-4ae8-a2f1-ae855b1580eb" />
 
 ## Software (Overview)
 While hardware is the main focus, the robot also runs control and perception algorithms:
