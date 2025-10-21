@@ -546,7 +546,7 @@
       "plot": "gerber_pcbpapiv2/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../3D PCB/PCB_PAPI.step",
+      "step": "../3D PCB/PCB_PAPIv2.step",
       "svg": "",
       "vrml": ""
     },
