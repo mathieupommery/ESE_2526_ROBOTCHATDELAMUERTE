@@ -19,23 +19,26 @@ The electronic subsystem provides sensing, control, and communication between th
 <img width="505" height="468" alt="MB_v1_back" src="https://github.com/user-attachments/assets/3c87e954-cd57-4a87-8d75-f7a1b9186ea7" />
 
 **Main features:**
-- **Microcontroller:** STM32-based control board running FreeRTOS  
-- **Sensors:** Accelerometers, gyroscope, magnetometer, distance sensors  
-- **Actuators:** DC or BLDC motors with FOC drivers  
-- **Power Management:** Battery regulation and protection circuits  
-- **Communication:** SPI / UART / CAN / Wireless link  
+- **Microcontroller:** 480Mhz STM32H743 in TFBGA100 package, 1MB RAM 2MB Flash 
+- **Sensors:** ADXL343 accelerometer and 3x TOF sensor 
+- **Actuators:** UART COM for each STM32 FOC controller
+- **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
+- **Communication:** SPI / UART / Wireless link via esp32-C6
+- **Features:** Up to 1Gb nand flash of 512Mb Nor flash 
 ##### V2
 <img width="413" height="439" alt="MB_v2_Front" src="https://github.com/user-attachments/assets/f4dd61f5-7272-493a-889a-9575a6816da9" />
 
 <img width="407" height="431" alt="mb_v2_back" src="https://github.com/user-attachments/assets/1b39e27e-b79e-4786-a5c8-040d7c2a8e96" />
-
+This version improve the audio part by adding a micro sd card wich replace the previous NOR flash in order to get fasdter read and write speed, on top of that we moved all the **audio processing into a faster esp32-S3** wich is communication with the stm32 by a uart link, it permit us to get **real IA functionnality** by using wifi link and also communicate with the **STM32 who control all the movement part of the Robot**.
+Finally this board is designed as a two board stack with the FOC controller v2.
 
 **Main features:**
-- **Microcontroller:** STM32-based control board running FreeRTOS  
-- **Sensors:** Accelerometers, gyroscope, magnetometer, distance sensors  
-- **Actuators:** DC or BLDC motors with FOC drivers  
-- **Power Management:** Battery regulation and protection circuits  
-- **Communication:** SPI / UART / CAN / Wireless link
+- **Microcontroller:** 480Mhz STM32H743 in TFBGA100 package, 1MB RAM 2MB Flash 
+- **Sensors:** ADXL343 accelerometer and 3x TOF sensor, ICS43434 I2S mems microphone 
+- **Actuators:** UART COM for each STM32 FOC controller
+- **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
+- **Communication:** SPI / UART / Wireless link via esp32-s3
+- **Features:** Sd card port and esp32-s3 to manage all the audio part with class d amplifier max99357 and microphone in order to get ia answer vio wifi call to an api.
 
 #### FOC STM32 based Controller
 
