@@ -1117,7 +1117,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2daf2ee4-a172-4e2c-98ad-c6236e80315a")
-		(property "Reference" "IC1"
+		(property "Reference" "IC2"
 			(at 160.02 65.9698 0)
 			(effects
 				(font
@@ -1286,15 +1286,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "IC5")
+					(reference "IC6")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "IC1")
+					(reference "IC2")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "IC3")
+					(reference "IC4")
 					(unit 1)
 				)
 			)
@@ -1310,7 +1310,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "340679ad-78f0-43ec-8718-5e3645b5c35f")
-		(property "Reference" "C10"
+		(property "Reference" "C25"
 			(at 179.07 54.6162 0)
 			(effects
 				(font
@@ -1364,15 +1364,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "C95")
+					(reference "C96")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "C10")
+					(reference "C25")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "C60")
+					(reference "C62")
 					(unit 1)
 				)
 			)
@@ -1388,7 +1388,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50ddc5a0-cb41-4e7f-b7c0-a695c6c8b0f8")
-		(property "Reference" "R37"
+		(property "Reference" "R7"
 			(at 129.54 90.17 90)
 			(effects
 				(font
@@ -1440,15 +1440,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R131")
+					(reference "R107")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R37")
+					(reference "R7")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R86")
+					(reference "R63")
 					(unit 1)
 				)
 			)
@@ -1464,7 +1464,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e3e0272-e20f-4beb-b2a5-47270d95b7d1")
-		(property "Reference" "R40"
+		(property "Reference" "R8"
 			(at 179.07 77.47 90)
 			(effects
 				(font
@@ -1516,15 +1516,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R132")
+					(reference "R108")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R40")
+					(reference "R8")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "R87")
+					(reference "R64")
 					(unit 1)
 				)
 			)
@@ -1540,7 +1540,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6eb27fef-2b39-4bff-a82e-fbeeb554ee4d")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR026"
 			(at 144.78 101.6 0)
 			(effects
 				(font
@@ -1590,15 +1590,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0135")
+					(reference "#PWR0117")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR018")
+					(reference "#PWR026")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR084")
+					(reference "#PWR074")
 					(unit 1)
 				)
 			)
@@ -1614,7 +1614,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a09d5742-8101-4d6a-b38d-016de9b94227")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR025"
 			(at 137.16 50.8 0)
 			(effects
 				(font
@@ -1664,15 +1664,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0134")
+					(reference "#PWR0116")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR017")
+					(reference "#PWR025")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR083")
+					(reference "#PWR073")
 					(unit 1)
 				)
 			)
@@ -1688,7 +1688,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b64173fe-899d-4df2-89b3-440c6d669a5a")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR024"
 			(at 130.81 95.25 0)
 			(effects
 				(font
@@ -1739,15 +1739,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0133")
+					(reference "#PWR0115")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR016")
+					(reference "#PWR024")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR082")
+					(reference "#PWR072")
 					(unit 1)
 				)
 			)
@@ -1763,7 +1763,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2dc94cc-71d5-4ecc-a23d-dd144d85de7a")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR027"
 			(at 163.83 77.47 0)
 			(effects
 				(font
@@ -1814,15 +1814,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0136")
+					(reference "#PWR0118")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR019")
+					(reference "#PWR027")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR085")
+					(reference "#PWR075")
 					(unit 1)
 				)
 			)
@@ -1838,7 +1838,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fb79c86d-13cc-4f52-b0ab-664f14f7603b")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR028"
 			(at 176.53 67.31 0)
 			(effects
 				(font
@@ -1888,15 +1888,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0137")
+					(reference "#PWR0119")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR020")
+					(reference "#PWR028")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR086")
+					(reference "#PWR076")
 					(unit 1)
 				)
 			)
@@ -1912,7 +1912,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fe023dd9-4cfb-4975-8b57-7eeaae6591f2")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR029"
 			(at 181.61 53.34 0)
 			(effects
 				(font
@@ -1962,15 +1962,15 @@
 		(instances
 			(project "FOC_CONTROLLER_V1"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7389ff5f-771f-4490-b3bd-bd2560967651/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR0138")
+					(reference "#PWR0120")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/7c24e89a-4b2d-4610-955b-a25d6dccd5d5/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR021")
+					(reference "#PWR029")
 					(unit 1)
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/cb0894aa-ba23-4ecf-bfa1-831a00b3b1fa/200aadae-022f-4c9f-b40c-b5d3c082ca7e"
-					(reference "#PWR087")
+					(reference "#PWR077")
 					(unit 1)
 				)
 			)

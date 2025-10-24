@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "samacsys")(type "KiCad")(uri "${KIPRJMOD}/LIB_KIKAD/libloader/SamacSys_Parts.kicad_sym")(options "")(descr ""))
+  (lib (name "ERM8")(type "KiCad")(uri "${KIPRJMOD}/LIB_KIKAD/ERM8/ERM8-005-XX.X-X-DV-TR.kicad_sym")(options "")(descr ""))
+)
