@@ -19,23 +19,29 @@ The electronic subsystem provides sensing, control, and communication between th
 <img width="505" height="468" alt="MB_v1_back" src="https://github.com/user-attachments/assets/3c87e954-cd57-4a87-8d75-f7a1b9186ea7" />
 
 **Main features:**
-- **Microcontroller:** STM32-based control board running FreeRTOS  
-- **Sensors:** Accelerometers, gyroscope, magnetometer, distance sensors  
-- **Actuators:** DC or BLDC motors with FOC drivers  
-- **Power Management:** Battery regulation and protection circuits  
-- **Communication:** SPI / UART / CAN / Wireless link  
+- **Microcontroller:** 480Mhz STM32H743 in TFBGA100 package, 1MB RAM 2MB Flash 
+- **Sensors:** ADXL343 accelerometer and 3x TOF sensor 
+- **Actuators:** UART COM for each STM32 FOC controller
+- **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
+- **Communication:** SPI / UART / Wireless link via esp32-C6
+- **Features:** Up to 1Gb nand flash of 512Mb Nor flash 
 ##### V2
 <img width="413" height="439" alt="MB_v2_Front" src="https://github.com/user-attachments/assets/f4dd61f5-7272-493a-889a-9575a6816da9" />
 
 <img width="407" height="431" alt="mb_v2_back" src="https://github.com/user-attachments/assets/1b39e27e-b79e-4786-a5c8-040d7c2a8e96" />
 
 
+
+This version improve the audio part by adding a micro sd card wich replace the previous NOR flash in order to get fasdter read and write speed, on top of that we moved all the **audio processing into a faster esp32-S3** wich is communication with the stm32 by a uart link, it permit us to get **real IA functionnality** by using wifi link and also communicate with the **STM32 who control all the movement part of the Robot**.
+Finally this board is designed as a two board stack with the FOC controller v2.
+
 **Main features:**
-- **Microcontroller:** STM32-based control board running FreeRTOS  
-- **Sensors:** Accelerometers, gyroscope, magnetometer, distance sensors  
-- **Actuators:** DC or BLDC motors with FOC drivers  
-- **Power Management:** Battery regulation and protection circuits  
-- **Communication:** SPI / UART / CAN / Wireless link
+- **Microcontroller:** 480Mhz STM32H743 in TFBGA100 package, 1MB RAM 2MB Flash 
+- **Sensors:** ADXL343 accelerometer and 3x TOF sensor, ICS43434 I2S mems microphone 
+- **Actuators:** UART COM for each STM32 FOC controller
+- **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
+- **Communication:** SPI / UART / Wireless link via esp32-s3
+- **Features:** Sd card port and esp32-s3 to manage all the audio part with class d amplifier max99357 and microphone in order to get ia answer vio wifi call to an api.
 
 #### FOC STM32 based Controller
 
@@ -43,6 +49,15 @@ The electronic subsystem provides sensing, control, and communication between th
 
 <img width="494" height="451" alt="Front_foc_v1" src="https://github.com/user-attachments/assets/6b5619b5-29c1-4f13-8be5-400feb9f476e" />
 <img width="453" height="441" alt="Back_foc_v1" src="https://github.com/user-attachments/assets/4ee0a33e-1e12-4118-83e6-69ec01d4831d" />
+<img width="462" height="462" alt="image" src="https://github.com/user-attachments/assets/712b4d2a-a287-44da-9899-7801305328f0" />
+
+
+The FOC controller is build arround a Iflight GBM2804H-100T motor, that we will use in direct drive to drive our robot using a 3 Wheel Omniwheel base.
+
+**Main features:**
+- **Microcontroller:**  STSPIN32G0A2 built in soc with integrated STM32G031 and gate driver and opamp
+- **Sensors:** MA330 absolut spi angle sensor 1uS measure time and 3us latency 
+- **Features:** Uart communication to mainboard.
 
 
 ##### V2
@@ -57,12 +72,11 @@ The mechanical subsystem handles motion, traction, and physical interaction.
 - **Chassis:** Lightweight 3D-printed or CNC-machined frame  
 - **Drive System:** Differential or mecanum wheels for agile motion  
 - **Mounts:** Sensor and board supports designed for modular assembly  
-- **Simulation / CAD:** Designed in Fusion 360 / SolidWorks  
+- **Simulation / CAD:** Designed in Fusion 360 / SolidWorks
 
-<!-- Add a render or photo -->
-![Mechanical Design](docs/images/mechanical_design.png)
-
----
+<img width="439" height="324" alt="Trimetric view of Robot CAD" src="https://github.com/user-attachments/assets/44d66799-54e0-4019-a6f7-66a9d0e04330" />
+<img width="462" height="372" alt="Trimetric view of PCB mainboard and robot" src="https://github.com/user-attachments/assets/d41bf95f-e37f-490f-8739-cbfe4e594bb7" />
+<img width="473" height="383" alt="Top view of PCB mainboard and robot" src="https://github.com/user-attachments/assets/64269de6-15ea-4ae8-a2f1-ae855b1580eb" />
 
 ## Software (Overview)
 While hardware is the main focus, the robot also runs control and perception algorithms:
@@ -72,7 +86,4 @@ While hardware is the main focus, the robot also runs control and perception alg
 - **Behavior layer:** Cat-and-mouse logic (chase / evade modes)  
 - **Debug tools:** UART logs, LED indicators, optional telemetry GUI  
 
----
-
-## 📁 Repository Structure
 
