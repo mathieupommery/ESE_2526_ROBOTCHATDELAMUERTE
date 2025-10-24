@@ -1,4 +1,4 @@
-26879091973814277
+26894940636864557
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -61375,6 +61375,13 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+ERM8
+SAMTEC_ERM8-005-XX.X-X-DV-TR
+0.8mm Edge Rate Terminal Assembly<p>MALE, Double Vertical Row, 5 Position
+
+0
+10
+10
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -107001,3 +107008,59 @@ pad_0.7mm
 0
 1
 1
+samacsys2
+74438335150
+3.0x3.0x1.5mm
+Inductor
+0
+2
+2
+samacsys2
+DF528S08H21
+DF52-8S-0.8H(21)
+Connector
+0
+10
+10
+samacsys2
+ICS43434
+ICS-43434-4
+Integrated Circuit
+0
+6
+6
+samacsys2
+NE555DR
+D (R-PDSO-G8)
+Integrated Circuit
+0
+8
+8
+samacsys2
+QFN50P900X900X100-65N-D
+VFQFPN 9X9X1.0 64
+Integrated Circuit
+0
+65
+65
+samacsys2
+S6B-PH-SM4-TB_LF__SN__3
+S6B-PH-SM4-TB(LF)(SN)_3
+Connector
+0
+8
+8
+samacsys2
+SOIC127P600X170-9N
+DDA-2
+Integrated Circuit
+0
+9
+9
+samacsys2
+TPS82130SILT
+SIL0008D_1
+Integrated Circuit
+0
+9
+9

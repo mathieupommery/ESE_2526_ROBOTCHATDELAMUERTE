@@ -59,13 +59,11 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "FOC_CONTROLLER_V1.kicad_prl",
+    "filename": "PCB_BRUSHED.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
     "col_hidden": [
-      false,
-      false,
       false,
       false,
       false,
@@ -95,27 +93,23 @@
       10,
       11,
       12,
-      13,
-      14,
-      15
+      13
     ],
     "col_widths": [
-      118,
-      110,
-      73,
-      49,
-      73,
-      73,
-      73,
-      52,
-      73,
-      73,
-      73,
-      73,
-      73,
-      73,
-      73,
-      73
+      222,
+      207,
+      143,
+      143,
+      144,
+      191,
+      140,
+      149,
+      137,
+      137,
+      137,
+      137,
+      137,
+      137
     ],
     "custom_group_rules": [],
     "expanded_rows": [],
