@@ -2990,18 +2990,6 @@
 		)
 		(uuid b7a81904-a3cd-41f8-a132-e3a27afb3c2a)
 	)
-	(rectangle
-		(start 469.9 243.84)
-		(end 556.26 309.88)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid c8695589-c4eb-4df4-bc8c-aa9eaa908dec)
-	)
 	(text "RED WURTH 150040RS73240"
 		(exclude_from_sim no)
 		(at 428.498 319.278 0)
@@ -3021,16 +3009,6 @@
 			)
 		)
 		(uuid "29b2dacd-7790-4aa4-a9fc-aec4acd72dcf")
-	)
-	(text "CONDO_VBAT"
-		(exclude_from_sim no)
-		(at 476.25 245.618 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "56979ea3-f1c2-4f9f-85d1-032f79c6e08b")
 	)
 	(text "MCU SIP\n"
 		(exclude_from_sim no)
@@ -3117,24 +3095,6 @@
 		(uuid "1ab0046d-f891-40cc-97b8-f59719b4941b")
 	)
 	(junction
-		(at 501.65 255.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1f5b498b-7f62-4526-a72e-43514c9be51f")
-	)
-	(junction
-		(at 516.89 255.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "212723cf-32d6-4f1b-bb0c-8d0ee599fb5a")
-	)
-	(junction
-		(at 501.65 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "238fcd36-45d9-47a6-8975-ca8246a7b5b6")
-	)
-	(junction
 		(at 461.01 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3165,12 +3125,6 @@
 		(uuid "35494144-0dfe-4ba6-a207-41a1c828a339")
 	)
 	(junction
-		(at 532.13 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "35adfcb7-5f8c-4fc3-bff9-ca5ebe37cb4b")
-	)
-	(junction
 		(at 422.91 231.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3181,12 +3135,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "42408980-1fc4-46e7-a6d2-b64a84343016")
-	)
-	(junction
-		(at 510.54 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "42aa3f85-6627-4a75-808d-3151ac725ba9")
 	)
 	(junction
 		(at 408.94 335.28)
@@ -3231,22 +3179,10 @@
 		(uuid "8505e0fe-7bcf-41aa-bb4c-ba4f826cc697")
 	)
 	(junction
-		(at 510.54 284.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8c084d02-34a6-48eb-acf8-0e84e429c84c")
-	)
-	(junction
 		(at 515.62 218.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8cd9d075-c695-4271-80e1-6de6fedc1863")
-	)
-	(junction
-		(at 516.89 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8d895e0f-5409-461a-bdb8-2e62dde9b375")
 	)
 	(junction
 		(at 527.05 83.82)
@@ -3297,12 +3233,6 @@
 		(uuid "bbba6cfe-195b-4649-8ebf-513b61808323")
 	)
 	(junction
-		(at 487.68 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c48a81d2-7b81-44ad-b7ce-15b9f0affd15")
-	)
-	(junction
 		(at 509.27 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3315,12 +3245,6 @@
 		(uuid "d6ef52ff-ba4d-4843-b2f8-2e7e2af91d07")
 	)
 	(junction
-		(at 532.13 255.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "db532774-a797-4b56-b4aa-b876a70002b1")
-	)
-	(junction
 		(at 354.33 358.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3331,12 +3255,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e3998054-7698-4fbb-a4ee-1b23968c9224")
-	)
-	(junction
-		(at 487.68 255.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e40d217e-663b-41fa-a7b1-d55cebec414a")
 	)
 	(junction
 		(at 370.84 229.87)
@@ -3386,12 +3304,6 @@
 		(color 0 0 0 0)
 		(uuid "fee4031d-792c-4f5f-90aa-2a5a4643b135")
 	)
-	(junction
-		(at 510.54 279.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ffbe972b-ae1c-4a19-9eeb-7ada1c90a158")
-	)
 	(no_connect
 		(at 474.98 129.54)
 		(uuid "19e4519a-e00c-42bb-8e1f-4f9c599c7ea2")
@@ -3425,16 +3337,6 @@
 			(type default)
 		)
 		(uuid "017c87f5-4dff-46fd-ad03-cf5b9da36638")
-	)
-	(wire
-		(pts
-			(xy 510.54 260.35) (xy 510.54 264.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01b6dbad-1730-4953-8e87-4525e42cbddd")
 	)
 	(wire
 		(pts
@@ -3515,16 +3417,6 @@
 			(type default)
 		)
 		(uuid "090be2e4-2fe3-4b1e-899c-6aa10a5ed419")
-	)
-	(wire
-		(pts
-			(xy 510.54 284.48) (xy 525.78 284.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "09a4df20-1280-4b3f-b11b-faadf4d33e7b")
 	)
 	(wire
 		(pts
@@ -3678,16 +3570,6 @@
 	)
 	(wire
 		(pts
-			(xy 501.65 260.35) (xy 510.54 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "203e14c0-bf20-4df3-a83e-514b87fa6439")
-	)
-	(wire
-		(pts
 			(xy 398.78 340.36) (xy 398.78 358.14)
 		)
 		(stroke
@@ -3788,16 +3670,6 @@
 	)
 	(wire
 		(pts
-			(xy 532.13 255.27) (xy 546.1 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a52b3b3-0ddd-4089-926a-6ae344b5a5dc")
-	)
-	(wire
-		(pts
 			(xy 92.71 205.74) (xy 92.71 201.93)
 		)
 		(stroke
@@ -3878,16 +3750,6 @@
 	)
 	(wire
 		(pts
-			(xy 510.54 260.35) (xy 516.89 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "435b88ce-0200-4633-9e48-68343941f8ab")
-	)
-	(wire
-		(pts
 			(xy 86.36 144.78) (xy 86.36 140.97)
 		)
 		(stroke
@@ -3948,16 +3810,6 @@
 	)
 	(wire
 		(pts
-			(xy 532.13 260.35) (xy 546.1 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4b18c9ce-e9c1-481c-a122-9ed0c75238d5")
-	)
-	(wire
-		(pts
 			(xy 509.27 76.2) (xy 509.27 78.74)
 		)
 		(stroke
@@ -3965,16 +3817,6 @@
 			(type default)
 		)
 		(uuid "4db769eb-ad04-47db-a8c4-a1e26d9f4631")
-	)
-	(wire
-		(pts
-			(xy 516.89 255.27) (xy 532.13 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "509aee9c-8037-433e-ba34-89515d0612ab")
 	)
 	(wire
 		(pts
@@ -4178,16 +4020,6 @@
 	)
 	(wire
 		(pts
-			(xy 487.68 260.35) (xy 501.65 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6538bf40-7b04-4422-a389-41a0b358a5a2")
-	)
-	(wire
-		(pts
 			(xy 163.83 295.91) (xy 163.83 299.72)
 		)
 		(stroke
@@ -4348,16 +4180,6 @@
 	)
 	(wire
 		(pts
-			(xy 510.54 284.48) (xy 510.54 287.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8af7970e-1fe1-45a5-9ccb-7f4b592d488a")
-	)
-	(wire
-		(pts
 			(xy 511.81 99.06) (xy 508 99.06)
 		)
 		(stroke
@@ -4365,16 +4187,6 @@
 			(type default)
 		)
 		(uuid "8bfc6d14-386e-4b14-bd4b-4b7ff533c631")
-	)
-	(wire
-		(pts
-			(xy 510.54 279.4) (xy 525.78 279.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9146543a-9a51-4d5c-b7b2-48bf51743087")
 	)
 	(wire
 		(pts
@@ -4455,16 +4267,6 @@
 			(type default)
 		)
 		(uuid "9f8aab3b-f498-425c-ae77-5cd248551517")
-	)
-	(wire
-		(pts
-			(xy 501.65 255.27) (xy 516.89 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a05db3f2-1da6-4a07-aeda-d246235705f0")
 	)
 	(wire
 		(pts
@@ -4718,16 +4520,6 @@
 	)
 	(wire
 		(pts
-			(xy 487.68 255.27) (xy 501.65 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b82e65d8-5f3c-4c5b-ac69-5c197b203a6c")
-	)
-	(wire
-		(pts
 			(xy 370.84 236.22) (xy 375.92 236.22)
 		)
 		(stroke
@@ -4765,16 +4557,6 @@
 			(type default)
 		)
 		(uuid "bd9242b1-396a-4e34-a4f5-fd4acf3ff1ca")
-	)
-	(wire
-		(pts
-			(xy 474.98 255.27) (xy 487.68 255.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bef49ae5-75e6-46ef-b83f-c19a5d4ef12d")
 	)
 	(wire
 		(pts
@@ -4868,16 +4650,6 @@
 	)
 	(wire
 		(pts
-			(xy 496.57 279.4) (xy 510.54 279.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d247243c-da3a-4061-967f-0c7222cf2864")
-	)
-	(wire
-		(pts
 			(xy 113.03 295.91) (xy 113.03 299.72)
 		)
 		(stroke
@@ -4948,16 +4720,6 @@
 	)
 	(wire
 		(pts
-			(xy 516.89 260.35) (xy 532.13 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ddb3c670-cd4f-4b8d-91c8-1ecc8415e807")
-	)
-	(wire
-		(pts
 			(xy 518.16 83.82) (xy 527.05 83.82)
 		)
 		(stroke
@@ -4965,16 +4727,6 @@
 			(type default)
 		)
 		(uuid "ddcdc2ff-7d25-4fb9-9623-0fba97b96ca0")
-	)
-	(wire
-		(pts
-			(xy 474.98 260.35) (xy 487.68 260.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df9a3736-f105-46e9-8813-3b6e86ac898f")
 	)
 	(wire
 		(pts
@@ -5025,16 +4777,6 @@
 			(type default)
 		)
 		(uuid "e453b496-eac7-4b40-a989-d6b708d116aa")
-	)
-	(wire
-		(pts
-			(xy 496.57 284.48) (xy 510.54 284.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e55dead9-0d3e-4338-b1ef-1662e42573f3")
 	)
 	(wire
 		(pts
@@ -5928,50 +5670,6 @@
 	)
 	(global_label "VBAT+"
 		(shape input)
-		(at 510.54 279.4 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "27e5dae7-df1d-480c-b5e3-c2330499b215")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 510.54 270.4276 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBAT+"
-		(shape input)
-		(at 511.81 255.27 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "2e7d372a-ca9f-4799-a11b-b3ff1d5bddb8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 511.81 246.2976 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBAT+"
-		(shape input)
 		(at 298.45 337.82 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6611,93 +6309,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "#PWR01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 510.54 281.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1dc3b878-1f7a-4dbd-97d7-d16f5580e705")
-		(property "Reference" "C19"
-			(at 513.08 280.6762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 513.08 283.2162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 510.54 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 510.54 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 521.97 287.528 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 510.54 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 510.54 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b2fcd1c1-5a44-4ce0-a2af-aeda60833ea6")
-		)
-		(pin "2"
-			(uuid "7769a34f-9b86-4c36-a7ae-6ff3cc0b0ade")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -7622,93 +7233,6 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 516.89 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4ccce973-e30a-4737-8300-09723bc5731a")
-		(property "Reference" "C20"
-			(at 519.43 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 519.43 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 516.89 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 516.89 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 528.32 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 516.89 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 516.89 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "27fcfed3-9330-4883-a95a-aec39471c51c")
-		)
-		(pin "2"
-			(uuid "f8f03aed-be55-46fe-9ea4-60aef1ce922c")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
 		(at 421.64 100.33 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7769,92 +7293,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 501.65 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "538bf531-4825-4809-b69c-2c44e92ded73")
-		(property "Reference" "C15"
-			(at 504.19 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 504.19 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 501.65 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 501.65 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 513.08 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 501.65 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 542.798 308.102 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f7b95e83-17ce-4349-a505-68bf30e21cce")
-		)
-		(pin "2"
-			(uuid "ca5a755a-caf3-4cd4-8783-76221c87d282")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -8592,93 +8030,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 532.13 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7d9ada6a-1ad8-477f-8ea3-ad1123f62e56")
-		(property "Reference" "C24"
-			(at 534.67 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 534.67 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 532.13 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 532.13 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 543.56 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 532.13 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 532.13 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "763b2276-0d39-4e29-8225-a0bc382e7c17")
-		)
-		(pin "2"
-			(uuid "5f28d850-a751-4966-b9b1-7d8d154c7e2f")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 481.33 76.2 90)
 		(unit 1)
@@ -8739,93 +8090,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 525.78 281.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "875ac608-8f86-4ab3-9025-b7742711dc8f")
-		(property "Reference" "C22"
-			(at 528.32 280.6762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 528.32 283.2162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 525.78 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 525.78 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 537.21 287.528 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 525.78 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 525.78 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "204d19b5-6e6e-41bd-b6af-982bd5540ce8")
-		)
-		(pin "2"
-			(uuid "cb11abc2-16f0-46d8-b064-e1d9dff0381e")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C22")
 					(unit 1)
 				)
 			)
@@ -9043,93 +8307,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "R1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 496.57 281.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "93ac9683-224c-44c8-a8cf-56e472188661")
-		(property "Reference" "C14"
-			(at 499.11 280.6762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 499.11 283.2162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 496.57 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 496.57 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 508 287.528 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 496.57 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 496.57 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "65055345-9f4c-45af-a928-8925b5cb6f64")
-		)
-		(pin "2"
-			(uuid "c7f54a7b-57c2-43b5-b83a-9a281aba6b88")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -9721,71 +8898,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 510.54 287.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b60a6b39-b3f9-47f1-bdea-c4820282d776")
-		(property "Reference" "#PWR017"
-			(at 510.54 293.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 510.54 291.084 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 510.54 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 510.54 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 510.54 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3472d740-0501-4b9c-b738-d08fc54628da")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 402.59 337.82 0)
 		(unit 1)
@@ -10260,93 +9372,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 546.1 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d20c6618-c7df-4630-9f3d-a52565011d5a")
-		(property "Reference" "C27"
-			(at 548.64 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 548.64 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 546.1 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 546.1 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 557.53 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 546.1 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 546.1 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "70f19287-bfb6-436c-a83a-5d0457b1016c")
-		)
-		(pin "2"
-			(uuid "1f5e51b9-87e7-499f-acd2-697b2df4e5a6")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C27")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 453.39 91.44 0)
 		(unit 1)
@@ -10408,71 +9433,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 510.54 264.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "df7e66de-6b87-4842-bb92-5a3a4f603707")
-		(property "Reference" "#PWR016"
-			(at 510.54 270.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 510.54 268.224 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 510.54 264.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 510.54 264.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 510.54 264.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0709dc28-b5ff-4bf7-9ed1-2c18c375c859")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -10718,93 +9678,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 487.68 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "edea82f4-08db-432c-b313-7c241006e2a3")
-		(property "Reference" "C13"
-			(at 490.22 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 490.22 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 487.68 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 487.68 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 499.11 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 487.68 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 487.68 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f7197a4-c184-4d45-9f3b-16c2668b1985")
-		)
-		(pin "2"
-			(uuid "92621298-ccce-4189-b80f-ae660657886a")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 492.76 185.42 0)
 		(unit 1)
@@ -10934,93 +9807,6 @@
 			(project "PCB_BRUSHED"
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
 					(reference "C16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 474.98 257.81 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fc662ab6-5d01-41bf-ba33-f2527d7933c9")
-		(property "Reference" "C12"
-			(at 477.52 256.5462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22u"
-			(at 477.52 259.0862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 474.98 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 474.98 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "GRM21BR61A476ME15"
-			(at 486.41 263.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
-			(at 474.98 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
-			(at 474.98 257.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3bb62914-b4d1-4489-9a7c-7b2607c55702")
-		)
-		(pin "2"
-			(uuid "d931fe69-540f-49d4-ab94-436264ae2b84")
-		)
-		(instances
-			(project "PCB_BRUSHED"
-				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d"
-					(reference "C12")
 					(unit 1)
 				)
 			)

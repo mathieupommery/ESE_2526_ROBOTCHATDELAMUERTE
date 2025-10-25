@@ -1344,6 +1344,12 @@
 		(uuid "85005fd3-277b-48a5-9dbf-14c60afa8835")
 	)
 	(junction
+		(at 167.64 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "90f13b38-bbf8-4da8-80e4-048c7d6d931a")
+	)
+	(junction
 		(at 158.75 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1354,6 +1360,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a925091e-924f-46f2-9d01-f457b6a015db")
+	)
+	(junction
+		(at 167.64 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ede990da-9c1f-44f7-bc75-f9394744bf91")
 	)
 	(wire
 		(pts
@@ -1487,6 +1499,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 60.96) (xy 176.53 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d3137de-702c-4607-8913-96244abd38ec")
+	)
+	(wire
+		(pts
 			(xy 144.78 54.61) (xy 144.78 60.96)
 		)
 		(stroke
@@ -1544,6 +1566,16 @@
 			(type default)
 		)
 		(uuid "87e7b6b6-f87c-490d-a735-d063d3ba2618")
+	)
+	(wire
+		(pts
+			(xy 167.64 66.04) (xy 176.53 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ca7d884-6d2a-48a2-98ea-48feb03d795f")
 	)
 	(wire
 		(pts
@@ -2772,6 +2804,101 @@
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/77eb2796-38d1-43a1-af17-d64a90a7dfbd"
 					(reference "C29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 176.53 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a7c1adff-30b5-46ab-bfce-8cfa502b70e2")
+		(property "Reference" "C12"
+			(at 179.07 62.2362 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22u"
+			(at 179.07 64.7762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 176.53 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 176.53 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "GRM21BR61A476ME15"
+			(at 187.96 69.088 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "GRM21BR61E226ME4L"
+			(at 176.53 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "81-GRM21BR61E226ME4L"
+			(at 176.53 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bdba3230-f35a-49db-8d7b-4cdafbb9dcae")
+		)
+		(pin "2"
+			(uuid "51b0cf04-07f3-4433-b6f4-81bc09e10c61")
+		)
+		(instances
+			(project "PCB_BRUSHED"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/36b31599-fc9c-43df-a06c-d0549a8044da"
+					(reference "C13")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/572c8ccb-40d1-41ab-95fe-e81a18cac254"
+					(reference "C14")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/77eb2796-38d1-43a1-af17-d64a90a7dfbd"
+					(reference "C12")
 					(unit 1)
 				)
 			)
