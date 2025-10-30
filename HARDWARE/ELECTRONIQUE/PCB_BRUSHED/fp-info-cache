@@ -1,4 +1,4 @@
-26894940636864557
+26900232170712588
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -76434,7 +76434,7 @@ CSP 80 0.4 80-ball WLCSP
 80
 Package_CSP
 LFCSP-6-1EP_2x2mm_P0.65mm_EP1x1.6mm
-LFCSP, 6 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_6_3.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP, 6 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp-6/cp_6_3.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 LFCSP NoLead
 0
 11
@@ -78588,6 +78588,13 @@ Maxim TDFN NoLead
 0
 11
 7
+Package_DFN_QFN
+Maxim_TDFN-10-1EP_3x3mm_P0.5mm_EP1.58x2.35mm
+Maxim  TDFN, 10 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/tqfn/21-0137.pdf and https://www.analog.com/media/en/package-pcb-resources/land-pattern/tdfn-ep/90-0003.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+Maxim TDFN NoLead T1033-2 MO229/WEED-3
+0
+15
+11
 Package_DFN_QFN
 Maxim_TDFN-12-1EP_3x3mm_P0.5mm_EP1.7x2.5mm
 Maxim TDFN, 12 Pin (https://www.analog.com/media/en/package-pcb-resources/land-pattern/tdfn/90-0397.pdf)
@@ -82390,6 +82397,20 @@ VQFN NoLead
 75
 49
 Package_DFN_QFN
+VQFN-48-1EP_7x7mm_P0.5mm_EP4.2x4.2mm
+VQFN, 48 Pin (Based on JEDEC MO-220 variation VKKD-2 (using Figure 1), custom Exposed Pad from NXP, https://www.jedec.org/document_search?search_api_views_fulltext=MO-220, https://www.nxp.com/docs/en/package-information/SOT619-28.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead NXP_SOT619-28
+0
+53
+49
+Package_DFN_QFN
+VQFN-48-1EP_7x7mm_P0.5mm_EP4.2x4.2mm_ThermalVias
+VQFN, 48 Pin (Based on JEDEC MO-220 variation VKKD-2 (using Figure 1), custom Exposed Pad from NXP, https://www.jedec.org/document_search?search_api_views_fulltext=MO-220, https://www.nxp.com/docs/en/package-information/SOT619-28.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead NXP_SOT619-28
+0
+70
+49
+Package_DFN_QFN
 VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm
 VQFN, 48 Pin (http://www.ti.com/lit/ds/symlink/cc1312r.pdf#page=48), generated with kicad-footprint-generator ipc_noLead_generator.py
 VQFN NoLead
@@ -85611,14 +85632,14 @@ LQFP QFP
 65
 Package_QFP
 LQFP-64-1EP_10x10mm_P0.5mm_EP6.5x6.5mm
-LQFP, 64 Pin (https://www.nxp.com/files-static/shared/doc/package_info/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP, 64 Pin (https://www.nxp.com/docs/en/package-information/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
 LQFP QFP
 0
 90
 65
 Package_QFP
 LQFP-64-1EP_10x10mm_P0.5mm_EP6.5x6.5mm_ThermalVias
-LQFP, 64 Pin (https://www.nxp.com/files-static/shared/doc/package_info/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP, 64 Pin (https://www.nxp.com/docs/en/package-information/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
 LQFP QFP
 0
 116
@@ -87592,7 +87613,7 @@ SOIC SO
 28
 Package_SO
 SOIC-28W_7.5x18.7mm_P1.27mm
-SOIC, 28 Pin (https://www.akm.com/akm/en/file/datasheet/AK5394AVS.pdf#page=23), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOIC, 28 Pin (https://www.es.co.th/Schemetic/PDF/AK5394A.PDF#page=23), generated with kicad-footprint-generator ipc_gullwing_generator.py
 SOIC SO
 0
 28

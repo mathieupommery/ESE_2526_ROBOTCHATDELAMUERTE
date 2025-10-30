@@ -981,6 +981,42 @@
 						)
 					)
 				)
+				(pin free line
+					(at 10.16 -10.16 90)
+					(length 2.54)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin free line
+					(at 10.16 -10.16 90)
+					(length 2.54)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 				(pin passive line
 					(at 20.32 0 180)
 					(length 5.08)
@@ -3047,6 +3083,12 @@
 		(pin "6"
 			(uuid "3728ba24-d1a7-4985-8ba6-e939f29cb75f")
 		)
+		(pin "7"
+			(uuid "3b79061d-54eb-457a-9938-7961f47b1a11")
+		)
+		(pin "8"
+			(uuid "aafe2986-c47f-4989-b2af-49fc04daab5d")
+		)
 		(instances
 			(project ""
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/36b31599-fc9c-43df-a06c-d0549a8044da"
@@ -3449,6 +3491,79 @@
 				)
 				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/77eb2796-38d1-43a1-af17-d64a90a7dfbd"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 162.56 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e20be2c1-9b89-4855-a586-c9a8a0df4e36")
+		(property "Reference" "#PWR016"
+			(at 162.56 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 162.56 119.634 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 162.56 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 162.56 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 162.56 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "28e3f8fb-6c22-47b9-bdce-c659f4ca684e")
+		)
+		(instances
+			(project "PCB_BRUSHED"
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/36b31599-fc9c-43df-a06c-d0549a8044da"
+					(reference "#PWR017")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/572c8ccb-40d1-41ab-95fe-e81a18cac254"
+					(reference "#PWR054")
+					(unit 1)
+				)
+				(path "/21624bb8-7220-4725-ab4f-34c4768aac8d/77eb2796-38d1-43a1-af17-d64a90a7dfbd"
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
