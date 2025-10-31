@@ -6864,7 +6864,7 @@
 				)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "10p"
 			(at 451.612 57.15 90)
 			(effects
 				(font
@@ -7131,7 +7131,7 @@
 				)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "10p"
 			(at 513.842 57.15 90)
 			(effects
 				(font
@@ -10039,7 +10039,7 @@
 		(dnp no)
 		(uuid "faf16077-b4b2-4edd-9116-56f02a839889")
 		(property "Reference" "C16"
-			(at 506.73 80.0162 0)
+			(at 498.602 78.994 0)
 			(effects
 				(font
 					(size 1.27 1.27)
