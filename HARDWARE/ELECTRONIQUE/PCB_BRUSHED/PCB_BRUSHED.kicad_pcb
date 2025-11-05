@@ -681,7 +681,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "56fba1d2-ed1e-4fc0-984d-53b2e0b8f472")
 		)
 		(fp_rect
@@ -693,7 +692,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "6f57cbeb-fbb9-4823-a277-b5c4860f2fb6")
 		)
 		(pad "" np_thru_hole circle
@@ -3671,7 +3669,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "dca904ea-fbbe-4f1b-83d5-613eda096737")
 		)
 		(fp_rect
@@ -3683,7 +3680,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "81ce857e-27d1-4256-bf4e-2776fe562b35")
 		)
 		(pad "" np_thru_hole circle
@@ -3766,7 +3762,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "82401953-c0ed-465d-b39f-749172121c4e")
 		)
 		(fp_rect
@@ -3778,7 +3773,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "cfc38201-23c7-4f74-b863-d66cf15bd830")
 		)
 		(pad "" np_thru_hole circle
@@ -4571,7 +4565,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "203cb268-14e6-4c9b-96d3-4ce41f240e5d")
 		)
 		(fp_rect
@@ -4583,7 +4576,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "b2e52614-99bd-44be-9dba-2449fd94e0df")
 		)
 		(pad "" np_thru_hole circle
@@ -5853,7 +5845,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "904d0d0f-8918-4c72-bd28-1358d69ad42a")
 		)
 		(fp_rect
@@ -5865,7 +5856,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "19e45fab-1a19-4699-9e40-27c5e43ba1ef")
 		)
 		(pad "" np_thru_hole circle
@@ -8976,7 +8966,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "ab1e10c9-914b-402b-b1a5-47e2bc0faf37")
 		)
 		(fp_rect
@@ -8988,7 +8977,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "1660cd50-ef5a-4073-9732-d6e0ad834385")
 		)
 		(pad "" np_thru_hole circle
@@ -10727,7 +10715,6 @@
 			)
 			(fill no)
 			(layer "B.CrtYd")
-			(net 1)
 			(uuid "de0e89ec-54c3-46ff-8c19-c61b95e2e9d1")
 		)
 		(fp_rect
@@ -10739,7 +10726,6 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(net 1)
 			(uuid "1cd03a8f-7b0f-438d-acd8-b8f982658e24")
 		)
 		(pad "" np_thru_hole circle

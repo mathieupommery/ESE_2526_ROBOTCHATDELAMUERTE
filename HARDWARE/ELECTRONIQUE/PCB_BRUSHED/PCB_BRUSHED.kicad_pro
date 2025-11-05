@@ -533,7 +533,7 @@
       "plot": "gerberpcbbrushed/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../3D PCB/PCB_BRUSHED.step",
       "svg": "",
       "vrml": ""
     },
