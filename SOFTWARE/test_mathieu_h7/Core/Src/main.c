@@ -19,13 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "dma.h"
-#include "fatfs.h"
 #include "i2c.h"
-#include "sai.h"
 #include "spi.h"
-#include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -33,7 +28,6 @@
 #include "ylidar.h"
 #include "adxl343.h"
 #include "ssd1306.h"
-#include "wav_sai.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,10 +52,6 @@
 adxl343_t adxldata;
 int flag=0;
 
-
-FATFS FatFs;   // FATFS handle
-FRESULT fres;  // Common result code
-FIL fil;
 
 /* USER CODE END PV */
 
@@ -147,45 +137,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_UART8_Init();
   MX_SPI4_Init();
-  MX_SPI1_Init();
-  MX_FATFS_Init();
   MX_I2C2_Init();
-  MX_SAI3_Init();
   /* USER CODE BEGIN 2 */
 
 //  HAL_UART_Abort(&huart8);
 //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
 
-  ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
+  //ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
-  //ssd1306_Init();
-
-  fres = f_mount(&FatFs, "", 1);
-  		  if (fres == FR_OK) {
-  			  fres = f_mkdir("DEMO");
-  			  fres = f_open(&fil, "/DEMO/write.txt",FA_WRITE | FA_OPEN_ALWAYS);
-  			  if (fres == FR_OK) {
-  				  //snprintf((char*) readBuf,30, "I hate Java!");
-  				  UINT bytesWrote;
-  				  fres = f_write(&fil,(uint8_t *)"test123test", 11, &bytesWrote);
-  				  f_close(&fil);
-
-  			  }
-  			  f_mount(NULL, "", 0);
-  		  }
-
-  		WAV_Init();
-
-  		bool result=false;
-
-  		fres = f_open(&fil,"0:/test.wav",FA_READ);
-
-  		result=WAV_Play("0:/test.wav");
-
+  ssd1306_Init();
+  ssd1306_Fill(White);
+  ssd1306_SetCursor(32,32);
+  ssd1306_UpdateScreen();
 
 
   /* USER CODE END 2 */
@@ -231,9 +196,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 1;

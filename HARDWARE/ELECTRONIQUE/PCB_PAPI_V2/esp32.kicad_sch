@@ -3811,6 +3811,16 @@
 		)
 		(uuid "b38c2779-6832-40e0-8976-1d9387a65a30")
 	)
+	(text "830069527 40Mhz 15ppm 8pF load 1.6mmx1.2mm"
+		(exclude_from_sim no)
+		(at 218.948 20.32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b4c38ad2-3edd-4238-a302-78f2715e4be6")
+	)
 	(text "35+j*0R and 2442Mhz"
 		(exclude_from_sim no)
 		(at 143.764 132.842 0)
@@ -23731,7 +23741,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "15p"
+		(property "Value" "3p"
 			(at 193.04 34.2962 0)
 			(effects
 				(font
@@ -24732,7 +24742,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "15p"
+		(property "Value" "3p"
 			(at 248.92 34.2962 0)
 			(effects
 				(font

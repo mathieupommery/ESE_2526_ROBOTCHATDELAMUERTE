@@ -3111,6 +3111,26 @@
 		)
 		(uuid "29b2dacd-7790-4aa4-a9fc-aec4acd72dcf")
 	)
+	(text "830072539 24Mhz 1.6mmx1.2mm 8pF"
+		(exclude_from_sim no)
+		(at 481.584 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3af457c7-d6cd-4c4a-af84-b69d0d36e318")
+	)
+	(text "j'ai mis du 10u 6.3v\n"
+		(exclude_from_sim no)
+		(at 394.97 329.184 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7755a430-d78c-4125-8c26-0f58d1dec4fb")
+	)
 	(text "MCU SIP\n"
 		(exclude_from_sim no)
 		(at 288.036 311.912 0)
@@ -6864,7 +6884,7 @@
 				)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "3p"
 			(at 451.612 57.15 90)
 			(effects
 				(font
@@ -7131,7 +7151,7 @@
 				)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "3p"
 			(at 513.842 57.15 90)
 			(effects
 				(font

@@ -4128,7 +4128,7 @@
 				)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "3p"
 			(at 0 1.05 150)
 			(layer "F.Fab")
 			(hide yes)
@@ -8336,7 +8336,7 @@
 				)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "3p"
 			(at 0 1.05 60)
 			(layer "F.Fab")
 			(hide yes)

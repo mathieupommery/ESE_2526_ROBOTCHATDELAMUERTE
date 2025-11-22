@@ -23,7 +23,4 @@
 ../Core/Src/ssd1306.c:507:6:ssd1306_SetContrast	1
 ../Core/Src/ssd1306.c:513:6:ssd1306_SetDisplayOn	2
 ../Core/Src/ssd1306.c:525:9:ssd1306_GetDisplayOn	1
-../Core/Src/ssd1306.c:529:6:ssd1306_Drawarrow	9
-../Core/Src/ssd1306.c:638:6:ssd1306_Drawarrow2	3
-../Core/Src/ssd1306.c:668:6:batterygauge	11
-../Core/Src/ssd1306.c:722:10:scrollText	6
+../Core/Src/ssd1306.c:530:6:batterygauge	11
