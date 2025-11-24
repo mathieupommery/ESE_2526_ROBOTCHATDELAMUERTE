@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "mcc_control.h"
+#include "usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,10 +46,14 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+extern Motor_t g_motors[3];
+extern uint8_t uart_rx_buf[256];
+extern uint8_t uart_tx_buf[128];
 /* USER CODE END Variables */
 osThreadId COMtaskHandle;
 osThreadId PIDtaskHandle;
+osSemaphoreId usart3txsemHandle;
+osSemaphoreId usart3rxsemHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -73,6 +78,15 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* definition and creation of usart3txsem */
+  osSemaphoreDef(usart3txsem);
+  usart3txsemHandle = osSemaphoreCreate(osSemaphore(usart3txsem), 1);
+
+  /* definition and creation of usart3rxsem */
+  osSemaphoreDef(usart3rxsem);
+  usart3rxsemHandle = osSemaphoreCreate(osSemaphore(usart3rxsem), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -113,9 +127,17 @@ void StartCOMTask(void const * argument)
   /* USER CODE BEGIN StartCOMTask */
 
 	TickType_t lastWakeTime = xTaskGetTickCount();
+
+	int i=0;
   /* Infinite loop */
   for(;;)
   {
+
+	  //osSemaphoreWait(usart3txsemHandle, 100);
+	  //int len = snprintf((uint8_t *) uart_tx_buf, 128, "test %d", i++);
+	  //HAL_UART_Transmit_DMA(&huart3,(uint8_t *) uart_tx_buf, len);
+
+
 	  HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
 	  vTaskDelayUntil(&lastWakeTime,pdMS_TO_TICKS(100));
   }

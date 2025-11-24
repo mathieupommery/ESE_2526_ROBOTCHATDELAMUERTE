@@ -21,7 +21,16 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+#include "cmsis_os.h"
+#include "mcc_control.h"
 
+
+extern osSemaphoreId usart3txsemHandle;
+extern osSemaphoreId usart3rxsemHandle;
+
+extern Motor_t g_motors[3];
+extern uint8_t uart_rx_buf[256];
+extern uint8_t uart_tx_buf[128];
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart3;
@@ -176,5 +185,23 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	if(huart->Instance==USART3){
 
+		osSemaphoreRelease(usart3txsemHandle);
+
+
+	}
+
+
+
+}
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart){
+
+
+}
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+
+
+}
 /* USER CODE END 1 */

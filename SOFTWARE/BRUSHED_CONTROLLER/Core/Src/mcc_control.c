@@ -116,17 +116,16 @@ static void Motor_UpdateMeasurement(Motor_t *m, float dt)
     m->speedRpm = m->speedRps * 60.0f;
 
     // angle roue en deg : on convertit le compteur (modulo 1 tour moteur -> 360)
-    float motorRevs = (float)cnt / m->ticksPerRev;
-    float wheelRevs = motorRevs / m->gearRatio;
-    m->angleDeg = wheelRevs * 360.0f;
+    float motorRevs = (float)delta / m->ticksPerRev;
+    m->angleDeg += motorRevs * 360.0f;
 }
 
 // ---------- API impl ----------
 
 void Motor_Init(Motor_t *m,
                 TIM_HandleTypeDef *htimPwm, uint32_t chA, uint32_t chB,
-                TIM_HandleTypeDef *htimEnc, uint32_t encA, uint32_t encB,
-                float ticksPerRev, float gearRatio)
+                TIM_HandleTypeDef *htimEnc, uint32_t encA, uint32_t encB
+                )
 {
     if (m == NULL) return;
 
@@ -138,8 +137,7 @@ void Motor_Init(Motor_t *m,
     m->encChA   = encA;
     m->encChB   = encB;
 
-    m->ticksPerRev = ticksPerRev;
-    m->gearRatio   = gearRatio;
+    m->ticksPerRev = MOTOR_RATIO * TICK_PER_ROTOR_TURN;
 
     m->encRaw  = 0;
     m->encPrev = (int32_t)__HAL_TIM_GET_COUNTER(htimEnc);
@@ -150,6 +148,7 @@ void Motor_Init(Motor_t *m,
     m->mode            = MOTOR_MODE_DISABLED;
     m->targetSpeedRpm  = 0.0f;
     m->targetAngleDeg  = 0.0f;
+    m->angle_flag=0;
 
     m->speedPid.integrator = 0.0f;
     m->speedPid.prevError  = 0.0f;
@@ -217,23 +216,17 @@ void App_InitMotors(void)
 
     Motor_Init(&g_motors[0],
                MOT1_PWM_HTIM, MOT1_PWM_CH_A, MOT1_PWM_CH_B,
-               MOT1_ENC_HTIM, MOT1_ENC_CH_A, MOT1_ENC_CH_B,
-               2048.0f,   // ticks par tour moteur
-               1.0f       // ratio mécanique
+               MOT1_ENC_HTIM, MOT1_ENC_CH_A, MOT1_ENC_CH_B
     );
 
     Motor_Init(&g_motors[1],
                MOT2_PWM_HTIM, MOT2_PWM_CH_A, MOT2_PWM_CH_B,
-               MOT2_ENC_HTIM, MOT2_ENC_CH_A, MOT2_ENC_CH_B,
-               2048.0f,
-               1.0f
+               MOT2_ENC_HTIM, MOT2_ENC_CH_A, MOT2_ENC_CH_B
     );
 
     Motor_Init(&g_motors[2],
                MOT3_PWM_HTIM, MOT3_PWM_CH_A, MOT3_PWM_CH_B,
-               MOT3_ENC_HTIM, MOT3_ENC_CH_A, MOT3_ENC_CH_B,
-               2048.0f,
-               1.0f
+               MOT3_ENC_HTIM, MOT3_ENC_CH_A, MOT3_ENC_CH_B
     );
 
     // PID communs
@@ -260,24 +253,42 @@ void MotorControlTask(float dt)
                 break;
 
             case MOTOR_MODE_SPEED:
-                cmd = PID_Update(&g_speedPidParams,&g_motors[i].speedPid,
-                		g_motors[i].targetSpeedRpm, g_motors[i].speedRpm, dt);
+            	if((g_motors[i].targetSpeedRpm-g_motors[i].speedRpm)>RAMP_MAX){
+            		float targetspeedajusted=g_motors[i].targetSpeedRpm + RAMP_MAX;
+                    cmd = PID_Update(&g_speedPidParams,&g_motors[i].speedPid,targetspeedajusted, g_motors[i].speedRpm, dt);
+
+            	}
+            	else if((g_motors[i].targetSpeedRpm-g_motors[i].speedRpm)<(-RAMP_MAX)){
+            		float targetspeedajusted=g_motors[i].targetSpeedRpm - RAMP_MAX;
+                    cmd = PID_Update(&g_speedPidParams,&g_motors[i].speedPid,targetspeedajusted, g_motors[i].speedRpm, dt);
+            	}
+            	else{
+                    cmd = PID_Update(&g_speedPidParams,&g_motors[i].speedPid,g_motors[i].targetSpeedRpm, g_motors[i].speedRpm, dt);
+            	}
+
+
                 break;
 
             case MOTOR_MODE_POSITION:
             {
-                // PID direct sur l’angle (simple, tu peux passer en cascade plus tard)
-                float angleError = g_motors[i].targetAngleDeg - g_motors[i].angleDeg;
+            	float angleError = g_motors[i].targetAngleDeg - g_motors[i].angleDeg;
+            	if(angleError <= ANGLE_ERROR )
+            	{
+            		cmd=0;
+            		g_motors[i].angle_flag=1;
 
-                // Option : normaliser l’erreur angle pour éviter de tourner dans le mauvais sens
-                while (angleError > 180.0f)  angleError -= 360.0f;
-                while (angleError < -180.0f) angleError += 360.0f;
+            	}
+            	else{
+            		if(g_motors[i].angle_flag==1){
+            			g_motors[i].angle_flag=0;
+            			g_motors[i].angleDeg=0.0;
+            		}
 
-                float angleSetpoint =g_motors[i].targetAngleDeg; // setpoint absolu
-                float measurement   =g_motors[i].angleDeg;
+            		cmd = PID_Update(&g_posPidParams,&g_motors[i].posPid,g_motors[i].targetAngleDeg, g_motors[i].angleDeg, dt);
+            	}
 
-                cmd = PID_Update(&g_posPidParams,&g_motors[i].posPid,
-                                 angleSetpoint, measurement, dt);
+
+
                 break;
             }
 

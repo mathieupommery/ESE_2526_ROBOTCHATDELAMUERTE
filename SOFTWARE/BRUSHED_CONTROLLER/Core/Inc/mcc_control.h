@@ -52,7 +52,12 @@ extern ADC_HandleTypeDef hadc2;
 #define NTC_ADC              (&hadc2)
 #define NTC_ADC_CHANNEL      ADC_CHANNEL_5   // correspond à ADC2_IN5
 
+#define MOTOR_RATIO 		 34.02f
+#define TICK_PER_ROTOR_TURN  44.0f
 
+#define RAMP_MAX  10.0f
+
+#define ANGLE_ERROR  0.5f
 
 
 typedef enum
@@ -91,7 +96,6 @@ typedef struct
     uint32_t encChB;
 
     float   ticksPerRev;   // ticks par tour moteur
-    float   gearRatio;     // rapport de réduction (tour roue / tour moteur)
 
     // --- Mesures ---
     int32_t encRaw;        // compteur brut
@@ -104,6 +108,9 @@ typedef struct
     MotorMode_t mode;
     float targetSpeedRpm;      // consigne de vitesse
     float targetAngleDeg;      // consigne d’angle (absolu roue)
+    float rampdiffmax;
+
+    uint8_t angle_flag;
 
     // --- PID states par moteur (mais params communs) ---
     PID_State_t speedPid;
@@ -114,10 +121,7 @@ typedef struct
 // ---------- API ----------
 void App_InitMotors(void);
 // Appelé pour chaque moteur
-void Motor_Init(Motor_t *m,
-                TIM_HandleTypeDef *htimPwm, uint32_t chA, uint32_t chB,
-                TIM_HandleTypeDef *htimEnc, uint32_t encA, uint32_t encB,
-                float ticksPerRev, float gearRatio);
+void Motor_Init(Motor_t *m,TIM_HandleTypeDef *htimPwm, uint32_t chA, uint32_t chB,TIM_HandleTypeDef *htimEnc, uint32_t encA, uint32_t encB);
 
 // PID communs à tous les moteurs (même params, états séparés)
 void Motor_SetCommonSpeedPid(float Kp, float Ki, float Kd, float outMax);
