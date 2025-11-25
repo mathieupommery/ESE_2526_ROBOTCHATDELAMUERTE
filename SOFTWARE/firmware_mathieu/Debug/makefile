@@ -9,10 +9,14 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include USB_DEVICE/Target/subdir.mk
+-include USB_DEVICE/App/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -64,8 +68,8 @@ all: main-build
 main-build: TEST_LORENZO_H7.elf secondary-outputs
 
 # Tool invocations
-TEST_LORENZO_H7.elf TEST_LORENZO_H7.map: $(OBJS) $(USER_OBJS) C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\test_mathieu_h7\STM32H743VIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "TEST_LORENZO_H7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\test_mathieu_h7\STM32H743VIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST_LORENZO_H7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+TEST_LORENZO_H7.elf TEST_LORENZO_H7.map: $(OBJS) $(USER_OBJS) C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_mathieu\STM32H743VIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "TEST_LORENZO_H7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_mathieu\STM32H743VIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST_LORENZO_H7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

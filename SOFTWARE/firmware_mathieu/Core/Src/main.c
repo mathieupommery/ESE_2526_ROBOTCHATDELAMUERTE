@@ -19,8 +19,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "dma.h"
 #include "i2c.h"
 #include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -28,6 +32,7 @@
 #include "ylidar.h"
 #include "adxl343.h"
 #include "ssd1306.h"
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +56,11 @@
 //extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
 adxl343_t adxldata;
 int flag=0;
+uint8_t LEDDMABUF[DMABUFLEN];
+uint8_t DMA_COMPLETE_FLAG=0;
+
+uint8_t motor_buf[64];
+
 
 
 /* USER CODE END PV */
@@ -71,16 +81,11 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_0){
 
 		if(flag == 0 ){
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,1);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,0);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+			LED_Setcolour(0,255,0,225,0,0);
 
 		}
 		if(flag == 1){
-
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,0);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,1);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+			LED_Setcolour(255,0,0,0,255,0);
 
 		}
 
@@ -96,6 +101,13 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 
 }
+
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
+
+	LED_Callback();
+}
+
+
 
 
 
@@ -137,20 +149,30 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI4_Init();
   MX_I2C2_Init();
+  MX_TIM1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
 //  HAL_UART_Abort(&huart8);
 //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
+   HAL_UART_Abort(&huart1);
+   HAL_UART_Receive_DMA(&huart1, (uint8_t *)motor_buf, 2);
 
-  //ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
-  ssd1306_Init();
-  ssd1306_Fill(White);
-  ssd1306_SetCursor(32,32);
-  ssd1306_UpdateScreen();
+  ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
+
+  LED_Init();
+
+  LED_Setcolour(0,255,0,225,0,0);
+
+//  ssd1306_Init();
+//  ssd1306_Fill(White);
+//  ssd1306_SetCursor(32,32);
+//  ssd1306_UpdateScreen();
 
 
   /* USER CODE END 2 */
@@ -196,8 +218,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 1;
@@ -267,7 +290,7 @@ void MPU_Config(void)
 
 /**
   * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM1 interrupt took place, inside
+  * @note   This function is called  when TIM2 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
   * a global variable "uwTick" used as application time base.
   * @param  htim : TIM handle
@@ -278,7 +301,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1)
+  if (htim->Instance == TIM2)
   {
     HAL_IncTick();
   }

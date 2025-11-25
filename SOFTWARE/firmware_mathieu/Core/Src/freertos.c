@@ -64,6 +64,7 @@ osThreadId lidarparseHandle;
 void Startmaintask(void const * argument);
 void Startlidarparse(void const * argument);
 
+extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
@@ -132,14 +133,14 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_Startmaintask */
 void Startmaintask(void const * argument)
 {
+  /* init code for USB_DEVICE */
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN Startmaintask */
   /* Infinite loop */
   for(;;)
   {
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
-
-
-    osDelay(500);
+	   osDelay(500);
   }
   /* USER CODE END Startmaintask */
 }
@@ -157,14 +158,8 @@ void Startlidarparse(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-//	  while (ylidar_read_index!=ylidar_write_index){
-//		  ylidar_fsm();
-//      }
-//	  trackObject()
 	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
-	  ADXL343_ReadXYZ(&adxldata, 100);
-
-	  osDelay(50);
+	  osDelay(100);
   }
   /* USER CODE END Startlidarparse */
 }
