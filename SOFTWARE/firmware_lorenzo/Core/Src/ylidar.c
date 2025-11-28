@@ -5,8 +5,8 @@
  *      Author: mathi
  */
 
-#include "ylidar.h"
-#include "main.h"
+#include <main.h>
+#include <ylidar.h>
 
 uint16_t ylidar_read_index=0;
 uint16_t ylidar_write_index=0;
@@ -151,76 +151,4 @@ void ylidar_fsm(void)
 	}
 	//    ylidar_finalbuffer[720]='\n';
 	//    ylidar_finalbuffer[721]='\r';
-}
-
-void trackObject(void) {
-	uint16_t start = 0;
-	uint16_t end = 0;
-	uint8_t nb_objects = 0;
-	uint16_t temp_cluster[180];
-	uint16_t avg_distance;
-	float size;
-	uint16_t j = 0;
-    memset(temp_cluster, 0, sizeof(temp_cluster));
-
-
-	for (int i = 0; i < 358; i++) {
-
-		switch (clusterstate){
-
-		case SEARCHING:
-			j = 0;
-			if ( (ylidar_finalbuffer[i] - ylidar_finalbuffer[(i-1)%359]) >= -ClusterThreshold ) {
-				start = i;
-				temp_cluster[j] = ylidar_finalbuffer[i];
-				j+=1;
-				clusterstate=OBJECT;
-			}
-			break;
-
-		case OBJECT:
-			temp_cluster[j] = ylidar_finalbuffer[i];
-			j+=1;
-
-			if (j >= 180) {
-			    clusterstate = SEARCHING;
-			    j = 0;
-			    memset(temp_cluster, 0, sizeof(temp_cluster));
-			    break;
-			}
-
-			if ((ylidar_finalbuffer[i+1] - ylidar_finalbuffer[i]) >= ClusterThreshold) {
-				end = i;
-				uint16_t sum=0;
-				uint16_t count=0;
-				for (int i = 0; i < j; i++) {
-					sum += temp_cluster[i];
-					count++;
-				}
-				avg_distance = (uint16_t) floor(sum/count);
-				size = sqrtf(powf(temp_cluster[0], 2) + powf(temp_cluster[j], 2) - 2 * temp_cluster[0] * temp_cluster[j] * cosf((end - start)*(M_PI / 180.0f)));
-				clusterstate=FILTER_OBJECT;
-			}
-			break;
-
-		case FILTER_OBJECT:
-			if (nb_objects < 10 && size<=250 && size >=150) {
-
-				objects[nb_objects].first_angle = start;
-				objects[nb_objects].last_angle  = end;
-				objects[nb_objects].distance    = avg_distance;
-				objects[nb_objects].size		= size;
-				nb_objects++;
-				j=0;
-				memset(temp_cluster, 0, sizeof(temp_cluster));
-				clusterstate=SEARCHING;
-			}
-			clusterstate=SEARCHING;
-			break;
-
-		default:
-			clusterstate=SEARCHING;
-			break;
-		}
-	}
 }

@@ -1,0 +1,2 @@
+../Core/Src/object_tracker.c:15:6:LidarObjectTracker_Init	0	static
+../Core/Src/object_tracker.c:22:6:LidarObjectTracker_ProcessScan	40	static

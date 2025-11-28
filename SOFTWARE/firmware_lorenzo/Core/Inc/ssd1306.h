@@ -11,13 +11,8 @@
 #include <stddef.h>
 #include <_ansi.h>
 #include <ssd1306_conf.h>
-
-_BEGIN_STD_C
-
-#include "ssd1306_fonts.h"
-
-
-
+#include <ssd1306_fonts.h>
+#include <ssd1306_fonts.h>
 #include "stm32h7xx_hal.h"
 
 
@@ -30,8 +25,8 @@ _BEGIN_STD_C
 #define SSD1306_X_OFFSET_UPPER 0
 #endif
 
-#include "ssd1306_fonts.h"
-#include "main.h"
+#include <ssd1306_fonts.h>
+#include <main.h>
 /* vvv I2C config vvv */
 
 
