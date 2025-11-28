@@ -56,7 +56,7 @@
 //extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
 adxl343_t adxldata;
 int flag=0;
-uint8_t LEDDMABUF[DMABUFLEN];
+uint32_t LEDDMABUF[DMABUFLEN];
 uint8_t DMA_COMPLETE_FLAG=0;
 
 uint8_t motor_buf[64];
@@ -81,11 +81,11 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_0){
 
 		if(flag == 0 ){
-			LED_Setcolour(0,255,0,225,0,0);
+			LED_Setcolour(255,0,0,0,0,255);
 
 		}
 		if(flag == 1){
-			LED_Setcolour(255,0,0,0,255,0);
+			LED_Setcolour(0,0,255,255,0,0);
 
 		}
 
@@ -168,6 +168,11 @@ int main(void)
   LED_Init();
 
   LED_Setcolour(0,255,0,225,0,0);
+
+  while(1){
+	  HAL_Delay(100);
+
+  }
 
 //  ssd1306_Init();
 //  ssd1306_Fill(White);

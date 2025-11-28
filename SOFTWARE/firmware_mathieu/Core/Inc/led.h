@@ -22,8 +22,8 @@
 
 #define LED_NUM 2
 
-#define HI_VAL 153
-#define LOW_VAL 51
+#define HI_VAL 72
+#define LOW_VAL 24
 
 #define RSTPERIOD 260
 
