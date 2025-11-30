@@ -21,11 +21,11 @@
 #include <dma.h>
 #include <gpio.h>
 #include <i2c.h>
+#include <LidarTracking.h>
 #include <main.h>
 #include <spi.h>
 #include <ssd1306.h>
 #include <usart.h>
-#include <ylidar.h>
 #include "cmsis_os.h"
 
 /* USER CODE END Includes */
