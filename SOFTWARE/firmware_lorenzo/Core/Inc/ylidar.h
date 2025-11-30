@@ -15,7 +15,7 @@ void trackObject(void);
 #define YLIDAR_CIRC_BUF_SIZE 1024
 #define YLIDAR_CIRC_BUF_MASK 1023
 
-#define LidarMaxDepth 1000
+#define LidarMaxDepth 500
 
 #define ClusterThreshold 100
 

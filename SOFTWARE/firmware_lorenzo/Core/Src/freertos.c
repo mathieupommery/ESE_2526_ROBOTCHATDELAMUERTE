@@ -1,32 +1,33 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : freertos.c
-  * Description        : Code for freertos applications
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : freertos.c
+ * Description        : Code for freertos applications
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <adxl343.h>
+#include <main.h>
+#include <vl53l0x.h>
+#include <ylidar.h>
 #include "FreeRTOS.h"
 #include "task.h"
-#include "main.h"
 #include "cmsis_os.h"
-
+#include "object_tracker.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ylidar.h"
-#include "adxl343.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,12 +50,19 @@
 extern uint16_t ylidar_read_index;
 extern uint16_t ylidar_write_index;
 
-extern uint8_t ylidar_finalbuffer[1024];
-extern adxl343_t adxldata;
+extern uint16_t ylidar_finalbuffer[360];
+//extern adxl343_t adxldata;
+
+extern I2C_HandleTypeDef hi2c1;
+extern I2C_HandleTypeDef hi2c3;
+extern I2C_HandleTypeDef hi2c4;
+
+static LidarObjectList_t objects = {0};
 
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId lidarparseHandle;
+osThreadId TofTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -63,6 +71,7 @@ osThreadId lidarparseHandle;
 
 void Startmaintask(void const * argument);
 void Startlidarparse(void const * argument);
+void StartTofTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -75,98 +84,132 @@ static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
 
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
 {
-  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-  *ppxIdleTaskStackBuffer = &xIdleStack[0];
-  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
-  /* place for user code */
+	*ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+	*ppxIdleTaskStackBuffer = &xIdleStack[0];
+	*pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+	/* place for user code */
 }
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
 void MX_FREERTOS_Init(void) {
-  /* USER CODE BEGIN Init */
+	/* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+	/* USER CODE END Init */
 
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
+	/* USER CODE BEGIN RTOS_MUTEX */
+	/* add mutexes, ... */
+	/* USER CODE END RTOS_MUTEX */
 
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
+	/* USER CODE BEGIN RTOS_SEMAPHORES */
+	/* add semaphores, ... */
+	/* USER CODE END RTOS_SEMAPHORES */
 
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
+	/* USER CODE BEGIN RTOS_TIMERS */
+	/* start timers, add new ones, ... */
+	/* USER CODE END RTOS_TIMERS */
 
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
+	/* USER CODE BEGIN RTOS_QUEUES */
+	/* add queues, ... */
+	/* USER CODE END RTOS_QUEUES */
 
-  /* Create the thread(s) */
-  /* definition and creation of maintask */
-  osThreadDef(maintask, Startmaintask, osPriorityNormal, 0, 256);
-  maintaskHandle = osThreadCreate(osThread(maintask), NULL);
+	/* Create the thread(s) */
+	/* definition and creation of maintask */
+	osThreadDef(maintask, Startmaintask, osPriorityNormal, 0, 256);
+	maintaskHandle = osThreadCreate(osThread(maintask), NULL);
 
-  /* definition and creation of lidarparse */
-  osThreadDef(lidarparse, Startlidarparse, osPriorityIdle, 0, 500);
-  lidarparseHandle = osThreadCreate(osThread(lidarparse), NULL);
+	/* definition and creation of lidarparse */
+	osThreadDef(lidarparse, Startlidarparse, osPriorityIdle, 0, 500);
+	lidarparseHandle = osThreadCreate(osThread(lidarparse), NULL);
 
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
+	/* definition and creation of TofTask */
+	osThreadDef(TofTask, StartTofTask, osPriorityIdle, 0, 128);
+	TofTaskHandle = osThreadCreate(osThread(TofTask), NULL);
+
+	/* USER CODE BEGIN RTOS_THREADS */
+	/* add threads, ... */
+	/* USER CODE END RTOS_THREADS */
 
 }
 
 /* USER CODE BEGIN Header_Startmaintask */
 /**
-  * @brief  Function implementing the maintask thread.
-  * @param  argument: Not used
-  * @retval None
-  */
+ * @brief  Function implementing the maintask thread.
+ * @param  argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_Startmaintask */
 void Startmaintask(void const * argument)
 {
-  /* USER CODE BEGIN Startmaintask */
-  /* Infinite loop */
-  for(;;)
-  {
-	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
+	/* USER CODE BEGIN Startmaintask */
+	/* Infinite loop */
+	for(;;)
+	{
+		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 
 
-    osDelay(500);
-  }
-  /* USER CODE END Startmaintask */
+		osDelay(500);
+	}
+	/* USER CODE END Startmaintask */
 }
 
 /* USER CODE BEGIN Header_Startlidarparse */
 /**
-* @brief Function implementing the lidarparse thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the lidarparse thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_Startlidarparse */
 void Startlidarparse(void const * argument)
 {
-  /* USER CODE BEGIN Startlidarparse */
-  /* Infinite loop */
-  for(;;)
-  {
-//	  while (ylidar_read_index!=ylidar_write_index){
-//		  ylidar_fsm();
-//      }
-//	  trackObject()
-	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
-	  ADXL343_ReadXYZ(&adxldata, 100);
+	/* USER CODE BEGIN Startlidarparse */
+//	LidarObjectTracker_Init();
+	/* Infinite loop */
+	for(;;)
+	{
+		while (ylidar_read_index!=ylidar_write_index){
+			ylidar_fsm();
+		}
+		LidarObjectTracker_ProcessScan(ylidar_finalbuffer, &objects);
+		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
+		//		ADXL343_ReadXYZ(&adxldata, 100);
 
-	  osDelay(50);
-  }
-  /* USER CODE END Startlidarparse */
+		osDelay(50);
+	}
+	/* USER CODE END Startlidarparse */
+}
+
+/* USER CODE BEGIN Header_StartTofTask */
+/**
+ * @brief Function implementing the TofTask thread.
+ * @param argument: Not used
+ * @retval None
+ */
+/* USER CODE END Header_StartTofTask */
+void StartTofTask(void const * argument)
+{
+	/* USER CODE BEGIN StartTofTask */
+	VL53L0X_Init(1, 0.3f);
+	VL53L0X_Init(2, 0.3f);
+	VL53L0X_Init(3, 0.3f);
+
+	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
+	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
+	VL53L0X_t *t3 = VL53L0X_GetHandle(3);
+
+	/* Infinite loop */
+	for(;;)
+	{
+		VL53L0X_Update(t1);
+		VL53L0X_Update(t2);
+		VL53L0X_Update(t3);
+		osDelay(100);
+	}
+	/* USER CODE END StartTofTask */
 }
 
 /* Private application code --------------------------------------------------*/

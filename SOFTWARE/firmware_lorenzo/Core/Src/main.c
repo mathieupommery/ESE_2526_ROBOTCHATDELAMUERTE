@@ -1,33 +1,33 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include <adxl343.h>
+#include <dma.h>
+#include <gpio.h>
+#include <i2c.h>
+#include <main.h>
+#include <spi.h>
+#include <ssd1306.h>
+#include <usart.h>
+#include <ylidar.h>
 #include "cmsis_os.h"
-#include "i2c.h"
-#include "spi.h"
-#include "gpio.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-#include "ylidar.h"
-#include "adxl343.h"
-#include "ssd1306.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,10 +48,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-//extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
-adxl343_t adxldata;
-int flag=0;
-
+extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
+//adxl343_t adxldata;
+//int flag=0;
 
 /* USER CODE END PV */
 
@@ -66,42 +65,31 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-
-	if(GPIO_Pin == GPIO_PIN_0){
-
-		if(flag == 0 ){
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,1);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,0);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
-
-		}
-		if(flag == 1){
-
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,0);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,1);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
-
-		}
-
-		flag=1-flag;
-
-		ADXL343_INT_HANDLER(&adxldata, 100);
-
-
-
-
-
-	}
-
-
-}
-
-
-
-
-
-
+//HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+//
+//	if(GPIO_Pin == GPIO_PIN_0){
+//
+//		if(flag == 0 ){
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,1);
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,0);
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+//
+//		}
+//		if(flag == 1){
+//
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_3,0);
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,1);
+//			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_5,0);
+//
+//		}
+//
+//		flag=1-flag;
+//
+//		ADXL343_INT_HANDLER(&adxldata, 100);
+//
+//	}
+//
+//}
 
 /* USER CODE END 0 */
 
@@ -137,20 +125,24 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI4_Init();
-  MX_I2C2_Init();
+  MX_UART8_Init();
+  MX_I2C1_Init();
+  MX_I2C3_Init();
+  MX_I2C4_Init();
   /* USER CODE BEGIN 2 */
 
-//  HAL_UART_Abort(&huart8);
-//  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
-//  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
+	HAL_UART_Abort(&huart8);
+	HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
+	__HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
 
-  //ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
+	//ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
-  ssd1306_Init();
-  ssd1306_Fill(White);
-  ssd1306_SetCursor(32,32);
-  ssd1306_UpdateScreen();
+//	ssd1306_Init();
+//	ssd1306_Fill(White);
+//	ssd1306_SetCursor(32,32);
+//	ssd1306_UpdateScreen();
 
 
   /* USER CODE END 2 */
@@ -165,12 +157,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+	while (1)
+	{
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
 
@@ -294,11 +286,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
@@ -312,7 +304,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
