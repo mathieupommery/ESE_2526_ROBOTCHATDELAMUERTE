@@ -1,0 +1,5 @@
+../Core/Src/mcc_com_master.c:16:19:MotorCom_Init	24	static
+../Core/Src/mcc_com_master.c:40:19:MotorCom_Process	32	static
+../Core/Src/mcc_com_master.c:171:6:HAL_UART_RxHalfCpltCallback	16	static
+../Core/Src/mcc_com_master.c:178:6:HAL_UART_RxCpltCallback	16	static
+../Core/Src/mcc_com_master.c:189:6:HAL_UART_TxCpltCallback	16	static

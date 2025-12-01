@@ -33,6 +33,7 @@
 #include "adxl343.h"
 #include "ssd1306.h"
 #include "led.h"
+#include "mcc_com_master.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,8 +59,7 @@ adxl343_t adxldata;
 int flag=0;
 uint32_t LEDDMABUF[DMABUFLEN];
 uint8_t DMA_COMPLETE_FLAG=0;
-
-uint8_t motor_buf[64];
+extern MOTOR_COM com_struct;
 
 
 
@@ -159,9 +159,8 @@ int main(void)
 //  HAL_UART_Abort(&huart8);
 //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
-   HAL_UART_Abort(&huart1);
-   HAL_UART_Receive_DMA(&huart1, (uint8_t *)motor_buf, 2);
 
+  MotorCom_Init(&com_struct,&huart1);
 
   ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 

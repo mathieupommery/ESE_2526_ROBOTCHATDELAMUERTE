@@ -5,6 +5,7 @@
 "./Core/Src/i2c.o"
 "./Core/Src/led.o"
 "./Core/Src/main.o"
+"./Core/Src/mcc_com_master.o"
 "./Core/Src/spi.o"
 "./Core/Src/ssd1306.o"
 "./Core/Src/ssd1306_fonts.o"

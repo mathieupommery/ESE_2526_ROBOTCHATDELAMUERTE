@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "ylidar.h"
 #include "adxl343.h"
+#include "mcc_com_master.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +52,7 @@ extern uint16_t ylidar_write_index;
 
 extern uint8_t ylidar_finalbuffer[1024];
 extern adxl343_t adxldata;
+extern MOTOR_COM com_struct;
 
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
@@ -135,12 +137,17 @@ void Startmaintask(void const * argument)
 {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
+
+  TickType_t xLastWakeTime;
+  const TickType_t period = pdMS_TO_TICKS(200);
+
+  xLastWakeTime = xTaskGetTickCount();
   /* USER CODE BEGIN Startmaintask */
   /* Infinite loop */
   for(;;)
   {
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
-	   osDelay(500);
+	   vTaskDelayUntil(&xLastWakeTime, period);
   }
   /* USER CODE END Startmaintask */
 }
@@ -155,11 +162,18 @@ void Startmaintask(void const * argument)
 void Startlidarparse(void const * argument)
 {
   /* USER CODE BEGIN Startlidarparse */
+    TickType_t xLastWakeTime;
+    const TickType_t period = pdMS_TO_TICKS(10);
+
+    xLastWakeTime = xTaskGetTickCount();
+
   /* Infinite loop */
   for(;;)
   {
-	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
-	  osDelay(100);
+
+	  MotorCom_Process(&com_struct);
+
+	  vTaskDelayUntil(&xLastWakeTime, period);
   }
   /* USER CODE END Startlidarparse */
 }
