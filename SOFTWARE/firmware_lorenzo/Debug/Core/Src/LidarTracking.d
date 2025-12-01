@@ -1,5 +1,5 @@
-Core/Src/object_tracker.o: ../Core/Src/object_tracker.c \
- ../Core/Inc/object_tracker.h \
+Core/Src/LidarTracking.o: ../Core/Src/LidarTracking.c \
+ ../Core/Inc/LidarTracking.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -9,7 +9,7 @@ Core/Src/object_tracker.o: ../Core/Src/object_tracker.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-../Core/Inc/object_tracker.h:
+../Core/Inc/LidarTracking.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:

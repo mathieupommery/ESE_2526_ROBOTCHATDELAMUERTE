@@ -1,3 +1,0 @@
-../Core/Src/object_tracker.c:26:21:calc_size_mm	4
-../Core/Src/object_tracker.c:36:6:LidarObjectTracker_Init	1
-../Core/Src/object_tracker.c:42:6:LidarObjectTracker_ProcessScan	52

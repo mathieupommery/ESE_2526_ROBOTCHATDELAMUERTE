@@ -21,11 +21,10 @@
 #include <adxl343.h>
 #include <main.h>
 #include <vl53l0x.h>
-#include <ylidar.h>
+#include "LidarTracking.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "cmsis_os.h"
-#include "object_tracker.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -57,7 +56,7 @@ extern I2C_HandleTypeDef hi2c1;
 extern I2C_HandleTypeDef hi2c3;
 extern I2C_HandleTypeDef hi2c4;
 
-static LidarObjectList_t objects = {0};
+static LidarClusterList_t clusters = {0};
 
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
@@ -149,9 +148,6 @@ void Startmaintask(void const * argument)
 	/* Infinite loop */
 	for(;;)
 	{
-		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
-
-
 		osDelay(500);
 	}
 	/* USER CODE END Startmaintask */
@@ -174,8 +170,7 @@ void Startlidarparse(void const * argument)
 		while (ylidar_read_index!=ylidar_write_index){
 			ylidar_fsm();
 		}
-		LidarObjectTracker_ProcessScan(ylidar_finalbuffer, &objects);
-		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
+		LidarClusterTracker_ProcessScan(ylidar_finalbuffer, &clusters);
 		//		ADXL343_ReadXYZ(&adxldata, 100);
 
 		osDelay(50);

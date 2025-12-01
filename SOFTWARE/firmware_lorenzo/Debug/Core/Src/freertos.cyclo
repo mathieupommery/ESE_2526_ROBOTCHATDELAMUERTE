@@ -1,5 +1,5 @@
-../Core/Src/freertos.c:85:6:vApplicationGetIdleTaskMemory	1
-../Core/Src/freertos.c:99:6:MX_FREERTOS_Init	1
-../Core/Src/freertos.c:146:6:Startmaintask	1
-../Core/Src/freertos.c:167:6:Startlidarparse	2
-../Core/Src/freertos.c:193:6:StartTofTask	1
+../Core/Src/freertos.c:84:6:vApplicationGetIdleTaskMemory	1
+../Core/Src/freertos.c:98:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:145:6:Startmaintask	1
+../Core/Src/freertos.c:163:6:Startlidarparse	2
+../Core/Src/freertos.c:188:6:StartTofTask	1
