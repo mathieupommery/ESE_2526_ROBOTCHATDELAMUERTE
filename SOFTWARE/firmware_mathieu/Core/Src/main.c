@@ -76,7 +76,7 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	if(GPIO_Pin == GPIO_PIN_0){
 
@@ -92,19 +92,49 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		flag=1-flag;
 
 		ADXL343_INT_HANDLER(&adxldata, 100);
-
-
-
-
-
 	}
-
-
 }
 
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 
 	LED_Callback();
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART1)
+    {
+        com_struct.tx_flag=0;
+    }
+}
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+
+    if (huart->Instance == USART1)
+    {
+#ifdef NORMAL_MODE
+        com_struct.write_index=(uint16_t)(MOTOR_COM_RX_BUF_SIZE / 2u);
+#endif
+#ifdef DEBUG_MODE
+        (void)CDC_Transmit_FS(&com_struct.dbg_rx_buf[0],DEBUG_RX_BUF_SIZE / 2u);
+#endif
+    }
+
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+
+    if (huart->Instance == USART1)
+    {
+#ifdef NORMAL_MODE
+        com_struct.write_index=0;
+#endif
+#ifdef DEBUG_MODE
+        (void)CDC_Transmit_FS(&com_struct.dbg_rx_buf[DEBUG_RX_BUF_SIZE / 2u], DEBUG_RX_BUF_SIZE / 2u);
+#endif
+    }
+
 }
 
 
@@ -167,11 +197,6 @@ int main(void)
   LED_Init();
 
   LED_Setcolour(0,255,0,225,0,0);
-
-  while(1){
-	  HAL_Delay(100);
-
-  }
 
 //  ssd1306_Init();
 //  ssd1306_Fill(White);

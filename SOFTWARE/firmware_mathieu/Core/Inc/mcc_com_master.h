@@ -11,8 +11,12 @@
 #include "stm32h7xx_hal.h"
 #include <stdint.h>
 
-#define NORMAL_MODE
+//#define NORMAL_MODE
 #define DEBUG_MODE
+
+#ifdef DEBUG_MODE
+#define DEBUG_RX_BUF_SIZE 64
+#endif
 
 
 
@@ -37,30 +41,26 @@ typedef union {
 typedef struct {
 
     UART_HandleTypeDef *huart;
+
     MotorFrameUnion_t rx_struct;
+    uint8_t rx_buf[MOTOR_COM_RX_BUF_SIZE];
+    uint16_t 		write_index;
+    uint16_t        read_index;
+
     MotorFrameUnion_t tx_buf;
+    uint8_t tx_flag;
 
     uint8_t counter;
-
     float w0;
     float w1;
     float w2;
 
-    uint8_t tx_flag;
-
-    uint16_t 		write_index;
-    uint16_t        read_index;
-
-    uint8_t rx_buf[MOTOR_COM_RX_BUF_SIZE];
 
 #ifdef DEBUG_MODE
-    char     dbg_tx_buf[64];   // buffer texte pour snprintf
-    char     dbg_rx_buf[32];   // buffer réception ligne de commande
-    uint8_t  dbg_rx_index;     // index dans dbg_rx_buf
+    char     dbg_tx_buf[64];
+    char     dbg_rx_buf[DEBUG_RX_BUF_SIZE];
+    uint8_t  dbg_rx_index;
 #endif
-
-
-
 
 } MOTOR_COM;
 

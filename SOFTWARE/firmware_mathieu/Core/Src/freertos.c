@@ -137,12 +137,11 @@ void Startmaintask(void const * argument)
 {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
-
+  /* USER CODE BEGIN Startmaintask */
   TickType_t xLastWakeTime;
   const TickType_t period = pdMS_TO_TICKS(200);
 
   xLastWakeTime = xTaskGetTickCount();
-  /* USER CODE BEGIN Startmaintask */
   /* Infinite loop */
   for(;;)
   {
@@ -163,7 +162,7 @@ void Startlidarparse(void const * argument)
 {
   /* USER CODE BEGIN Startlidarparse */
     TickType_t xLastWakeTime;
-    const TickType_t period = pdMS_TO_TICKS(10);
+    const TickType_t period = pdMS_TO_TICKS(5);
 
     xLastWakeTime = xTaskGetTickCount();
 

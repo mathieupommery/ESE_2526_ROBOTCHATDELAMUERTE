@@ -27,9 +27,12 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart)
 	}
 #endif
 #ifdef DEBUG_MODE
-	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->rx_buf,2)!=HAL_OK){
+
+	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->dbg_rx_buf,DEBUG_RX_BUF_SIZE)!=HAL_OK){
 		result=HAL_ERROR;
 	}
+    __HAL_DMA_ENABLE_IT(huart->hdmarx, DMA_IT_HT);
+    __HAL_DMA_ENABLE_IT(huart->hdmarx, DMA_IT_TC);
 #endif
 return result;
 }
@@ -167,26 +170,3 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 
 
 
-
-void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
-{
-#ifdef NORMAL_MODE
-        com_struct.write_index=(uint16_t)(MOTOR_COM_RX_BUF_SIZE / 2u);
-#endif
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-#ifdef NORM_MODE
-        com_struct.write_index=0;
-#endif
-#ifdef DEBUG_MODE
-    	CDC_Transmit_FS((uint8_t *)com_struct.dbg_rx_buf, 2);
-    	HAL_UART_Receive_DMA(&huart1, (uint8_t *)com_struct.dbg_rx_buf, 2);
-#endif
-}
-
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-        com_struct.tx_flag=0;
-}
