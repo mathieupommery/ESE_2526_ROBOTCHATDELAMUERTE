@@ -33,6 +33,7 @@
 #include "adxl343.h"
 #include "ssd1306.h"
 #include "led.h"
+#include "mcc_com_master.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,8 +59,7 @@ adxl343_t adxldata;
 int flag=0;
 uint32_t LEDDMABUF[DMABUFLEN];
 uint8_t DMA_COMPLETE_FLAG=0;
-
-uint8_t motor_buf[64];
+extern MOTOR_COM com_struct;
 
 
 
@@ -76,7 +76,7 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	if(GPIO_Pin == GPIO_PIN_0){
 
@@ -92,19 +92,49 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		flag=1-flag;
 
 		ADXL343_INT_HANDLER(&adxldata, 100);
-
-
-
-
-
 	}
-
-
 }
 
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 
 	LED_Callback();
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART1)
+    {
+        com_struct.tx_flag=0;
+    }
+}
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+
+    if (huart->Instance == USART1)
+    {
+#ifdef NORMAL_MODE
+        com_struct.write_index=(uint16_t)(MOTOR_COM_RX_BUF_SIZE / 2u);
+#endif
+#ifdef DEBUG_MODE
+        (void)CDC_Transmit_FS(&com_struct.dbg_rx_buf[0],DEBUG_RX_BUF_SIZE / 2u);
+#endif
+    }
+
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+
+    if (huart->Instance == USART1)
+    {
+#ifdef NORMAL_MODE
+        com_struct.write_index=0;
+#endif
+#ifdef DEBUG_MODE
+        (void)CDC_Transmit_FS(&com_struct.dbg_rx_buf[DEBUG_RX_BUF_SIZE / 2u], DEBUG_RX_BUF_SIZE / 2u);
+#endif
+    }
+
 }
 
 
@@ -159,20 +189,14 @@ int main(void)
 //  HAL_UART_Abort(&huart8);
 //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
-   HAL_UART_Abort(&huart1);
-   HAL_UART_Receive_DMA(&huart1, (uint8_t *)motor_buf, 2);
 
+  MotorCom_Init(&com_struct,&huart1);
 
   ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
   LED_Init();
 
   LED_Setcolour(0,255,0,225,0,0);
-
-  while(1){
-	  HAL_Delay(100);
-
-  }
 
 //  ssd1306_Init();
 //  ssd1306_Fill(White);
