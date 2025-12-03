@@ -26,6 +26,8 @@
 #include "control.h"
 #include "vl53l0x.h"
 #include "cat.h"
+#include "stm32h7xx.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -48,6 +50,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+static uint32_t tasktime = 0;
 
 extern LiDARParsing_t laserscan;
 
@@ -94,51 +97,51 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
 void MX_FREERTOS_Init(void) {
-  /* USER CODE BEGIN Init */
+	/* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+	/* USER CODE END Init */
 
-  /* USER CODE BEGIN RTOS_MUTEX */
+	/* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
+	/* USER CODE END RTOS_MUTEX */
 
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
+	/* USER CODE BEGIN RTOS_SEMAPHORES */
 	/* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
+	/* USER CODE END RTOS_SEMAPHORES */
 
-  /* USER CODE BEGIN RTOS_TIMERS */
+	/* USER CODE BEGIN RTOS_TIMERS */
 	/* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
+	/* USER CODE END RTOS_TIMERS */
 
-  /* USER CODE BEGIN RTOS_QUEUES */
+	/* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
+	/* USER CODE END RTOS_QUEUES */
 
-  /* Create the thread(s) */
-  /* definition and creation of maintask */
-  osThreadDef(maintask, Startmaintask, osPriorityNormal, 0, 256);
-  maintaskHandle = osThreadCreate(osThread(maintask), NULL);
+	/* Create the thread(s) */
+	/* definition and creation of maintask */
+	osThreadDef(maintask, Startmaintask, osPriorityNormal, 0, 256);
+	maintaskHandle = osThreadCreate(osThread(maintask), NULL);
 
-  /* definition and creation of lidarparse */
-  osThreadDef(lidarparse, Startlidarparse, osPriorityIdle, 0, 500);
-  lidarparseHandle = osThreadCreate(osThread(lidarparse), NULL);
+	/* definition and creation of lidarparse */
+	osThreadDef(lidarparse, Startlidarparse, osPriorityIdle, 0, 500);
+	lidarparseHandle = osThreadCreate(osThread(lidarparse), NULL);
 
-  /* definition and creation of TofTask */
-  osThreadDef(TofTask, StartTofTask, osPriorityIdle, 0, 128);
-  TofTaskHandle = osThreadCreate(osThread(TofTask), NULL);
+	/* definition and creation of TofTask */
+	osThreadDef(TofTask, StartTofTask, osPriorityIdle, 0, 128);
+	TofTaskHandle = osThreadCreate(osThread(TofTask), NULL);
 
-  /* definition and creation of Control */
-  osThreadDef(Control, StartControlTask, osPriorityIdle, 0, 128);
-  ControlHandle = osThreadCreate(osThread(Control), NULL);
+	/* definition and creation of Control */
+	osThreadDef(Control, StartControlTask, osPriorityIdle, 0, 128);
+	ControlHandle = osThreadCreate(osThread(Control), NULL);
 
-  /* USER CODE BEGIN RTOS_THREADS */
+	/* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
+	/* USER CODE END RTOS_THREADS */
 
 }
 
@@ -151,13 +154,13 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_Startmaintask */
 void Startmaintask(void const * argument)
 {
-  /* USER CODE BEGIN Startmaintask */
+	/* USER CODE BEGIN Startmaintask */
 	/* Infinite loop */
 	for(;;)
 	{
 		osDelay(500);
 	}
-  /* USER CODE END Startmaintask */
+	/* USER CODE END Startmaintask */
 }
 
 /* USER CODE BEGIN Header_Startlidarparse */
@@ -169,20 +172,25 @@ void Startmaintask(void const * argument)
 /* USER CODE END Header_Startlidarparse */
 void Startlidarparse(void const * argument)
 {
-  /* USER CODE BEGIN Startlidarparse */
+	/* USER CODE BEGIN Startlidarparse */
 	LidarTracking_Init();
+
 	/* Infinite loop */
 	for(;;)
 	{
+		uint32_t start = DWT->CYCCNT;
+
 		while (laserscan.ylidar_read_index!=laserscan.ylidar_write_index){
 			ylidar_fsm();
 		}
 		LidarClusterTracker_ProcessScan();
-//		ADXL343_ReadXYZ(&adxldata, 100);
+		//		ADXL343_ReadXYZ(&adxldata, 100);
 
-		osDelay(50);
+		uint32_t end = DWT->CYCCNT;
+		tasktime = end - start;
+		osDelay(1);
 	}
-  /* USER CODE END Startlidarparse */
+	/* USER CODE END Startlidarparse */
 }
 
 /* USER CODE BEGIN Header_StartTofTask */
@@ -194,7 +202,7 @@ void Startlidarparse(void const * argument)
 /* USER CODE END Header_StartTofTask */
 void StartTofTask(void const * argument)
 {
-  /* USER CODE BEGIN StartTofTask */
+	/* USER CODE BEGIN StartTofTask */
 	VL53L0X_Init(1, 0.3f);
 	VL53L0X_Init(2, 0.3f);
 	VL53L0X_Init(3, 0.3f);
@@ -211,29 +219,29 @@ void StartTofTask(void const * argument)
 		VL53L0X_Update(t3);
 		osDelay(100);
 	}
-  /* USER CODE END StartTofTask */
+	/* USER CODE END StartTofTask */
 }
 
 /* USER CODE BEGIN Header_StartControlTask */
 /**
-* @brief Function implementing the Control thread.
-* @param argument: Not used
-* @retval None
-*/
+ * @brief Function implementing the Control thread.
+ * @param argument: Not used
+ * @retval None
+ */
 /* USER CODE END Header_StartControlTask */
 void StartControlTask(void const * argument)
 {
-  /* USER CODE BEGIN StartControlTask */
+	/* USER CODE BEGIN StartControlTask */
 	odometry_Init();
-  /* Infinite loop */
-  for(;;)
-  {
-	  attack();
-	  compute_speed(cat.target_bearing, 0, 0, 0); // mettre vitesses moteurs
-	  control_rotation_speed();
-    osDelay(1);
-  }
-  /* USER CODE END StartControlTask */
+	/* Infinite loop */
+	for(;;)
+	{
+		attack();
+		compute_speed(cat.target_bearing, 0, 0, 0); // mettre vitesses moteurs
+		control_rotation_speed();
+		osDelay(1);
+	}
+	/* USER CODE END StartControlTask */
 }
 
 /* Private application code --------------------------------------------------*/

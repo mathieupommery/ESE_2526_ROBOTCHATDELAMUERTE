@@ -18,6 +18,8 @@
 #include <math.h>
 #include "FreeRTOS.h"
 #include "task.h"
+#include "stm32h7xx.h"
+
 // ─────────────────────────────────────────────────────────────
 // ──────────────────────────── DEFINES ────────────────────────────────
 // ────────────────────────────────────────────────────────────
@@ -39,13 +41,15 @@
 #define LIDAR_POINTS             359
 #define MAX_CLUSTERS             3
 
-#define CLUSTER_THRESHOLD_MM     450
+#define CLUSTER_THRESHOLD_MM     100
+#define MAX_HOLE_COUNT			 10
+#define MAX_HOLE_POINTS			 10
 #define MIN_CLUSTER_POINTS       7
 #define MAX_CLUSTER_POINTS		 100
-#define MIN_CLUSTER_SIZE_MM      30
-#define MAX_CLUSTER_SIZE_MM      150
+#define MIN_CLUSTER_SIZE_MM      10
+#define MAX_CLUSTER_SIZE_MM      200
 #define MIN_VALID_DISTANCE_MM    50
-#define MAX_VALID_DISTANCE_MM    200
+#define MAX_VALID_DISTANCE_MM    300
 
 #define CLUSTER_BUF_SIZE	LIDAR_POINTS + 90
 #define MAX_TEMP_CLUSTERS	20
@@ -93,6 +97,7 @@ uint16_t LSA;
 uint16_t CHECKSUM;
 uint16_t XOR;
 uint16_t ANGLEINIT;
+uint32_t CPU_cycles;
 }LiDARParsing_t;
 
 // ──────────────────────────── Cluster Temporaires ────────────────────────────────
@@ -103,6 +108,8 @@ typedef struct {
 	uint16_t point_count;
 	uint16_t avg_dist;
 	float size_mm;
+	uint16_t first_point;
+	uint16_t last_point;
 } TempCluster_t;
 
 typedef struct{
@@ -136,6 +143,7 @@ typedef struct {
 	uint8_t       count;
 	uint32_t      scan_id;
 	bool          new_data;
+	uint32_t CPU_cycles;
 } LidarClusterList_t;
 
 // ─────────────────────────────────────────────────────────────
