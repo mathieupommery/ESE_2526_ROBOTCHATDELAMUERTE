@@ -196,7 +196,7 @@ int main(void)
 
   LED_Init();
 
-  LED_Setcolour(0,255,0,225,0,0);
+  LED_Setcolour(0,255,0,0,255,0);
 
 //  ssd1306_Init();
 //  ssd1306_Fill(White);
