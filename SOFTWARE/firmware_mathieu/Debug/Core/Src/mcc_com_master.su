@@ -1,2 +1,2 @@
 ../Core/Src/mcc_com_master.c:16:19:MotorCom_Init	24	static
-../Core/Src/mcc_com_master.c:43:19:MotorCom_Process	24	static
+../Core/Src/mcc_com_master.c:43:19:MotorCom_Process	32	static

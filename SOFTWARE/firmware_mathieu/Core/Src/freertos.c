@@ -139,12 +139,28 @@ void Startmaintask(void const * argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN Startmaintask */
   TickType_t xLastWakeTime;
-  const TickType_t period = pdMS_TO_TICKS(200);
+  const TickType_t period = pdMS_TO_TICKS(5000);
+  int i=0;
 
   xLastWakeTime = xTaskGetTickCount();
   /* Infinite loop */
   for(;;)
   {
+	  switch(i){
+	  case 0:
+		  com_struct.w0=154.0f;
+		  com_struct.w1=110.0f;
+		  com_struct.w2=43.0f;
+		  i++;
+		  break;
+	  case 1:
+		  com_struct.w0=74.0f;
+		  com_struct.w1=195.0f;
+		  com_struct.w2=14.0f;
+		  i--;
+		  break;
+	  }
+
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 	   vTaskDelayUntil(&xLastWakeTime, period);
   }
@@ -171,6 +187,8 @@ void Startlidarparse(void const * argument)
   {
 
 	  MotorCom_Process(&com_struct);
+
+	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
 
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }

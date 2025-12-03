@@ -11,8 +11,8 @@
 #include "stm32h7xx_hal.h"
 #include <stdint.h>
 
-//#define NORMAL_MODE
-#define DEBUG_MODE
+#define NORMAL_MODE
+//#define DEBUG_MODE
 
 #ifdef DEBUG_MODE
 #define DEBUG_RX_BUF_SIZE 64
@@ -54,7 +54,6 @@ typedef struct {
     float w0;
     float w1;
     float w2;
-
 
 #ifdef DEBUG_MODE
     char     dbg_tx_buf[64];

@@ -27,13 +27,13 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart)
 	}
 #endif
 #ifdef DEBUG_MODE
-
 	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->dbg_rx_buf,DEBUG_RX_BUF_SIZE)!=HAL_OK){
 		result=HAL_ERROR;
 	}
+#endif
+
     __HAL_DMA_ENABLE_IT(huart->hdmarx, DMA_IT_HT);
     __HAL_DMA_ENABLE_IT(huart->hdmarx, DMA_IT_TC);
-#endif
 return result;
 }
 
@@ -71,25 +71,12 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 	comstruct->tx_buf.f.header=FRAME_HEADER;
 	comstruct->tx_buf.f.crc=0;
 
-	comstruct->read_index=(comstruct->read_index+MOTOR_FRAME_SIZE)%MOTOR_COM_RX_BUF_SIZE;
-
-	if (comstruct->tx_flag == 0) {
-	    if (HAL_UART_Transmit_DMA(comstruct->huart,(uint8_t *)comstruct->tx_buf.raw, MOTOR_FRAME_SIZE) == HAL_OK) {
-	        comstruct->tx_flag = 1;
+	    if (HAL_UART_Transmit(comstruct->huart,(uint8_t *)comstruct->tx_buf.raw, MOTOR_FRAME_SIZE,100) == HAL_OK) {
 	        result=HAL_OK;
 	    }
 	    else {
 	        result=HAL_ERROR;
 	    }
-	}
-	else {
-		result=HAL_BUSY;
-	}
-
-
-
-
-
 
 
 
@@ -109,17 +96,13 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 	    if (comstruct->write_index >= comstruct->read_index) {
 	        available = comstruct->write_index - comstruct->read_index;
 	    } else {
-	        available = (MOTOR_COM_RX_BUF_SIZE - comstruct->read_index)
-	                    + comstruct->write_index;
+	        available = (MOTOR_COM_RX_BUF_SIZE - comstruct->read_index)+ comstruct->write_index;
 	    }
 
 	    if (available < 2)
 	    	{
-	    	break;
+	    	return HAL_BUSY;
 	    	}
-
-
-
 
 
 		switch(rxstate){
@@ -127,7 +110,7 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 		case LOOKHEADER:
 		{
 			uint16_t tempheader=(comstruct->rx_buf[index]<<8)|(comstruct->rx_buf[(index+1)%MOTOR_COM_RX_BUF_SIZE]);
-			if(tempheader==FRAME_HEADER){
+			if(tempheader==0xAA55){
 				rxstate=CHECKFRAME;
 			}
 			else{
@@ -150,6 +133,7 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 			for(int i=0;i<MOTOR_FRAME_SIZE;i++){
 				comstruct->rx_struct.raw[i]=comstruct->rx_buf[(index+i)%MOTOR_COM_RX_BUF_SIZE];
 			}
+			rxstate=LOOKHEADER;
 			return HAL_OK;
 
 			break;
@@ -157,13 +141,6 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 
 	}
 	return result;
-#endif
-#ifdef DEBUG_MODE
-
-
-
-
-		return result;
 #endif
 
 }
