@@ -18,14 +18,15 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <usart.h>
+#include "usart.h"
+#include "LidarTracking.h"
 
 /* USER CODE BEGIN 0 */
 UART_HandleTypeDef huart8;
 DMA_HandleTypeDef hdma_uart8_rx;
 
-extern uint16_t ylidar_read_index;
-extern uint16_t ylidar_write_index;
+extern LiDARParsing_t laserscan;
+
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart8;
@@ -164,7 +165,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
     if(huart->Instance==UART8){
-    	ylidar_write_index=512;
+    	laserscan.ylidar_write_index=512;
 //    	osSignalSet(lidarparseHandle, SIG_LIDAR_HALF);
 
     }
@@ -173,7 +174,7 @@ void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance==UART8){
-    	ylidar_write_index=1023;
+		laserscan.ylidar_write_index=1023;
 //    	osSignalSet(lidarparseHandle, SIG_LIDAR_HALF);
 
 	    }

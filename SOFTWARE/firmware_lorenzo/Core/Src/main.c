@@ -17,16 +17,17 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <adxl343.h>
-#include <dma.h>
-#include <gpio.h>
-#include <i2c.h>
-#include <LidarTracking.h>
-#include <main.h>
-#include <spi.h>
-#include <ssd1306.h>
-#include <usart.h>
+#include "main.h"
 #include "cmsis_os.h"
+#include "dma.h"
+#include "i2c.h"
+#include "spi.h"
+#include "usart.h"
+#include "gpio.h"
+#include "LidarTracking.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
@@ -48,7 +49,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern uint8_t ylidar_circular_buffer[YLIDAR_CIRC_BUF_SIZE];
+extern LiDARParsing_t laserscan;
 //adxl343_t adxldata;
 //int flag=0;
 
@@ -134,7 +135,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 	HAL_UART_Abort(&huart8);
-	HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
+	HAL_UART_Receive_DMA(&huart8, (uint8_t *)laserscan.ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
 	__HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
 
 	//ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);

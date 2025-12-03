@@ -1,5 +1,4 @@
-Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
- ../Core/Inc/cat.h ../Core/Inc/LidarTracking.h \
+Core/Src/odometry.o: ../Core/Src/odometry.c ../Core/Inc/odometry.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -8,11 +7,8 @@ Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Core/Inc/Odometry.h
-../Core/Inc/control.h:
-../Core/Inc/cat.h:
-../Core/Inc/LidarTracking.h:
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+../Core/Inc/odometry.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -22,4 +18,3 @@ Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Core/Inc/Odometry.h:
