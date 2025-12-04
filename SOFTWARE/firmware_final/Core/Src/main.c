@@ -17,8 +17,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <gamemode.h>
-#include <Lidar.h>
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
@@ -38,6 +36,7 @@
 #include "odometry.h"
 #include "control.h"
 #include "vl53l0x.h"
+#include "lidar.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,9 +62,7 @@ int flag=0;
 uint32_t LEDDMABUF[DMABUFLEN];
 uint8_t DMA_COMPLETE_FLAG=0;
 MOTOR_COM com_struct;
-
-Cat_t cat;
-LiDARParsing_t laserscan;
+Lidar_t lidar_struct;
 
 
 /* USER CODE END PV */
@@ -104,15 +101,6 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	LED_Callback();
 }
 
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-    /* USART1 ----------------------------------------------------- */
-    if (huart->Instance == USART1)
-    {
-        com_struct.tx_flag = 0;
-    }
-}
-
 
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -127,6 +115,7 @@ void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
     }
     if (huart->Instance == UART8)
     {
+    	lidar_struct.parse_struct.ylidar_write_index=YLIDAR_CIRC_BUF_SIZE/2u;
     }
     if (huart->Instance == USART3)
     {
@@ -148,6 +137,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     }
     if (huart->Instance == UART8)
     {
+    	lidar_struct.parse_struct.ylidar_write_index=0;
     }
     if (huart->Instance == USART3)
     {
@@ -200,15 +190,14 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  //  HAL_UART_Abort(&huart8);
-  //  HAL_UART_Receive_DMA(&huart8, (uint8_t *)ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE);
-  //  __HAL_DMA_ENABLE_IT(huart8.hdmarx,DMA_IT_HT);
+
 
     MotorCom_Init(&com_struct,&huart1);
 
     ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
-
     LED_Init();
+
+    Lidar_Init(&lidar_struct,&huart8,LIDAR_SPEED_GPIO_Port, LIDAR_SPEED_Pin);
 
     LED_Setcolour(0,255,0,0,255,0);
 

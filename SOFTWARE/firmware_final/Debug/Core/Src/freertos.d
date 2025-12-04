@@ -1,6 +1,14 @@
-Core/Src/freertos.o: ../Core/Src/freertos.c ../Core/Inc/gamemode.h \
- ../Core/Inc/Lidar.h ../Core/Inc/main.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+Core/Src/freertos.o: ../Core/Src/freertos.c \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -37,16 +45,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c ../Core/Inc/gamemode.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../Core/Inc/FreeRTOSConfig.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
@@ -56,10 +54,18 @@ Core/Src/freertos.o: ../Core/Src/freertos.c ../Core/Inc/gamemode.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Core/Inc/adxl343.h ../Core/Inc/mcc_com_master.h \
- ../Core/Inc/odometry.h ../Core/Inc/control.h ../Core/Inc/Odometry.h \
- ../Core/Inc/vl53l0x.h
-../Core/Inc/gamemode.h:
-../Core/Inc/Lidar.h:
+ ../Core/Inc/odometry.h ../Core/Inc/control.h ../Core/Inc/gamemode.h \
+ ../Core/Inc/Odometry.h ../Core/Inc/vl53l0x.h ../Core/Inc/lidar.h \
+ ../Core/Inc/main.h
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../Core/Inc/FreeRTOSConfig.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -98,16 +104,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c ../Core/Inc/gamemode.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-../Core/Inc/FreeRTOSConfig.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../Core/Inc/main.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
@@ -120,5 +116,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c ../Core/Inc/gamemode.h \
 ../Core/Inc/mcc_com_master.h:
 ../Core/Inc/odometry.h:
 ../Core/Inc/control.h:
+../Core/Inc/gamemode.h:
 ../Core/Inc/Odometry.h:
 ../Core/Inc/vl53l0x.h:
+../Core/Inc/lidar.h:
+../Core/Inc/main.h:

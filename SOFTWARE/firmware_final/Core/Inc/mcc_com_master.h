@@ -48,8 +48,6 @@ typedef struct {
     uint16_t        read_index;
 
     MotorFrameUnion_t tx_buf;
-    uint8_t tx_flag;
-
     uint8_t counter;
     float w0;
     float w1;

@@ -11,7 +11,6 @@
 #include "main.h"
 
 #define YLIDAR_CIRC_BUF_SIZE 1024
-#define YLIDAR_CIRC_BUF_MASK 1023
 
 #define LidarMaxDepth 500
 
@@ -94,16 +93,7 @@ typedef struct {
 
 } Lidar_t;
 
-
-
-// ─────────────────────────────────────────────────────────────
-// ──────────────────────────── PROTORYPES ────────────────────────────────
-// ────────────────────────────────────────────────────────────
-
-void LidarTracking_Init(void);
-void ylidar_fsm(void);
-void trackObject(void);
-void LidarClusterTracker_ProcessScan(void);
-void cluster_object_identify(void);
+HAL_StatusTypeDef Lidar_Init(Lidar_t *lidar,UART_HandleTypeDef *huart,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar);
 
 #endif /* INC_LIDAR_H_ */

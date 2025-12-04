@@ -1,0 +1,2 @@
+../Core/Src/Lidar.c:11:19:Lidar_Init	32	static
+../Core/Src/Lidar.c:35:19:ylidar_fsm	64	static

@@ -21,6 +21,10 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart)
 	comstruct->tx_buf.f.header=FRAME_HEADER;
 	HAL_StatusTypeDef result=HAL_OK;
 
+	comstruct->w0=0.0;
+	comstruct->w1=0.0;
+	comstruct->w2=0.0;
+
 #ifdef NORMAL_MODE
 	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->rx_buf,MOTOR_COM_RX_BUF_SIZE)!=HAL_OK){
 		result=HAL_ERROR;

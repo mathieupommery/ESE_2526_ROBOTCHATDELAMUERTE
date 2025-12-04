@@ -18,8 +18,6 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include <gamemode.h>
-#include <Lidar.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
@@ -32,6 +30,7 @@
 #include "odometry.h"
 #include "control.h"
 #include "vl53l0x.h"
+#include "lidar.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +56,7 @@ extern uint16_t ylidar_write_index;
 extern uint8_t ylidar_finalbuffer[1024];
 extern adxl343_t adxldata;
 extern MOTOR_COM com_struct;
+extern Lidar_t lidar_struct;
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId Sensor_parseHandle;
@@ -165,20 +165,20 @@ void Startmaintask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  switch(i){
-	  case 0:
-		  com_struct.w0=154.0f;
-		  com_struct.w1=110.0f;
-		  com_struct.w2=43.0f;
-		  i++;
-		  break;
-	  case 1:
-		  com_struct.w0=74.0f;
-		  com_struct.w1=195.0f;
-		  com_struct.w2=14.0f;
-		  i--;
-		  break;
-	  }
+//	  switch(i){
+//	  case 0:
+//		  com_struct.w0=154.0f;
+//		  com_struct.w1=110.0f;
+//		  com_struct.w2=43.0f;
+//		  i++;
+//		  break;
+//	  case 1:
+//		  com_struct.w0=74.0f;
+//		  com_struct.w1=195.0f;
+//		  com_struct.w2=14.0f;
+//		  i--;
+//		  break;
+//	  }
 
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 	  vTaskDelayUntil(&xLastWakeTime, period);
@@ -195,26 +195,25 @@ void Startmaintask(void const * argument)
 /* USER CODE END Header_Startsensorparse */
 void Startsensorparse(void const * argument)
 {
-
   /* USER CODE BEGIN Startsensorparse */
-	VL53L0X_Init(1, 0.3f);
-	VL53L0X_Init(2, 0.3f);
-	VL53L0X_Init(3, 0.3f);
-
-	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
-	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
-	VL53L0X_t *t3 = VL53L0X_GetHandle(3);
+//	VL53L0X_Init(1, 0.3f);
+//	VL53L0X_Init(2, 0.3f);
+//	VL53L0X_Init(3, 0.3f);
+//
+//	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
+//	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
+//	VL53L0X_t *t3 = VL53L0X_GetHandle(3);
 
 	  TickType_t xLastWakeTime;
 	  const TickType_t period = pdMS_TO_TICKS(10);
   /* Infinite loop */
   for(;;)
   {
-	  ylidar_fsm();
-	  VL53L0X_Update(t1);
-	  VL53L0X_Update(t2);
-	  VL53L0X_Update(t3);
-	  ADXL343_ReadXYZ(&adxldata, 100);
+	  ylidar_fsm(&lidar_struct);
+//	  VL53L0X_Update(t1);
+//	  VL53L0X_Update(t2);
+//	  VL53L0X_Update(t3);
+	  //ADXL343_ReadXYZ(&adxldata, 100);
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }
   /* USER CODE END Startsensorparse */
@@ -251,17 +250,13 @@ void StartOdomtask(void const * argument)
 {
   /* USER CODE BEGIN StartOdomtask */
 
-	odometry_Init();
+	//odometry_Init();
 	  TickType_t xLastWakeTime;
-	  const TickType_t period = pdMS_TO_TICKS(5);
+	  const TickType_t period = pdMS_TO_TICKS(10);
   /* Infinite loop */
   for(;;)
   {
 	  MotorCom_Process(&com_struct);
-	  attack();
-	  compute_speed(cat.target_bearing, 0, 0, 0);
-	  control_rotation_speed();
-
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }
   /* USER CODE END StartOdomtask */
@@ -278,15 +273,11 @@ void StartClustertask(void const * argument)
 {
   /* USER CODE BEGIN StartClustertask */
 
-	LidarTracking_Init();
-
 	  TickType_t xLastWakeTime;
 	  const TickType_t period = pdMS_TO_TICKS(100);
   /* Infinite loop */
   for(;;)
   {
-	  LidarClusterTracker_ProcessScan();
-
 	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }
