@@ -1,0 +1,10 @@
+../Core/Src/main.c:83:6:HAL_GPIO_EXTI_Callback	4
+../Core/Src/main.c:102:6:HAL_TIM_PWM_PulseFinishedCallback	1
+../Core/Src/main.c:107:6:HAL_UART_TxCpltCallback	2
+../Core/Src/main.c:117:6:HAL_UART_RxHalfCpltCallback	2
+../Core/Src/main.c:137:6:HAL_UART_RxCpltCallback	2
+../Core/Src/main.c:163:5:main	1
+../Core/Src/main.c:246:6:SystemClock_Config	4
+../Core/Src/main.c:307:6:MPU_Config	1
+../Core/Src/main.c:342:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:360:6:Error_Handler	1

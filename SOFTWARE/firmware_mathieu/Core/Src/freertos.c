@@ -186,9 +186,7 @@ void Startlidarparse(void const * argument)
   for(;;)
   {
 
-	  MotorCom_Process(&com_struct);
 
-	  HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_10);
 
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }

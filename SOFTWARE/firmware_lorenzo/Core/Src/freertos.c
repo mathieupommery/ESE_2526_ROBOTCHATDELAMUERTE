@@ -170,15 +170,11 @@ void Startmaintask(void const * argument)
 void Startlidarparse(void const * argument)
 {
   /* USER CODE BEGIN Startlidarparse */
-	LidarTracking_Init();
+
 	/* Infinite loop */
 	for(;;)
 	{
-		while (laserscan.ylidar_read_index!=laserscan.ylidar_write_index){
-			ylidar_fsm();
-		}
-		LidarClusterTracker_ProcessScan();
-//		ADXL343_ReadXYZ(&adxldata, 100);
+
 
 		osDelay(50);
 	}
@@ -195,9 +191,7 @@ void Startlidarparse(void const * argument)
 void StartTofTask(void const * argument)
 {
   /* USER CODE BEGIN StartTofTask */
-	VL53L0X_Init(1, 0.3f);
-	VL53L0X_Init(2, 0.3f);
-	VL53L0X_Init(3, 0.3f);
+
 
 	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
 	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
