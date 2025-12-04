@@ -178,60 +178,71 @@ static inline float calc_size_mm(uint16_t avg_dist_mm, float angle_deg)
 /*------------------------------------------------------------------*/
 void LidarClusterTracker_ProcessScan(void)
 {
-	    lidar.count = 0;
-	    lidar.new_data = false;
-	    lidar.scan_id++;
+	uint32_t start = DWT->CYCCNT;
+	lidar.count = 0;
+	lidar.new_data = false;
+	lidar.scan_id++;
 
-	    tempclusters.temp_cluster_cnt = 0;
+	tempclusters.temp_cluster_cnt = 0;
 
-	    uint16_t cluster_len = 0;
-	    uint16_t cluster_start = 0;
+	uint16_t cluster_start = 0;
+	uint16_t cluster_len = 0;
+	uint32_t cluster_sum = 0;
+	uint16_t first_point = 0;
+	uint16_t last_point = 0;
+	uint16_t holes_used = 0;  // Track number of holes in current cluster
 
-	    enum { SEARCH, IN_CLUSTER } state = SEARCH;
+	enum { SEARCH, IN_CLUSTER } state = SEARCH;
 
-	    for (uint16_t i = 0; i < LIDAR_POINTS; i++)
-	    {
-	        switch (state)
-	        {
-	            case SEARCH:
-	                if (laserscan.ylidar_finalbuffer[i] >= MIN_VALID_DISTANCE_MM && laserscan.ylidar_finalbuffer[i] <= MAX_VALID_DISTANCE_MM)
-	                {
-	                    cluster_start = i;
-	                    tempclusters.cluster_buf[0] = laserscan.ylidar_finalbuffer[i];
-	                    cluster_len = 1;
-	                    state = IN_CLUSTER;
-	                }
-	                break;
-	            case IN_CLUSTER:
+	for (uint16_t i = 0; i <= LIDAR_POINTS; i++)
+	{
+		uint16_t dist = (i < LIDAR_POINTS) ? laserscan.ylidar_finalbuffer[i] : 0xFFFF;
+
+		switch (state)
+		{
+		case SEARCH:
+			if (dist >= MIN_VALID_DISTANCE_MM && dist <= MAX_VALID_DISTANCE_MM)
+			{
+				cluster_start = i;
+				cluster_len = 1;
+				cluster_sum = dist;
+				first_point = dist;
+				last_point = dist;
+				holes_used = 0;
+				state = IN_CLUSTER;
+			}
+			break;
+
+		case IN_CLUSTER:
 		{
 			bool end_cluster = false;
 
-			// --- Gestion des petits trous ---
-			if (laserscan.ylidar_finalbuffer[i] < MIN_VALID_DISTANCE_MM || laserscan.ylidar_finalbuffer[i] > MAX_VALID_DISTANCE_MM)
+			if (dist < MIN_VALID_DISTANCE_MM || dist > MAX_VALID_DISTANCE_MM)
 			{
-				uint16_t hole = 1;
+				// --- Handle holes ---
+				if (holes_used >= MAX_HOLE_COUNT)
+				{
+					end_cluster = true;
+					break;
+				}
+
+				uint16_t hole_points = 1;
 				uint16_t k = (i + 1) % LIDAR_POINTS;
 
-				while (hole <= MAX_HOLE_COUNT &&
-						(laserscan.ylidar_finalbuffer[k] < MIN_VALID_DISTANCE_MM || laserscan.ylidar_finalbuffer[k] > MAX_VALID_DISTANCE_MM))
+				while (hole_points <= MAX_HOLE_POINTS &&
+						(laserscan.ylidar_finalbuffer[k] < MIN_VALID_DISTANCE_MM ||
+								laserscan.ylidar_finalbuffer[k] > MAX_VALID_DISTANCE_MM))
 				{
-					hole++;
+					hole_points++;
 					k = (k + 1) % LIDAR_POINTS;
 				}
 
-				uint16_t next_valid = laserscan.ylidar_finalbuffer[k];
-
-				if (hole <= MAX_HOLE_COUNT &&
-						next_valid >= MIN_VALID_DISTANCE_MM && next_valid <= MAX_VALID_DISTANCE_MM &&
-						abs((int)next_valid - (int)laserscan.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS]) <= HOLE_TOLERANCE_MM)
+				if (hole_points <= MAX_HOLE_POINTS)
 				{
-					// On comble le trou
-					for (uint16_t h = 0; h < hole; h++)
-					{
-						if (cluster_len < CLUSTER_BUF_SIZE - 20)
-							tempclusters.cluster_buf[cluster_len++] = laserscan.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS];
-					}
-					i += hole - 1;
+					cluster_len += hole_points;
+					cluster_sum += (uint32_t)last_point * hole_points;
+					i += hole_points - 1;
+					holes_used++;
 					continue;
 				}
 				else
@@ -241,40 +252,44 @@ void LidarClusterTracker_ProcessScan(void)
 			}
 			else
 			{
-				if (abs((int)laserscan.ylidar_finalbuffer[i] - (int)laserscan.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS]) > CLUSTER_THRESHOLD_MM)
+				// --- Check cluster continuity ---
+				uint16_t prev_idx = (i + LIDAR_POINTS - 1) % LIDAR_POINTS;
+				if (abs((int)dist - (int)laserscan.ylidar_finalbuffer[prev_idx]) > CLUSTER_THRESHOLD_MM)
 					end_cluster = true;
-				else if (cluster_len < CLUSTER_BUF_SIZE - 20)
-					tempclusters.cluster_buf[cluster_len++] = laserscan.ylidar_finalbuffer[i];
+				else
+				{
+					cluster_len++;
+					cluster_sum += dist;
+					last_point = dist;
+				}
 			}
 
-			// --- Fin de cluster ---
-			if (end_cluster || i == LIDAR_POINTS - 1)
+			if (end_cluster || i == LIDAR_POINTS)
 			{
-				uint16_t end_angle = (i == LIDAR_POINTS - 1 && !end_cluster) ? i : (i + LIDAR_POINTS - 1) % LIDAR_POINTS;
-
 				if (cluster_len >= MIN_CLUSTER_POINTS)
 				{
-					// Calcul moyenne
-					uint32_t sum = 0;
-					for (uint16_t j = 0; j < cluster_len; j++) sum += tempclusters.cluster_buf[j];
-					uint16_t avg = sum / cluster_len;
-
-					float angle_deg = (float)(end_angle - cluster_start + 1);
+					uint16_t avg = cluster_sum / cluster_len;
+					float angle_deg = (float)(i - cluster_start);
 					float size = calc_size_mm(avg, angle_deg);
 
-					if (tempclusters.temp_cluster_cnt < MAX_TEMP_CLUSTERS)
+					if (size >= MIN_CLUSTER_SIZE_MM && size <= MAX_CLUSTER_SIZE_MM &&
+							tempclusters.temp_cluster_cnt < MAX_TEMP_CLUSTERS)
 					{
 						tempclusters.temp_clusters[tempclusters.temp_cluster_cnt++] = (TempCluster_t){
 							.start_angle = cluster_start,
-									.end_angle   = end_angle,
+									.end_angle   = i - 1,
 									.point_count = cluster_len,
 									.avg_dist    = avg,
-									.size_mm     = size
+									.size_mm     = size,
+									.first_point = first_point,
+									.last_point  = last_point
 						};
 					}
 				}
 
 				cluster_len = 0;
+				cluster_sum = 0;
+				holes_used = 0;
 				state = SEARCH;
 			}
 			break;
@@ -282,77 +297,73 @@ void LidarClusterTracker_ProcessScan(void)
 		}
 	}
 
-	// === Phase 2 : Fusion des clusters qui wrappent autour de 0° ===
+	// === Wrap-around fusion and adding remaining clusters ===
+
 	if (tempclusters.temp_cluster_cnt >= 2)
 	{
-		uint8_t last_idx = 255, first_idx = 255;
+		int last_idx = -1, first_idx = -1;
 
-		for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt; i++)
+		for (int i = 0; i < tempclusters.temp_cluster_cnt; i++)
 		{
 			if (tempclusters.temp_clusters[i].start_angle >= 300) last_idx = i;
-			if (tempclusters.temp_clusters[i].end_angle   <= 60)  first_idx = i;
+			if (tempclusters.temp_clusters[i].end_angle <= 60)  first_idx = i;
 		}
 
-		if (last_idx != 255 && first_idx != 255 && last_idx != first_idx)
+		if (last_idx >= 0 && first_idx >= 0 && last_idx != first_idx)
 		{
-			// Vérifie continuité en distance
-			uint16_t dist_end   = tempclusters.cluster_buf[tempclusters.temp_clusters[last_idx].point_count - 1];
-			uint16_t dist_start = tempclusters.cluster_buf[0];  // premier point du cluster du début
+			int16_t dist_end = tempclusters.temp_clusters[last_idx].last_point;
+			int16_t dist_start = tempclusters.temp_clusters[first_idx].first_point;
 
-			if (abs((int)dist_end - (int)dist_start) <= CLUSTER_THRESHOLD_MM)
+			if (abs(dist_end - dist_start) <= CLUSTER_THRESHOLD_MM)
 			{
-				// Fusion valide
-				float total_angle_deg = (360.0f - tempclusters.temp_clusters[last_idx].start_angle) + (tempclusters.temp_clusters[first_idx].end_angle + 1);
-				uint16_t avg_dist = (tempclusters.temp_clusters[last_idx].avg_dist + tempclusters.temp_clusters[first_idx].avg_dist) / 2;
+				float total_angle_deg = (360.0f - tempclusters.temp_clusters[last_idx].start_angle) +
+						(tempclusters.temp_clusters[first_idx].end_angle + 1);
+				uint16_t avg_dist = (tempclusters.temp_clusters[last_idx].avg_dist +
+						tempclusters.temp_clusters[first_idx].avg_dist) / 2;
 				float merged_size = calc_size_mm(avg_dist, total_angle_deg);
 
 				if (merged_size >= MIN_CLUSTER_SIZE_MM && merged_size <= MAX_CLUSTER_SIZE_MM)
 				{
 					if (lidar.count < MAX_CLUSTERS)
 					{
-						uint16_t center = (tempclusters.temp_clusters[first_idx].end_angle + 360 + tempclusters.temp_clusters[last_idx].start_angle) % 360;
+						uint16_t center = (tempclusters.temp_clusters[first_idx].end_angle + 360 +
+								tempclusters.temp_clusters[last_idx].start_angle) % 360;
 
 						LidarCluster_t *cluster = &lidar.clusters[lidar.count++];
-						cluster->first_angle   = tempclusters.temp_clusters[last_idx].start_angle;
-						cluster->last_angle    = tempclusters.temp_clusters[first_idx].end_angle;
-						cluster->center_angle  = center;
-						cluster->distance_mm   = avg_dist;
-						cluster->size_mm       = merged_size;
-						cluster->point_count   = tempclusters.temp_clusters[last_idx].point_count + tempclusters.temp_clusters[first_idx].point_count;
-						cluster->timestamp_ms  = xTaskGetTickCount() * portTICK_PERIOD_MS;
+						cluster->first_angle  = tempclusters.temp_clusters[last_idx].start_angle;
+						cluster->last_angle   = tempclusters.temp_clusters[first_idx].end_angle;
+						cluster->center_angle = center;
+						cluster->distance_mm  = avg_dist;
+						cluster->size_mm      = merged_size;
+						cluster->point_count  = tempclusters.temp_clusters[last_idx].point_count +
+								tempclusters.temp_clusters[first_idx].point_count;
+						cluster->timestamp_ms = xTaskGetTickCount() * portTICK_PERIOD_MS;
 					}
-
-					// On retire les deux clusters fusionnés
-					for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt; i++)
-					{
-						if (i == last_idx || i == first_idx)
-						{
-							for (uint8_t j = i; j < tempclusters.temp_cluster_cnt - 1; j++)
-								tempclusters.temp_clusters[j] = tempclusters.temp_clusters[j + 1];
-							tempclusters.temp_cluster_cnt--;
-							if (i == last_idx) last_idx--;
-							i--;
-						}
-					}
+					tempclusters.temp_cluster_cnt -= 2;
 				}
 			}
 		}
 	}
 
-	// === Ajout des clusters non-wrappés ===
-	for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt && lidar.count < MAX_CLUSTERS; i++)
+	// === Add remaining clusters ===
+	for (int i = 0; i < tempclusters.temp_cluster_cnt && lidar.count < MAX_CLUSTERS; i++)
 	{
-		if (tempclusters.temp_clusters[i].size_mm >= MIN_CLUSTER_SIZE_MM && tempclusters.temp_clusters[i].size_mm <= MAX_CLUSTER_SIZE_MM)
+		if (tempclusters.temp_clusters[i].size_mm >= MIN_CLUSTER_SIZE_MM &&
+				tempclusters.temp_clusters[i].size_mm <= MAX_CLUSTER_SIZE_MM)
 		{
 			LidarCluster_t *cluster = &lidar.clusters[lidar.count++];
-			cluster->first_angle   = tempclusters.temp_clusters[i].start_angle;
-			cluster->last_angle    = tempclusters.temp_clusters[i].end_angle;
-			cluster->center_angle  = (tempclusters.temp_clusters[i].start_angle + tempclusters.temp_clusters[i].end_angle) / 2;
-			cluster->distance_mm   = tempclusters.temp_clusters[i].avg_dist;
-			cluster->size_mm       = (float)tempclusters.temp_clusters[i].size_mm;
-			cluster->point_count   = tempclusters.temp_clusters[i].point_count;
-			cluster->timestamp_ms  = xTaskGetTickCount() * portTICK_PERIOD_MS;
+			cluster->first_angle  = tempclusters.temp_clusters[i].start_angle;
+			cluster->last_angle   = tempclusters.temp_clusters[i].end_angle;
+			cluster->center_angle = (tempclusters.temp_clusters[i].start_angle + tempclusters.temp_clusters[i].end_angle) / 2;
+			cluster->distance_mm  = tempclusters.temp_clusters[i].avg_dist;
+			cluster->size_mm      = tempclusters.temp_clusters[i].size_mm;
+			cluster->point_count  = tempclusters.temp_clusters[i].point_count;
+			cluster->timestamp_ms = xTaskGetTickCount() * portTICK_PERIOD_MS;
 		}
 	}
+
 	lidar.new_data = (lidar.count > 0);
+
+	uint32_t end = DWT->CYCCNT;
+	lidar.CPU_cycles = end - start;
 }

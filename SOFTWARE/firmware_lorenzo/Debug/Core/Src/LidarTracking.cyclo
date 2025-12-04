@@ -1,4 +1,4 @@
 ../Core/Src/LidarTracking.c:22:6:LidarTracking_Init	1
 ../Core/Src/LidarTracking.c:53:6:ylidar_fsm	17
 ../Core/Src/LidarTracking.c:168:21:calc_size_mm	4
-../Core/Src/LidarTracking.c:179:6:LidarClusterTracker_ProcessScan	38
+../Core/Src/LidarTracking.c:179:6:LidarClusterTracker_ProcessScan	39
