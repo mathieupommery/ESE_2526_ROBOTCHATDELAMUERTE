@@ -1,4 +1,4 @@
-"./Core/Src/LidarTracking.o"
+"./Core/Src/Lidar.o"
 "./Core/Src/adxl343.o"
 "./Core/Src/cat.o"
 "./Core/Src/control.o"
