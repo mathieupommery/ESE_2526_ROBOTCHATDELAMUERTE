@@ -31,7 +31,15 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "adxl343.h"
+#include "ssd1306.h"
+#include "led.h"
+#include "mcc_com_master.h"
+#include "odometry.h"
+#include "control.h"
+#include "vl53l0x.h"
+#include "lidar.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

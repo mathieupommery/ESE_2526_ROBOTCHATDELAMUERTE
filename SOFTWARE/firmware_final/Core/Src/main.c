@@ -29,15 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "adxl343.h"
-#include "ssd1306.h"
-#include "led.h"
-#include "mcc_com_master.h"
-#include "odometry.h"
-#include "control.h"
-#include "vl53l0x.h"
-#include "lidar.h"
-#include <string.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,7 +56,6 @@ uint32_t LEDDMABUF[DMABUFLEN];
 uint8_t DMA_COMPLETE_FLAG=0;
 MOTOR_COM com_struct;
 Lidar_t lidar_struct;
-
 
 /* USER CODE END PV */
 

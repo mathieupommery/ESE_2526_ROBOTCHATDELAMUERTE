@@ -170,15 +170,15 @@ HAL_StatusTypeDef Clusterize(Lidar_t *lidar)
 	LiDARParsing_t *structlidar = &lidar->parse_struct;
 	ClusterParsing_t *clusterstruct = &lidar -> cluster_struct;
 	clusterstruct->temp_cluster_cnt = 0;
-	memcpy(clusterstruct->cluster_buf, structlidar->ylidar_finalbuffer,sizeof(structlidar->ylidar_finalbuffer));
-	memcpy(clusterstruct->cluster_buf + LIDAR_POINTS, structlidar->ylidar_finalbuffer,sizeof(int) * WRAP_SIZE);
+	memcpy(clusterstruct->cluster_buf, structlidar->ylidar_finalbuffer,sizeof(uint16_t) * LIDAR_POINTS);
+	memcpy(clusterstruct->cluster_buf + LIDAR_POINTS, structlidar->ylidar_finalbuffer,sizeof(uint16_t) * WRAP_SIZE);
 
 	for (uint16_t i = 0; i < CLUSTER_BUF_SIZE; i++)
 	{
 		switch (clusterstruct->clusterizationstate)
 		{
 		case SEARCH:
-			if (clusterstruct->cluster_buf[i] >= MIN_VALID_DISTANCE_MM && clusterstruct->cluster_buf[i] <= MAX_VALID_DISTANCE_MM && clusterstruct->temp_cluster_cnt < MAX_TEMP_CLUSTERS)
+			if (abs((int)clusterstruct->cluster_buf[(i + CLUSTER_BUF_SIZE - 1) % CLUSTER_BUF_SIZE] - (int)clusterstruct->cluster_buf[i]) > CLUSTER_THRESHOLD_MM)
 			{
 				clusterstruct->temp_cluster_cnt +=1; // Called early to keep temp_cluster[0] for wrapping
 				TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
