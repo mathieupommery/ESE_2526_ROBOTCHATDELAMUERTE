@@ -22,7 +22,7 @@
 #define SIG_LIDAR_FULL       (0x0002)
 
 #define LIDAR_POINTS             359
-#define MAX_CLUSTERS             3
+#define MAX_TARGETS				 5
 
 #define CLUSTER_THRESHOLD_MM     450
 #define MIN_CLUSTER_POINTS       7
@@ -32,18 +32,11 @@
 #define MIN_VALID_DISTANCE_MM    50
 #define MAX_VALID_DISTANCE_MM    200
 
-#define CLUSTER_BUF_SIZE	LIDAR_POINTS + 90
-#define MAX_TEMP_CLUSTERS	20
-
-// Angle handling (1 degree per unit → 360° = 360)
-#define FULL_CIRCLE_DEGREES           360
-
-// Object tracking parameters (tune these!)
-#define MAX_TRACKED_OBJECTS           MAX_CLUSTERS
-#define TRACK_MATCH_THRESHOLD         45.0f     // Max weighted distance to consider a match
-#define ANGLE_TRACK_WEIGHT            1.2f      // Higher = angle more important
-#define DISTANCE_TRACK_WEIGHT         0.08f     // Lower = less sensitive to small jumps
-#define SIZE_TRACK_WEIGHT             0.8f
+#define WRAP_SIZE			90
+#define CLUSTER_BUF_SIZE	LIDAR_POINTS + WRAP_SIZE
+#define MAX_TEMP_CLUSTERS	3
+#define MAX_HOLE_COUNT		10
+#define MAX_HOLE_SIZE		5
 
 typedef enum {
 	FSM_STATE_0,
@@ -52,6 +45,12 @@ typedef enum {
 	FSM_STATE_3,
 	FSM_STATE_4
 } YLIDAR_STATE;
+
+typedef enum{
+	SEARCH,
+	IN_CLUSTER,
+	END_CLUSTER
+}CLUSTERIZATION_STATE;
 
 typedef struct{
 uint16_t ylidar_read_index;
@@ -71,29 +70,39 @@ typedef struct {
 	uint16_t start_angle;
 	uint16_t end_angle;
 	uint16_t point_count;
-	uint16_t avg_dist;
+	uint16_t cluster[MAX_CLUSTER_POINTS];
+	uint8_t hole_cnt;
+	uint8_t hole_points;
+	float avg_dist;
 	float size_mm;
 } TempCluster_t;
 
 typedef struct{
+	uint16_t angle;
+	float distance;
+	float size;
+}Target_t;
+
+typedef struct{
+	Target_t targets[MAX_TARGETS];
+	uint8_t target_cnt;
 	TempCluster_t temp_clusters[MAX_TEMP_CLUSTERS];
 	uint16_t cluster_buf[CLUSTER_BUF_SIZE];
 	uint8_t temp_cluster_cnt;
-}TempClusters_t;
-
+	CLUSTERIZATION_STATE clusterizationstate;
+}ClusterParsing_t;
 
 typedef struct {
-
     UART_HandleTypeDef *huart;
     GPIO_TypeDef       *gpio_port;
     uint16_t            gpio_pin;
 	LiDARParsing_t parse_struct;
-	TempClusters_t cluster_struct;
-
-
+	ClusterParsing_t cluster_struct;
 } Lidar_t;
 
 HAL_StatusTypeDef Lidar_Init(Lidar_t *lidar,UART_HandleTypeDef *huart,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar);
+HAL_StatusTypeDef Clusterize(Lidar_t *lidar);
+
 
 #endif /* INC_LIDAR_H_ */

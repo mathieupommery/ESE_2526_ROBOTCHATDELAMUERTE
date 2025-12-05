@@ -210,6 +210,7 @@ void Startsensorparse(void const * argument)
   for(;;)
   {
 	  ylidar_fsm(&lidar_struct);
+	  Clusterize(&lidar_struct);
 //	  VL53L0X_Update(t1);
 //	  VL53L0X_Update(t2);
 //	  VL53L0X_Update(t3);

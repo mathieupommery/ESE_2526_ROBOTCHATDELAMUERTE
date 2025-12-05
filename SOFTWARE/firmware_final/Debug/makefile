@@ -68,8 +68,8 @@ all: main-build
 main-build: FIRMWARE_MAINBOARD_FINAL.elf secondary-outputs
 
 # Tool invocations
-FIRMWARE_MAINBOARD_FINAL.elf FIRMWARE_MAINBOARD_FINAL.map: $(OBJS) $(USER_OBJS) C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_final\STM32H743VIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FIRMWARE_MAINBOARD_FINAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\mathi\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_final\STM32H743VIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FIRMWARE_MAINBOARD_FINAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FIRMWARE_MAINBOARD_FINAL.elf FIRMWARE_MAINBOARD_FINAL.map: $(OBJS) $(USER_OBJS) C:\Users\lorenzo\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_final\STM32H743VIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FIRMWARE_MAINBOARD_FINAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\lorenzo\Documents\GitHub\ESE_2526_ROBOTCHATDELAMUERTE\SOFTWARE\firmware_final\STM32H743VIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FIRMWARE_MAINBOARD_FINAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

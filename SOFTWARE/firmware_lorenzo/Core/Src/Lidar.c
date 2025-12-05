@@ -166,19 +166,11 @@ HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar)
 	return HAL_OK;
 }
 
-
-static inline float calc_size_mm(uint16_t avg_dist_mm, float angle_deg)
-{
-	float rad = angle_deg * (float)M_PI / 180.0f;
-	return 2.0f * (float)avg_dist_mm * tanf(rad/2.0f);
-}
-
-
 /*------------------------------------------------------------------*/
-HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
+HAL_StatusTypeDef Clusterize(Lidar_t *lidar)
 {
 	LiDARParsing_t *structlidar = &lidar->parse_struct;
-	ClusterParsing_t *clusterstruct = &clusters -> cluster_struct;
+	ClusterParsing_t *clusterstruct = &lidar -> cluster_struct;
 	clusterstruct->temp_cluster_cnt = 0;
 	memcpy(clusterstruct->cluster_buf, structlidar->ylidar_finalbuffer,sizeof(structlidar->ylidar_finalbuffer));
 	memcpy(clusterstruct->cluster_buf + LIDAR_POINTS, structlidar->ylidar_finalbuffer,sizeof(int) * WRAP_SIZE);

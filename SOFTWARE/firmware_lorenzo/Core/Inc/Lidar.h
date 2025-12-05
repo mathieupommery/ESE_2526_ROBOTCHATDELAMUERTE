@@ -38,16 +38,6 @@
 #define MAX_HOLE_COUNT		10
 #define MAX_HOLE_SIZE		5
 
-// Angle handling (1 degree per unit → 360° = 360)
-#define FULL_CIRCLE_DEGREES           360
-
-// Object tracking parameters (tune these!)
-#define MAX_TRACKED_OBJECTS           MAX_CLUSTERS
-#define TRACK_MATCH_THRESHOLD         45.0f     // Max weighted distance to consider a match
-#define ANGLE_TRACK_WEIGHT            1.2f      // Higher = angle more important
-#define DISTANCE_TRACK_WEIGHT         0.08f     // Lower = less sensitive to small jumps
-#define SIZE_TRACK_WEIGHT             0.8f
-
 typedef enum {
 	FSM_STATE_0,
 	FSM_STATE_1,
@@ -109,3 +99,7 @@ typedef struct {
 	LiDARParsing_t parse_struct;
 	ClusterParsing_t cluster_struct;
 } Lidar_t;
+
+HAL_StatusTypeDef Lidar_Init(Lidar_t *lidar,UART_HandleTypeDef *huart,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar);
+HAL_StatusTypeDef Clusterize(Lidar_t *lidar);

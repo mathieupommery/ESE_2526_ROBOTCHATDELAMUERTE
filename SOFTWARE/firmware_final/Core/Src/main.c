@@ -37,6 +37,7 @@
 #include "control.h"
 #include "vl53l0x.h"
 #include "lidar.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
