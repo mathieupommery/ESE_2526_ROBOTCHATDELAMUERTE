@@ -194,13 +194,42 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 				TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
 				currentcluster->cluster[0] = clusterstruct->cluster_buf[i];
 				currentcluster->point_count = 1;
+				currentcluster->start_angle = i % LIDAR_POINTS;
 				clusterstruct->clusterizationstate = IN_CLUSTER;
 			}
 			break;
 		case IN_CLUSTER:
 			TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
 			if (abs((int)clusterstruct->cluster_buf[i] - (int)clusterstruct->cluster_buf[(i + CLUSTER_BUF_SIZE - 1) % CLUSTER_BUF_SIZE]) > CLUSTER_THRESHOLD_MM){
-				clusterstruct->clusterizationstate = END_CLUSTER;
+				if (currentcluster->hole_cnt <= MAX_HOLE_COUNT)
+				{
+					uint8_t inhole = 1;
+					uint8_t k = 1;
+					// In short we check if the hole is too large, if it is not we skip the parsing to the end of the hole.
+					while (inhole == 1 && k <= MAX_HOLE_SIZE && (i + k) < CLUSTER_BUF_SIZE)
+					{
+						if (abs((int)clusterstruct->cluster_buf[i-1] - (int)clusterstruct->cluster_buf[(i + k + CLUSTER_BUF_SIZE - 1) % CLUSTER_BUF_SIZE]) > CLUSTER_THRESHOLD_MM){
+							k+=1;
+						}
+						else{
+							inhole = 0;
+						}
+					}
+					if (inhole == 0)
+					{
+						currentcluster->cluster[currentcluster->point_count + k] = clusterstruct->cluster_buf[i + k];
+						currentcluster->hole_points += 1;
+						currentcluster->point_count += k;
+						i += k;
+					}
+					else{
+						clusterstruct->clusterizationstate = END_CLUSTER;
+					}
+				}
+				else
+				{
+					clusterstruct->clusterizationstate = END_CLUSTER;
+				}
 			}
 			// Store cluster_buf[i] as part of the current cluster object
 			currentcluster->cluster[currentcluster->point_count] = clusterstruct->cluster_buf[i];
@@ -208,7 +237,7 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 		case END_CLUSTER:
 			TempCluster_t *firstcluster = &clusterstruct->temp_clusters[1];
 			// Store end of cluster angle in the cluster object
-			currentcluster->end_angle = (i + CLUSTER_BUF_SIZE - 1) % LIDAR_POINTS;
+			currentcluster->end_angle = (i - 1) % LIDAR_POINTS;
 			if (currentcluster->end_angle <= firstcluster->end_angle && currentcluster->end_angle >= firstcluster->start_angle)
 			{
 				// replace the first cluster if it is incomplete with the new complete one to achieve wrapping
@@ -217,8 +246,12 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 				firstcluster->point_count=currentcluster->point_count;
 				firstcluster->size_mm=currentcluster->size_mm;
 				firstcluster->start_angle=currentcluster->start_angle;
+				firstcluster->hole_cnt=currentcluster->hole_cnt;
+				firstcluster->point_count=currentcluster->point_count;
 				memset(firstcluster->cluster,0,sizeof(currentcluster->cluster));
 				memcpy(firstcluster->cluster,currentcluster->cluster,sizeof(currentcluster->cluster));
+				currentcluster = firstcluster; // from now on we consider firstcluster as the currentcluster
+
 			}
 			if (currentcluster->end_angle <= firstcluster->start_angle)
 			{
@@ -229,6 +262,8 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 				clusterzero->point_count=currentcluster->point_count;
 				clusterzero->size_mm=currentcluster->size_mm;
 				clusterzero->start_angle=currentcluster->start_angle;
+				clusterzero->hole_points=currentcluster->hole_points;
+				clusterzero->point_count=currentcluster->point_count;
 				memcpy(clusterzero->cluster,currentcluster->cluster,sizeof(currentcluster->cluster));
 				currentcluster->avg_dist=0;
 				currentcluster->end_angle=0;
@@ -241,7 +276,7 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 			// If the cluster is neither too small or too big:
 			if (currentcluster->point_count >= MIN_CLUSTER_POINTS && currentcluster->point_count <= MAX_CLUSTER_POINTS)
 			{
-				// Compute sum of all distances
+				// Compute sum of all distances but ignore the holes
 				uint32_t sum = 0;
 				for (uint16_t j = 0; j < currentcluster->point_count; j++) sum += currentcluster->cluster[j];
 
@@ -252,19 +287,31 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 				float angle_deg = (float)(currentcluster->end_angle - currentcluster->start_angle);
 				float rad = angle_deg * (float)M_PI / 180.0f;
 				currentcluster->size_mm  =  2.0f * currentcluster->avg_dist * tanf(rad/2.0f);
-				if (currentcluster->size_mm >= MIN_CLUSTER_SIZE_MM)
+				if (currentcluster->size_mm >= MIN_CLUSTER_SIZE_MM - currentcluster->hole_points)
 				{
 					if (clusterstruct->target_cnt >= MAX_TARGETS)
 					{
 						//						return HAL_TARGETS_OVERFLOW;
+						clusterstruct->clusterizationstate = SEARCH;
 						return HAL_ERROR;
 					}
 					else
 					{
+						// Set the cluster as target and wipe it clean
 						Target_t *target = &clusterstruct->targets[clusterstruct->target_cnt];
 						target->angle = (currentcluster->end_angle - currentcluster->start_angle)/2;
 						target->distance = currentcluster->avg_dist;
 						target->size = currentcluster->size_mm;
+
+						currentcluster->avg_dist=0;
+						currentcluster->end_angle=0;
+						currentcluster->point_count=0;
+						currentcluster->size_mm=0;
+						currentcluster->start_angle=0;
+						currentcluster->hole_points=0;
+						currentcluster->point_count=0;
+						memset(currentcluster->cluster,0,sizeof(currentcluster->cluster));
+
 						clusterstruct->clusterizationstate = SEARCH;
 						break;
 					}
@@ -279,8 +326,12 @@ HAL_StatusTypeDef Clusterize(Lidar_t *clusters, Lidar_t *lidar)
 					currentcluster->size_mm=0;
 					currentcluster->start_angle=0;
 					memset(currentcluster->cluster,0,sizeof(currentcluster->cluster));
+					clusterstruct->clusterizationstate = SEARCH;
 				}
 			}
+			clusterstruct->clusterizationstate = SEARCH;
+			break;
+		default:
 			clusterstruct->clusterizationstate = SEARCH;
 			break;
 		}

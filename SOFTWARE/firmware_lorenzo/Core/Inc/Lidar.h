@@ -81,6 +81,8 @@ typedef struct {
 	uint16_t end_angle;
 	uint16_t point_count;
 	uint16_t cluster[MAX_CLUSTER_POINTS];
+	uint8_t hole_cnt;
+	uint8_t hole_points;
 	float avg_dist;
 	float size_mm;
 } TempCluster_t;
