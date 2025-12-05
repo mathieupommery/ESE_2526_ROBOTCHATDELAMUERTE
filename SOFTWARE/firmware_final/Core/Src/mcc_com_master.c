@@ -11,6 +11,23 @@ typedef enum {
     PROCESSANDSEND
 }RXSTATE;
 
+uint16_t crc16_ccitt(const uint8_t *data, uint32_t len)
+{
+    uint16_t crc = 0xFFFF;
+
+    while (len--) {
+        crc ^= (uint16_t)(*data++) << 8;
+
+        for (uint8_t i = 0; i < 8; i++) {
+            if (crc & 0x8000)
+                crc = (crc << 1) ^ 0x1021;
+            else
+                crc <<= 1;
+        }
+    }
+    return crc;
+}
+
 
 
 HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart){
@@ -18,7 +35,8 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart)
 	comstruct->huart=huart;
 	comstruct->write_index=0;
 	comstruct->read_index=0;
-	comstruct->tx_buf.f.header=FRAME_HEADER;
+	comstruct->cnt_frame_late=0;
+	comstruct->cnt_frame_lost=0;
 	HAL_StatusTypeDef result=HAL_OK;
 
 	comstruct->w0=0.0;
@@ -53,29 +71,32 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 
 	uint16_t index=comstruct->read_index;
 	uint16_t available=0;
+	uint8_t temp_buf[MOTOR_FRAME_SIZE];
 
-	if(comstruct->counter>=255){
-		comstruct->counter=0;
+	comstruct->tx_struct.f.header=FRAME_HEADER;
+	comstruct->tx_struct.f.flags=0;
+
+	if(comstruct->tx_struct.f.counter>=255){
+		comstruct->tx_struct.f.counter=0;
 	}
 	else{
-	comstruct->counter=comstruct->counter+1;
+	comstruct->tx_struct.f.counter=comstruct->tx_struct.f.counter+1;
 	}
 
 
-	comstruct->tx_buf.f.targetSpeed[0]=comstruct->w0;
-	comstruct->tx_buf.f.targetSpeed[1]=comstruct->w1;
-	comstruct->tx_buf.f.targetSpeed[2]=comstruct->w2;
 
-	comstruct->tx_buf.f.actualSpeed[0]=0.0f;
-	comstruct->tx_buf.f.actualSpeed[1]=0.0f;
-	comstruct->tx_buf.f.actualSpeed[2]=0.0f;
+	comstruct->tx_struct.f.actualSpeed[0]=0.0f;
+	comstruct->tx_struct.f.actualSpeed[1]=0.0f;
+	comstruct->tx_struct.f.actualSpeed[2]=0.0f;
 
-	comstruct->tx_buf.f.counter=comstruct->counter;
-	comstruct->tx_buf.f.flags=0;
-	comstruct->tx_buf.f.header=FRAME_HEADER;
-	comstruct->tx_buf.f.crc=0;
+	comstruct->tx_struct.f.targetSpeed[0]=comstruct->w0;
+	comstruct->tx_struct.f.targetSpeed[1]=comstruct->w1;
+	comstruct->tx_struct.f.targetSpeed[2]=comstruct->w2;
 
-	    if (HAL_UART_Transmit(comstruct->huart,(uint8_t *)comstruct->tx_buf.raw, MOTOR_FRAME_SIZE,100) == HAL_OK) {
+	comstruct->tx_struct.f.crc=crc16_ccitt((uint8_t *)comstruct->tx_struct.raw, MOTOR_FRAME_SIZE-2);
+
+
+	    if (HAL_UART_Transmit(comstruct->huart,(uint8_t *)comstruct->tx_struct.raw, MOTOR_FRAME_SIZE,100) == HAL_OK) {
 	        result=HAL_OK;
 	    }
 	    else {
@@ -113,8 +134,8 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 
 		case LOOKHEADER:
 		{
-			uint16_t tempheader=(comstruct->rx_buf[index]<<8)|(comstruct->rx_buf[(index+1)%MOTOR_COM_RX_BUF_SIZE]);
-			if(tempheader==0xAA55){
+			uint16_t tempheader=(comstruct->rx_buf[(index+1)%MOTOR_COM_RX_BUF_SIZE]<<8)|(comstruct->rx_buf[index]);
+			if(tempheader==FRAME_HEADER){
 				rxstate=CHECKFRAME;
 			}
 			else{
@@ -124,19 +145,33 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 		}
 		case CHECKFRAME:
 			if(available>=MOTOR_FRAME_SIZE){
-				//checksum here
-				rxstate=PROCESSANDSEND;
+
+				for(int i=0;i<(MOTOR_FRAME_SIZE-2);i++){
+
+					temp_buf[i]=comstruct->rx_buf[(index+i)%MOTOR_COM_RX_BUF_SIZE];
+				}
+
+				uint16_t checksum=crc16_ccitt((uint8_t *)temp_buf, MOTOR_FRAME_SIZE-2);
+				uint16_t crc=(uint16_t) (temp_buf[MOTOR_FRAME_SIZE-1]<<8)|temp_buf[MOTOR_FRAME_SIZE-2];
+				if(checksum == crc ){
+						rxstate=PROCESSANDSEND;
+					}
+				else{
+									comstruct->cnt_frame_lost++;
+									comstruct->read_index=(comstruct->read_index+2)%MOTOR_COM_RX_BUF_SIZE;
+									rxstate=LOOKHEADER;
+					}
 			}
 			else{
+				comstruct->cnt_frame_late++;
 				return HAL_BUSY;
 			}
-
-
 			break;
 		case PROCESSANDSEND:
 			for(int i=0;i<MOTOR_FRAME_SIZE;i++){
 				comstruct->rx_struct.raw[i]=comstruct->rx_buf[(index+i)%MOTOR_COM_RX_BUF_SIZE];
 			}
+			comstruct->read_index=(comstruct->read_index+2)%MOTOR_COM_RX_BUF_SIZE;
 			rxstate=LOOKHEADER;
 			return HAL_OK;
 

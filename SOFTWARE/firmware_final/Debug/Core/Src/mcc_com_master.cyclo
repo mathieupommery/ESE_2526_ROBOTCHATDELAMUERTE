@@ -1,2 +1,3 @@
-../Core/Src/mcc_com_master.c:16:19:MotorCom_Init	34
-../Core/Src/mcc_com_master.c:47:19:MotorCom_Process	14
+../Core/Src/mcc_com_master.c:14:10:crc16_ccitt	4
+../Core/Src/mcc_com_master.c:33:19:MotorCom_Init	34
+../Core/Src/mcc_com_master.c:65:19:MotorCom_Process	16

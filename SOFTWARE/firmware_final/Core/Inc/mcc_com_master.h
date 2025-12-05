@@ -41,14 +41,14 @@ typedef union {
 typedef struct {
 
     UART_HandleTypeDef *huart;
-
-    MotorFrameUnion_t rx_struct;
     uint8_t rx_buf[MOTOR_COM_RX_BUF_SIZE];
+    MotorFrameUnion_t rx_struct;
+    MotorFrameUnion_t tx_struct;
     uint16_t 		write_index;
     uint16_t        read_index;
 
-    MotorFrameUnion_t tx_buf;
-    uint8_t counter;
+    uint32_t cnt_frame_late;
+    uint32_t cnt_frame_lost;
     float w0;
     float w1;
     float w2;
