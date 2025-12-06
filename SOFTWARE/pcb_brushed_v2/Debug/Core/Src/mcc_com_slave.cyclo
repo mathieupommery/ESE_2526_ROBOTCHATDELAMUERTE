@@ -1,0 +1,3 @@
+../Core/Src/mcc_com_slave.c:23:10:crc16_ccitt	4
+../Core/Src/mcc_com_slave.c:42:19:MotorCom_Init	3
+../Core/Src/mcc_com_slave.c:66:19:MotorCom_Process	16
