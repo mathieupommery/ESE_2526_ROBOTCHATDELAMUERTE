@@ -1,4 +1,0 @@
-../Core/Src/odometry.c:15:6:odometry_Init	4	static
-../Core/Src/odometry.c:39:6:compute_speed	24	static
-../Core/Src/odometry.c:56:6:compute_movement	4	static
-../Core/Src/odometry.c:63:6:compute_xy_position	16	static
