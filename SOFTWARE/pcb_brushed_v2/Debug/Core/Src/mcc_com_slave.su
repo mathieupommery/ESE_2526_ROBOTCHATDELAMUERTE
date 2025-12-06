@@ -1,2 +1,0 @@
-../Core/Src/mcc_com_slave.c:25:19:MotorCom_Init	32	static
-../Core/Src/mcc_com_slave.c:49:19:MotorCom_Process	32	static,ignoring_inline_asm
