@@ -1,0 +1,10 @@
+../Core/Src/vl53l0x.c:25:27:TOF_GetI2C	16	static
+../Core/Src/vl53l0x.c:36:13:TOF_Delay	16	static
+../Core/Src/vl53l0x.c:48:19:VL53L0X_Init	48	static
+../Core/Src/vl53l0x.c:94:6:VL53L0X_Update	48	static
+../Core/Src/vl53l0x.c:140:10:VL53L0X_GetRawDistance	16	static
+../Core/Src/vl53l0x.c:146:7:VL53L0X_GetFilteredDistance	16	static
+../Core/Src/vl53l0x.c:152:6:VL53L0X_SetOffset	16	static
+../Core/Src/vl53l0x.c:159:9:VL53L0X_GetOffset	16	static
+../Core/Src/vl53l0x.c:165:19:VL53L0X_Calibrate	32	static
+../Core/Src/vl53l0x.c:189:12:VL53L0X_GetHandle	16	static

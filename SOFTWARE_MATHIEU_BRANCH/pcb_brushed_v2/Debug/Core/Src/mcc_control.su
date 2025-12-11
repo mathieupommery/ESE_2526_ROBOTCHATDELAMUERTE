@@ -1,0 +1,12 @@
+../Core/Src/mcc_control.c:21:14:clampf	24	static
+../Core/Src/mcc_control.c:29:6:Motor_ApplyCommand	32	static
+../Core/Src/mcc_control.c:60:14:PID_Update	64	static
+../Core/Src/mcc_control.c:116:6:Motor_UpdateMeasurement	40	static
+../Core/Src/mcc_control.c:141:6:Motor_Init	24	static
+../Core/Src/mcc_control.c:178:6:Motor_SetCommonSpeedPid	24	static
+../Core/Src/mcc_control.c:186:6:Motor_SetCommonPosPid	24	static
+../Core/Src/mcc_control.c:194:6:Motor_SetTargetSpeed	16	static
+../Core/Src/mcc_control.c:201:6:Motor_GotoAngle	16	static
+../Core/Src/mcc_control.c:208:6:Motor_Disable	16	static
+../Core/Src/mcc_control.c:220:6:App_InitMotors	24	static
+../Core/Src/mcc_control.c:244:6:MotorControlTask	32	static
