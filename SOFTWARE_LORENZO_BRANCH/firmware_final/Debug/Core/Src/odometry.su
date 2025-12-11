@@ -1,0 +1,5 @@
+../Core/Src/odometry.c:14:6:OmniOdometry_Init	16	static
+../Core/Src/odometry.c:25:6:OmniOdometry_ComputeRobotSpeed	16	static
+../Core/Src/odometry.c:61:6:OmniOdometry_ComputeMovement	24	static
+../Core/Src/odometry.c:78:6:OmniOdometry_ComputePosition	40	static
+../Core/Src/odometry.c:105:6:OmniOdometry_ComputeInverseCinematics	64	static

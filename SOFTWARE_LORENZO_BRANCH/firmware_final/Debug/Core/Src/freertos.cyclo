@@ -1,0 +1,7 @@
+../Core/Src/freertos.c:88:6:vApplicationGetIdleTaskMemory	1
+../Core/Src/freertos.c:102:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:157:6:Startmaintask	1
+../Core/Src/freertos.c:197:6:Startsensorparse	1
+../Core/Src/freertos.c:232:6:StartPimptask	1
+../Core/Src/freertos.c:253:6:StartOdomtask	1
+../Core/Src/freertos.c:277:6:StartClustertask	1
