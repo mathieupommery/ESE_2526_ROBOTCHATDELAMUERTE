@@ -7,7 +7,6 @@
 
 #include <Lidar.h>
 
-
 HAL_StatusTypeDef Lidar_Init(Lidar_t *lidar,UART_HandleTypeDef *huart,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin){
 	LiDARParsing_t *structlidar = &lidar->parse_struct;
 	lidar->huart=huart;
@@ -21,15 +20,16 @@ HAL_StatusTypeDef Lidar_Init(Lidar_t *lidar,UART_HandleTypeDef *huart,GPIO_TypeD
 	if(HAL_UART_Receive_DMA(huart,structlidar->ylidar_circular_buffer, YLIDAR_CIRC_BUF_SIZE)!= HAL_OK){
 		return HAL_ERROR;
 	}
-	    __HAL_DMA_ENABLE_IT(lidar->huart->hdmarx,DMA_IT_HT);
-	    __HAL_DMA_ENABLE_IT(lidar->huart->hdmarx,DMA_IT_TC);
+	__HAL_DMA_ENABLE_IT(lidar->huart->hdmarx,DMA_IT_HT);
+	__HAL_DMA_ENABLE_IT(lidar->huart->hdmarx,DMA_IT_TC);
 
-	    structlidar->ylidar_read_index=0;
-	    structlidar->ylidar_write_index=0;
+	structlidar->ylidar_read_index=0;
+	structlidar->ylidar_write_index=0;
 
-	    return HAL_OK;
+	return HAL_OK;
 
 }
+
 
 HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar)
 {
@@ -63,297 +63,376 @@ HAL_StatusTypeDef ylidar_fsm(Lidar_t *lidar)
 			available = (YLIDAR_CIRC_BUF_SIZE - structlidar->ylidar_read_index) + structlidar->ylidar_write_index;
 		}
 
-	switch (structlidar->ydlidarstate)
-	{
-	case FSM_STATE_0:
+		switch (structlidar->ydlidarstate)
+		{
+		case FSM_STATE_0:
 
-		if((structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]==0xAA)&& (structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE]==0x55)){
-			structlidar->ydlidarstate=FSM_STATE_1;
-			structlidar->ylidar_read_index=(structlidar->ylidar_read_index+2)%YLIDAR_CIRC_BUF_SIZE;
-		}
-		else{
-			structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
-		}
+			if((structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]==0xAA)&& (structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE]==0x55)){
+				structlidar->ydlidarstate=FSM_STATE_1;
+				structlidar->ylidar_read_index=(structlidar->ylidar_read_index+2)%YLIDAR_CIRC_BUF_SIZE;
+			}
+			else{
+				structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
+			}
 
-		break;
+			break;
 
-	case FSM_STATE_1:
+		case FSM_STATE_1:
 
-		if(!(structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]&0x01)){
-			structlidar->ydlidarstate=FSM_STATE_2;
-			structlidar->CT = structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index];
-			structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
-		}
-		else{
-			structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
+			if(!(structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]&0x01)){
+				structlidar->ydlidarstate=FSM_STATE_2;
+				structlidar->CT = structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index];
+				structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
+			}
+			else{
+				structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
+				structlidar->ydlidarstate=FSM_STATE_0;
+			}
+			break;
+
+		case FSM_STATE_2:
+
+			structlidar->LSN=structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index];
+
+			uint16_t needed=structlidar->LSN*2+6;
+
+			if(needed<=available){
+				structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
+				structlidar->ydlidarstate=FSM_STATE_3;
+			}
+
+			break;
+
+		case FSM_STATE_3:
+			uint16_t FSA = 0;
+			uint16_t LSA = 0;
+			uint16_t distance = 0;
+
+			FSA = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 1) % YLIDAR_CIRC_BUF_SIZE] << 8) |
+					structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]);
+			LSA = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 3) % YLIDAR_CIRC_BUF_SIZE] << 8) |
+					structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 2) % YLIDAR_CIRC_BUF_SIZE]);
+			structlidar->CHECKSUM = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 5) % YLIDAR_CIRC_BUF_SIZE] << 8) |
+					structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 4) % YLIDAR_CIRC_BUF_SIZE]);
+			structlidar->ylidar_read_index = (structlidar->ylidar_read_index + 6) % YLIDAR_CIRC_BUF_SIZE;
+
+			structlidar->FSA_float = FSA * (1.0f / 128.0f);
+			structlidar->LSA_float = LSA * (1.0f / 128.0f);
+
+			if (structlidar->LSA_float < structlidar->FSA_float) {
+				structlidar->LSA_float += 360.0f;
+			}
+
+			float angle_start = structlidar->FSA_float;
+			float angle_step = 0.0f;
+			if (structlidar->LSN > 1) {
+				angle_step = (structlidar->LSA_float - structlidar->FSA_float) / (float)(structlidar->LSN - 1);
+			}
+
+			uint16_t read_idx = structlidar->ylidar_read_index;
+
+			for (uint16_t i = 0; i < structlidar->LSN; i++) {
+
+				uint16_t hi = structlidar->ylidar_circular_buffer[(read_idx + 1) % YLIDAR_CIRC_BUF_SIZE];
+				uint16_t lo = structlidar->ylidar_circular_buffer[read_idx];
+				distance = (uint16_t)(((hi << 8) | lo) >> 2);   // /4 en entier
+
+				float angle = angle_start + angle_step * (float)i;
+				int angle_index = (int)angle;                   // équivalent à floor() pour angle >= 0
+
+				if (angle_index >= 360) {
+					angle_index = angle_index % 360;                         // plus rapide qu’un %
+				}
+
+				structlidar->ylidar_finalbuffer[angle_index] =
+						(distance >= LidarMaxDepth) ? 0 : distance;
+
+				read_idx =(read_idx + 2) % YLIDAR_CIRC_BUF_SIZE;
+			}
+
+			structlidar->ylidar_read_index = read_idx;
+
 			structlidar->ydlidarstate=FSM_STATE_0;
+
+			break;
+
+		default:
+			structlidar->ydlidarstate=FSM_STATE_0;
+			break;
 		}
-		break;
-
-	case FSM_STATE_2:
-
-		structlidar->LSN=structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index];
-
-		uint16_t needed=structlidar->LSN*2+6;
-
-		if(needed<=available){
-			structlidar->ylidar_read_index=(structlidar->ylidar_read_index+1)%YLIDAR_CIRC_BUF_SIZE;
-			structlidar->ydlidarstate=FSM_STATE_3;
-		}
-
-		break;
-
-	case FSM_STATE_3:
-	    uint16_t FSA = 0;
-	    uint16_t LSA = 0;
-	    uint16_t distance = 0;
-
-	    FSA = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 1) % YLIDAR_CIRC_BUF_SIZE] << 8) |
-	                      structlidar->ylidar_circular_buffer[structlidar->ylidar_read_index]);
-	    LSA = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 3) % YLIDAR_CIRC_BUF_SIZE] << 8) |
-	                      structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 2) % YLIDAR_CIRC_BUF_SIZE]);
-	    structlidar->CHECKSUM = (uint16_t)((structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 5) % YLIDAR_CIRC_BUF_SIZE] << 8) |
-	                                       structlidar->ylidar_circular_buffer[(structlidar->ylidar_read_index + 4) % YLIDAR_CIRC_BUF_SIZE]);
-	    structlidar->ylidar_read_index = (structlidar->ylidar_read_index + 6) % YLIDAR_CIRC_BUF_SIZE;
-
-	    structlidar->FSA_float = FSA * (1.0f / 128.0f);
-	    structlidar->LSA_float = LSA * (1.0f / 128.0f);
-
-	    if (structlidar->LSA_float < structlidar->FSA_float) {
-	        structlidar->LSA_float += 360.0f;
-	    }
-
-	    float angle_start = structlidar->FSA_float;
-	    float angle_step = 0.0f;
-	    if (structlidar->LSN > 1) {
-	        angle_step = (structlidar->LSA_float - structlidar->FSA_float) / (float)(structlidar->LSN - 1);
-	    }
-
-	    uint16_t read_idx = structlidar->ylidar_read_index;
-
-	    for (uint16_t i = 0; i < structlidar->LSN; i++) {
-
-	        uint16_t hi = structlidar->ylidar_circular_buffer[(read_idx + 1) % YLIDAR_CIRC_BUF_SIZE];
-	        uint16_t lo = structlidar->ylidar_circular_buffer[read_idx];
-	        distance = (uint16_t)(((hi << 8) | lo) >> 2);   // /4 en entier
-
-	        float angle = angle_start + angle_step * (float)i;
-	        int angle_index = (int)angle;                   // équivalent à floor() pour angle >= 0
-
-	        if (angle_index >= 360) {
-	            angle_index = angle_index % 360;                         // plus rapide qu’un %
-	        }
-
-	        structlidar->ylidar_finalbuffer[angle_index] =
-	                (distance >= LidarMaxDepth) ? 0 : distance;
-
-	        read_idx =(read_idx + 2) % YLIDAR_CIRC_BUF_SIZE;
-	    }
-
-	    structlidar->ylidar_read_index = read_idx;
-
-	    structlidar->ydlidarstate=FSM_STATE_0;
-
-		break;
-
-	default:
-		structlidar->ydlidarstate=FSM_STATE_0;
-		break;
 	}
-}
 
 	return HAL_OK;
 }
 
+HAL_StatusTypeDef Clusterize(Lidar_t *lidar)
+{
+    LiDARParsing_t *structlidar = &lidar->parse_struct;
+    ClusterParsing_t *clusterstruct = &lidar->cluster_struct;
 
-//static inline float calc_size_mm(uint16_t avg_dist_mm, float angle_deg)
-//{
-//	if (avg_dist_mm < 100 || angle_deg < 3.0f || angle_deg > 150.0f) {
-//		return 0.0f;  // filtre anti-bruit
-//	}
-//	float rad = angle_deg * (float)M_PI / 180.0f;
-//	return 2.0f * (float)avg_dist_mm * tanf(rad/2.0f);
-//}
+    /* --- init --- */
+    clusterstruct->target_cnt = 0;
+    clusterstruct->temp_cluster_cnt = 0;
+    clusterstruct->clusterizationstate = SEARCH; /* ensure defined */
 
+    /* copy buffer: expect CLUSTER_BUF_SIZE == LIDAR_POINTS + WRAP_SIZE */
+    memcpy(clusterstruct->cluster_buf, structlidar->ylidar_finalbuffer, sizeof(uint16_t) * LIDAR_POINTS);
+    memcpy(clusterstruct->cluster_buf + LIDAR_POINTS, structlidar->ylidar_finalbuffer, sizeof(uint16_t) * WRAP_SIZE);
 
-///*------------------------------------------------------------------*/
-//void LidarClusterTracker_ProcessScan(void)
-//{
-//	    lidar.count = 0;
-//	    lidar.new_data = false;
-//	    lidar.scan_id++;
-//
-//	    tempclusters.temp_cluster_cnt = 0;
-//
-//	    uint16_t cluster_len = 0;
-//	    uint16_t cluster_start = 0;
-//
-//	    enum { SEARCH, IN_CLUSTER } state = SEARCH;
-//
-//	    for (uint16_t i = 0; i < LIDAR_POINTS; i++)
-//	    {
-//	        switch (state)
-//	        {
-//	            case SEARCH:
-//	                if (structlidar.ylidar_finalbuffer[i] >= MIN_VALID_DISTANCE_MM && structlidar.ylidar_finalbuffer[i] <= MAX_VALID_DISTANCE_MM)
-//	                {
-//	                    cluster_start = i;
-//	                    tempclusters.cluster_buf[0] = structlidar.ylidar_finalbuffer[i];
-//	                    cluster_len = 1;
-//	                    state = IN_CLUSTER;
-//	                }
-//	                break;
-//	            case IN_CLUSTER:
-//		{
-//			bool end_cluster = false;
-//
-//			// --- Gestion des petits trous ---
-//			if (structlidar.ylidar_finalbuffer[i] < MIN_VALID_DISTANCE_MM || structlidar.ylidar_finalbuffer[i] > MAX_VALID_DISTANCE_MM)
-//			{
-//				uint16_t hole = 1;
-//				uint16_t k = (i + 1) % LIDAR_POINTS;
-//
-//				while (hole <= MAX_HOLE_COUNT &&
-//						(structlidar.ylidar_finalbuffer[k] < MIN_VALID_DISTANCE_MM || structlidar.ylidar_finalbuffer[k] > MAX_VALID_DISTANCE_MM))
-//				{
-//					hole++;
-//					k = (k + 1) % LIDAR_POINTS;
-//				}
-//
-//				uint16_t next_valid = structlidar.ylidar_finalbuffer[k];
-//
-//				if (hole <= MAX_HOLE_COUNT &&
-//						next_valid >= MIN_VALID_DISTANCE_MM && next_valid <= MAX_VALID_DISTANCE_MM &&
-//						abs((int)next_valid - (int)structlidar.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS]) <= HOLE_TOLERANCE_MM)
-//				{
-//					// On comble le trou
-//					for (uint16_t h = 0; h < hole; h++)
-//					{
-//						if (cluster_len < CLUSTER_BUF_SIZE - 20)
-//							tempclusters.cluster_buf[cluster_len++] = structlidar.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS];
-//					}
-//					i += hole - 1;
-//					continue;
-//				}
-//				else
-//				{
-//					end_cluster = true;
-//				}
-//			}
-//			else
-//			{
-//				if (abs((int)structlidar.ylidar_finalbuffer[i] - (int)structlidar.ylidar_finalbuffer[(i + LIDAR_POINTS - 1) % LIDAR_POINTS]) > CLUSTER_THRESHOLD_MM)
-//					end_cluster = true;
-//				else if (cluster_len < CLUSTER_BUF_SIZE - 20)
-//					tempclusters.cluster_buf[cluster_len++] = structlidar.ylidar_finalbuffer[i];
-//			}
-//
-//			// --- Fin de cluster ---
-//			if (end_cluster || i == LIDAR_POINTS - 1)
-//			{
-//				uint16_t end_angle = (i == LIDAR_POINTS - 1 && !end_cluster) ? i : (i + LIDAR_POINTS - 1) % LIDAR_POINTS;
-//
-//				if (cluster_len >= MIN_CLUSTER_POINTS)
-//				{
-//					// Calcul moyenne
-//					uint32_t sum = 0;
-//					for (uint16_t j = 0; j < cluster_len; j++) sum += tempclusters.cluster_buf[j];
-//					uint16_t avg = sum / cluster_len;
-//
-//					float angle_deg = (float)(end_angle - cluster_start + 1);
-//					float size = calc_size_mm(avg, angle_deg);
-//
-//					if (tempclusters.temp_cluster_cnt < MAX_TEMP_CLUSTERS)
-//					{
-//						tempclusters.temp_clusters[tempclusters.temp_cluster_cnt++] = (TempCluster_t){
-//							.start_angle = cluster_start,
-//									.end_angle   = end_angle,
-//									.point_count = cluster_len,
-//									.avg_dist    = avg,
-//									.size_mm     = size
-//						};
-//					}
-//				}
-//
-//				cluster_len = 0;
-//				state = SEARCH;
-//			}
-//			break;
-//		}
-//		}
-//	}
-//
-//	// === Phase 2 : Fusion des clusters qui wrappent autour de 0° ===
-//	if (tempclusters.temp_cluster_cnt >= 2)
-//	{
-//		uint8_t last_idx = 255, first_idx = 255;
-//
-//		for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt; i++)
-//		{
-//			if (tempclusters.temp_clusters[i].start_angle >= 300) last_idx = i;
-//			if (tempclusters.temp_clusters[i].end_angle   <= 60)  first_idx = i;
-//		}
-//
-//		if (last_idx != 255 && first_idx != 255 && last_idx != first_idx)
-//		{
-//			// Vérifie continuité en distance
-//			uint16_t dist_end   = tempclusters.cluster_buf[tempclusters.temp_clusters[last_idx].point_count - 1];
-//			uint16_t dist_start = tempclusters.cluster_buf[0];  // premier point du cluster du début
-//
-//			if (abs((int)dist_end - (int)dist_start) <= CLUSTER_THRESHOLD_MM)
-//			{
-//				// Fusion valide
-//				float total_angle_deg = (360.0f - tempclusters.temp_clusters[last_idx].start_angle) + (tempclusters.temp_clusters[first_idx].end_angle + 1);
-//				uint16_t avg_dist = (tempclusters.temp_clusters[last_idx].avg_dist + tempclusters.temp_clusters[first_idx].avg_dist) / 2;
-//				float merged_size = calc_size_mm(avg_dist, total_angle_deg);
-//
-//				if (merged_size >= MIN_CLUSTER_SIZE_MM && merged_size <= MAX_CLUSTER_SIZE_MM)
-//				{
-//					if (lidar.count < MAX_CLUSTERS)
-//					{
-//						uint16_t center = (tempclusters.temp_clusters[first_idx].end_angle + 360 + tempclusters.temp_clusters[last_idx].start_angle) % 360;
-//
-//						LidarCluster_t *cluster = &lidar.clusters[lidar.count++];
-//						cluster->first_angle   = tempclusters.temp_clusters[last_idx].start_angle;
-//						cluster->last_angle    = tempclusters.temp_clusters[first_idx].end_angle;
-//						cluster->center_angle  = center;
-//						cluster->distance_mm   = avg_dist;
-//						cluster->size_mm       = merged_size;
-//						cluster->point_count   = tempclusters.temp_clusters[last_idx].point_count + tempclusters.temp_clusters[first_idx].point_count;
-//						cluster->timestamp_ms  = xTaskGetTickCount() * portTICK_PERIOD_MS;
-//					}
-//
-//					// On retire les deux clusters fusionnés
-//					for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt; i++)
-//					{
-//						if (i == last_idx || i == first_idx)
-//						{
-//							for (uint8_t j = i; j < tempclusters.temp_cluster_cnt - 1; j++)
-//								tempclusters.temp_clusters[j] = tempclusters.temp_clusters[j + 1];
-//							tempclusters.temp_cluster_cnt--;
-//							if (i == last_idx) last_idx--;
-//							i--;
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//
-//	// === Ajout des clusters non-wrappés ===
-//	for (uint8_t i = 0; i < tempclusters.temp_cluster_cnt && lidar.count < MAX_CLUSTERS; i++)
-//	{
-//		if (tempclusters.temp_clusters[i].size_mm >= MIN_CLUSTER_SIZE_MM && tempclusters.temp_clusters[i].size_mm <= MAX_CLUSTER_SIZE_MM)
-//		{
-//			LidarCluster_t *cluster = &lidar.clusters[lidar.count++];
-//			cluster->first_angle   = tempclusters.temp_clusters[i].start_angle;
-//			cluster->last_angle    = tempclusters.temp_clusters[i].end_angle;
-//			cluster->center_angle  = (tempclusters.temp_clusters[i].start_angle + tempclusters.temp_clusters[i].end_angle) / 2;
-//			cluster->distance_mm   = tempclusters.temp_clusters[i].avg_dist;
-//			cluster->size_mm       = (float)tempclusters.temp_clusters[i].size_mm;
-//			cluster->point_count   = tempclusters.temp_clusters[i].point_count;
-//			cluster->timestamp_ms  = xTaskGetTickCount() * portTICK_PERIOD_MS;
-//		}
-//	}
-//	lidar.new_data = (lidar.count > 0);
-//}
+    /* init cluster zero */
+    TempCluster_t *clusterzero = &clusterstruct->temp_clusters[0];
+    clusterzero->avg_dist = 0;
+    clusterzero->end_angle = 0;
+    clusterzero->point_count = 0;
+    clusterzero->size_mm = 0;
+    clusterzero->start_angle = 0;
+    clusterzero->hole_points = 0;
+    clusterzero->hole_cnt = 0;
+    memset(clusterzero->cluster, 0, sizeof(clusterzero->cluster)); /* consistent size */
+
+    /* helper to get safe previous index */
+    #define PREV_IDX(x) (((x) + CLUSTER_BUF_SIZE - 1) % CLUSTER_BUF_SIZE)
+
+    for (int i = 0; i < CLUSTER_BUF_SIZE; i++)
+    {
+        switch (clusterstruct->clusterizationstate)
+        {
+            case SEARCH:
+            {
+                int prev = PREV_IDX(i);
+                int diff_abs = abs((int)clusterstruct->cluster_buf[prev] - (int)clusterstruct->cluster_buf[i]);
+                if (diff_abs > CLUSTER_THRESHOLD_MM)
+                {
+                    /* start a new cluster: keep temp_clusters[0] for wrapping */
+                    if (clusterstruct->temp_cluster_cnt + 1 >= MAX_TEMP_CLUSTERS) {
+                        /* defensive: avoid overflow */
+                        clusterstruct->clusterizationstate = SEARCH;
+                        break;
+                    }
+                    clusterstruct->temp_cluster_cnt += 1;
+                    TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
+                    /* init current cluster */
+                    currentcluster->point_count = 1;
+                    currentcluster->cluster[0] = clusterstruct->cluster_buf[i];
+                    currentcluster->start_angle = i % LIDAR_POINTS;
+                    currentcluster->end_angle = 0;
+                    currentcluster->avg_dist = 0;
+                    currentcluster->size_mm = 0;
+                    currentcluster->hole_points = 0;
+                    currentcluster->hole_cnt = 0;
+                    clusterstruct->clusterizationstate = IN_CLUSTER;
+                }
+                break;
+            }
+
+            case IN_CLUSTER:
+            {
+                /* ensure temp_cluster_cnt is valid */
+                if (clusterstruct->temp_cluster_cnt == 0) {
+                    /* nothing to append to; reset to SEARCH to be safe */
+                    clusterstruct->clusterizationstate = SEARCH;
+                    break;
+                }
+                TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
+
+                /* previous index safe */
+                int prev = PREV_IDX(i);
+                uint16_t a = clusterstruct->cluster_buf[i];
+                uint16_t b = clusterstruct->cluster_buf[prev];
+                uint16_t diff = (a > b) ? (a - b) : (b - a);
+
+                if (diff > CLUSTER_THRESHOLD_MM)
+                {
+                    if (currentcluster->hole_cnt <= MAX_HOLE_COUNT)
+                    {
+                        uint8_t inhole = 1;
+                        uint8_t k = 1;
+                        /* check hole using adjacent samples at (i + k - 1) and (i + k) */
+                        while (inhole == 1 && k < MAX_HOLE_SIZE && (i + k) < CLUSTER_BUF_SIZE)
+                        {
+                            int idx1 = i + k - 1;
+                            int idx2 = i + k;
+                            uint16_t v1 = clusterstruct->cluster_buf[idx1];
+                            uint16_t v2 = clusterstruct->cluster_buf[idx2];
+                            uint16_t diff_k = (v1 > v2) ? (v1 - v2) : (v2 - v1);
+
+                            if (diff_k > CLUSTER_THRESHOLD_MM) {
+                                k++;
+                            } else {
+                                inhole = 0;
+                            }
+                        }
+
+                        if (inhole == 0)
+                        {
+                            /* ensure we don't write out of bounds */
+                            if ((size_t)currentcluster->point_count + k + 1 < MAX_CLUSTER_POINTS) {
+                                currentcluster->point_count += k;
+                                currentcluster->cluster[currentcluster->point_count] = clusterstruct->cluster_buf[i + k];
+                                currentcluster->hole_points += k;
+                                /* increase hole count */
+                                currentcluster->hole_cnt += 1;
+                                i += k; /* skip ahead */
+                                break;
+                            } else {
+                                /* overflow attempt — end cluster */
+                                clusterstruct->clusterizationstate = END_CLUSTER;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            clusterstruct->clusterizationstate = END_CLUSTER;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        clusterstruct->clusterizationstate = END_CLUSTER;
+                        break;
+                    }
+                }
+
+                /* store current point as part of cluster, check bounds */
+                if ((size_t)currentcluster->point_count + 1 < MAX_CLUSTER_POINTS) {
+                    currentcluster->point_count += 1;
+                    currentcluster->cluster[currentcluster->point_count] = clusterstruct->cluster_buf[i];
+                } else {
+                    /* cluster buffer overflow => end cluster defensively */
+                    clusterstruct->clusterizationstate = END_CLUSTER;
+                }
+                break;
+            }
+
+            case END_CLUSTER:
+            {
+                /* get currentcluster pointer safely */
+                if (clusterstruct->temp_cluster_cnt == 0) {
+                    /* nothing to end */
+                    clusterstruct->clusterizationstate = SEARCH;
+                    break;
+                }
+                TempCluster_t *currentcluster = &clusterstruct->temp_clusters[clusterstruct->temp_cluster_cnt];
+                TempCluster_t *firstcluster = &clusterstruct->temp_clusters[1];
+
+                /* end angle is previous index of i */
+                currentcluster->end_angle = (i - 1 + LIDAR_POINTS) % LIDAR_POINTS;
+
+                /* wrapping handling: replace first cluster if needed */
+                if (clusterstruct->temp_cluster_cnt > 1) {
+                    if (currentcluster->end_angle <= firstcluster->end_angle &&
+                        currentcluster->end_angle >= firstcluster->start_angle)
+                    {
+                        /* copy fields */
+                        firstcluster->avg_dist = currentcluster->avg_dist;
+                        firstcluster->end_angle = currentcluster->end_angle;
+                        firstcluster->point_count = currentcluster->point_count;
+                        firstcluster->size_mm = currentcluster->size_mm;
+                        firstcluster->start_angle = currentcluster->start_angle;
+                        firstcluster->hole_cnt = currentcluster->hole_cnt;
+                        firstcluster->hole_points = currentcluster->hole_points;
+                        memset(firstcluster->cluster, 0, sizeof(firstcluster->cluster));
+                        memcpy(firstcluster->cluster, currentcluster->cluster, sizeof(firstcluster->cluster));
+                        currentcluster = firstcluster;
+                    }
+                }
+
+                /* move to clusterzero if appropriate */
+                if (clusterstruct->temp_cluster_cnt > 1 &&
+                    currentcluster->end_angle <= firstcluster->start_angle)
+                {
+                    TempCluster_t *clusterzero_dst = &clusterstruct->temp_clusters[0];
+                    *clusterzero_dst = *currentcluster; /* shallow copy whole struct is fine if no pointers */
+                    memcpy(clusterzero_dst->cluster, currentcluster->cluster, sizeof(clusterzero_dst->cluster));
+                    /* clear the old currentcluster */
+                    currentcluster->avg_dist = 0;
+                    currentcluster->end_angle = 0;
+                    currentcluster->point_count = 0;
+                    currentcluster->size_mm = 0;
+                    currentcluster->start_angle = 0;
+                    currentcluster->hole_points = 0;
+                    currentcluster->hole_cnt = 0;
+                    memset(currentcluster->cluster, 0, sizeof(currentcluster->cluster));
+                    currentcluster = clusterzero_dst;
+                }
+
+                /* sum distances */
+                uint32_t sum = 0;
+                if (currentcluster->point_count == 0) {
+                    /* nothing to do; reset and continue */
+                    clusterstruct->temp_cluster_cnt = (clusterstruct->temp_cluster_cnt > 0) ? clusterstruct->temp_cluster_cnt - 1 : 0;
+                    clusterstruct->clusterizationstate = SEARCH;
+                    break;
+                }
+                for (uint16_t j = 0; j < currentcluster->point_count; j++) {
+                    sum += currentcluster->cluster[j];
+                }
+
+                /* safe division */
+                currentcluster->avg_dist = sum / currentcluster->point_count;
+
+                /* compute cluster size (angles are modulo 360 but your LIDAR_POINTS logic kept it simple) */
+                float angle_deg = (float)(currentcluster->end_angle - currentcluster->start_angle);
+                float rad = angle_deg * (float)M_PI / 180.0f;
+                currentcluster->size_mm = 2.0f * currentcluster->avg_dist * tanf(rad / 2.0f);
+
+                if (currentcluster->size_mm >= ((float)MIN_CLUSTER_SIZE_MM - (float)currentcluster->hole_points))
+                {
+                    if (clusterstruct->target_cnt >= MAX_TARGETS) {
+                        clusterstruct->clusterizationstate = SEARCH;
+                    } else {
+                        /* add target, increment target count */
+                        Target_t *target = &clusterstruct->targets[clusterstruct->target_cnt];
+                        target->angle = currentcluster->start_angle + (currentcluster->end_angle - currentcluster->start_angle) / 2;
+                        target->distance = currentcluster->avg_dist;
+                        target->size = currentcluster->size_mm;
+
+                        /* clear currentcluster */
+                        currentcluster->avg_dist = 0;
+                        currentcluster->end_angle = 0;
+                        currentcluster->point_count = 0;
+                        currentcluster->size_mm = 0;
+                        currentcluster->start_angle = 0;
+                        currentcluster->hole_points = 0;
+                        currentcluster->hole_cnt = 0;
+                        memset(currentcluster->cluster, 0, sizeof(currentcluster->cluster));
+
+                        clusterstruct->temp_cluster_cnt = (clusterstruct->temp_cluster_cnt > 0) ? clusterstruct->temp_cluster_cnt - 1 : 0;
+                        clusterstruct->target_cnt += 1; /* increment target count! */
+                        clusterstruct->clusterizationstate = SEARCH;
+                    }
+                }
+                else
+                {
+                    /* cluster too small -> wipe and continue */
+                    currentcluster->avg_dist = 0;
+                    currentcluster->end_angle = 0;
+                    currentcluster->point_count = 0;
+                    currentcluster->size_mm = 0;
+                    currentcluster->start_angle = 0;
+                    memset(currentcluster->cluster, 0, sizeof(currentcluster->cluster));
+
+                    clusterstruct->temp_cluster_cnt = (clusterstruct->temp_cluster_cnt > 0) ? clusterstruct->temp_cluster_cnt - 1 : 0;
+                    clusterstruct->clusterizationstate = SEARCH;
+                }
+
+                break;
+            }
+
+            default:
+                clusterstruct->clusterizationstate = SEARCH;
+                break;
+        } /* end switch */
+    } /* end for */
+
+    /* clear remaining targets slots (use < MAX_TARGETS) */
+    for (int i = clusterstruct->target_cnt; i < MAX_TARGETS; i++) {
+        Target_t *target = &clusterstruct->targets[i];
+        target->angle = 0;
+        target->distance = 0;
+        target->size = 0;
+    }
+
+    #undef PREV_IDX
+    return HAL_OK;
+}
