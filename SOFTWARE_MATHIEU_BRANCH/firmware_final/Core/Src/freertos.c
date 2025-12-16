@@ -55,6 +55,7 @@
 extern adxl343_t adxldata;
 extern MOTOR_COM com_struct;
 extern Lidar_t lidar_struct;
+extern Omni3_t odom_struct;
 
 extern led_strip_t tomandjerry;
 extern led_strip_t extled;
@@ -175,23 +176,31 @@ void Startmaintask(void const * argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN Startmaintask */
   TickType_t xLastWakeTime;
-  const TickType_t period = pdMS_TO_TICKS(5000);
+  const TickType_t period = pdMS_TO_TICKS(3000);
   xLastWakeTime = xTaskGetTickCount();
   int i=0;
   /* Infinite loop */
   for(;;)
   {
-//	  switch(i){
-//	  case 0:
-//		  i++;
-//		  break;
-//	  case 1:
-//		  com_struct.w0=74.0f;
-//		  com_struct.w1=195.0f;
-//		  com_struct.w2=14.0f;
-//		  i--;
-//		  break;
-//	  }
+
+	  omni3_init_default(&odom_struct, 0.035, 0.085,0);
+
+
+	  switch(i){
+	  case 0:
+		  com_struct.w0=0.0;
+		  com_struct.w1=0.0;
+		  com_struct.w2=0.0;
+		  i++;
+		  break;
+	  case 1:
+//		  omni3_inverse(&odom_struct,0.3, 0.3, 0.0);
+//		  com_struct.w0=odom_struct.w_out[0];
+//		  com_struct.w1=odom_struct.w_out[1];
+//		  com_struct.w2=odom_struct.w_out[2];
+		  i--;
+		  break;
+	  }
 
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 	  vTaskDelayUntil(&xLastWakeTime, period);
@@ -224,6 +233,9 @@ void Startsensorparse(void const * argument)
   {
 	  t0=DWT->CYCCNT;
 	  ylidar_fsm(&lidar_struct);
+	  VL53L0X_Update(&tof_array[0]);
+	  VL53L0X_Update(&tof_array[1]);
+	  VL53L0X_Update(&tof_array[2]);
 	  mid_time=(DWT->CYCCNT-t0);
 	  time_sum+=mid_time;
 	  i+=1;
@@ -235,7 +247,7 @@ void Startsensorparse(void const * argument)
 	  if(mid_time>max_time){
 		  max_time=mid_time;
 	  }
-	  //ADXL343_ReadXYZ(&adxldata, 100);
+
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }
   /* USER CODE END Startsensorparse */
@@ -251,9 +263,10 @@ void Startsensorparse(void const * argument)
 void StartPimptask(void const * argument)
 {
   /* USER CODE BEGIN StartPimptask */
-    LED_Strip_Init(&tomandjerry,&htim1,TIM_CHANNEL_2,tomjerry_grb,TOM_JERRY_LED_COUNT,tomjerry_dma,(uint16_t)(sizeof(tomjerry_dma) / sizeof(tomjerry_dma[0])));
+	LED_Strip_Init(&tomandjerry,&htim1,TIM_CHANNEL_2,tomjerry_grb,TOM_JERRY_LED_COUNT,tomjerry_dma,(uint16_t)(sizeof(tomjerry_dma) / sizeof(tomjerry_dma[0])));
     LED_Strip_Init(&extled,&htim3,TIM_CHANNEL_4,ext_grb,EXT_LED_COUNT,ext_dma,(uint16_t)(sizeof(ext_dma) / sizeof(ext_dma[0])));
 	uint16_t offset=0;
+	uint8_t flag1=0;
 
 
 
@@ -268,6 +281,31 @@ void StartPimptask(void const * argument)
 	  LED_Strip_Refresh(&extled);
 	  LED_Strip_FillRainbow(&extled,offset,255);
 	  offset+=2;
+
+	  if(adxldata.filtered_tap_event==1){
+		  adxldata.filtered_tap_event=0;
+		  flag1=1-flag1;
+		  if(flag1){
+					if(!tomandjerry.dma_busy){
+					LED_Strip_SetPixelRGB(&tomandjerry,0,255, 0, 0);
+					LED_Strip_SetPixelRGB(&tomandjerry,1,0, 255, 0);
+					LED_Strip_Refresh(&tomandjerry);
+					}
+
+				}
+		  else{
+					if(!tomandjerry.dma_busy){
+					LED_Strip_SetPixelRGB(&tomandjerry,0,0, 255, 0);
+					LED_Strip_SetPixelRGB(&tomandjerry,1,255,0, 0);
+					LED_Strip_Refresh(&tomandjerry);
+					}
+
+
+
+		  }
+	  }
+
+
 
 
 	  vTaskDelayUntil(&xLastWakeTime, period);
@@ -285,6 +323,7 @@ void StartPimptask(void const * argument)
 void StartOdomtask(void const * argument)
 {
   /* USER CODE BEGIN StartOdomtask */
+
 
 	//odometry_Init();
 	  TickType_t xLastWakeTime;

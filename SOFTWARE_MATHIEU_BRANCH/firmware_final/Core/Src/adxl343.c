@@ -107,6 +107,13 @@ if (st != HAL_OK) return st;
 st = ADXL343_WriteReg(dev, ADXL343_REG_DUR, ADXL343_REG_DUR_VALUE, timeout_ms);
 if (st != HAL_OK) return st;
 
+// ADDED: disable double-tap timing (prevents multi events from one shock)
+st = ADXL343_WriteReg(dev, ADXL343_REG_LATENT, ADXL343_REG_LATENT_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
+st = ADXL343_WriteReg(dev, ADXL343_REG_WINDOW, ADXL343_REG_WINDOW_VALUE, timeout_ms);
+if (st != HAL_OK) return st;
+
 st = ADXL343_WriteReg(dev, ADXL343_REG_TAP_AXES, ADXL343_REG_TAP_AXES_VALUE, timeout_ms);
 if (st != HAL_OK) return st;
 
@@ -116,6 +123,8 @@ if (st != HAL_OK) return st;
 st = ADXL343_WriteReg(dev, ADXL343_REG_INT_ENABLE, ADXL343_REG_INTEN_VALUE, timeout_ms);
 if (st != HAL_OK) return st;
 
+uint8_t dummy = 0;
+(void)ADXL343_ReadReg(dev, ADXL343_REG_INT_SOURCE, &dummy, timeout_ms);
 
 
 // Enter measurement mode
@@ -126,7 +135,8 @@ if (st != HAL_OK) return st;
 // Optional: flush FIFO / set bypass
 (void)ADXL343_WriteReg(dev, ADXL343_REG_FIFO_CTL, 0x00u, timeout_ms);
 
-
+dev->tap_event=0;
+dev->filtered_tap_event=0;
 // Prime one reading
 return ADXL343_ReadXYZ(dev, timeout_ms);
 }
@@ -165,11 +175,17 @@ return HAL_OK;
 
 HAL_StatusTypeDef ADXL343_INT_HANDLER(adxl343_t *dev, uint32_t timeout_ms){
 
-	dev->tap_event=1;
+    uint8_t src = 0;
+    HAL_StatusTypeDef st = ADXL343_ReadReg(dev, ADXL343_REG_INT_SOURCE, &src, timeout_ms);
+    if (st != HAL_OK) return st;
+    if ((src & (1u << 6)) == 0) { // SINGLE_TAP bit = 6 sur ADXL345/343 family
+        return HAL_OK;
+    }
+    uint8_t registerstate = 0;
+    st = ADXL343_ReadReg(dev, ADXL343_REG_ACT_TAP_STATUS, &registerstate, timeout_ms);
+    if (st != HAL_OK) return st;
 
-	uint8_t registerstate=0x00;
-	HAL_StatusTypeDef st = ADXL343_ReadReg(dev, ADXL343_REG_ACT_TAP_STATUS, &registerstate, timeout_ms);
-	if (st != HAL_OK) return st;
+	dev->tap_event=1;
 
 	if(registerstate & 0x01){
 		dev->z_tap=1;
@@ -180,10 +196,5 @@ HAL_StatusTypeDef ADXL343_INT_HANDLER(adxl343_t *dev, uint32_t timeout_ms){
 	if(registerstate & 0x04){
 		dev->x_tap=1;
 	}
-
-	uint8_t intsourcestate=0x00;
-	st = ADXL343_ReadReg(dev, ADXL343_REG_INT_SOURCE, &intsourcestate, timeout_ms);
-	if (st != HAL_OK) return st;
-
-	return st;
+	return HAL_OK;
 }

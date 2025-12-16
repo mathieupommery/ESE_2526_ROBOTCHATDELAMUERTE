@@ -72,6 +72,9 @@
 
 #define ADXL343_REG_DUR_VALUE 0x80u  //50 ms
 
+#define ADXL343_REG_LATENT_VALUE   0x00u   // 0 => pas de double-tap
+#define ADXL343_REG_WINDOW_VALUE   0x00u
+
 typedef struct {
 SPI_HandleTypeDef *hspi;
 GPIO_TypeDef *cs_port;
@@ -85,6 +88,7 @@ float lsb_per_g;
 uint8_t _tx[8];
 uint8_t _rx[8];
 uint8_t tap_event;
+uint8_t filtered_tap_event;
 uint8_t x_tap;
 uint8_t y_tap;
 uint8_t z_tap;
