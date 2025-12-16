@@ -222,13 +222,8 @@ void Startsensorparse(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
-	  ylidar_fsm(&lidar_struct);
-
 	  t0=DWT->CYCCNT;
-	  //VL53L0X_Update(&tof_array[0]);
-	  //VL53L0X_Update(&tof_array[1]);
-	  //VL53L0X_Update(&tof_array[2]);
+	  ylidar_fsm(&lidar_struct);
 	  mid_time=(DWT->CYCCNT-t0);
 	  time_sum+=mid_time;
 	  i+=1;

@@ -19,6 +19,23 @@
 #define RAD2DEG  57.295779513082320876f
 
 
+#define CAN_DIAM_MM        66.0f
+#define CAN_TOL_MM         25.0f
+#define CAN_MIN_MM         (CAN_DIAM_MM - CAN_TOL_MM)
+#define CAN_MAX_MM         (CAN_DIAM_MM + CAN_TOL_MM)
+
+#define CAN_MIN_DIST_MM    150u
+#define CAN_MAX_DIST_MM    3000u
+
+#define CAN_GATE_MAX_DA_DEG    25u
+#define CAN_GATE_MAX_DD_MM     800u
+
+// smoothing (1 target)
+#define CAN_SMOOTH_SHIFT_ANG  2   // 1/4
+#define CAN_SMOOTH_SHIFT_DIST 2
+#define CAN_SMOOTH_SHIFT_SIZE 2
+#define CAN_MISS_MAX          3   // nb scans sans detection avant "perte"
+
 
 
 #define YLIDAR_CIRC_BUF_SIZE 1024
@@ -27,16 +44,20 @@
 
 
 #define LIDAR_POINTS 360u
-#define MAX_TARGETS  16u
+#define MAX_TARGETS  4u
 
 /* ===== Réglages cluster ===== */
 #define CL_MIN_DIST_MM         50u
-#define CL_MAX_DIST_MM         200u
-#define CL_DERIV_THRESH_MM     50u   // rupture entre deux angles adjacents
-#define CL_MIN_CLUSTER_POINTS  6u
+#define CL_MAX_DIST_MM         2000u
+#define CL_DERIV_THRESH_MM     70u   // rupture entre deux angles adjacents
+#define CL_MIN_CLUSTER_POINTS  5u
 #define CL_MIN_CLUSTER_SIZE_MM 60.0f
+#define CL_MAX_CLUSTER_SIZE_MM 140.0f
 
-#define CL_WRAP_MERGE_ANGLE    8u     // zone 0° / 359° pour fusion wrap
+#define CL_MAX_HOLE_RUN        3u    // trous consécutifs tolérés dans un cluster
+#define CL_HOLE_REJOIN_THRESH  180u  // seuil diff distance pour "rejoindre" après trou (mm)
+
+#define CL_WRAP_MERGE_ANGLE    10u     // zone 0° / 359° pour fusion wrap
 #define CL_ENABLE_MEDIAN3      1
 
 typedef struct {
@@ -67,6 +88,9 @@ typedef struct {
     ClusterFrame_t *build;
     ClusterFrame_t *ready;
     uint8_t ready_flag;
+    Target_t smooth_can;
+    uint8_t  can_valid;
+    uint8_t  can_missed;
 } ClusterizerPP_t;
 
 
