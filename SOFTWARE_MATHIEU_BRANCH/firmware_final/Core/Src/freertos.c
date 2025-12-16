@@ -51,10 +51,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-extern uint16_t ylidar_read_index;
-extern uint16_t ylidar_write_index;
 
-extern uint8_t ylidar_finalbuffer[1024];
 extern adxl343_t adxldata;
 extern MOTOR_COM com_struct;
 extern Lidar_t lidar_struct;
@@ -67,6 +64,14 @@ extern uint32_t tomjerry_dma[WS2812_DMA_BUF_LEN(TOM_JERRY_LED_COUNT)];
 
 extern uint8_t  ext_grb[WS2812_GRB_BUF_LEN(EXT_LED_COUNT)];
 extern uint32_t ext_dma[WS2812_DMA_BUF_LEN(EXT_LED_COUNT)];
+
+extern VL53L0X_t tof_array[3];
+
+
+uint32_t time_sum=0;
+uint32_t t0=0;
+float time_avg;
+uint32_t max_time;
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId Sensor_parseHandle;
@@ -178,8 +183,6 @@ void Startmaintask(void const * argument)
   {
 //	  switch(i){
 //	  case 0:
-		  com_struct.w1=20.0f;
-		  com_struct.w2=150.0f;
 //		  i++;
 //		  break;
 //	  case 1:
@@ -206,13 +209,12 @@ void Startmaintask(void const * argument)
 void Startsensorparse(void const * argument)
 {
   /* USER CODE BEGIN Startsensorparse */
-//	VL53L0X_Init(1, 0.3f);
-//	VL53L0X_Init(2, 0.3f);
-//	VL53L0X_Init(3, 0.3f);
-//
-//	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
-//	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
-//	VL53L0X_t *t3 = VL53L0X_GetHandle(3);
+	VL53L0X_Init(&tof_array[0],TOF1_I2C,1,0.3);
+	VL53L0X_Init(&tof_array[1],TOF2_I2C,2,0.3);
+	VL53L0X_Init(&tof_array[2],TOF3_I2C,3,0.3);
+
+	int i=0;
+	uint32_t mid_time=0;
 
 	  TickType_t xLastWakeTime;
 	  const TickType_t period = pdMS_TO_TICKS(10);
@@ -220,10 +222,24 @@ void Startsensorparse(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
 	  ylidar_fsm(&lidar_struct);
-//	  VL53L0X_Update(t1);
-//	  VL53L0X_Update(t2);
-//	  VL53L0X_Update(t3);
+
+	  t0=DWT->CYCCNT;
+	  //VL53L0X_Update(&tof_array[0]);
+	  //VL53L0X_Update(&tof_array[1]);
+	  //VL53L0X_Update(&tof_array[2]);
+	  mid_time=(DWT->CYCCNT-t0);
+	  time_sum+=mid_time;
+	  i+=1;
+	  if(i>=100){
+		  time_avg=(float)time_sum/100.0f;
+		  time_sum=0;
+		  i=0;
+	  }
+	  if(mid_time>max_time){
+		  max_time=mid_time;
+	  }
 	  //ADXL343_ReadXYZ(&adxldata, 100);
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }
@@ -282,6 +298,9 @@ void StartOdomtask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
+
+
 	  MotorCom_Process(&com_struct);
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }

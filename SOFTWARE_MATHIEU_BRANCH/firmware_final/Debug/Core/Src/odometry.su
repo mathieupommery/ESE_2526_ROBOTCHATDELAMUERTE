@@ -1,4 +1,7 @@
-../Core/Src/odometry.c:15:6:odometry_Init	4	static
-../Core/Src/odometry.c:39:6:compute_speed	24	static
-../Core/Src/odometry.c:56:6:compute_movement	4	static
-../Core/Src/odometry.c:63:6:compute_xy_position	16	static
+../Core/Src/odometry.c:13:20:omni3_build_u	24	static
+../Core/Src/odometry.c:22:12:omni3_inv3x3	96	static
+../Core/Src/odometry.c:53:5:omni3_init_default	64	static
+../Core/Src/odometry.c:78:6:omni3_inverse_rear_axis	48	static
+../Core/Src/odometry.c:98:6:omni3_direct_to_rear_axis	48	static
+../Core/Src/odometry.c:118:6:omni3_inverse	32	static
+../Core/Src/odometry.c:131:6:omni3_direct	40	static

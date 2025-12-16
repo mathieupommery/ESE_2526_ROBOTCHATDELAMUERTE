@@ -1,2 +1,11 @@
-../Core/Src/Lidar.c:11:19:Lidar_Init	32	static
-../Core/Src/Lidar.c:34:19:ylidar_fsm	64	static
+../Core/Src/Lidar.c:13:21:fast_atan_deg	32	static
+../Core/Src/Lidar.c:34:21:ang_correct_deg	24	static
+../Core/Src/Lidar.c:47:23:cl_dist_valid	16	static
+../Core/Src/Lidar.c:52:24:cl_absdiff	16	static
+../Core/Src/Lidar.c:57:24:cl_delta	16	static
+../Core/Src/Lidar.c:63:24:median3	24	static
+../Core/Src/Lidar.c:72:6:ClusterizerPP_Init	16	static
+../Core/Src/Lidar.c:79:20:ClusterizerPP_Swap	24	static
+../Core/Src/Lidar.c:105:6:ClusterizerPP_ProcessFullScan	984	static
+../Core/Src/Lidar.c:225:19:Lidar_Init	32	static
+../Core/Src/Lidar.c:249:19:ylidar_fsm	80	static

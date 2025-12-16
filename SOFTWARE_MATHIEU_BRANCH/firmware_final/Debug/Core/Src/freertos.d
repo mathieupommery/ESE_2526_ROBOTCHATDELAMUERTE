@@ -54,9 +54,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Core/Inc/adxl343.h ../Core/Inc/mcc_com_master.h \
- ../Core/Inc/odometry.h ../Core/Inc/control.h ../Core/Inc/gamemode.h \
- ../Core/Inc/Odometry.h ../Core/Inc/vl53l0x.h ../Core/Inc/lidar.h \
- ../Core/Inc/main.h ../Core/Inc/led.h ../Core/Inc/tim.h
+ ../Core/Inc/odometry.h ../Core/Inc/main.h ../Core/Inc/control.h \
+ ../Core/Inc/vl53l0x.h ../Core/Inc/i2c.h ../Core/Inc/lidar.h \
+ ../Core/Inc/led.h ../Core/Inc/tim.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -115,11 +115,10 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Core/Inc/adxl343.h:
 ../Core/Inc/mcc_com_master.h:
 ../Core/Inc/odometry.h:
-../Core/Inc/control.h:
-../Core/Inc/gamemode.h:
-../Core/Inc/Odometry.h:
-../Core/Inc/vl53l0x.h:
-../Core/Inc/lidar.h:
 ../Core/Inc/main.h:
+../Core/Inc/control.h:
+../Core/Inc/vl53l0x.h:
+../Core/Inc/i2c.h:
+../Core/Inc/lidar.h:
 ../Core/Inc/led.h:
 ../Core/Inc/tim.h:

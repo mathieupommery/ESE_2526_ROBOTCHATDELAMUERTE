@@ -8,89 +8,44 @@
 #ifndef INC_ODOMETRY_H_
 #define INC_ODOMETRY_H_
 
-// ─────────────────────────────────────────────────────────────
-// ──────────────────────────── INCLUDES ────────────────────────────────
-// ────────────────────────────────────────────────────────────
-
 #include "main.h"
 
-// ────────────────────────────────────────────────────────────
-// ──────────────────────────── DEFINITIONS ────────────────────────────────
-// ────────────────────────────────────────────────────────────
+#include <math.h>
+#include <stdint.h>
 
-#define WHEEL_DIAMETER 60
-#define WHEEL_RADIUS WHEEL_DIAMETER/2
-#define BEARING_DIAMETER 14
-#define ROBOT_WHEEL_TF 85
-
-#define MOTOR_MAX_RPM           300
-#define WHEEL_CIRCUMFERENCE    (M_PI * WHEEL_DIAMETER)                    // ≈ 188.4 mm
-#define MAX_WHEEL_SPEED_RPM     ((MOTOR_MAX_RPM * WHEEL_CIRCUMFERENCE) / 60.0f)  // ≈ 942 mm/s
-
-#define SPEED_COEFFICIENT WHEEL_RADIUS/3
-
-#define SPEED_CONTRIBUTIION_WEIGHT sqrt(3)/2
-
-#define ROTATIONAL_SPEED_COEFFICIENT WHEEL_RADIUS/(3*ROBOT_WHEEL_TF)
-
-#define WHEEL_1_DIRECTION 0
-#define WHEEL_2_DIRECTION 120
-#define WHEEL_3_DIRECTION 240
-
-#ifndef DELTA_TIME_MS
-#define DELTA_TIME_MS 20.0f
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
 #endif
 
-// ────────────────────────────────────────────────────────────
-// ──────────────────────────── VARIABLES ────────────────────────────────
-// ────────────────────────────────────────────────────────────
+typedef struct
+{
+    float r;              // rayon roue (m)
+    float L;              // distance centre -> roue (m)
 
-typedef struct{
-	float speed_bearing_0_mms;
-	float speed_bearing_120_mms;
-	float speed_bearing_240_mms;
-	float rotational_speed_degs;
+    float phi[3];         // angles des roues (rad) : ex 0, 120°, 240°
+    float ux[3], uy[3];   // directions de roulement unitaires u_i dans repère robot
 
-	float prev_speed_bearing_0_mms;
-	float prev_speed_bearing_120_mms;
-	float prev_speed_bearing_240_mms;
-	float prev_rotational_speed_degs;
-}Robot_Cinematics_t;
+    // Inverse de A pour la cinématique directe complète :
+    // A*[vx vy omega]^T = [r*w0 r*w1 r*w2]^T
+    float Ainv[3][3];
 
-typedef struct{
-	float distance_bearing_0_mm;
-	float distance_bearing_120_mm;
-	float distance_bearing_240_mm;
-	float delta_orientation_deg;
-}Robot_Movement_t;
+    uint8_t rear_idx;     // index de la roue arrière (0..2)
 
-typedef struct{
-	float x;
-	float y;
-	float w;
-}Robot_XY_Position_t;
+    float w_out[3];
 
-// Handle principal
-typedef struct {
-    Robot_Cinematics_t cinematics;
-    Robot_Movement_t   movement;
-    Robot_XY_Position_t   position;
-} OmniOdometry_t;
+    float v_rear_out;
+    float w_rear_out;
 
-// ────────────────────────────────────────────────────────────
-// ──────────────────────────── PROTOTYPES ────────────────────────────────
-// ────────────────────────────────────────────────────────────
+    float vx_out;
+    float vy_out;
+    float w_complete_out;
 
-void OmniOdometry_ComputeRobotSpeed(OmniOdometry_t *odom,
-                                    Robot_Target_Movement_t *target,
-                                    MOTOR_COM motor_speeds);
+} Omni3_t;
 
-void OmniOdometry_ComputeMovement(OmniOdometry_t *odo);
-
-void OmniOdometry_ComputePosition(OmniOdometry_t *odo);
-
-void OmniOdometry_ComputeInverseCinematics(OmniOdometry_t *odo,
-                                 const Robot_Target_Movement_t *target,
-                                 MOTOR_COM *Motor_com_out);
+int omni3_init_default(Omni3_t *o, float r, float L, uint8_t rear_idx);
+void omni3_inverse_rear_axis(Omni3_t *o,float v_rear, float omega);
+void omni3_direct_to_rear_axis(Omni3_t *o,float w[3]);
+void omni3_inverse(Omni3_t *o,float vx, float vy, float omega);
+void omni3_direct(Omni3_t *o,float w[3],float *vx, float *vy, float *omega);
 
 #endif /* INC_ODOMETRY_H_ */
