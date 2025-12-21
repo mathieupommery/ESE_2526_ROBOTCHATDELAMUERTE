@@ -1,6 +1,5 @@
 Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
- ../Core/Inc/gamemode.h ../Core/Inc/Odometry.h ../Core/Inc/main.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+ ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -40,10 +39,10 @@ Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
  ../Core/Inc/adxl343.h ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h \
  ../Core/Inc/ssd1306_fonts.h ../Core/Inc/led.h ../Core/Inc/tim.h \
  ../Core/Inc/mcc_com_master.h ../Core/Inc/odometry.h \
- ../Core/Inc/control.h ../Core/Inc/vl53l0x.h ../Core/Inc/lidar.h
+ ../Core/Inc/control.h ../Core/Inc/vl53l0x.h ../Core/Inc/i2c.h \
+ ../Core/Inc/lidar.h ../Core/Inc/Lidar.h ../Core/Inc/odometry.h \
+ ../Core/Inc/vl53l0x.h
 ../Core/Inc/control.h:
-../Core/Inc/gamemode.h:
-../Core/Inc/Odometry.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -92,4 +91,8 @@ Core/Src/control.o: ../Core/Src/control.c ../Core/Inc/control.h \
 ../Core/Inc/odometry.h:
 ../Core/Inc/control.h:
 ../Core/Inc/vl53l0x.h:
+../Core/Inc/i2c.h:
 ../Core/Inc/lidar.h:
+../Core/Inc/Lidar.h:
+../Core/Inc/odometry.h:
+../Core/Inc/vl53l0x.h:

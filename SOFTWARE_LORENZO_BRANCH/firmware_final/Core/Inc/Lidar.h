@@ -92,7 +92,7 @@ typedef struct{
 	CLUSTERIZATION_STATE clusterizationstate;
 }ClusterParsing_t;
 
-typedef struct {
+typedef struct Lidar{
     UART_HandleTypeDef *huart;
     GPIO_TypeDef       *gpio_port;
     uint16_t            gpio_pin;

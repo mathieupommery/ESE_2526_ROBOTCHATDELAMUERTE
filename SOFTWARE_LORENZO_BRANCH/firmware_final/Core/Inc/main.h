@@ -31,6 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "core_cm7.h"
 #include "adxl343.h"
 #include "ssd1306.h"
 #include "led.h"
@@ -150,9 +151,9 @@ void Error_Handler(void);
 
 
 /* I2C handlers (address form) */
-#define TOF1_I2C        (&hi2c4)
-#define TOF2_I2C        (&hi2c1)
-#define TOF3_I2C        (&hi2c3)
+#define TOF0_I2C        (&hi2c4)
+#define TOF1_I2C        (&hi2c1)
+#define TOF2_I2C        (&hi2c3)
 #define OLED_I2C        (&hi2c2)
 
 /* UART handlers (address form) */

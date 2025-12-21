@@ -53,10 +53,12 @@
 extern uint16_t ylidar_read_index;
 extern uint16_t ylidar_write_index;
 
+extern TOF_t tof_struct;
 extern uint8_t ylidar_finalbuffer[1024];
 extern adxl343_t adxldata;
 extern MOTOR_COM com_struct;
 extern Lidar_t lidar_struct;
+
 /* USER CODE END Variables */
 osThreadId maintaskHandle;
 osThreadId Sensor_parseHandle;
@@ -197,13 +199,9 @@ void Startmaintask(void const * argument)
 void Startsensorparse(void const * argument)
 {
 	/* USER CODE BEGIN Startsensorparse */
-	VL53L0X_Init(1, 0.3f);
-	VL53L0X_Init(2, 0.3f);
-	VL53L0X_Init(3, 0.3f);
-
-	VL53L0X_t *t1 = VL53L0X_GetHandle(1);
-	VL53L0X_t *t2 = VL53L0X_GetHandle(2);
-	VL53L0X_t *t3 = VL53L0X_GetHandle(3);
+	VL53L0X_Init(&tof_struct.tof[0], TOF0_I2C, 0, 0.3f);
+	VL53L0X_Init(&tof_struct.tof[1], TOF1_I2C, 1, 0.3f);
+	VL53L0X_Init(&tof_struct.tof[2], TOF2_I2C, 2, 0.3f);
 
 	TickType_t xLastWakeTime;
 	const TickType_t period = pdMS_TO_TICKS(10);
@@ -213,9 +211,9 @@ void Startsensorparse(void const * argument)
 	{
 		ylidar_fsm(&lidar_struct);
 		Clusterize(&lidar_struct);
-		VL53L0X_Update(t1);
-		VL53L0X_Update(t2);
-		VL53L0X_Update(t3);
+		VL53L0X_Update(&tof_struct.tof[0], &tof_struct);
+		VL53L0X_Update(&tof_struct.tof[1], &tof_struct);
+		VL53L0X_Update(&tof_struct.tof[2], &tof_struct);
 //		ADXL343_ReadXYZ(&adxldata, 100);
 		vTaskDelayUntil(&xLastWakeTime, period);
 	}

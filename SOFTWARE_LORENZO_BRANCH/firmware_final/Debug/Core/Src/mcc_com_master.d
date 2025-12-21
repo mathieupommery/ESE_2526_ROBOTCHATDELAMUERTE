@@ -41,9 +41,8 @@ Core/Src/mcc_com_master.o: ../Core/Src/mcc_com_master.c \
  ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h \
  ../Core/Inc/ssd1306_fonts.h ../Core/Inc/led.h ../Core/Inc/tim.h \
  ../Core/Inc/mcc_com_master.h ../Core/Inc/odometry.h \
- ../Core/Inc/control.h ../Core/Inc/gamemode.h ../Core/Inc/Odometry.h \
- ../Core/Inc/vl53l0x.h ../Core/Inc/lidar.h \
- ../USB_DEVICE/App/usbd_cdc_if.h \
+ ../Core/Inc/control.h ../Core/Inc/vl53l0x.h ../Core/Inc/i2c.h \
+ ../Core/Inc/lidar.h ../USB_DEVICE/App/usbd_cdc_if.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
@@ -100,9 +99,8 @@ Core/Src/mcc_com_master.o: ../Core/Src/mcc_com_master.c \
 ../Core/Inc/mcc_com_master.h:
 ../Core/Inc/odometry.h:
 ../Core/Inc/control.h:
-../Core/Inc/gamemode.h:
-../Core/Inc/Odometry.h:
 ../Core/Inc/vl53l0x.h:
+../Core/Inc/i2c.h:
 ../Core/Inc/lidar.h:
 ../USB_DEVICE/App/usbd_cdc_if.h:
 ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:

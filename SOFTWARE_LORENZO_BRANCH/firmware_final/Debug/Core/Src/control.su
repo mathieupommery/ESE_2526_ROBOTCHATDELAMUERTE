@@ -1,0 +1,2 @@
+../Core/Src/control.c:13:6:Omnicontrol_movement	40	static
+../Core/Src/control.c:74:6:Staticcontrol_movement	32	static

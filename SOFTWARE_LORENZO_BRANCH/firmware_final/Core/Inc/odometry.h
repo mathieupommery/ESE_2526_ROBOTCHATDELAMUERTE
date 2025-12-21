@@ -14,12 +14,18 @@
 
 #include "main.h"
 
+typedef struct RobotTargetMovement RobotTargetMovement_t;
+
 // ────────────────────────────────────────────────────────────
 // ──────────────────────────── DEFINITIONS ────────────────────────────────
 // ────────────────────────────────────────────────────────────
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846f
+#endif
+
 #define WHEEL_DIAMETER 60
-#define WHEEL_RADIUS WHEEL_DIAMETER/2
+#define WHEEL_RADIUS (WHEEL_DIAMETER / 2.0f)
 #define BEARING_DIAMETER 14
 #define ROBOT_WHEEL_TF 85
 
@@ -29,7 +35,7 @@
 
 #define SPEED_COEFFICIENT WHEEL_RADIUS/3
 
-#define SPEED_CONTRIBUTIION_WEIGHT sqrt(3)/2
+#define SPEED_CONTRIBUTION_WEIGHT (0.86602540378f) //sqrt(3)/2
 
 #define ROTATIONAL_SPEED_COEFFICIENT WHEEL_RADIUS/(3*ROBOT_WHEEL_TF)
 
@@ -71,11 +77,10 @@ typedef struct{
 }Robot_XY_Position_t;
 
 // Handle principal
-typedef struct {
+typedef struct OmniOdometry{
     Robot_Cinematics_t cinematics;
     Robot_Movement_t   movement;
     Robot_XY_Position_t   position;
-    Robot_Target_Movement_t target;
 } OmniOdometry_t;
 
 // ────────────────────────────────────────────────────────────
@@ -85,7 +90,7 @@ typedef struct {
 void OmniOdometry_Init(OmniOdometry_t *odo);
 
 void OmniOdometry_ComputeRobotSpeed(OmniOdometry_t *odom,
-                                    Robot_Target_Movement_t *target,
+                                    RobotTargetMovement_t *target,
                                     MOTOR_COM motor_speeds);
 
 void OmniOdometry_ComputeMovement(OmniOdometry_t *odo);
@@ -93,7 +98,7 @@ void OmniOdometry_ComputeMovement(OmniOdometry_t *odo);
 void OmniOdometry_ComputePosition(OmniOdometry_t *odo);
 
 void OmniOdometry_ComputeInverseCinematics(OmniOdometry_t *odo,
-                                 const Robot_Target_Movement_t *target,
+                                 RobotTargetMovement_t *target,
                                  MOTOR_COM *Motor_com_out);
 
 #endif /* INC_ODOMETRY_H_ */

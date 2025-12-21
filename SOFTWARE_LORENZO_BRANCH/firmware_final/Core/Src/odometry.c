@@ -23,7 +23,7 @@ void OmniOdometry_Init(OmniOdometry_t *odo)
 /* -------------------------------------------------------------------------- */
 
 void OmniOdometry_ComputeRobotSpeed(OmniOdometry_t *odom,
-		Robot_Target_Movement_t *target,	//extract bearing
+		RobotTargetMovement_t *target,	//extract bearing
 		MOTOR_COM motor_speeds)				//extract wheel speeds
 {
 	if (odom == NULL) return;
@@ -102,7 +102,7 @@ void OmniOdometry_ComputePosition(OmniOdometry_t *odo)
 /*      5. INVERSE CINEMATICS – target movement → wheel speeds (clamped)    */
 /* -------------------------------------------------------------------------- */
 
-void OmniOdometry_ComputeInverseCinematics(OmniOdometry_t *odom, const RobotTargetMovement_t *target, MOTOR_COM *Motor_com_out)
+void OmniOdometry_ComputeInverseCinematics(OmniOdometry_t *odom, RobotTargetMovement_t *target, MOTOR_COM *Motor_com_out)
 {
 	if (!odom || !target || !Motor_com_out) {
 		Motor_com_out->w0 = Motor_com_out->w1 = Motor_com_out->w2 = 0;
