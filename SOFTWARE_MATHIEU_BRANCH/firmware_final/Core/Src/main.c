@@ -58,13 +58,17 @@
 
 /* USER CODE BEGIN PV */
 adxl343_t adxldata;
-int flag=0;
 MOTOR_COM com_struct;
 Lidar_t lidar_struct;
+Omni3_t odom_struct;
 
 led_strip_t tomandjerry;
 led_strip_t extled;
 VL53L0X_t tof_array[3];
+
+extern uint8_t  tomjerry_grb[WS2812_GRB_BUF_LEN(TOM_JERRY_LED_COUNT)];
+extern uint32_t tomjerry_dma[WS2812_DMA_BUF_LEN(TOM_JERRY_LED_COUNT)];
+
 
 
 /* USER CODE END PV */
@@ -82,20 +86,16 @@ void MX_FREERTOS_Init(void);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	if(GPIO_Pin == GPIO_PIN_0){
-
-		if(flag == 0 ){
-			//LED_Setcolour(255,0,0,0,0,255);
-
-		}
-		if(flag == 1){
-			//LED_Setcolour(0,0,255,255,0,0);
-
-		}
-
-		flag=1-flag;
-
 		ADXL343_INT_HANDLER(&adxldata, 100);
-	}
+		#define ADXL343_DEBOUNCE_MS  120u
+		static uint32_t last_irq_ms = 0;
+		uint32_t now = HAL_GetTick();
+		if ((uint32_t)(now - last_irq_ms) < ADXL343_DEBOUNCE_MS) {
+			return;
+		}
+		last_irq_ms = now;
+		adxldata.filtered_tap_event=1;
+ }
 }
 
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
