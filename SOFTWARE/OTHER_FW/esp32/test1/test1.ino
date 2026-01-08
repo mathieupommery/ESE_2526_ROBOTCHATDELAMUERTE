@@ -3,19 +3,12 @@
 #include <SD.h>
 #include "driver/i2s.h"
 
-// =======================
-// Configuration MAX99357
-// =======================
-// TODO: remplace ces GPIO par les tiens
 #define I2S_BCLK_PIN    2    // BCLK
 #define I2S_LRCLK_PIN   1    // LRCLK / WS
 #define I2S_DOUT_PIN    4    // DIN du MAX99357
 #define AMP_SD_MODE_PIN 5    // SD_MODE (shutdown / gain)
 
-// =======================
-// Configuration Carte SD
-// =======================
-// TODO: remplace ces GPIO par ceux de ton bus SD
+
 #define SD_MISO_PIN     13
 #define SD_MOSI_PIN     11
 #define SD_SCK_PIN      12
@@ -23,22 +16,14 @@
 
 SPIClass sdSPI(FSPI);   // bus SPI pour la SD sur ESP32-S3 (FSPI)
 
-// =======================
-// Paramètres WAV & volume
-// =======================
 
-// Nom du fichier WAV (chemin sur la SD)
 const char *wavFileName = "/outro_song.wav";
 
-// Délai entre deux lectures (en ms)
 const uint32_t LOOP_DELAY_MS = 200;
 
-// Volume logiciel (0.0 = muet, 1.0 = plein volume)
-float g_volume = 0.9f;   // tu peux régler ça
+float g_volume = 0.9f;
 
-// =======================
-// Header WAV simplifié
-// =======================
+
 typedef struct {
   uint16_t audioFormat;   // 1 = PCM
   uint16_t channels;      // 1 = mono, 2 = stéréo
@@ -48,27 +33,19 @@ typedef struct {
 } WavHeader;
 
 
-// =======================
-// Prototypes
-// =======================
 void playbackTask(void *parameter);
 bool initI2S(uint32_t sampleRate);
 bool readWavHeader(File &f, WavHeader &hdr);
 int16_t applyVolume(int16_t sample);
 
-// =======================
-// SETUP (simplifié)
-// =======================
 void setup() {
   Serial.begin(115200);
   delay(500);
   Serial.println("\n=== WAV Player ESP32-S3 + MAX99357 ===");
 
-  // Ampli OFF au démarrage (pas de bruit parasite)
   pinMode(AMP_SD_MODE_PIN, OUTPUT);
   digitalWrite(AMP_SD_MODE_PIN, LOW);
 
-  // Init SPI pour la carte SD
   Serial.println("Init SPI SD...");
   sdSPI.begin(SD_SCK_PIN, SD_MISO_PIN, SD_MOSI_PIN, SD_CS_PIN);
 
@@ -85,42 +62,20 @@ void setup() {
   Serial.print("Fichier WAV utilisé : ");
   Serial.println(wavFileName);
 
-  // Tâche de lecture sur un seul cœur (core 1 ici)
-  xTaskCreatePinnedToCore(
-      playbackTask,
-      "playbackTask",
-      8192,
-      nullptr,
-      1,
-      nullptr,
-      1   // core 1
-  );
+  xTaskCreatePinnedToCore(playbackTask,"playbackTask",8192,nullptr,1,nullptr,1);
 }
 
-// =======================
-// LOOP vide (tout en FreeRTOS)
-// =======================
 void loop() {
   vTaskDelay(portMAX_DELAY);
 }
 
-// =======================
-// Appliquer volume logiciel
-// =======================
 int16_t applyVolume(int16_t sample) {
-  // Volume logiciel simple : float -> int16
   float s = (float)sample * g_volume;
-
-  // Saturation pour éviter overflow
   if (s > 32767.0f) s = 32767.0f;
   if (s < -32768.0f) s = -32768.0f;
-
   return (int16_t)s;
 }
 
-// =======================
-// Tâche de lecture WAV
-// =======================
 void playbackTask(void *parameter) {
   (void)parameter;
 
@@ -140,12 +95,6 @@ void playbackTask(void *parameter) {
       vTaskDelay(pdMS_TO_TICKS(1000));
       continue;
     }
-
-    Serial.println("\n=== Info WAV ===");
-    Serial.print("Sample rate   : "); Serial.println(hdr.sampleRate);
-    Serial.print("Bits per samp : "); Serial.println(hdr.bitsPerSample);
-    Serial.print("Canaux        : "); Serial.println(hdr.channels);
-    Serial.print("Data size     : "); Serial.println(hdr.dataSize);
 
     if (hdr.bitsPerSample != 16) {
       Serial.println("Seulement 16 bits supportés.");
@@ -167,15 +116,11 @@ void playbackTask(void *parameter) {
       vTaskDelay(pdMS_TO_TICKS(1000));
       continue;
     }
-
-    // Activer l'ampli juste avant de jouer (évite les bruits au repos)
     digitalWrite(AMP_SD_MODE_PIN, HIGH);
-    vTaskDelay(pdMS_TO_TICKS(5));  // petite marge
+    vTaskDelay(pdMS_TO_TICKS(5));
 
     const size_t BUF_SIZE = 1024;
     uint8_t buf[BUF_SIZE];
-
-    Serial.println("Lecture du WAV...");
 
     size_t bytesRead;
     while ((bytesRead = wavFile.read(buf, BUF_SIZE)) > 0) {
@@ -227,29 +172,18 @@ void playbackTask(void *parameter) {
         }
       }
     }
-
-    // Fin du fichier
     wavFile.close();
     Serial.println("Fin du fichier, fade-out & mute ampli...");
-
-    // Petit fade-out / flush de quelques zéros pour stabiliser
     for (int i = 0; i < 256; i++) {
       int16_t frame[2] = {0, 0};
       size_t written;
       i2s_write(I2S_NUM_0, frame, sizeof(frame), &written, portMAX_DELAY);
     }
-
-    // Couper l'ampli pour éviter les bruits parasites au repos
     digitalWrite(AMP_SD_MODE_PIN, LOW);
-
-    // Pause entre deux lectures (bouclage)
     vTaskDelay(pdMS_TO_TICKS(LOOP_DELAY_MS));
   }
 }
 
-// =======================
-// Init I2S pour MAX99357
-// =======================
 bool initI2S(uint32_t sampleRate) {
   static bool i2sAlreadyInit = false;
 
@@ -294,9 +228,6 @@ bool initI2S(uint32_t sampleRate) {
   return true;
 }
 
-// =======================
-// Lecture du header WAV
-// =======================
 bool readWavHeader(File &f, WavHeader &hdr) {
   // Repartir du début du fichier
   f.seek(0);
