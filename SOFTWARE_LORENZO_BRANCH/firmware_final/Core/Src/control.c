@@ -89,8 +89,8 @@ void Staticcontrol_movement(Lidar_t *lidar, RobotControl_t *control, OmniOdometr
 		}
 
 		// Compute delta angle to aim for enemy
-		control->target.bearing = 0;
-		int16_t delta = (int16_t)targetedobject->angle;
+		control->target.bearing = 180;
+		int16_t delta = (int16_t)targetedobject->angle - 180;
 		if (delta > 180) delta -= 360;
 		control->target.rotation_degs = delta;
 		if (delta<=5){
@@ -104,7 +104,7 @@ void Staticcontrol_movement(Lidar_t *lidar, RobotControl_t *control, OmniOdometr
 		// Put this in callback of tap to initialize escape
 
 //		Target_t *targetedobject = &lidar->cluster_struct.targets[control->enemy];
-		control->target.bearing = 0;
+		control->target.bearing = 180;
 		if(tofs->tof[0].tof_int && tofs->tofs_cooldown){
 			control->target.distance_mm = 0;
 			control->target.rotation_degs = fmodf(odom->position.w + targetedobject->angle, 360.0f);
