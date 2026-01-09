@@ -9,6 +9,7 @@
 #define INC_ODOMETRY_H_
 
 #include "main.h"
+#include "mcc_com_master.h"
 
 #include <math.h>
 #include <stdint.h>
@@ -16,36 +17,34 @@
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+#define RPM_2_RAD_S(rpm)   ((rpm) * (2.0f * M_PI / 60.0f))
+
+#define WHEEL_W_MAX (270.0f * (2.0f * M_PI / 60.0f))
+#define R_WHEEL 0.02935f
+#define L_DIST 0.184f
 
 typedef struct
 {
-    float r;              // rayon roue (m)
-    float L;              // distance centre -> roue (m)
+    float target_theta;     // angle cible absolu (rad, wrapé)
+    float Kp, Ki, Kd;       // gains PI/PD/PID sur l'angle
+    float integral;         // terme intégral
+    float prev_error;       // pour calculer le dérivé
+    float w_max;            // limite |w_cmd| (rad/s)
+    float angle_tol_rad;    // tolérance de fin (rad)
+    uint8_t active;         // 1 = rotation en cours, 0 = terminée/inactive
+} TurnController;
 
-    float phi[3];         // angles des roues (rad) : ex 0, 120°, 240°
-    float ux[3], uy[3];   // directions de roulement unitaires u_i dans repère robot
+typedef struct
+{
 
-    // Inverse de A pour la cinématique directe complète :
-    // A*[vx vy omega]^T = [r*w0 r*w1 r*w2]^T
-    float Ainv[3][3];
+	TurnController turn_struct;
+	float odom_w;
+	float odom_x;
+	float odom_y;
 
-    uint8_t rear_idx;     // index de la roue arrière (0..2)
 
-    float w_out[3];
+}ODOM_struct;
 
-    float v_rear_out;
-    float w_rear_out;
 
-    float vx_out;
-    float vy_out;
-    float w_complete_out;
-
-} Omni3_t;
-
-int omni3_init_default(Omni3_t *o, float r, float L, uint8_t rear_idx);
-void omni3_inverse_rear_axis(Omni3_t *o,float v_rear, float omega);
-void omni3_direct_to_rear_axis(Omni3_t *o,float w[3]);
-void omni3_inverse(Omni3_t *o,float vx, float vy, float omega);
-void omni3_direct(Omni3_t *o,float w[3],float *vx, float *vy, float *omega);
 
 #endif /* INC_ODOMETRY_H_ */

@@ -35,7 +35,7 @@
 
 
 #define TOM_JERRY_LED_COUNT (2U)
-#define EXT_LED_COUNT (54U)
+#define EXT_LED_COUNT (66U)
 
 typedef struct
 {

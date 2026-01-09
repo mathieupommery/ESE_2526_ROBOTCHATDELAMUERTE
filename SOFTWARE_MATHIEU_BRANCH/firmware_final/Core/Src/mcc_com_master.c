@@ -39,9 +39,8 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart)
 	comstruct->cnt_frame_lost=0;
 	HAL_StatusTypeDef result=HAL_OK;
 
-	comstruct->w0=0.0;
-	comstruct->w1=0.0;
-	comstruct->w2=0.0;
+	comstruct->v=0.0f;
+	comstruct->w=0.0f;
 
 #ifdef NORMAL_MODE
 	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->rx_buf,MOTOR_COM_RX_BUF_SIZE)!=HAL_OK){
@@ -83,15 +82,14 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 	comstruct->tx_struct.f.counter=comstruct->tx_struct.f.counter+1;
 	}
 
+	comstruct->tx_struct.f.actualv=0.0f;
+	comstruct->tx_struct.f.actualw=0.0f;
+	comstruct->tx_struct.f.actualtime=0;
 
 
-	comstruct->tx_struct.f.actualSpeed[0]=0.0f;
-	comstruct->tx_struct.f.actualSpeed[1]=0.0f;
-	comstruct->tx_struct.f.actualSpeed[2]=0.0f;
-
-	comstruct->tx_struct.f.targetSpeed[0]=comstruct->w0;
-	comstruct->tx_struct.f.targetSpeed[1]=comstruct->w1;
-	comstruct->tx_struct.f.targetSpeed[2]=comstruct->w2;
+	comstruct->tx_struct.f.targetv=comstruct->v;
+	comstruct->tx_struct.f.targetw=comstruct->w;
+	comstruct->tx_struct.f.time=0;
 
 	comstruct->tx_struct.f.crc=crc16_ccitt((uint8_t *)comstruct->tx_struct.raw, MOTOR_FRAME_SIZE-2);
 

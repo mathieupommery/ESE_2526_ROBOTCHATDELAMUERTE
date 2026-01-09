@@ -14,8 +14,8 @@
 static PID_Params_t g_speedPidParams = {0};
 static PID_Params_t g_posPidParams   = {0};
 
-#define MOTOR_COUNT_MAX  3
-extern Motor_t g_motors[3];
+#define MOTOR_COUNT_MAX  2
+extern Motor_t g_motors[2];
 // ---------- Helpers internes ----------
 
 static float clampf(float x, float minVal, float maxVal)
@@ -219,25 +219,25 @@ void Motor_Disable(Motor_t *m)
 
 void App_InitMotors(void)
 {
+	//moteur de gauche
     HAL_TIM_PWM_Start(MOT1_PWM_HTIM, MOT1_PWM_CH_A);
     HAL_TIM_PWM_Start(MOT1_PWM_HTIM, MOT1_PWM_CH_B);
     HAL_TIM_Encoder_Start(MOT1_ENC_HTIM, TIM_CHANNEL_ALL);
 
-    // Moteur 2
+    //moteur de droite
     HAL_TIM_PWM_Start(MOT2_PWM_HTIM, MOT2_PWM_CH_A);
     HAL_TIM_PWM_Start(MOT2_PWM_HTIM, MOT2_PWM_CH_B);
     HAL_TIM_Encoder_Start(MOT2_ENC_HTIM, TIM_CHANNEL_ALL);
 
-    // Moteur 3
-    HAL_TIM_PWM_Start(MOT3_PWM_HTIM, MOT3_PWM_CH_A);
-    HAL_TIM_PWM_Start(MOT3_PWM_HTIM, MOT3_PWM_CH_B);
-    HAL_TIM_Encoder_Start(MOT3_ENC_HTIM, TIM_CHANNEL_ALL);
+//    // Moteur 3
+//    HAL_TIM_PWM_Start(MOT3_PWM_HTIM, MOT3_PWM_CH_A);
+//    HAL_TIM_PWM_Start(MOT3_PWM_HTIM, MOT3_PWM_CH_B);
+//    HAL_TIM_Encoder_Start(MOT3_ENC_HTIM, TIM_CHANNEL_ALL);
 
 
 
     Motor_Init(&g_motors[0],MOT1_PWM_HTIM, MOT1_PWM_CH_A, MOT1_PWM_CH_B,MOT1_ENC_HTIM, MOT1_ENC_CH_A, MOT1_ENC_CH_B);
     Motor_Init(&g_motors[1],MOT2_PWM_HTIM, MOT2_PWM_CH_A, MOT2_PWM_CH_B,MOT2_ENC_HTIM, MOT2_ENC_CH_A, MOT2_ENC_CH_B);
-    Motor_Init(&g_motors[2],MOT3_PWM_HTIM, MOT3_PWM_CH_A, MOT3_PWM_CH_B,MOT3_ENC_HTIM, MOT3_ENC_CH_A, MOT3_ENC_CH_B);
 }
 
 

@@ -10,6 +10,7 @@
 
 #include "stm32g4xx_hal.h"
 #include <stdint.h>
+#include <math.h>
 
 #define NORMAL_MODE
 //#define DEBUG_MODE
@@ -22,13 +23,23 @@
 #define MOTOR_COM_RX_BUF_SIZE    128
 #define FRAME_HEADER    0x55AA
 
+#define RPM_2_RAD_S   ((2.0f * M_PI / 60.0f))
+#define RAD_S_2_RPM   (60.0f / (2.0f * M_PI))
+
 typedef union {
     struct {
         uint16_t header;
         uint8_t  flags;
         uint8_t  counter;
-        float    targetSpeed[MOTOR_FRAME_MOTOR_COUNT];
-        float    actualSpeed[MOTOR_FRAME_MOTOR_COUNT];
+
+        float targetv;
+        float targetw;
+        uint32_t time;
+
+        float actualv;
+		float actualw;
+		uint32_t actualtime;
+
         uint16_t crc;
     } f;
     uint8_t raw[MOTOR_FRAME_SIZE];
@@ -36,6 +47,8 @@ typedef union {
 
 typedef struct {
 
+
+	TIM_HandleTypeDef *basehtim;
     UART_HandleTypeDef *huart;
     uint8_t rx_buf[MOTOR_COM_RX_BUF_SIZE];
     MotorFrameUnion_t rx_struct;
@@ -54,12 +67,10 @@ typedef struct {
 #endif
 
 
-
-
 } MOTOR_COM;
 
 
-HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim);
+HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim,TIM_HandleTypeDef *basehtim);
 HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct);
 
 #endif /* INC_MCC_COM_SLAVE_H_ */

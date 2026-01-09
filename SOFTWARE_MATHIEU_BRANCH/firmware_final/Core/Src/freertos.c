@@ -183,21 +183,15 @@ void Startmaintask(void const * argument)
   for(;;)
   {
 
-	  omni3_init_default(&odom_struct, 0.035, 0.085,0);
-
-
 	  switch(i){
 	  case 0:
-		  com_struct.w0=0.0;
-		  com_struct.w1=0.0;
-		  com_struct.w2=0.0;
+		  com_struct.v=0.0f;
+		  com_struct.w=-2.0f;
 		  i++;
 		  break;
 	  case 1:
-//		  omni3_inverse(&odom_struct,0.3, 0.3, 0.0);
-//		  com_struct.w0=odom_struct.w_out[0];
-//		  com_struct.w1=odom_struct.w_out[1];
-//		  com_struct.w2=odom_struct.w_out[2];
+		  com_struct.v=0.3f;
+		  com_struct.w=4.0f;
 		  i--;
 		  break;
 	  }

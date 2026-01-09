@@ -39,8 +39,8 @@ uint16_t crc16_ccitt(const uint8_t *data, uint32_t len)
 
 
 
-HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim){
-
+HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim,TIM_HandleTypeDef *basehtim){
+	comstruct->basehtim=basehtim;
 	comstruct->huart=huart;
 	comstruct->write_index=0;
 	comstruct->read_index=0;
@@ -51,6 +51,11 @@ HAL_StatusTypeDef MotorCom_Init(MOTOR_COM * comstruct,UART_HandleTypeDef *huart,
 	if(HAL_TIM_Base_Start_IT(htim)!=HAL_OK){
 		result=HAL_ERROR;
 	}
+
+	if(HAL_TIM_Base_Start(basehtim)!=HAL_OK){
+		result=HAL_ERROR;
+	}
+	basehtim->Instance->CNT=0;
 
 	if(HAL_UART_Receive_DMA(comstruct->huart,comstruct->rx_buf,MOTOR_COM_RX_BUF_SIZE)!=HAL_OK){
 		result=HAL_ERROR;
@@ -147,22 +152,45 @@ HAL_StatusTypeDef MotorCom_Process(MOTOR_COM * comstruct){
 			}
 			rxstate=LOOKHEADER;
 
-			Motor_SetTargetSpeed(&g_motors[0],comstruct->rx_struct.f.targetSpeed[0]);
-			Motor_SetTargetSpeed(&g_motors[1],comstruct->rx_struct.f.targetSpeed[1]);
-			Motor_SetTargetSpeed(&g_motors[2],comstruct->rx_struct.f.targetSpeed[2]);
+			float w0=0.0f;//moteur de gauche
+			float w1=0.0f;//moteur de droite
+			float v=comstruct->rx_struct.f.targetv;
+			float w=comstruct->rx_struct.f.targetw;
+			float actualv=0.0f;
+			float actualw=0.0f;
+			uint32_t actualtime=0;
+
+			w0=((v + 0.5f * L_DIST * w) / R_WHEEL)*RAD_S_2_RPM;
+			w1=((v - 0.5f * L_DIST * w) / R_WHEEL)*RAD_S_2_RPM;
+
+			actualv=0.5f * R_WHEEL * (g_motors[1].speedRpm - g_motors[0].speedRpm) * RPM_2_RAD_S;
+			actualw=-(R_WHEEL / L_DIST) * (g_motors[0].speedRpm + g_motors[1].speedRpm) * RPM_2_RAD_S;
+			actualtime=(uint32_t ) comstruct->basehtim->Instance->CNT;
+			comstruct->basehtim->Instance->CNT=0;
+
+			Motor_SetTargetSpeed(&g_motors[0],-w0);
+			Motor_SetTargetSpeed(&g_motors[1],w1);
+
+
+
+
 
 			comstruct->tx_struct.f.header=FRAME_HEADER;
 			comstruct->tx_struct.f.flags=0;
 			comstruct->tx_struct.f.counter=comstruct->rx_struct.f.counter;
 
 
-			comstruct->tx_struct.f.actualSpeed[0]=g_motors[0].speedRpm;
-			comstruct->tx_struct.f.actualSpeed[1]=g_motors[1].speedRpm;
-			comstruct->tx_struct.f.actualSpeed[2]=g_motors[2].speedRpm;
+			comstruct->tx_struct.f.actualv=actualv;
+			comstruct->tx_struct.f.actualw=actualw;
+			comstruct->tx_struct.f.actualtime=actualtime;
 
-			comstruct->tx_struct.f.targetSpeed[0]=0.0f;
-			comstruct->tx_struct.f.targetSpeed[1]=0.0f;
-			comstruct->tx_struct.f.targetSpeed[2]=0.0f;
+
+
+
+			comstruct->tx_struct.f.targetv=0.0f;
+			comstruct->tx_struct.f.targetw=0.0f;
+			comstruct->tx_struct.f.time=0;
+
 
 			comstruct->tx_struct.f.crc=crc16_ccitt((uint8_t *)comstruct->tx_struct.raw, MOTOR_FRAME_SIZE-2);
 

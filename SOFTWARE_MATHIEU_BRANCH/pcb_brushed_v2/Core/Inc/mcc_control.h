@@ -17,34 +17,34 @@ extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim8;
 
+//moteur de gauche
+#define MOT1_PWM_HTIM        (&htim3)
+#define MOT1_PWM_CH_A        TIM_CHANNEL_4   // PWMA
+#define MOT1_PWM_CH_B        TIM_CHANNEL_3   // PWMB
 
-
-#define MOT1_PWM_HTIM        (&htim4)
-#define MOT1_PWM_CH_A        TIM_CHANNEL_2   // PWMA
-#define MOT1_PWM_CH_B        TIM_CHANNEL_1   // PWMB
-
-#define MOT1_ENC_HTIM        (&htim1)
+#define MOT1_ENC_HTIM        (&htim2)
 #define MOT1_ENC_CH_A        TIM_CHANNEL_2   // HALLA
 #define MOT1_ENC_CH_B        TIM_CHANNEL_1   // HALLB
 
-#define MOT2_PWM_HTIM        (&htim3)
-#define MOT2_PWM_CH_A        TIM_CHANNEL_4   // PWMA
-#define MOT2_PWM_CH_B        TIM_CHANNEL_3   // PWMB
 
-#define MOT2_ENC_HTIM        (&htim2)
+
+//moteur de droite
+#define MOT2_PWM_HTIM        (&htim4)
+#define MOT2_PWM_CH_A        TIM_CHANNEL_2   // PWMA
+#define MOT2_PWM_CH_B        TIM_CHANNEL_1   // PWMB
+
+#define MOT2_ENC_HTIM        (&htim1)
 #define MOT2_ENC_CH_A        TIM_CHANNEL_2   // HALLA
 #define MOT2_ENC_CH_B        TIM_CHANNEL_1   // HALLB
 
 
-
-
-#define MOT3_PWM_HTIM        (&htim3)
-#define MOT3_PWM_CH_A        TIM_CHANNEL_1   // PWMA (à confirmer)
-#define MOT3_PWM_CH_B        TIM_CHANNEL_2   // PWMB (à confirmer)
-
-#define MOT3_ENC_HTIM        (&htim8)
-#define MOT3_ENC_CH_A        TIM_CHANNEL_2   // HALLA
-#define MOT3_ENC_CH_B        TIM_CHANNEL_1   // HALLB
+//#define MOT3_PWM_HTIM        (&htim3)
+//#define MOT3_PWM_CH_A        TIM_CHANNEL_1   // PWMA (à confirmer)
+//#define MOT3_PWM_CH_B        TIM_CHANNEL_2   // PWMB (à confirmer)
+//
+//#define MOT3_ENC_HTIM        (&htim8)
+//#define MOT3_ENC_CH_A        TIM_CHANNEL_2   // HALLA
+//#define MOT3_ENC_CH_B        TIM_CHANNEL_1   // HALLB
 
 #define NTC_ADC              (&hadc2)
 #define NTC_ADC_CHANNEL      ADC_CHANNEL_5   // correspond à ADC2_IN5
@@ -59,6 +59,9 @@ extern TIM_HandleTypeDef htim8;
 #define RAMP_MAX  20.0f
 
 #define ANGLE_ERROR  0.5f
+
+#define R_WHEEL  0.02935f
+#define L_DIST  0.184f
 
 
 typedef enum

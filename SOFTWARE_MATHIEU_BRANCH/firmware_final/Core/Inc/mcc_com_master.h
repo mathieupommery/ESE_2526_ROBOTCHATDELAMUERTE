@@ -31,8 +31,15 @@ typedef union {
         uint16_t header;
         uint8_t  flags;
         uint8_t  counter;
-        float    targetSpeed[MOTOR_FRAME_MOTOR_COUNT];
-        float    actualSpeed[MOTOR_FRAME_MOTOR_COUNT];
+
+        float targetv;
+        float targetw;
+        uint32_t time;
+
+        float actualv;
+		float actualw;
+		uint32_t actualtime;
+
         uint16_t crc;
     } f;
     uint8_t raw[MOTOR_FRAME_SIZE];
@@ -49,9 +56,8 @@ typedef struct {
 
     uint32_t cnt_frame_late;
     uint32_t cnt_frame_lost;
-    float w0;
-    float w1;
-    float w2;
+    float v;
+    float w;
 
 #ifdef DEBUG_MODE
     char     dbg_tx_buf[64];

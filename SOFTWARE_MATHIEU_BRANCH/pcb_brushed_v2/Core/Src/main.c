@@ -47,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-Motor_t g_motors[3];
+Motor_t g_motors[2];
 MOTOR_COM com_struct;
 uint8_t motor_task_flag;
 
@@ -156,7 +156,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim15);
 
   App_InitMotors();
-  MotorCom_Init(&com_struct,&huart3,&htim6);
+  MotorCom_Init(&com_struct,&huart3,&htim6,&htim8);
   Motor_SetCommonSpeedPid(0.01, 0.1, 0, 0.9);
 
   /* USER CODE END 2 */
