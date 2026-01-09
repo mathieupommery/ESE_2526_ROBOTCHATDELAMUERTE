@@ -131,9 +131,24 @@ void Staticcontrol_movement(Lidar_t *lidar, RobotControl_t *control, OmniOdometr
 		}
 		control->target.rotation_degs = 0;
 		control->target.speed_rpm = abs(targetedobject->distance - KEEP_ROBOT_AT_BAY);
+
+	case PimpMaxxingRobotGoesBoomBamTchaTchaRealSmoothFlexOnTheHatingPlebsIGotALabubuKingAndLGTVQPlusLedsYouWishYOuHadButYouAreARobotFromTikTokMarketplace:
+
+		if(tofs->tof[0].tof_int && tofs->tofs_cooldown){
+			control->target.speed_rpm = 0;
+			control->target.rotation_degs = 0;
+			tofs->tof[0].tof_int = 0;
+			control->gamestate = SideWinderCatModeOfUltimateDoomAndDestructionAKATheAnnihilatorOfAllHumanandNonHumanLifeInTheWholeWideWorldNayTheUniverseNayOfTHeMultiverseBecauseCatSoStrongBeautifulAndDeadly;
+		}
+
+		control->target.rotation_degs = 20;
+		control->target.speed_rpm = 200;
+
 	default:
 		control->target.rotation_degs = 0;
 		control->target.speed_rpm = 0;
 		control->target.bearing = 0;
 	}
+
+
 }

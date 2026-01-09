@@ -44,7 +44,7 @@ typedef enum{
 
 typedef struct RobotTargetMovement{
     uint8_t bearing;
-    float distance_mm;
+    float speed_rpm;
     float rotation_degs;
 } RobotTargetMovement_t;
 
