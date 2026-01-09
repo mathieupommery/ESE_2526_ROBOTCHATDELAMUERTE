@@ -16,7 +16,7 @@ void Omnicontrol_movement(Lidar_t *lidar, RobotControl_t *control)
 	case SideWinderCatModeOfUltimateDoomAndDestructionAKATheAnnihilatorOfAllHumanandNonHumanLifeInTheWholeWideWorldNayTheUniverseNayOfTHeMultiverseBecauseCatSoStrongBeautifulAndDeadly:
 		Target_t *targetedobject = &lidar->cluster_struct.targets[control->enemy];
 		if (targetedobject->size == 0) {
-			control->target.distance_mm = 0;
+			control->target.speed_rpm = 0;
 			control->target.rotation_degs = 0;
 			return;
 		}
@@ -29,7 +29,7 @@ void Omnicontrol_movement(Lidar_t *lidar, RobotControl_t *control)
 			if (delta > 180) delta -= 360;
 			control->target.rotation_degs = delta;
 			if (delta<=5){
-				control->target.distance_mm = targetedobject->distance;
+				control->target.speed_rpm = targetedobject->distance;
 			}
 			return;
 		}
@@ -43,7 +43,7 @@ void Omnicontrol_movement(Lidar_t *lidar, RobotControl_t *control)
 			else if (delta < -180) delta += 360;
 			control->target.rotation_degs = delta;
 			if (delta<=5){
-				control->target.distance_mm = targetedobject->distance;
+				control->target.speed_rpm = targetedobject->distance;
 			}
 			return;
 		}
@@ -57,7 +57,7 @@ void Omnicontrol_movement(Lidar_t *lidar, RobotControl_t *control)
 			else if (delta < -180) delta += 360;
 			control->target.rotation_degs = delta;
 			if (delta<=5){
-				control->target.distance_mm = targetedobject->distance;
+				control->target.speed_rpm = targetedobject->distance;
 			}
 			return;
 		}
@@ -66,7 +66,7 @@ void Omnicontrol_movement(Lidar_t *lidar, RobotControl_t *control)
 		control->target.rotation_degs = 0;
 	default:
 		control->target.rotation_degs = 0;
-		control->target.distance_mm = 0;
+		control->target.speed_rpm = 0;
 		control->target.bearing = 0;
 	}
 }
@@ -76,13 +76,15 @@ void Staticcontrol_movement(Lidar_t *lidar, RobotControl_t *control, OmniOdometr
 	case SideWinderCatModeOfUltimateDoomAndDestructionAKATheAnnihilatorOfAllHumanandNonHumanLifeInTheWholeWideWorldNayTheUniverseNayOfTHeMultiverseBecauseCatSoStrongBeautifulAndDeadly:
 		Target_t *targetedobject = &lidar->cluster_struct.targets[control->enemy];
 		if (targetedobject->size == 0) {
-			control->target.distance_mm = 0;
+			control->target.speed_rpm = 0;
 			control->target.rotation_degs = 0;
+			control->enemy = (control->enemy + 1)%MAX_TARGETS;
+			targetedobject = &lidar->cluster_struct.targets[control->enemy];
 			return;
 		}
 
 		if(tofs->tof[0].tof_int && tofs->tofs_cooldown){
-			control->target.distance_mm = 0;
+			control->target.speed_rpm = 0;
 			control->enemy = (control->enemy + 1)%MAX_TARGETS;
 			targetedobject = &lidar->cluster_struct.targets[control->enemy];
 			tofs->tof[0].tof_int = 0;
@@ -92,29 +94,46 @@ void Staticcontrol_movement(Lidar_t *lidar, RobotControl_t *control, OmniOdometr
 		control->target.bearing = 180;
 		int16_t delta = (int16_t)targetedobject->angle - 180;
 		if (delta > 180) delta -= 360;
+		control->target.speed_rpm = 0;
 		control->target.rotation_degs = delta;
-		if (delta<=5){
-			control->target.distance_mm = targetedobject->distance;
+		if (abs(delta<=5)){
+			control->target.rotation_degs = 0;
+			control->target.speed_rpm = targetedobject->distance;
 		}
 		control->target.rotation_degs = 0;
 	case MouseGoesZoomZoomLikeSpeedyGonzalesArribaArriba:
 
-		//		control->target.bearing = 0;
-		//		control->target.rotation_degs = (targetedobject->angle - 180)%360;
-		// Put this in callback of tap to initialize escape
-
-//		Target_t *targetedobject = &lidar->cluster_struct.targets[control->enemy];
 		control->target.bearing = 180;
+		Target_t *targetedobject = &lidar->cluster_struct.targets[control->enemy];
+		if (targetedobject->size == 0) {
+			control->target.speed_rpm = 0;
+			control->target.rotation_degs = 0;
+			control->enemy = (control->enemy + 1)%MAX_TARGETS;
+			targetedobject = &lidar->cluster_struct.targets[control->enemy];
+			return;
+		}
+
 		if(tofs->tof[0].tof_int && tofs->tofs_cooldown){
-			control->target.distance_mm = 0;
+			control->target.speed_rpm = 0;
 			control->target.rotation_degs = fmodf(odom->position.w + targetedobject->angle, 360.0f);
 			tofs->tof[0].tof_int = 0;
 			break;
 		}
-		control->target.distance_mm = abs(targetedobject->distance - KEEP_ROBOT_AT_BAY);
+
+		// Compute delta angle to aim for enemy
+		int16_t delta = (int16_t)targetedobject->angle - 180;
+		if (delta > 180) delta -= 180;
+		control->target.speed_rpm = 0;
+		control->target.rotation_degs = - delta;
+		if (abs(delta<=5)){
+			control->target.rotation_degs = 0;
+			control->target.speed_rpm = targetedobject->distance;
+		}
+		control->target.rotation_degs = 0;
+		control->target.speed_rpm = abs(targetedobject->distance - KEEP_ROBOT_AT_BAY);
 	default:
 		control->target.rotation_degs = 0;
-		control->target.distance_mm = 0;
+		control->target.speed_rpm = 0;
 		control->target.bearing = 0;
 	}
 }
