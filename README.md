@@ -63,7 +63,7 @@ Finally this board is designed as a two board stack with the FOC controller v2.
 - **Actuators:** UART COM for each STM32 FOC controller
 - **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
 - **Communication:** SPI / UART / Wireless link via esp32-s3
-- **Features:** Sd card port and esp32-s3 to manage all the audio part with class d amplifier max99357 and microphone in order to get ia answer vio wifi call to an api. 
+- **Features:** Sd card port and esp32-s3 to manage all the audio part with class d amplifier max99357 and microphone in order to get AI to answer via a wifi call to an api. 
 
 ##### FOC STM32 based Controller
 
