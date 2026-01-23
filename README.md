@@ -17,7 +17,7 @@
    4. [Issues](#34-issues)
 4. [Regular DC](#4-regular-dc)
    1. [Hardware](#41-hardware)
-5. [Stratey Implementation](#5-strategy-implementation)
+5. [Strategy Implementation](#5-strategy-implementation)
    1. [Overview of Cat/Mouse Mode](#51-overview-of-cat/mouse-mode)
    2. [LiDAR handling](#52-lidar-handling)
    3. [Motor control](#53-motor-control)
@@ -171,7 +171,7 @@ It is with great regeret and disappointment that we opted for the failsafe route
 
 Here is the final aesthetic of the robot, granted, this version is much less elegant and complex, but that is it's vantage point, its simplicity has allowed us to obtain a functional result, after exploring many challenging and most educational approaches. 
 
-## 4. Strqgtegy Implementqtion
+## 4. Stragtegy Implementation
 
 ### 5.1 Overview of Cat/Mouse Mode
 
