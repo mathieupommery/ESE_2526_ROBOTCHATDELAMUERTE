@@ -17,6 +17,7 @@
    4. [Issues](#34-issues)
 4. [Regular DC](#4-regular-dc)
    1. [Hardware](#41-hardware)
+5. [Stratey Implementation](#5-strategy-implementation) 
 
 ## 1. Introduction
 This project aims to design and build a **mobile robotic system** capable of playing a "cat and mouse" pursuit game.  
@@ -165,3 +166,23 @@ It is with great regeret and disappointment that we opted for the failsafe route
 <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/adc10831-b124-4d93-b555-bde5916f606c" />
 
 Here is the final aesthetic of the robot, granted, this version is much less elegant and complex, but that is it's vantage point, its simplicity has allowed us to obtain a functional result, after exploring many challenging and most educational approaches. 
+
+## 4. Strqgtegy Implementqtion
+
+### 5.1 Overview of Cat/Mouse Mode
+
+In cat mode the robot acts like a heat seeking missile, meaning that when the Lidar detects an object the robot orients itself so that the object sits at a 180° bearing on the Lidar reading, meaning that the object is directly in front of the robot. When a 5° orientation precision is reached the robot moves forward and only stops to reorient itself if the orientation error becomes greater than 5°.
+
+In mouse mode we adopt a pseudo-random flee method. The robot orients itself so that the cat sits behind it and moves forward when the difference in distance becomes lower than 50cm. If the side of a table is met the robot reorients itself to face the greatest half of the angle formed between the table's border and the cat's bearing position, thus always fleeing where there is more space.
+
+### 5.2 LiDAR handling
+
+The LiDAR is spun at roughly 8Hz guaranteeing a 1° accuracy and fast response. After parsing the RX data is stored in a 360 uiint32 long list, each index increment analog to a 1° increment, only the points ranging from 0 to 3m are stored. Then a clusterization algorithm detects and filters the objects of diameter greater than 3cm and smaller than 8cm, which could be the opposing robot's LiDAR. Then the detected clusters are classified according to their computed size in order to isolate the most likely candidate to be the ennemy's LiDAR.
+
+### 5.3 Motor control
+
+Thwo PCBs are mounted, the top one is equipped with the STM32H7 and ESP32S3 for great computing capabilities and handling Wifi and Buetooth connectivity as well as aesthetic equipments such as LEDs, Screens and Speakers. The STM32H7 communicates the movement commands to the STM32G4 mounted on the bottom PCB at a 200Hz frequency, and the bottom PCB handles the motor control PIDs and returns the speeds for the STM32H7 to compute the odometry.
+
+### 5.4 Additional PIMP mode
+
+In an attempt to spice things up we experimented with the cinematics of a two omniwheeled robot, more particularly its ability to drift by taking advantage of the lateral movement allowed by the rollers. Hence by advancing and turning simultaneously it is possible to crab walkj in a circle. Hence a third state that although not as elegant as a computed evasion from the cat could be used to run fast circles around the cat when in mouse mode.
