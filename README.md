@@ -17,7 +17,11 @@
    4. [Issues](#34-issues)
 4. [Regular DC](#4-regular-dc)
    1. [Hardware](#41-hardware)
-5. [Stratey Implementation](#5-strategy-implementation) 
+5. [Stratey Implementation](#5-strategy-implementation)
+   1. [Overview of Cat/Mouse Mode](#51-overview-of-cat/mouse-mode)
+   2. [LiDAR handling](#52-lidar-handling)
+   3. [Motor control](#53-motor-control)
+   4. [Additional PIMP mode](#54-additional-pimp-mode)
 
 ## 1. Introduction
 This project aims to design and build a **mobile robotic system** capable of playing a "cat and mouse" pursuit game.  
