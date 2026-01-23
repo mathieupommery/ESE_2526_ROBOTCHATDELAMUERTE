@@ -171,7 +171,7 @@ It is with great regeret and disappointment that we opted for the failsafe route
 
 Here is the final aesthetic of the robot, granted, this version is much less elegant and complex, but that is it's vantage point, its simplicity has allowed us to obtain a functional result, after exploring many challenging and most educational approaches. 
 
-## 4. Stragtegy Implementation
+## 4. Strategy Implementation
 
 ### 5.1 Overview of Cat/Mouse Mode
 
