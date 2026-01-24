@@ -46,6 +46,10 @@ HAL_StatusTypeDef crsf_Init(CRSF_t *crsf,UART_HandleTypeDef *huart){
 	crsf->crsfstate=CRSF_STATE_0;
 	HAL_StatusTypeDef result=HAL_OK;
 
+	for(int i = 0; i<32; i++){
+		crsf->channel_armed[i]=1;
+	}
+
 	if(HAL_UART_Receive_DMA(crsf->huart,crsf->crsf_circular_buffer,CRSF_CIRC_BUF_LENGHT)!=HAL_OK){
 		result=HAL_ERROR;
 	}

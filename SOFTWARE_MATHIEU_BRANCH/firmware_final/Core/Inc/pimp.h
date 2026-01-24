@@ -13,6 +13,7 @@
 
 
 
-HAL_StatusTypeDef audio_proccess_song(CRSF_t *crsf,UART_HandleTypeDef *huart,uint16_t threshold,const char *cmd,uint8_t channel);
+
+HAL_StatusTypeDef crsf_proccess_switch(CRSF_t *crsf,UART_HandleTypeDef *huart,uint16_t threshold);
 
 #endif /* INC_PIMP_H_ */

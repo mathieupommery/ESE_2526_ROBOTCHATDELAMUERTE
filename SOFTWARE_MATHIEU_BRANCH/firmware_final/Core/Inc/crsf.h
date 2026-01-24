@@ -45,6 +45,7 @@ uint8_t crsf_circular_buffer[CRSF_CIRC_BUF_LENGHT];
 CRSF_STATE crsfstate;
 uint8_t crsf_trame_handler[128];
 uint16_t crsf_command[32];
+uint8_t channel_armed[32];
 }CRSF_t;
 
 

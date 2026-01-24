@@ -293,7 +293,7 @@ void StartPimptask(void const * argument)
 	  }
 
 
-	  audio_proccess_song(&crsf_struct,&huart3,1000,"p /bomboclat.wav\n\r",4);
+	  crsf_proccess_switch(&crsf_struct,&huart3,1000);
 
 
 
