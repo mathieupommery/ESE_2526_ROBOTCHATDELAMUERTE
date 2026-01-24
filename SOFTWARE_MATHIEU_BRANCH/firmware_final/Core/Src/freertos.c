@@ -33,6 +33,8 @@
 #include "led.h"
 #include "ssd1306.h"
 #include "crsf.h"
+#include "pimp.h"
+#include "usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -289,6 +291,9 @@ void StartPimptask(void const * argument)
 
 		  }
 	  }
+
+
+	  audio_proccess_song(&crsf_struct,&huart3,1000,"p /bomboclat.wav\n\r",4);
 
 
 

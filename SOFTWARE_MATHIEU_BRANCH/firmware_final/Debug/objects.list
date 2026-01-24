@@ -9,6 +9,7 @@
 "./Core/Src/main.o"
 "./Core/Src/mcc_com_master.o"
 "./Core/Src/odometry.o"
+"./Core/Src/pimp.o"
 "./Core/Src/spi.o"
 "./Core/Src/ssd1306.o"
 "./Core/Src/ssd1306_fonts.o"

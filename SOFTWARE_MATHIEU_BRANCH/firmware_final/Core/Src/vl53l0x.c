@@ -106,26 +106,3 @@ void VL53L0X_Update(VL53L0X_t *tof)
 			(1.0f - tof->alpha) * tof->filtered_distance_mm;
 }
 
-//HAL_StatusTypeDef VL53L0X_Calibrate(uint8_t tof_index, uint16_t known_mm, uint16_t samples)
-//{
-//	if (tof_index < 1 || tof_index > VL53L0X_MAX_COUNT)
-//		return HAL_ERROR;
-//
-//	VL53L0X_t *tof = &tof_array[tof_index - 1];
-//	if (!tof->initialized)
-//		return HAL_ERROR;
-//
-//	if (samples < 3) samples = 3;
-//	if (samples > 20) samples = 20;
-//
-//	uint32_t sum = 0;
-//	for (uint16_t i = 0; i < samples; i++)
-//	{
-//		VL53L0X_Update(tof);
-//		sum += tof->raw_distance_mm;
-//		TOF_Delay(20);
-//	}
-//
-//	tof->offset_mm = (sum / samples) - known_mm;
-//	return HAL_OK;
-//}

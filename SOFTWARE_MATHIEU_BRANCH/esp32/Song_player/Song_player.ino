@@ -7,33 +7,24 @@
 #include "wav.h"
 
 
-#define LONG_PRESS_MS 400
+SPIClass sdSPI(FSPI);
 
-static const uint16_t SECTOR_SIZE = 512;
+#define UART1_TX_PIN 17
+#define UART1_RX_PIN 18
 
-SPIClass sdSPI(FSPI);   // bus SPI pour la SD sur ESP32-S3 (FSPI)
 
-// =======================
-// Paramètres WAV & volume
-// =======================
 std::vector<String> wavList;
 
-// Volume logiciel (0.0 = muet, 1.0 = plein volume)
-float g_volume = 1.0f;   // tu peux régler ça
+
+float g_volume = 1.0f;
 
 
-
-// =======================
-// Prototypes
-// =======================
+void commandParserTask(void *parameter);
 void playbackTask(void *parameter);
-void buttonTask(void *parameter);
-
 
 
 
 void setupAudioMode() {
-  // Init SPI pour la carte SD
   Serial.println("Init SPI SD...");
   sdSPI.begin(SD_SCK_PIN, SD_MISO_PIN, SD_MOSI_PIN, SD_CS_PIN);
 
@@ -74,12 +65,15 @@ void setupAudioMode() {
   g_wavCmdQueue = xQueueCreate(4, sizeof(WavCommand));
 
   xTaskCreatePinnedToCore(playbackTask,"playbackTask",8192,nullptr,2,nullptr,1);
+  xTaskCreatePinnedToCore(commandParserTask,"commandParserTask",4096,nullptr,1,nullptr,0);
 }
 
 
 void setup() {
   Serial.begin(115200);
   delay(500);
+  Serial1.begin(115200,SERIAL_8N1,UART1_RX_PIN,UART1_TX_PIN);
+
   Serial.println("\n=== WAV Player ESP32-S3 + MAX99357 ===");
   
   Serial.println("Mode Audio (lecteur WAV)");
@@ -106,7 +100,6 @@ void playbackTask(void *parameter) {
     }
 
     WavCommand cmd;
-    // On attend une commande
     if (xQueueReceive(g_wavCmdQueue, &cmd, portMAX_DELAY) == pdTRUE) {
 
       if (cmd.cmd == 'p') {
@@ -120,9 +113,90 @@ void playbackTask(void *parameter) {
         playWav(cmd.path, true);
       }
       else if (cmd.cmd == 's') {
-        Serial.println("CMD STOP en idle (ignorée ici).");
+        Serial.println("CMD STOP en idle.");
       }
     }
+  }
+}
+
+
+void commandParserTask(void *parameter) {
+  (void)parameter;
+
+  static char usbBuffer[160];
+  static char uartBuffer[160];
+  size_t usbIdx = 0;
+  size_t uartIdx = 0;
+
+  Serial.println("Command parser task ready");
+
+  for (;;) {
+
+    while (Serial.available()) {
+      char c = Serial.read();
+
+      if (c == '\n' || c == '\r') {
+        if (usbIdx > 0) {
+          usbBuffer[usbIdx] = '\0';
+          usbIdx = 0;
+
+          WavCommand cmd = {};
+          cmd.cmd = usbBuffer[0];
+
+          if (cmd.cmd == 's') {
+            Serial.println("CMD STOP");
+            xQueueSend(g_wavCmdQueue, &cmd, 0);
+          }
+          else if ((cmd.cmd == 'p' || cmd.cmd == 'l') && usbBuffer[1] == ' ') {
+            strncpy(cmd.path, &usbBuffer[2], sizeof(cmd.path) - 1);
+            cmd.path[sizeof(cmd.path) - 1] = '\0';
+
+            Serial.printf("CMD %c %s\n", cmd.cmd, cmd.path);
+            xQueueSend(g_wavCmdQueue, &cmd, 0);
+          }
+          else {
+            Serial.printf("Commande invalide: %s\n", usbBuffer);
+          }
+        }
+      }
+      else if (usbIdx < sizeof(usbBuffer) - 1) {
+        usbBuffer[usbIdx++] = c;
+      }
+    }
+
+    while (Serial1.available()) {
+      char c = Serial1.read();
+
+      if (c == '\n' || c == '\r') {
+        if (uartIdx > 0) {
+          uartBuffer[uartIdx] = '\0';
+          uartIdx = 0;
+
+          WavCommand cmd = {};
+          cmd.cmd = uartBuffer[0];
+
+          if (cmd.cmd == 's') {
+            Serial1.println("CMD STOP");
+            xQueueSend(g_wavCmdQueue, &cmd, 0);
+          }
+          else if ((cmd.cmd == 'p' || cmd.cmd == 'l') && uartBuffer[1] == ' ') {
+            strncpy(cmd.path, &uartBuffer[2], sizeof(cmd.path) - 1);
+            cmd.path[sizeof(cmd.path) - 1] = '\0';
+
+            Serial1.printf("CMD %c %s\n", cmd.cmd, cmd.path);
+            xQueueSend(g_wavCmdQueue, &cmd, 0);
+          }
+          else {
+            Serial1.printf("Commande invalide: %s\n", uartBuffer);
+          }
+        }
+      }
+      else if (uartIdx < sizeof(uartBuffer) - 1) {
+        uartBuffer[uartIdx++] = c;
+      }
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(10));
   }
 }
 

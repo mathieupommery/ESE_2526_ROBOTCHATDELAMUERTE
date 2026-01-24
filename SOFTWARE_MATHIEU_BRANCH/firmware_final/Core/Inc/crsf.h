@@ -31,10 +31,10 @@ typedef enum {
 
 
 #define MAX_MS 1.5f
-#define MAX_DEGS 600.0f
+#define MAX_DEGS 200.0f
 
-#define THROTTLE_DEAD_BAND 50u
-#define AIL_DEAD_BAND 50u
+#define THROTTLE_DEAD_BAND 75u
+#define AIL_DEAD_BAND 70u
 
 typedef struct{
 	UART_HandleTypeDef *huart;
