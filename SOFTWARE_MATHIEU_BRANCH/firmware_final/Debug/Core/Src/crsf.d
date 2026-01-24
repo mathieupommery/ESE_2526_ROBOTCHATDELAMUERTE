@@ -1,5 +1,5 @@
-Core/Src/odometry.o: ../Core/Src/odometry.c ../Core/Inc/odometry.h \
- ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+Core/Src/crsf.o: ../Core/Src/crsf.c ../Core/Inc/crsf.h ../Core/Inc/main.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -36,8 +36,8 @@ Core/Src/odometry.o: ../Core/Src/odometry.c ../Core/Inc/odometry.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
- ../Core/Inc/mcc_com_master.h
-../Core/Inc/odometry.h:
+ ../Core/Inc/mcc_com_master.h ../Core/Inc/odometry.h
+../Core/Inc/crsf.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -77,3 +77,4 @@ Core/Src/odometry.o: ../Core/Src/odometry.c ../Core/Inc/odometry.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
 ../Core/Inc/mcc_com_master.h:
+../Core/Inc/odometry.h:

@@ -6,9 +6,9 @@
 #include "i2c.h"
 
 
-#define TOF1_I2C (&hi2c4)
-#define TOF2_I2C (&hi2c1)
-#define TOF3_I2C (&hi2c3)
+#define TOF1_I2C (&hi2c3)
+#define TOF2_I2C (&hi2c4)
+#define TOF3_I2C (&hi2c1)
 
 typedef struct
 {

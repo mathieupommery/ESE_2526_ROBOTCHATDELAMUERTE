@@ -35,7 +35,7 @@ _BEGIN_STD_C
 /* vvv I2C config vvv */
 
 
-#define SSD1306_I2C_PORT        hi2c2
+#define SSD1306_I2C_PORT        hi2c1
 #define SSD1306_I2C_ADDR        (0x3C << 1)
 
 

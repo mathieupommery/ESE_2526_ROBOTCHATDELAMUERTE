@@ -1,0 +1,5 @@
+../Core/Src/crsf.c:11:16:crsf_crc8	4
+../Core/Src/crsf.c:23:13:crsf_decode_channels	4
+../Core/Src/crsf.c:41:19:crsf_Init	34
+../Core/Src/crsf.c:62:19:crsf_fsm	17
+../Core/Src/crsf.c:167:19:crsf_command	5

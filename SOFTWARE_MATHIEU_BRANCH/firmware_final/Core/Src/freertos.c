@@ -28,10 +28,11 @@
 #include "adxl343.h"
 #include "mcc_com_master.h"
 #include "odometry.h"
-#include "control.h"
 #include "vl53l0x.h"
 #include "lidar.h"
 #include "led.h"
+#include "ssd1306.h"
+#include "crsf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +56,8 @@
 extern adxl343_t adxldata;
 extern MOTOR_COM com_struct;
 extern Lidar_t lidar_struct;
-extern Omni3_t odom_struct;
+extern ODOM_struct odom_struct;
+extern CRSF_t crsf_struct;
 
 extern led_strip_t tomandjerry;
 extern led_strip_t extled;
@@ -183,18 +185,8 @@ void Startmaintask(void const * argument)
   for(;;)
   {
 
-	  switch(i){
-	  case 0:
-		  com_struct.v=0.0f;
-		  com_struct.w=-2.0f;
-		  i++;
-		  break;
-	  case 1:
-		  com_struct.v=0.3f;
-		  com_struct.w=4.0f;
-		  i--;
-		  break;
-	  }
+
+
 
 	   HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_11);
 	  vTaskDelayUntil(&xLastWakeTime, period);
@@ -259,10 +251,9 @@ void StartPimptask(void const * argument)
   /* USER CODE BEGIN StartPimptask */
 	LED_Strip_Init(&tomandjerry,&htim1,TIM_CHANNEL_2,tomjerry_grb,TOM_JERRY_LED_COUNT,tomjerry_dma,(uint16_t)(sizeof(tomjerry_dma) / sizeof(tomjerry_dma[0])));
     LED_Strip_Init(&extled,&htim3,TIM_CHANNEL_4,ext_grb,EXT_LED_COUNT,ext_dma,(uint16_t)(sizeof(ext_dma) / sizeof(ext_dma[0])));
-	uint16_t offset=0;
+
+    uint16_t offset=0;
 	uint8_t flag1=0;
-
-
 
 
 	  TickType_t xLastWakeTime;
@@ -326,9 +317,8 @@ void StartOdomtask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
-
-
+	  crsf_fsm(&crsf_struct);
+	  crsf_command(&crsf_struct,&com_struct);
 	  MotorCom_Process(&com_struct);
 	  vTaskDelayUntil(&xLastWakeTime, period);
   }

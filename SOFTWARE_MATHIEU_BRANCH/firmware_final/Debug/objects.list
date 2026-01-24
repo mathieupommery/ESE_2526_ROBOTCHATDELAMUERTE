@@ -1,6 +1,6 @@
 "./Core/Src/Lidar.o"
 "./Core/Src/adxl343.o"
-"./Core/Src/control.o"
+"./Core/Src/crsf.o"
 "./Core/Src/dma.o"
 "./Core/Src/freertos.o"
 "./Core/Src/gpio.o"

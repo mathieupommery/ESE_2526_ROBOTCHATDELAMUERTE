@@ -1,0 +1,5 @@
+../Core/Src/crsf.c:11:16:crsf_crc8	24	static
+../Core/Src/crsf.c:23:13:crsf_decode_channels	24	static
+../Core/Src/crsf.c:41:19:crsf_Init	24	static
+../Core/Src/crsf.c:62:19:crsf_fsm	24	static
+../Core/Src/crsf.c:167:19:crsf_command	24	static

@@ -1,7 +1,4 @@
-../Core/Src/odometry.c:13:20:omni3_build_u	24	static
-../Core/Src/odometry.c:22:12:omni3_inv3x3	96	static
-../Core/Src/odometry.c:53:5:omni3_init_default	64	static
-../Core/Src/odometry.c:78:6:omni3_inverse_rear_axis	48	static
-../Core/Src/odometry.c:98:6:omni3_direct_to_rear_axis	48	static
-../Core/Src/odometry.c:118:6:omni3_inverse	32	static
-../Core/Src/odometry.c:131:6:omni3_direct	40	static
+../Core/Src/odometry.c:12:21:wrap_angle_rad	16	static
+../Core/Src/odometry.c:25:6:limit_vw_by_wheel_speed	48	static
+../Core/Src/odometry.c:58:14:turn_step	40	static
+../Core/Src/odometry.c:97:6:robot_control_step	48	static

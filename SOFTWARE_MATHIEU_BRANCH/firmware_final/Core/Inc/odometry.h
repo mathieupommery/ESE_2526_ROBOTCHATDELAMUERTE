@@ -19,7 +19,7 @@
 #endif
 #define RPM_2_RAD_S(rpm)   ((rpm) * (2.0f * M_PI / 60.0f))
 
-#define WHEEL_W_MAX (270.0f * (2.0f * M_PI / 60.0f))
+#define WHEEL_W_MAX (400.0f * (2.0f * M_PI / 60.0f))
 #define R_WHEEL 0.02935f
 #define L_DIST 0.184f
 
@@ -45,6 +45,8 @@ typedef struct
 
 }ODOM_struct;
 
+
+void limit_vw_by_wheel_speed(MOTOR_COM * comstruct);
 
 
 #endif /* INC_ODOMETRY_H_ */

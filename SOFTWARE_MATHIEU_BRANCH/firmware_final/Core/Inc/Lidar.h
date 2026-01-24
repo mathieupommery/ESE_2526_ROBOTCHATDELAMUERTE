@@ -25,7 +25,7 @@
 #define CAN_MAX_MM         (CAN_DIAM_MM + CAN_TOL_MM)
 
 #define CAN_MIN_DIST_MM    150u
-#define CAN_MAX_DIST_MM    3000u
+#define CAN_MAX_DIST_MM    500u
 
 #define CAN_GATE_MAX_DA_DEG    25u
 #define CAN_GATE_MAX_DD_MM     800u
@@ -40,7 +40,7 @@
 
 #define YLIDAR_CIRC_BUF_SIZE 1024
 
-#define LidarMaxDepth 2000
+#define LidarMaxDepth 500
 
 
 #define LIDAR_POINTS 360u

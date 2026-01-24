@@ -1,4 +1,4 @@
-26896699387910301
+26951859924750998
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -76441,7 +76441,7 @@ CSP 80 0.4 80-ball WLCSP
 80
 Package_CSP
 LFCSP-6-1EP_2x2mm_P0.65mm_EP1x1.6mm
-LFCSP, 6 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_6_3.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP, 6 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp-6/cp_6_3.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 LFCSP NoLead
 0
 11
@@ -78595,6 +78595,13 @@ Maxim TDFN NoLead
 0
 11
 7
+Package_DFN_QFN
+Maxim_TDFN-10-1EP_3x3mm_P0.5mm_EP1.58x2.35mm
+Maxim  TDFN, 10 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/tqfn/21-0137.pdf and https://www.analog.com/media/en/package-pcb-resources/land-pattern/tdfn-ep/90-0003.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+Maxim TDFN NoLead T1033-2 MO229/WEED-3
+0
+15
+11
 Package_DFN_QFN
 Maxim_TDFN-12-1EP_3x3mm_P0.5mm_EP1.7x2.5mm
 Maxim TDFN, 12 Pin (https://www.analog.com/media/en/package-pcb-resources/land-pattern/tdfn/90-0397.pdf)
@@ -82397,6 +82404,20 @@ VQFN NoLead
 75
 49
 Package_DFN_QFN
+VQFN-48-1EP_7x7mm_P0.5mm_EP4.2x4.2mm
+VQFN, 48 Pin (Based on JEDEC MO-220 variation VKKD-2 (using Figure 1), custom Exposed Pad from NXP, https://www.jedec.org/document_search?search_api_views_fulltext=MO-220, https://www.nxp.com/docs/en/package-information/SOT619-28.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead NXP_SOT619-28
+0
+53
+49
+Package_DFN_QFN
+VQFN-48-1EP_7x7mm_P0.5mm_EP4.2x4.2mm_ThermalVias
+VQFN, 48 Pin (Based on JEDEC MO-220 variation VKKD-2 (using Figure 1), custom Exposed Pad from NXP, https://www.jedec.org/document_search?search_api_views_fulltext=MO-220, https://www.nxp.com/docs/en/package-information/SOT619-28.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead NXP_SOT619-28
+0
+70
+49
+Package_DFN_QFN
 VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm
 VQFN, 48 Pin (http://www.ti.com/lit/ds/symlink/cc1312r.pdf#page=48), generated with kicad-footprint-generator ipc_noLead_generator.py
 VQFN NoLead
@@ -85618,14 +85639,14 @@ LQFP QFP
 65
 Package_QFP
 LQFP-64-1EP_10x10mm_P0.5mm_EP6.5x6.5mm
-LQFP, 64 Pin (https://www.nxp.com/files-static/shared/doc/package_info/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP, 64 Pin (https://www.nxp.com/docs/en/package-information/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
 LQFP QFP
 0
 90
 65
 Package_QFP
 LQFP-64-1EP_10x10mm_P0.5mm_EP6.5x6.5mm_ThermalVias
-LQFP, 64 Pin (https://www.nxp.com/files-static/shared/doc/package_info/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP, 64 Pin (https://www.nxp.com/docs/en/package-information/98ARH98426A.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
 LQFP QFP
 0
 116
@@ -87599,7 +87620,7 @@ SOIC SO
 28
 Package_SO
 SOIC-28W_7.5x18.7mm_P1.27mm
-SOIC, 28 Pin (https://www.akm.com/akm/en/file/datasheet/AK5394AVS.pdf#page=23), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOIC, 28 Pin (https://www.es.co.th/Schemetic/PDF/AK5394A.PDF#page=23), generated with kicad-footprint-generator ipc_gullwing_generator.py
 SOIC SO
 0
 28
@@ -107044,12 +107065,96 @@ pin_header_smt_14pin
 14
 14
 samacsys2
+1mm_0.5mmhole
+
+
+0
+1
+1
+samacsys2
+1mm_circle
+
+
+0
+1
+1
+samacsys2
+1mm_square
+
+
+0
+1
+1
+samacsys2
+146235-0001
+146235-0001
+Undefined or Miscellaneous
+0
+4
+4
+samacsys2
+20682040E02
+20682-040E-02-3
+Connector
+0
+62
+62
+samacsys2
+5035480622
+503548-0622-2
+Connector
+0
+10
+10
+samacsys2
+74438335150
+3.0x3.0x1.5mm
+Inductor
+0
+2
+2
+samacsys2
+452404020202
+452404020202-2
+Switch
+0
+6
+6
+samacsys2
+ANTC3216X140N
+ACMA31
+Inductor
+0
+2
+2
+samacsys2
+BAT_PAD_1mm
+
+
+0
+1
+1
+samacsys2
+BUMPLESS_CSP_2025
+Bumpless CSP_2025
+Integrated Circuit
+0
+6
+6
+samacsys2
 DF528S08H21
 DF52-8S-0.8H(21)
 Connector
 0
 10
 10
+samacsys2
+GNSS_8mmx8mm
+
+
+0
+1
+1
 samacsys2
 ICS43434
 ICS-43434-4
@@ -107058,8 +107163,92 @@ Integrated Circuit
 6
 6
 samacsys2
+IS050L30BC10
+IS050-L30B-C10-4
+Connector
+0
+34
+34
+samacsys2
+Insta360go2
+
+
+0
+7
+7
+samacsys2
+MAXM10S00B
+MAX-M10S-00B-2
+Integrated Circuit
+0
+18
+18
+samacsys2
 NE555DR
 D (R-PDSO-G8)
+Integrated Circuit
+0
+8
+8
+samacsys2
+PESD5V0S1ULQYL
+PESD5V0S1UL-QYL-3
+Diode ESD (Uni-directional)
+0
+2
+2
+samacsys2
+PTS845VM20PSMTR4LFS
+PTS845
+Switch
+0
+5
+5
+samacsys2
+QFN50P900X900X100-65N-D
+VFQFPN 9X9X1.0 64
+Integrated Circuit
+0
+65
+65
+samacsys2
+S6B-PH-SM4-TB_LF__SN__3
+S6B-PH-SM4-TB(LF)(SN)_3
+Connector
+0
+8
+8
+samacsys2
+SM08BGHSTBLFSN
+SM08B-GHS-TB (LF)(SN)-2
+Connector
+0
+10
+10
+samacsys2
+SOIC127P600X170-9N
+DDA-2
+Integrated Circuit
+0
+9
+9
+samacsys2
+SON50P200X200X80-7N-D
+6-Lead Plastic DFN-
+Integrated Circuit
+0
+7
+7
+samacsys2
+SON127P600X500X80-9N-D
+WSON-8 6x5-mm_2022
+Integrated Circuit
+0
+9
+9
+samacsys2
+TPS22960RSER
+TPS22960RSER-2
 Integrated Circuit
 0
 8
@@ -107071,3 +107260,31 @@ Integrated Circuit
 0
 9
 9
+samacsys2
+USB472003A
+USB4720-03-A-1
+Connector
+0
+18
+18
+samacsys2
+rog_ally_40pin
+
+
+0
+40
+40
+samacsys2
+sm03b_surs_tf
+
+
+0
+0
+0
+samacsys2
+ssd1306_5point
+
+
+0
+6
+6

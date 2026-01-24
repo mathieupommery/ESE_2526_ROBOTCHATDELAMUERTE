@@ -34,9 +34,9 @@
 #include "led.h"
 #include "mcc_com_master.h"
 #include "odometry.h"
-#include "control.h"
 #include "vl53l0x.h"
 #include "lidar.h"
+#include "crsf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,11 +60,13 @@
 adxl343_t adxldata;
 MOTOR_COM com_struct;
 Lidar_t lidar_struct;
-Omni3_t odom_struct;
+ODOM_struct odom_struct;
 
 led_strip_t tomandjerry;
 led_strip_t extled;
 VL53L0X_t tof_array[3];
+
+CRSF_t crsf_struct;
 
 extern uint8_t  tomjerry_grb[WS2812_GRB_BUF_LEN(TOM_JERRY_LED_COUNT)];
 extern uint32_t tomjerry_dma[WS2812_DMA_BUF_LEN(TOM_JERRY_LED_COUNT)];
@@ -128,6 +130,7 @@ void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
     }
     if (huart->Instance == USART3)
     {
+    	crsf_struct.crsf_write_index=CRSF_CIRC_BUF_LENGHT/2u;
     }
 }
 
@@ -150,6 +153,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     }
     if (huart->Instance == USART3)
     {
+    	crsf_struct.crsf_write_index=0u;
     }
 }
 
@@ -189,7 +193,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_SPI4_Init();
-  MX_I2C2_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   MX_I2C1_Init();
@@ -204,18 +207,13 @@ int main(void)
   DWT->CYCCNT = 0;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-
+  crsf_Init(&crsf_struct,&huart3);
 
     MotorCom_Init(&com_struct,&huart1);
 
     ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
     Lidar_Init(&lidar_struct,&huart8,LIDAR_SPEED_GPIO_Port, LIDAR_SPEED_Pin);
-
-  //  ssd1306_Init();
-  //  ssd1306_Fill(White);
-  //  ssd1306_SetCursor(32,32);
-  //  ssd1306_UpdateScreen();
 
 
   /* USER CODE END 2 */

@@ -22,7 +22,7 @@ static inline float deg2rad(float deg)
 }
 
 
-static void limit_vw_by_wheel_speed(MOTOR_COM * comstruct)
+void limit_vw_by_wheel_speed(MOTOR_COM * comstruct)
 {
     float vL = comstruct->v - 0.5f * L_DIST * comstruct->w;
     float vR = comstruct->v + 0.5f * L_DIST * comstruct->w;
@@ -130,7 +130,10 @@ void robot_control_step(ODOM_struct *odom_struct,MOTOR_COM * comstruct)
 
     limit_vw_by_wheel_speed(comstruct);
 
-    *v_cmd = v;
-    *w_cmd = w;
+    comstruct->tx_struct.f.targetw=w;
+    comstruct->tx_struct.f.targetv=v;
+
+//    *v_cmd = v;
+//    *w_cmd = w;
 }
 
