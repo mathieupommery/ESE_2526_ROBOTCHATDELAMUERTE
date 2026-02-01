@@ -54,20 +54,26 @@ The electronic subsystem provides sensing, control, and communication between th
 - **Communication:** SPI / UART / Wireless link via esp32-C6
 - **Features:** Up to 1Gb nand flash of 512Mb Nor flash 
 
+This board work perfectly fine on it's own, we upgraded it just for adding option and better looking connector 
+
 ###### V2
 <img width="413" height="439" alt="MB_v2_Front" src="https://github.com/user-attachments/assets/f4dd61f5-7272-493a-889a-9575a6816da9" />
 
 <img width="407" height="431" alt="mb_v2_back" src="https://github.com/user-attachments/assets/1b39e27e-b79e-4786-a5c8-040d7c2a8e96" />
 
-This version improved the audio part by adding a micro sd card wich replaced the previous NOR flash in order to get faster read and write speed, on top of that we moved all the **audio processing into a faster esp32-S3** wich communicates with the stm32 by a uart link, it allows us to get **real AI functionnality** by using wifi link and also communicate with the **STM32 that controls all of the Robot's movements**.  
+This version improved the audio part by adding a micro sd card wich replaced the previous NOR flash in order to get faster read and write speed and easier data management (indeed nor flash work on 4096 byte secotr that has to be erased before program, it is harder to implement in order to deal with the usb msc protocol and slower) on top of that we moved all the **audio processing into a faster esp32-S3** wich communicates with the stm32 by a uart link, it allows us to get **real AI functionnality** by using wifi link and also communicate with the **STM32 that controls all of the Robot's movements**.  
 Finally this board is designed as a two board stack with the FOC controller v2.
 
 **Main features:**
 - **Microcontroller:** 480Mhz STM32H743 in TFBGA100 package, 1MB RAM 2MB Flash 
 - **Sensors:** ADXL343 accelerometer and 3x TOF sensor, ICS43434 I2S mems microphone 
 - **Actuators:** UART COM for each STM32 FOC controller
-- **Power Management:** 2.5A 5V buck, separate 3.3V ldo between mcu and accelerometer.  
-- **Communication:** SPI / UART / Wireless link via esp32-s3
+- **Power Management:** 
+-2.5A 5V buck with up to 30v input capability, -separate 3.3V ldo between for accelerometer
+-latest 3.3v SIP buck from texas instrument for both mcu
+- decoupling caps near motor connector.
+
+- **Communication:** SPI / UART / Wireless link via esp32-s3 (bluetooth 5.0, wifi 2.4G)
 - **Features:** Sd card port and esp32-s3 to manage all the audio part with class d amplifier max99357 and microphone in order to get AI to answer via a wifi call to an api. 
 
 ##### FOC STM32 based Controller
@@ -85,6 +91,13 @@ The FOC controller is build arround a Iflight GBM2804H-100T motor, that we will 
 - **Microcontroller:**  STSPIN32G0A2 built in soc with integrated STM32G031 and gate driver and opamp
 - **Sensors:** MA330 absolut spi angle sensor 1uS measure time and 3us latency 
 - **Features:** Uart communication to mainboard.
+
+**encountered problem** 
+This controller work very well for foc control but sensorless, indeed we the main problem is the stm32g031 itself, it don't have hardware floating point unit built in too clark and parks transform run solwer on top of that it run at only 64Mhz wich is a little slow to implement the spi communication with the MA330 on top of all calculs every 5ms.
+
+We even tried to use only low layer librarie with prearmed dma transfer in order to cut down the cpu use in the current loop but the main problem was the lack of fpu wich even with fixed point number was hard to deal with.
+
+In conclusion this driver is great for sensorless foc control or here for torque reason at low speed we need sensored control and we should have stepped up to the sts32ping4 but we prefer to goes in to brushed motor in order to gain time for the other problems. 
 
 #### 2.1.2. Mechanics
 The mechanical subsystem handles motion, traction, and physical interaction. 
@@ -185,7 +198,7 @@ The LiDAR is spun at roughly 8Hz guaranteeing a 1° accuracy and fast response. 
 
 ### 5.3 Motor control
 
-Thwo PCBs are mounted, the top one is equipped with the STM32H7 and ESP32S3 for great computing capabilities and handling Wifi and Buetooth connectivity as well as aesthetic equipments such as LEDs, Screens and Speakers. The STM32H7 communicates the movement commands to the STM32G4 mounted on the bottom PCB at a 200Hz frequency, and the bottom PCB handles the motor control PIDs and returns the speeds for the STM32H7 to compute the odometry.
+Two PCBs are mounted, the top one is equipped with the STM32H7 and ESP32S3 for great computing capabilities and handling Wifi and Buetooth connectivity as well as aesthetic equipments such as LEDs, Screens and Speakers. The STM32H7 communicates the movement commands to the STM32G4 mounted on the bottom PCB at a 200Hz frequency, and the bottom PCB handles the motor control PIDs and returns the speeds for the STM32H7 to compute the odometry.
 
 ### 5.4 Additional PIMP mode
 
