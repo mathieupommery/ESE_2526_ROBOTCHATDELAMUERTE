@@ -37,6 +37,8 @@
      PA13 (JTMS/SWDIO)   ------> DEBUG_JTMS-SWDIO
      PH0-OSC_IN (PH0)   ------> RCC_OSC_IN
      PH1-OSC_OUT (PH1)   ------> RCC_OSC_OUT
+     PE7   ------> UART7_RX
+     PE8   ------> UART7_TX
 */
 void MX_GPIO_Init(void)
 {
@@ -86,6 +88,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PE7 PE8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF7_UART7;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);

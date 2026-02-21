@@ -293,7 +293,7 @@ void StartPimptask(void const * argument)
 	  }
 
 
-	  crsf_proccess_switch(&crsf_struct,&huart3,1000);
+	  //crsf_proccess_switch(&crsf_struct,&huart3,1000);
 
 
 

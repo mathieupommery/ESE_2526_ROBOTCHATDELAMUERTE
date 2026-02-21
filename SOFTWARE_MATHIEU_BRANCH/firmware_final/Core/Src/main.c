@@ -128,7 +128,7 @@ void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
     {
     	lidar_struct.parse_struct.ylidar_write_index=YLIDAR_CIRC_BUF_SIZE/2u;
     }
-    if (huart->Instance == UART7)
+    if (huart->Instance == USART3)
     {
     	crsf_struct.crsf_write_index=CRSF_CIRC_BUF_LENGHT/2u;
     }
@@ -151,7 +151,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     {
     	lidar_struct.parse_struct.ylidar_write_index=0;
     }
-    if (huart->Instance == UART7)
+    if (huart->Instance == USART3)
     {
     	crsf_struct.crsf_write_index=0u;
     }
@@ -201,20 +201,19 @@ int main(void)
   MX_UART8_Init();
   MX_USART3_UART_Init();
   MX_TIM3_Init();
-  MX_UART7_Init();
   /* USER CODE BEGIN 2 */
 
   CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
   DWT->CYCCNT = 0;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-  crsf_Init(&crsf_struct,&huart7);
+  crsf_Init(&crsf_struct,&huart3);
 
-    MotorCom_Init(&com_struct,&huart1);
+  MotorCom_Init(&com_struct,&huart1);
 
-    ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
+  ADXL343_Init(&adxldata, &hspi4, ACCEL_CS_GPIO_Port, ACCEL_CS_Pin,ADXL343_BW_RATE_VALUE, ADXL343_DATA_FMT_RANGE_4G,100);
 
-    Lidar_Init(&lidar_struct,&huart8,LIDAR_SPEED_GPIO_Port, LIDAR_SPEED_Pin);
+  Lidar_Init(&lidar_struct,&huart8,LIDAR_SPEED_GPIO_Port, LIDAR_SPEED_Pin);
 
 
   /* USER CODE END 2 */

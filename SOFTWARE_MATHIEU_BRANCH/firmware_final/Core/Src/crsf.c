@@ -170,8 +170,8 @@ HAL_StatusTypeDef crsf_fsm(CRSF_t *crsf)
 
 HAL_StatusTypeDef crsf_command(CRSF_t *crsf,MOTOR_COM * comstruct)
 {
-	uint16_t throttle=crsf->crsf_command[0];
-	uint16_t ail=crsf->crsf_command[3];
+	uint16_t throttle=crsf->crsf_command[2];
+	uint16_t ail=crsf->crsf_command[0];
 
 	if((throttle > (CRSF_MIDDLE-THROTTLE_DEAD_BAND)) && (throttle < (CRSF_MIDDLE+THROTTLE_DEAD_BAND))){
 		throttle=CRSF_MIDDLE;
